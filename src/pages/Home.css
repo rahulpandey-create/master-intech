@@ -1148,3 +1148,14 @@
         font-size: 8px
     }
 }
+.tool-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-circle img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}

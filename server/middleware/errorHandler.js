@@ -1,9 +1,16 @@
 const errorHandler = (err, req, res, next) => {
   console.error(err);
 
-  res.status(500).json({
+  if (err.message === "Not allowed by CORS") {
+    return res.status(403).json({
+      success: false,
+      message: "Request origin is not allowed.",
+    });
+  }
+
+  return res.status(500).json({
     success: false,
-    message: "Internal server error."
+    message: "Internal server error.",
   });
 };
 
