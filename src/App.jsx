@@ -17,17 +17,17 @@ function App() {
     };
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <>
       <Home />
-      {showBackToTop && (
+      {/* {showBackToTop && (
         <button
           className="back-to-top"
           onClick={scrollToTop}
@@ -35,7 +35,7 @@ function App() {
         >
           ↑
         </button>
-      )}
+      )} */}
     </>
   );
 }
