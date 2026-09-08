@@ -27,7 +27,6 @@ function App() {
   return (
     <>
       <Home />
-
       {showBackToTop && (
         <button
           className="back-to-top"

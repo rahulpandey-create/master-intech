@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { submitEnquiry } from "../services/api";
 import logo from "../assets/MasterIntechLogo.png";
 import heroBackground from "../assets/HeroSectionBackGroundImage.png";
@@ -48,64 +48,85 @@ const expertise = [
 ];
 
 const services = [
-  ["01", "WEB DEVELOPMENT"],
-  ["02", "MOBILE APP"],
-  ["03", "UI/UX DESIGN"],
-  ["04", "DIGITAL MARKETING"],
-  ["05", "CMS DEVELOPMENT"],
-  ["06", "E-COMMERCE SOLUTIONS"],
+  "Web Development",
+  "Mobile App",
+  "UI/UX Design",
+  "Digital Marketing",
+  "CMS Development",
+  "E-Commerce Solutions",
 ];
 
-function StatIcon({ src, alt }) {
+const brands = [
+  { src: designBrand1, alt: "Jacaranda" },
+  { src: recommendMe, alt: "RecommendMe" },
+  { src: designBrand2, alt: "Ellebelme" },
+  { src: designBrand3, alt: "Medi Sync" },
+  { src: kollex, alt: "Kollex" },
+  { src: chamundi, alt: "Chamundi" },
+  { src: smartbol, alt: "Smartbol" },
+  { src: workStudy, alt: "Work & Study" },
+  { src: enigmaNova, alt: "Enigma Nova" },
+  { src: celquence, alt: "Celquence" },
+  { src: infraOptics, alt: "Infra Optics" },
+  { src: kyros, alt: "Kyros Infra" },
+];
+
+const heroServices = [
+  [uiuxIcon, "UI/UX Design"],
+  [webDevelopmentIcon, "Web Development"],
+  [brandingIcon, "Branding"],
+  [seoIcon, "SEO"],
+  [aiSolutionsIcon, "AI Solutions"],
+];
+
+function StatIcon({ src, alt = "" }) {
   return <img src={src} alt={alt} />;
 }
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
-  const [feedback, setFeedback] = useState({
-    success: "",
-    error: "",
-  });
+  const [feedback, setFeedback] = useState({ success: "", error: "" });
+
+  useEffect(() => {
+    const nodes = document.querySelectorAll("[data-reveal]");
+    if (!("IntersectionObserver" in window)) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
 
   const updateField = (event) => {
-    setFormData((current) => ({
-      ...current,
-      [event.target.name]: event.target.value,
-    }));
+    setFormData((current) => ({ ...current, [event.target.name]: event.target.value }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    setFeedback({
-      success: "",
-      error: "",
-    });
+    setFeedback({ success: "", error: "" });
 
     try {
       const data = await submitEnquiry(formData);
-
-      setFeedback({
-        success: data.message,
-        error: "",
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+      setFeedback({ success: data.message, error: "" });
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      setFeedback({
-        success: "",
-        error: error.message,
-      });
+      setFeedback({ success: "", error: error.message });
     } finally {
       setLoading(false);
     }
@@ -115,43 +136,27 @@ function Home() {
 
   return (
     <main className="site-home">
-      {/* HERO */}
-      <section
-        id="hero"
-        className="design-hero"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-      >
-        <nav className="design-nav">
+      <section id="hero" className="design-hero" style={{ backgroundImage: `url(${heroBackground})` }}>
+        <nav className="design-nav" aria-label="Main navigation">
           <div className={`design-nav-links ${menuOpen ? "open" : ""}`}>
-            <a href="#hero" onClick={closeMenu}>
-              HOME
-            </a>
-            <a href="#about" onClick={closeMenu}>
-              ABOUT
-            </a>
-            <a href="#services" onClick={closeMenu}>
-              SERVICES
-            </a>
-            <a href="#projects" onClick={closeMenu}>
-              PROJECTS
-            </a>
+            <a href="#hero" onClick={closeMenu}>HOME</a>
+            <a href="#about" onClick={closeMenu}>ABOUT</a>
+            <a href="#services" onClick={closeMenu}>SERVICES</a>
+            <a href="#projects" onClick={closeMenu}>PROJECTS</a>
           </div>
 
-          <a href="#hero" className="design-logo">
+          <a href="#hero" className="design-logo" aria-label="Master Intech Solutions home">
             <img src={logo} alt="Master Intech Solutions" />
           </a>
 
           <div className="design-nav-actions">
-            <a className="hire" href="#contact">
-              HIRE US
-            </a>
-
+            <a className="hire" href="#contact">HIRE US</a>
             <a href="#contact">CONTACT</a>
-
             <button
-              className="hamburger"
-              onClick={() => setMenuOpen((v) => !v)}
+              className={`hamburger ${menuOpen ? "open" : ""}`}
+              onClick={() => setMenuOpen((value) => !value)}
               aria-label="Toggle navigation"
+              aria-expanded={menuOpen}
             >
               <span />
               <span />
@@ -159,98 +164,52 @@ function Home() {
           </div>
         </nav>
 
-        <div className="hero-stat-card hero-stat-left">
-          <div>
-            <StatIcon src={awardWinningIcon} alt="" />
-            <span>
-              Award winning
-              <br />
-              agency
-            </span>
-          </div>
-
+        <div className="hero-stat-card hero-stat-left hero-fade-in hero-delay-1">
+          <div><StatIcon src={awardWinningIcon} /><span>Award winning<br />agency</span></div>
           <i />
-
-          <div>
-            <StatIcon src={yearsExperienceIcon} alt="" />
-            <span>
-              Years
-              <br />
-              Experience
-            </span>
-          </div>
-
+          <div><StatIcon src={yearsExperienceIcon} /><span>Years<br />Experience</span></div>
           <i />
-
-          <div>
-            <StatIcon src={happyClientsIcon} alt="" />
-            <span>Happy Clients</span>
-          </div>
+          <div><StatIcon src={happyClientsIcon} /><span>Happy Clients</span></div>
         </div>
 
-        <div className="hero-stat-card hero-stat-right">
-          {[
-            [uiuxIcon, "UI/UX Design"],
-            [webDevelopmentIcon, "Web Development"],
-            [brandingIcon, "Branding"],
-            [seoIcon, "SEO"],
-            [aiSolutionsIcon, "AI Solutions"],
-          ].map(([icon, text]) => (
-            <div key={text}>
-              <StatIcon src={icon} alt="" />
-              <span>{text}</span>
-            </div>
+        <div className="hero-stat-card hero-stat-right hero-fade-in hero-delay-2">
+          {heroServices.map(([icon, text]) => (
+            <div key={text}><StatIcon src={icon} /><span>{text}</span></div>
           ))}
         </div>
 
         <div className="hero-main">
-          <p className="hero-pill">Master Intech Solutions</p>
-
-          <h1>
-            BUILD DIGITAL SOLUTIONS
-            <br />
-            THAT <span>DRIVE THE FUTURE</span>
+          <p className="hero-pill hero-fade-in">Master Intech Solutions</p>
+          <h1 className="hero-title hero-fade-in hero-delay-1">
+            <span className="hero-title-line">BUILD DIGITAL SOLUTIONS</span>
+            <span className="hero-title-line">THAT <em>DRIVE THE FUTURE</em></span>
           </h1>
-
-          <p className="hero-copy">
-            We design and develop high-performance websites, intelligent
-            solutions,
-            <br className="desktop-only" /> and digital experiences that help
-            businesses grow and succeed.
+          <p className="hero-copy hero-fade-in hero-delay-2">
+            We design and develop high-performance websites, intelligent solutions,<br className="desktop-only" />
+            and digital experiences that help businesses grow and succeed.
           </p>
-
-          <a className="cyan-button" href="#contact">
-            LET&apos;S TALK <b>→</b>
-          </a>
+          <a className="cyan-button hero-fade-in hero-delay-3" href="#contact">LET&apos;S TALK <b>→</b></a>
         </div>
 
-        <div className="hero-socials">
+        <div className="hero-socials hero-fade-in hero-delay-3">
           <div>
-            <a href="#contact">LINKEDIN ↗</a>
-            <a href="#contact">INSTAGRAM ↗</a>
-            <a href="#contact">FACEBOOK ↗</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">INSTAGRAM ↗</a>
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">FACEBOOK ↗</a>
           </div>
-
-          <span>CONNECT WITH US : </span>
+          <span>CONNECT WITH US :</span>
         </div>
       </section>
 
-      {/* OUR EXPERTISE */}
-      <section className="expertise-strip">
-        <div className="section-shell expertise-inner">
-          <div>
+      <section id="services" className="expertise-strip">
+        <div className="section-shell expertise-inner" data-reveal>
+          <div className="expertise-copy">
             <h2>OUR EXPERTISE</h2>
-
-            <p>
-              Innovative technologies. Creative
-              <br />
-              solutions. Exceptional results.
-            </p>
+            <p>Innovative technologies. Creative<br />solutions. Exceptional results.</p>
           </div>
-
           <div className="expertise-tools">
             {expertise.map((item) => (
-              <div className="tool-circle" key={item.alt}>
+              <div className="tool-logo" key={item.alt}>
                 <img src={item.src} alt={item.alt} />
               </div>
             ))}
@@ -258,55 +217,39 @@ function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
       <section id="about" className="about-design">
         <div className="section-shell about-grid">
-          <div className="about-wordmark">
-            <span>DEVELOPMENT</span>
-            <span>BRANDING</span>
-            <span>DESIGN</span>
-
-            <div className="ratings">
-              ◉ 45 RATINGS &nbsp; ★ 5 RATINGS
+          <div className="about-wordmark" data-reveal>
+            <div className="word-carousel" aria-label="Design, Development, Branding">
+              <div className="word-track">
+                <div>DEVELOPMENT</div>
+                <div>BRANDING</div>
+                <div>DESIGN</div>
+                <div>DEVELOPMENT</div>
+                <div>BRANDING</div>
+                <div>DESIGN</div>
+              </div>
             </div>
+            <div className="ratings"><span>G</span> 4.5 RATINGS &nbsp;&nbsp; ★ 5 RATINGS</div>
           </div>
 
-          <div className="about-intro">
-            <p className="eyebrow">ABOUT US</p>
-
+          <div className="about-intro" data-reveal>
+            <p className="eyebrow">ABOUT ME</p>
             <h2>WHAT WE DO</h2>
-
-            <p>
-              Innovative technologies. Creative solutions.
-              <br />
-              Exceptional results.
-            </p>
-
-            <img
-              src={aboutImage}
-              alt="Developer working at a computer"
-            />
+            <p>Innovative technologies. Creative solutions.<br />Exceptional results.</p>
+            <img src={aboutImage} alt="Developer working at a computer" />
           </div>
         </div>
       </section>
 
-      {/* AWARD-WINNING */}
       <section id="projects" className="award-section">
         <div className="section-shell award-grid">
-          <div className="award-art">
-            <img
-              src={abstractLeft}
-              alt="Abstract colorful 3D artwork"
-            />
+          <div className="award-art" data-reveal>
+            <img src={abstractLeft} alt="Abstract colorful 3D artwork" />
           </div>
 
-          <div className="award-copy">
-            <h2>
-              AWARD-WINNING MANCHESTER WEB DESIGN
-              <br />
-              &amp; BRANDING AGENCY SINCE 2008.
-            </h2>
-
+          <div className="award-copy" data-reveal>
+            <h2>AWARD-WINNING MANCHESTER WEB DESIGN<br className="award-break" /> &amp; BRANDING AGENCY SINCE 2008.</h2>
             <div className="avatars">
               <img src={client1} alt="" />
               <img src={client2} alt="" />
@@ -314,80 +257,33 @@ function Home() {
               <img src={client4} alt="" />
               <b>+</b>
             </div>
-
-            <p>
-              Driven by innovation, we deliver cutting-edge
-              <br />
-              IT solutions that empower businesses to grow.
-            </p>
-
+            <p>Driven by innovation, we deliver cutting-edge<br />IT solutions that empower businesses to grow.</p>
             <div className="stats">
-              <div>
-                <strong>12K+</strong>
-                <span>
-                  Clients Satisfied and
-                  <br />
-                  Repeating
-                </span>
-              </div>
-
-              <div>
-                <strong>7.1K</strong>
-                <span>
-                  Projects Completed in 24
-                  <br />
-                  Countries
-                </span>
-              </div>
+              <div><strong>50K+</strong><span>Clients Satisfied and<br />Repeating</span></div>
+              <div><strong>500K+</strong><span>Projects Completed in 24<br />Countries</span></div>
             </div>
-
-            <a className="outline-button" href="#contact">
-              ♧ &nbsp; Let&apos;s Discuss Your Idea
-            </a>
+            <a className="outline-button" href="#contact">♧ &nbsp; Let&apos;s Discuss Your Idea</a>
           </div>
         </div>
       </section>
 
-      {/* BRANDS */}
       <section className="brands-section">
-        <div className="section-shell">
+        <div className="section-shell" data-reveal>
           <div className="center-heading">
             <h2>TRUSTED BY TOP BRANDS</h2>
-
-            <p>
-              Empowering businesses with trusted
-              <br />
-              digital solutions
-            </p>
+            <p>Empowering businesses with trusted<br />digital solutions</p>
           </div>
-
           <div className="brand-grid">
-            {[
-              { src: designBrand1, alt: "Jacaranda" },
-              { src: recommendMe, alt: "RecommendMe" },
-              { src: designBrand2, alt: "Ellebelme" },
-              { src: designBrand3, alt: "Medi Sync" },
-              { src: kollex, alt: "Kollex" },
-              { src: chamundi, alt: "Chamundi" },
-              { src: smartbol, alt: "Smartbol" },
-              { src: workStudy, alt: "Work & Study" },
-              { src: enigmaNova, alt: "Enigma Nova" },
-              { src: celquence, alt: "Celquence" },
-              { src: infraOptics, alt: "Infra Optics" },
-              { src: kyros, alt: "Kyros Infra" },
-            ].map((brand) => (
-              <div key={brand.alt}>
-                <img src={brand.src} alt={brand.alt} />
-              </div>
+            {brands.map((brand) => (
+              <div key={brand.alt}><img src={brand.src} alt={brand.alt} /></div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CLIENT FEEDBACK */}
       <section className="feedback-section">
         <div className="section-shell feedback-grid">
-          <div className="floating-people">
+          <div className="floating-people" data-reveal>
             <img src={client2} alt="" />
             <img src={client3} alt="" />
             <img src={client4} alt="" />
@@ -395,207 +291,82 @@ function Home() {
             <img src={client6} alt="" />
           </div>
 
-          <div className="testimonial-photo">
+          <div className="testimonial-photo" data-reveal>
             <img src={client6} alt="Client portrait" />
-
-            <div>
-              <strong>BERNIE LEIGH</strong>
-              <span>Director, Luxor</span>
-            </div>
+            <div><strong>BERNIE LEIGH</strong><span>Director, Luxor</span></div>
           </div>
 
-          <div className="testimonial-copy">
-            <h2>
-              CLIENT&apos;S
-              <br />
-              FEEDBACK
-            </h2>
-
-            <p>
-              Real feedback from businesses we&apos;ve
-              <br />
-              helped through thoughtful design,
-              <br />
-              development, and reliable support.
-            </p>
-
-            <button className="review-button">
-              G &nbsp; See All Reviews
-            </button>
+          <div className="testimonial-copy" data-reveal>
+            <h2>CLIENT&apos;S<br />FEEDBACK</h2>
+            <p>Real feedback from businesses we&apos;ve<br />helped through thoughtful design,<br />development, and reliable support.</p>
+            <a className="review-button" href="#contact">G &nbsp; See All Reviews</a>
           </div>
 
-          <img
-            className="feedback-art"
-            src={abstractRight}
-            alt="Abstract colorful 3D artwork"
-          />
+          <img className="feedback-art" src={abstractRight} alt="Abstract colorful 3D artwork" />
         </div>
       </section>
 
-      {/* CONTACT */}
       <section id="contact" className="contact-design">
         <div className="section-shell contact-grid">
-          <div className="contact-details">
+          <div className="contact-details" data-reveal>
             <h2>LET&apos;S TALK</h2>
-
-            <p>
-              Tell us about your project —whether it&apos;s
-              <br />
-              a website, SEO, or marketing.
-            </p>
-
+            <p>Tell us about your project — whether it&apos;s<br />a website, SEO, or marketing.</p>
             <div className="contact-rule" />
-
             <div className="contact-line">
-              <b>●</b>
-
-              <div>
-                <strong>Phone</strong>
-
-                <span>
-                  +91-98782 63393
-                  <br />
-                  +91-98068 85887
-                </span>
-              </div>
-
-              <b>●</b>
-
-              <div>
-                <strong>Email</strong>
-
-                <span>info@masterintechsolutions.com</span>
-              </div>
+              <span className="contact-dot phone-dot">●</span>
+              <div><strong>Phone</strong><span>+91-98782 63393<br />+91-98068 85887</span></div>
+              <span className="contact-dot email-dot">●</span>
+              <div><strong>Email</strong><span>info@masterintechsolutions.com</span></div>
             </div>
-
             <div className="contact-line address">
-              <b>●</b>
-
-              <div>
-                <strong>Address</strong>
-
-                <span>
-                  SCF 36 Phase X1, Sector 65,
-                  <br />
-                  Sahibzada Ajit Singh Nagar, Punjab 160055
-                </span>
-              </div>
+              <span className="contact-dot address-dot">●</span>
+              <div><strong>Address</strong><span>SCF 36 Phase XI, Sector 65,<br />Sahibzada Ajit Singh Nagar, Punjab 160055</span></div>
             </div>
           </div>
 
-          <form className="message-card" onSubmit={handleSubmit}>
+          <form className="message-card" onSubmit={handleSubmit} data-reveal>
             <p>MIT Solutions</p>
-
             <h3>LEAVE A MESSAGE</h3>
-
-            <label>
-              NAME*
-              <input
-                name="name"
-                value={formData.name}
-                onChange={updateField}
-                required
-              />
+            <label>NAME*
+              <input name="name" value={formData.name} onChange={updateField} required minLength={2} maxLength={100} />
             </label>
-
-            <label>
-              EMAIL*
-              <input
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={updateField}
-                required
-              />
+            <label>EMAIL*
+              <input name="email" type="email" value={formData.email} onChange={updateField} required />
             </label>
-
-            <label>
-              MESSAGE*
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={updateField}
-                required
-              />
+            <label>MESSAGE*
+              <textarea name="message" value={formData.message} onChange={updateField} required minLength={10} maxLength={5000} />
             </label>
-
-            <button disabled={loading}>
-              {loading ? "SENDING..." : "Send Message"}
-            </button>
-
-            {feedback.success && (
-              <small className="success">{feedback.success}</small>
-            )}
-
-            {feedback.error && (
-              <small className="error">{feedback.error}</small>
-            )}
+            <button disabled={loading}>{loading ? "SENDING..." : "Send Message"}</button>
+            {feedback.success && <small className="success">{feedback.success}</small>}
+            {feedback.error && <small className="error">{feedback.error}</small>}
           </form>
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="site-footer">
         <div className="footer-main section-shell">
           <div className="footer-brand">
-            <img
-              src={footerLogo}
-              alt="Master Intech Solutions"
-            />
-
-            <p>
-              Delivering Reliable Tech
-              <br />
-              Solutions for a Smarter
-              <br />
-              Tomorrow.
-            </p>
-
-            <div className="footer-social">
-              ● &nbsp;◉ &nbsp;◎ &nbsp;in
-            </div>
+            <img src={footerLogo} alt="Master Intech Solutions" />
+            <p>Delivering Reliable Tech<br />Solutions for a Smarter<br />Tomorrow.</p>
+            <div className="footer-social"><span>●</span><span>◉</span><span>◎</span><span>in</span></div>
           </div>
-
           <div>
             <h3>Quick links</h3>
-
             <a href="#hero">Home</a>
             <a href="#about">About Us</a>
             <a href="#projects">Portfolio</a>
             <a href="#contact">Contact Us</a>
           </div>
-
-          <div id="services">
+          <div>
             <h3>Services</h3>
-
-            {services.slice(0, 5).map(([, title]) => (
-              <a href="#contact" key={title}>
-                {title.replace(
-                  "E-COMMERCE SOLUTIONS",
-                  "E-Commerce Solutions"
-                )}
-              </a>
-            ))}
+            {services.map((service) => <a href="#contact" key={service}>{service}</a>)}
           </div>
-
           <div className="footer-growth">
-            <h3>
-              Let us help you grow
-              <br />
-              your business
-            </h3>
-
-            <div>
-              <img src={upwork} alt="Upwork Top Rated" />
-              <img src={topCert} alt="Top certification" />
-            </div>
+            <h3>Let us help you grow<br />your business</h3>
+            <div><img src={upwork} alt="Upwork Top Rated" /><img src={topCert} alt="Top certification" /></div>
           </div>
         </div>
-
-        <div className="footer-bottom">
-          <span>© 2026 Master Intech Solutions</span>
-          <span>Registration No : 03AATFM8663C1ZO</span>
-        </div>
+        <div className="footer-bottom"><span>© 2026 Master Intech Solutions</span><span>Registration No : 03AATFM8663C1ZO</span></div>
       </footer>
     </main>
   );
