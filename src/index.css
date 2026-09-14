@@ -8,10 +8,6 @@
   text-rendering: optimizeLegibility;
 }
 
-html {
-  scroll-behavior: autosmooth;
-}
-
 body {
   margin: 0;
   min-width: 320px;
