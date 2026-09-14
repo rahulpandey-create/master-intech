@@ -1,4 +1,6 @@
 import aboutImage from "../../assets/design/2.png";
+import google from "../../assets/google.svg";
+import trust from "../../assets/trust.svg";
 
 export default function About() {
   return (
@@ -15,7 +17,16 @@ export default function About() {
           <div>DESIGN</div>
         </div>
       </div>
-      <div className="ratings"><span>G</span> 4.5 RATINGS &nbsp;&nbsp; ★ 5 RATINGS</div>
+      <div className="ratings">
+        <div className="ratingflex">
+           <img src={google} alt=""></img>
+           4.5 RATINGS
+        </div>
+        <div className="ratingflex">
+           <img src={trust} alt=""></img>
+           5 RATINGS
+        </div>
+        </div>
     </div>
 
     <div className="about-intro" data-reveal>
@@ -26,6 +37,7 @@ export default function About() {
     </div>
   </div>
 </section>
+
 
   );
 }

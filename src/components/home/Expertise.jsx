@@ -16,7 +16,7 @@ export default function Expertise() {
   <div className="section-shell expertise-inner" data-reveal>
     <div className="expertise-copy">
       <h2>OUR EXPERTISE</h2>
-      <p>Innovative technologies. Creative<br />solutions. Exceptional results.</p>
+      <p>Innovative technologies. Creative <br></br>solutions. Exceptional results.</p>
     </div>
     <div className="expertise-tools">
       {expertise.map((item) => (

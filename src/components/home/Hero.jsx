@@ -1,4 +1,4 @@
-import logo from "../../assets/MasterIntechLogo.png";
+import logo from "../../assets/logomaster.svg";
 import heroBackground from "../../assets/HeroSectionBackGroundImage.png";
 import awardWinningIcon from "../../assets/awardWinningAgency.png";
 import yearsExperienceIcon from "../../assets/yearsExperience.png";
@@ -8,6 +8,11 @@ import webDevelopmentIcon from "../../assets/WebDevelopment.png";
 import brandingIcon from "../../assets/Branding.png";
 import seoIcon from "../../assets/SEO.png";
 import aiSolutionsIcon from "../../assets/AISolutions.png";
+import arrowbtn from "../../assets/arrowbtn.svg";
+import arrowtop from "../../assets/arrowtop.svg";
+import platform from "../../assets/platform.svg";
+
+
 
 const heroServices = [
   [uiuxIcon, "UI/UX Design"],
@@ -67,23 +72,24 @@ export default function Hero({ menuOpen, setMenuOpen }) {
   <div className="hero-main">
     <p className="hero-pill hero-fade-in">Master Intech Solutions</p>
     <h1 className="hero-title hero-fade-in hero-delay-1">
-      <span className="hero-title-line">BUILD DIGITAL SOLUTIONS</span>
-      <span className="hero-title-line">THAT <em>DRIVE THE FUTURE</em></span>
+      BUILD DIGITAL SOLUTIONS<br></br>
+      THAT DRIVE THE FUTURE
     </h1>
     <p className="hero-copy hero-fade-in hero-delay-2">
-      We design and develop high-performance websites, intelligent solutions,<br className="desktop-only" />
+      We design and develop high-performance websites, intelligent solutions,
       and digital experiences that help businesses grow and succeed.
     </p>
-    <a className="cyan-button hero-fade-in hero-delay-3" href="#contact">LET&apos;S TALK <b>→</b></a>
+    <a className="cyan-button hero-fade-in hero-delay-3 btnn" href="#contact">LET'S TALK <span><img src={arrowbtn} alt="arrow"></img></span></a>
   </div>
 
   <div className="hero-socials hero-fade-in hero-delay-3">
     <div>
-      <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
-      <a href="https://www.instagram.com" target="_blank" rel="noreferrer">INSTAGRAM ↗</a>
-      <a href="https://www.facebook.com" target="_blank" rel="noreferrer">FACEBOOK ↗</a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="socialmedialinks1">LINKEDIN <span><img src={arrowtop} alt="arrow"></img></span></a>
+      <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="socialmedialinks1">INSTAGRAM <span><img src={arrowtop} alt="arrow"></img></span></a>
+      <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="socialmedialinks1">FACEBOOK <span><img src={arrowtop} alt="arrow"></img></span></a>
     </div>
-    <span>CONNECT WITH US :</span>
+    <span className="socialmedialinks1">CONNECT WITH US : <span><img src={platform} alt="arrow"></img></span>
+    </span>
   </div>
 </section>
 

@@ -1,6 +1,10 @@
 import footerLogo from "../../assets/design/26.png";
 import upwork from "../../assets/design/27.png";
 import topCert from "../../assets/design/28.png";
+import facebook from "../../assets/facebook.svg";
+import whatsapp from "../../assets/whatsapp.svg";
+import instagram from "../../assets/instagram.svg";
+import linkedin from "../../assets/linkedin.svg";
 
 const services = ["Web Development", "Mobile App", "UI/UX Design", "Digital Marketing", "CMS Development", "E-Commerce Solutions"];
 
@@ -11,7 +15,13 @@ export default function Footer() {
     <div className="footer-brand">
       <img src={footerLogo} alt="Master Intech Solutions" />
       <p>Delivering Reliable Tech<br />Solutions for a Smarter<br />Tomorrow.</p>
-      <div className="footer-social"><span>●</span><span>◉</span><span>◎</span><span>in</span></div>
+      <div className="footer-social">
+        <span><img src={facebook}></img> </span>
+        <span><img src={whatsapp}></img> </span>
+        <span><img src={instagram}></img> </span>
+        <span><img src={linkedin}></img> </span>
+  
+      </div>
     </div>
     <div>
       <h3>Quick links</h3>
