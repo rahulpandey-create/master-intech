@@ -24,7 +24,7 @@ export default function Feedback() {
     </div>
 
     <div className="testimonial-copy" data-reveal>
-      <h2>CLIENT&apos;S<br />FEEDBACK</h2>
+      <h2>CLIENT&apos;S <br />FEEDBACK</h2>
       <p>Real feedback from businesses we&apos;ve<br />helped through thoughtful design,<br />development, and reliable support.</p>
       <a className="review-button" href="#contact"><span><img src={google} alt=""></img></span> See All Reviews</a>
     </div>

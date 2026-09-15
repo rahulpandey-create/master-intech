@@ -72,7 +72,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
   <div className="hero-main">
     <p className="hero-pill hero-fade-in">Master Intech Solutions</p>
     <h1 className="hero-title hero-fade-in hero-delay-1">
-      BUILD DIGITAL SOLUTIONS<br></br>
+      BUILD DIGITAL SOLUTIONS <br></br>
       THAT DRIVE THE FUTURE
     </h1>
     <p className="hero-copy hero-fade-in hero-delay-2">
@@ -80,6 +80,11 @@ export default function Hero({ menuOpen, setMenuOpen }) {
       and digital experiences that help businesses grow and succeed.
     </p>
     <a className="cyan-button hero-fade-in hero-delay-3 btnn" href="#contact">LET'S TALK <span><img src={arrowbtn} alt="arrow"></img></span></a>
+  <div className="connects block xl:hidden md:hidden mt-5">
+    <h3>Connect With Us</h3>
+    <img src={platform} alt="" className=" m-auto block "></img>
+    
+    </div>
   </div>
 
   <div className="hero-socials hero-fade-in hero-delay-3">

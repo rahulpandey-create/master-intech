@@ -7,7 +7,7 @@ export default function About() {
 <section id="about" className="about-design">
   <div className="section-shell about-grid">
     <div className="about-wordmark" data-reveal>
-      <div className="word-carousel" aria-label="Design, Development, Branding">
+      <div className="word-carousel" aria-label="Design, Development, Branding, Photoshop">
         <div className="word-track">
           <div>DEVELOPMENT</div>
           <div>BRANDING</div>
@@ -32,7 +32,8 @@ export default function About() {
     <div className="about-intro" data-reveal>
       <p className="eyebrow">ABOUT ME</p>
       <h2>WHAT WE DO</h2>
-      <p>Innovative technologies. Creative solutions.<br />Exceptional results.</p>
+      <p>Creative solutions. Digital experiences.
+<br></br>Designed to make an impact.</p>
       <img src={aboutImage} alt="Developer working at a computer" />
     </div>
   </div>
