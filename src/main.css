@@ -106,10 +106,16 @@ p {
   gap: 29px;
 }
 
-.design-nav a {
+.design-nav a,
+.design-nav button {
   font: 600 11px/1 "Inter", sans-serif;
   text-transform: uppercase;
-  /* letter-spacing: 0.02em; */
+  color: #F4F4F4;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .design-nav-links a {
@@ -117,7 +123,8 @@ p {
   padding-bottom: 8px;
 }
 
-.design-nav-links a::after {
+.design-nav-links a::after,
+.design-nav-links button::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -130,7 +137,9 @@ p {
 }
 
 .design-nav-links a:hover::after,
-.design-nav-links a:focus-visible::after {
+.design-nav-links a:focus-visible::after,
+.design-nav-links button:hover::after,
+.design-nav-links button:focus-visible::after {
   width: 100%;
 }
 
@@ -220,6 +229,7 @@ a.outline-button {
 .hero-title-line {
   display: block;
   white-space: nowrap;
+  font-family: "Boldonse", sans-serif;
 }
 
 
@@ -1175,17 +1185,25 @@ box-shadow: 0px 0px 53px #ef88ffa3;
     text-align: center;
 }
 
-.footer-main a {
+.footer-main a,
+.footer-main button {
     display: block;
+    width: 100%;
     margin-bottom: 11px;
     color: #EDEDED;
     font-size: 16px;
     transition: color 0.2s ease;
     text-align: center;
     font-weight: 300;
+    font-family: "Intel One Mono", monospace;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
 }
 
-.footer-main a:hover {
+.footer-main a:hover,
+.footer-main button:hover {
   color: var(--cyan);
 }
 
