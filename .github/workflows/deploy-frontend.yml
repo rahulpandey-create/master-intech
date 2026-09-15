@@ -1,0 +1,60 @@
+name: Deploy Master Intech Frontend
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "src/**"
+      - "public/**"
+      - "index.html"
+      - "package.json"
+      - "package-lock.json"
+      - "vite.config.js"
+      - ".github/workflows/deploy-frontend.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Setup SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.MASTERINTECH_SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.MASTERINTECH_SSH_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.MASTERINTECH_SSH_PORT }}" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy frontend
+        run: |
+          tar -czf frontend.tar.gz -C dist .
+
+          scp \
+            -P "${{ secrets.MASTERINTECH_SSH_PORT }}" \
+            -i ~/.ssh/id_ed25519 \
+            frontend.tar.gz \
+            ${{ secrets.MASTERINTECH_SSH_USER }}@${{ secrets.MASTERINTECH_SSH_HOST }}:/home/sloaofao/public_html/
+
+          ssh \
+            -p "${{ secrets.MASTERINTECH_SSH_PORT }}" \
+            -i ~/.ssh/id_ed25519 \
+            ${{ secrets.MASTERINTECH_SSH_USER }}@${{ secrets.MASTERINTECH_SSH_HOST }} \
+            "cd /home/sloaofao/public_html && tar -xzf frontend.tar.gz && rm frontend.tar.gz"
