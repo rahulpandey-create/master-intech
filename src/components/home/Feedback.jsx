@@ -46,12 +46,11 @@ export default function Feedback() {
 
           <a
             className="review-button"
-            href={window.location.pathname}
-            onClick={(event) => handleSectionLink(event, "contact")}
+            href="https://www.google.com/maps/place/Master+Intech+Solutions/@30.6814396,76.745409,16z/data=!4m8!3m7!1s0x390fee617d77cee3:0x9a2c176de1908123!8m2!3d30.6818399!4d76.7441781!9m1!1b1!16s%2Fg%2F11bbwl511s?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noreferrer"
           >
-            <span>
-              <img src={google} alt=""></img>
-            </span>
+            <span><img src={google} alt="" /></span>
             See All Reviews
           </a>
         </div>
