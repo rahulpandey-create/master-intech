@@ -41,7 +41,7 @@ p {
     gap: 7px;
 }
 span.socialmedialinks1 img {
-    width: 70px;
+    width: 88px;
     margin-right: 16px;
     transition: 0.3s;
 }
@@ -181,6 +181,7 @@ span.socialmedialinks1 img:hover {
     cursor: pointer;
     padding: 0;
     margin-left: 14px;
+    display: none;
 }
 
 .hamburger span {
@@ -213,6 +214,7 @@ span.socialmedialinks1 img:hover {
 }
 a.outline-button {
     gap: 14px;
+    justify-content: center;
 }
 .hero-pill {
     display: inline-flex;
@@ -379,7 +381,7 @@ span.socialmedialinks1 {
 
 .expertise-strip {
   height: 238px;
-  background: #151617;
+  background: #101112;
   border-bottom: 1px solid var(--line);
 }
 
@@ -441,25 +443,397 @@ span.socialmedialinks1 {
   display: block;
 }
 
-/*
-  Individual scaling compensates for transparent
-  padding inside the PNG assets.
-*/
+
+/* banner swiper */
+
+/* toggle */
+/* ================================
+   TOOL LOGO
+================================ */
+
+.tool-logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+/* ================================
+   TOOLTIP
+================================ */
+
+.expertise-tooltip {
+    position: absolute;
+
+    bottom: calc(100% + 18px);
+    left: 50%;
+
+    transform: translateX(-50%) translateY(8px);
+
+    width: max-content;
+    min-width: 190px;
+    max-width: 230px;
+
+    padding: 13px 16px;
+
+    background: rgba(20, 20, 20, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(255, 255, 255, 0.04);
+}
+
+
+/* Tooltip heading */
+
+.expertise-tooltip strong {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+}
+
+
+/* Tooltip description */
+
+.expertise-tooltip span {
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.5;
+}
+
+
+/* ================================
+   TOOLTIP ARROW
+================================ */
+
+.expertise-tooltip::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -6px;
+
+    width: 11px;
+    height: 11px;
+
+    background: rgba(20, 20, 20, 0.96);
+
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+    transform: translateX(-50%) rotate(45deg);
+}
+
+
+/* ================================
+   HOVER
+================================ */
+
+.tool-logo:hover .expertise-tooltip {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* ================================
+   LOGO HOVER
+================================ */
+
+.tool-logo img {
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.tool-logo:hover img {
+    transform: translateY(-4px) scale(1.06);
+    filter: drop-shadow(0 8px 18px rgba(255, 255, 255, 0.15));
+}
+/* toggle end */
+
+
+/* ================================
+   EXPERTISE SLIDER
+================================ */
+
+.expertise-slider {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.expertise-tools {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    flex: 1;
+}
+
+
+/* ================================
+   SHUFFLE BUTTON
+================================ */
+
+.expertise-shuffle {
+    position: relative;
+    z-index: 9999;
+
+    width: 62px;
+    height: 62px;
+    min-width: 62px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.35s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Hover */
+
+.expertise-shuffle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+}
+
+
+/* Click */
+
+.expertise-shuffle:active {
+    transform: scale(0.9);
+}
+
+
+/* ================================
+   SHUFFLE ICON
+================================ */
+
+.shuffle-icon {
+    position: relative;
+
+    width: 25px;
+    height: 25px;
+
+    display: block;
+
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Top curved line */
+
+.shuffle-icon::before {
+    content: "";
+
+    position: absolute;
+
+    width: 15px;
+    height: 8px;
+
+    left: 1px;
+    top: 3px;
+
+    border-top: 1.8px solid #fff;
+    border-right: 1.8px solid #fff;
+
+    border-radius: 0 8px 0 0;
+
+    transform: skewX(25deg);
+}
+
+
+/* Bottom curved line */
+
+.shuffle-icon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 15px;
+    height: 8px;
+
+    left: 1px;
+    bottom: 3px;
+
+    border-bottom: 1.8px solid #fff;
+    border-right: 1.8px solid #fff;
+
+    border-radius: 0 0 8px 0;
+
+    transform: skewX(-25deg);
+}
+
+
+/* ================================
+   ARROW HEADS
+================================ */
+
+.shuffle-icon span {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-top: 1.8px solid #fff;
+    border-right: 1.8px solid #fff;
+
+    transform: rotate(45deg);
+}
+
+
+/* Top arrow */
+
+.shuffle-icon span:nth-child(1) {
+    right: 0;
+    top: 1px;
+}
+
+
+/* Middle crossing */
+
+.shuffle-icon span:nth-child(2) {
+    left: 8px;
+    top: 9px;
+
+    width: 5px;
+    height: 5px;
+
+    border: none;
+}
+
+
+/* Bottom arrow */
+
+.shuffle-icon span:nth-child(3) {
+    right: 0;
+    bottom: 1px;
+
+    transform: rotate(45deg);
+}
+
+
+/* ================================
+   SHUFFLE ANIMATION
+================================ */
+
+.expertise-shuffle.is-shuffling .shuffle-icon {
+    animation: shuffleRotate 0.6s ease;
+}
+
+@keyframes shuffleRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    35% {
+        transform: rotate(90deg) scale(1.08);
+    }
+
+    70% {
+        transform: rotate(180deg) scale(0.95);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+
+/* ================================
+   LOGO TRANSITION
+================================ */
+
+.tool-logo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    animation: expertiseShuffle 1.7s ease both;
+}
+
+@keyframes expertiseShuffle {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* banner swiper end */
 
 .tool-logo:nth-child(1) img {
-  transform: scale(2.4);
+  transform: scale(1.8);
 }
 
 .tool-logo:nth-child(2) img {
-  transform: scale(2.3);
+  transform: scale(1.8);
 }
 
 .tool-logo:nth-child(3) img {
-  transform: scale(2.2);
+  transform: scale(1.8);
 }
 
 .tool-logo:nth-child(4) img {
-  transform: scale(2.4);
+  transform: scale(1.8);
+}
+.tool-logo:nth-child(5) img {
+  transform: scale(1.8);
+}
+.tool-logo:nth-child(6) img {
+  transform: scale(1.8);
+}
+.tool-logo:nth-child(7) img {
+  transform: scale(1.8);
+}
+.tool-logo:nth-child(8) img {
+  transform: scale(1.8);
 }
 
 /* ABOUT */
@@ -898,6 +1272,7 @@ a.review-button {
     width: 55%;
     gap: 10px;
     margin-top: 20px;
+    justify-content: center;
 }
 .testimonial-copy p {
   /* color: #aaa; */
@@ -928,7 +1303,7 @@ a.review-button {
   height: auto;
   background: #171819;
   padding-top: 85px;
-  padding-bottom: 85px;
+  padding-bottom: 60px;
 }
 
 .contact-grid {
@@ -999,7 +1374,7 @@ a.review-button {
 .contact-line strong {
     display: block;
     font-size: 15px;
-    color: #DEFFFD;
+    color: #fff;
 }
 
 .contact-line div > span {
@@ -1410,7 +1785,7 @@ box-shadow: 0px 0px 53px #ef88ffa3;
     grid-template-columns: 1fr 1fr;
     gap: 9px;
     margin-top: 17px;
-    max-width: 69%;
+    max-width: 49%;
 }
 .outline-button, .review-button {
     display: flex !important;
@@ -1429,6 +1804,10 @@ a.review-button {
 /* MOBILE / TABLET */
 
 @media (max-width: 900px) {
+   .hamburger {
+
+    display: grid;
+}
   .hero-socials > div {
     display: flex;
     gap: 24px;
@@ -1704,6 +2083,18 @@ a.review-button {
 }
 
 @media (max-width: 560px) {
+  .hamburger {
+
+    display: grid;
+}
+  .contact-line {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 17px;
+    max-width: 100%;
+}
+  
   .design-nav .hire {
     font-size: 12px;
 }
@@ -1986,7 +2377,7 @@ a.review-button {
   .contact-line strong {
     display: block;
     font-size: 15px;
-    color: #DEFFFD;
+    color: #fff;
     letter-spacing: 2px;
 }
 
@@ -2226,7 +2617,7 @@ a.review-button {
   position: absolute;
   inset: 0;
   background: rgb(0 0 0 / 53%);
-  z-index: 1;
+  z-index: auto;
   pointer-events: none;
 }
 h2.master-intech {
@@ -2356,7 +2747,7 @@ h2.master-intech {
     z-index: 3;
 
     width: 100%;
-    max-width: 300px;
+    max-width: 352px;
 
     margin: 0 auto;
 
@@ -2984,3 +3375,109 @@ h2.master-intech {
 
 }
 /* swiper end */
+.contact-design {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact-design::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgb(33 28 28 / 54%);
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Content overlay ke upar rahe */
+.contact-design > * {
+    position: relative;
+    z-index: 2;
+}
+
+.message-card select.custom-select {
+    height: 40px;
+    border-radius: 22px;
+} 
+.message-card input, select.custom-select {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    border: 0;
+    outline: 0;
+    background: #303133;
+    color: #fff;
+    padding: 10px 16px;
+    transition: box-shadow 0.2s ease;
+}
+
+
+.service-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.select-wrap {
+    position: relative;
+    width: 100%;
+}
+label.service-field img {
+    width: 15px;
+}
+
+.custom-select {
+    width: 100%;
+    height: 50px;
+    padding: 0 42px 0 25px;
+
+    background: #303032;
+    color: #fff;
+
+    border: none;
+    border-radius: 30px;
+
+    /* font-family: "Poppins", sans-serif; */
+    font-size: 14px;
+
+    outline: none;
+    cursor: pointer;
+
+    /* REMOVE DEFAULT ARROW */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Custom arrow */
+.select-arrow {
+    position: absolute;
+
+    right: 8px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+
+
+
