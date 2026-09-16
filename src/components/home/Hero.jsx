@@ -244,7 +244,13 @@ export default function Hero({ menuOpen, setMenuOpen }) {
             <a href="https://www.truelancer.com/freelancer/vinitkumar1516" target="_blank"><img src={truelancer} alt="arrow" /></a>
           </span>
           <span>
-            <a href="mailto:info@masterintechsolutions.com" target="_blank"><img src={gmail} alt="arrow" /></a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@masterintechsolutions.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={gmail} alt="Gmail" />
+            </a>
           </span>
         </span>
       </div>
