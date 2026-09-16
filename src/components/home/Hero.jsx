@@ -1,5 +1,5 @@
 import logo from "../../assets/logomaster.svg";
-import heroBackground from "../../assets/HeroSectionBackGroundImage.png";
+import heroBackground from "../../assets/bgvid.gif";
 import awardWinningIcon from "../../assets/awardWinningAgency.png";
 import yearsExperienceIcon from "../../assets/yearsExperience.png";
 import happyClientsIcon from "../../assets/happyClients.png";
@@ -33,7 +33,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
       <a href="#hero" onClick={closeMenu}>HOME</a>
       <a href="#about" onClick={closeMenu}>ABOUT</a>
       <a href="#services" onClick={closeMenu}>SERVICES</a>
-      <a href="#projects" onClick={closeMenu}>PROJECTS</a>
+      <a href="#projects" onClick={closeMenu}>Portfolio</a>
     </div>
 
     <a href="#hero" className="design-logo" aria-label="Master Intech Solutions home">

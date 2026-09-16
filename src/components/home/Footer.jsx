@@ -11,7 +11,17 @@ const services = ["Web Development", "Mobile App", "UI/UX Design", "Digital Mark
 export default function Footer() {
   return (
 <footer className="site-footer">
-  <div className="footer-main section-shell">
+  <div>
+    <h2 className="master-intech">MASTER INTECH SOLUTIONS</h2>
+     <div className="footer-social">
+        <span><img src={facebook}></img> </span>
+        <span><img src={whatsapp}></img> </span>
+        <span><img src={instagram}></img> </span>
+        <span><img src={linkedin}></img> </span>
+  
+      </div>
+  </div>
+  {/* <div className="footer-main section-shell">
     <div className="footer-brand">
       <img src={footerLogo} alt="Master Intech Solutions" />
       <p>Delivering Reliable Tech<br />Solutions for a Smarter<br />Tomorrow.</p>
@@ -38,7 +48,7 @@ export default function Footer() {
       <h3>Let us help you grow<br />your business</h3>
       <div><img src={upwork} alt="Upwork Top Rated" /><img src={topCert} alt="Top certification" /></div>
     </div>
-  </div>
+  </div> */}
   <div className="footer-bottom"><span>© 2026 Master Intech Solutions</span><span>Registration No : 03AATFM8663C1ZO</span></div>
 </footer>
   );

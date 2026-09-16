@@ -22,7 +22,7 @@ export default function Contact({ formData, loading, feedback, updateField, hand
     </div>
 
     <form className="message-card" onSubmit={handleSubmit} data-reveal>
-      <p>MIT Solutions</p>
+      <p>Master Intech Solutions</p>
       <h3>LEAVE A MESSAGE</h3>
       <label>NAME*
         <input name="name" value={formData.name} onChange={updateField} required minLength={2} maxLength={100} />
