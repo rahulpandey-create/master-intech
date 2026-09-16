@@ -788,7 +788,7 @@ h2.uniqeheading {
 .feedback-grid {
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 360px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   position: relative;
 }
@@ -878,7 +878,7 @@ h2.uniqeheading {
 }
 
 .testimonial-copy {
-  padding-left: 46px;
+  padding-left: 0px;
   z-index: 2;
 }
 
@@ -890,11 +890,15 @@ h2.uniqeheading {
 a.review-button {
     width: 54%;
     gap: 10px;
+    margin-top: 20px;
 }
 .testimonial-copy p {
   /* color: #aaa; */
   /* font-size: 12px; */
   line-height: 1.5;
+}
+.testimonial-copy.is-visible h2 {
+    text-align: start;
 }
 
 .review-button {
@@ -2259,3 +2263,227 @@ h2.master-intech {
         background-position: 0% 50%;
     }
 }
+
+/* swiper */
+/* =========================================
+   FEEDBACK SWIPER
+========================================= */
+
+.testimonial-copy {
+  position: relative;
+  width: 100%;
+}
+
+.feedback-swiper {
+    width: 100%;
+    max-width: 416px;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+
+
+/* =========================================
+   REVIEW
+========================================= */
+
+.feedback-review {
+  width: 100%;
+  min-height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* =========================================
+   STARS
+========================================= */
+
+.feedback-stars {
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: 4px;
+
+  margin-bottom: 10px;
+  color: #f9c426;
+}
+
+
+/* =========================================
+   REVIEWER
+========================================= */
+
+.feedback-reviewer {
+  margin-bottom: 5px;
+}
+
+.feedback-reviewer h2 {
+    margin: 0 0 7px;
+    font-size: 18px;
+    line-height: 1.05;
+    font-weight: 700;
+    text-transform: math-auto;
+    font-family: 'Inter';
+}
+
+.feedback-reviewer span {
+  display: block;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  opacity: 0.6;
+}
+
+
+/* =========================================
+   REVIEW TEXT
+========================================= */
+
+.feedback-review > p {
+    max-width: 520px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.feedback-swiper .swiper-pagination {
+  position: absolute;
+
+  left: 0 !important;
+  right: auto !important;
+
+  width: auto !important;
+
+  bottom: 5px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+  display: none;
+
+}
+
+.feedback-swiper .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+    margin: 0 !important;
+    opacity: 0.35;
+    border-radius: 20px;
+    transition: all 0.35s ease;
+    background: gainsboro;
+}
+
+.feedback-swiper .swiper-pagination-bullet-active {
+  width: 25px;
+background: gainsboro;
+  opacity: 1;
+}
+
+
+/* =========================================
+   GOOGLE BUTTON
+========================================= */
+
+.review-button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 5px;
+
+  text-decoration: none;
+
+  transition: transform 0.3s ease;
+}
+
+.review-button span {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-button img {
+  width: 22px;
+  height: 22px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.review-button:hover {
+  transform: translateX(5px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 991px) {
+
+  .feedback-swiper {
+    max-width: 100%;
+  }
+
+  .feedback-reviewer h2 {
+    font-size: 32px;
+  }
+
+  .feedback-review > p {
+    font-size: 17px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .feedback-swiper {
+    width: 100%;
+    padding-bottom: 45px;
+  }
+
+  .feedback-review {
+    min-height: 220px;
+  }
+
+  .feedback-stars {
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .feedback-reviewer h2 {
+    font-size: 27px;
+  }
+
+  .feedback-reviewer span {
+    font-size: 13px;
+  }
+
+  .feedback-review > p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+}
+/* swiper end */

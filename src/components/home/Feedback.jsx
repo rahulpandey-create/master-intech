@@ -6,7 +6,43 @@ import client5 from "../../assets/design/15.png";
 import client6 from "../../assets/design/16.png";
 import google from "../../assets/google.svg";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+
+const reviews = [
+  {
+    name: "Katya Faris",
+    role: "Hindustan Astrology",
+    review:
+      "An excellent team to collaborate with—highly skilled and confident in their work. Their communication was clear and timely, and they always responded quickly.",
+  },
+  {
+    name: "Johan Lim",
+    role: "Malaysia",
+    review:
+      "I have hired him several times, i think in general they can deliver the work just need to keep things on time. Overall ill hire them again",
+  },
+  {
+    name: "Bernie Leigh",
+    role: "Director, SpeediBoats",
+    review:
+      "Looking forward to working with Randeep and the MIT TEAM again very soon",
+  },
+  {
+    name: "Manie",
+    role: "IOSG Venture",
+    review:
+      "Good team to work with as they are confident with their skills. Communication is also very good as they quickly respond. They priced the project well and competitively. Vinit was our main point of contact and he did an excellent job in communication!",
+  },
+];
+
+
 export default function Feedback() {
+
   const handleSectionLink = (event, sectionId) => {
     event.preventDefault();
 
@@ -18,7 +54,14 @@ export default function Feedback() {
 
   return (
     <section className="feedback-section">
+
+
       <div className="section-shell feedback-grid">
+
+        {/* =================================
+            FLOATING CLIENT IMAGES
+        ================================= */}
+
         <div className="floating-people" data-reveal>
           <img src={client2} alt="" className="bord1" />
           <img src={client3} alt="" className="bord2" />
@@ -27,22 +70,97 @@ export default function Feedback() {
           <img src={client6} alt="" className="bord5" />
         </div>
 
+
+        {/* =================================
+            MAIN CLIENT IMAGE
+        ================================= */}
+
         <div className="testimonial-photo" data-reveal>
-          <img src={client6} alt="Client portrait" />
+
+          <img
+            src={client6}
+            alt="Client portrait"
+          />
+
           <div>
             <strong>BERNIE LEIGH</strong>
             <span>Director, Luxor</span>
           </div>
+
         </div>
 
-        <div className="testimonial-copy" data-reveal>
-          <h2>CLIENT&apos;S <br />FEEDBACK</h2>
 
-          <p>
-            Real feedback from businesses we&apos;ve<br />
-            helped through thoughtful design,<br />
-            development, and reliable support.
-          </p>
+        {/* =================================
+            TESTIMONIAL / REVIEWS
+        ================================= */}
+
+        <div className="testimonial-copy" data-reveal>
+          <div className="center-heading">
+            <h2>Client’s Feedback</h2>
+
+          </div>
+
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            slidesPerView={1}
+            spaceBetween={0}
+            loop={true}
+            speed={700}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            className="feedback-swiper"
+          >
+
+            {reviews.map((item, index) => (
+
+              <SwiperSlide key={index}>
+
+                <div className="feedback-review">
+
+
+
+
+
+                  {/* REVIEWER */}
+                  <div className="feedback-reviewer">
+
+                    <h2>
+                      {item.name}
+                    </h2>
+
+                    <span>
+                      {item.role}
+                    </span>
+
+                  </div>
+                  {/* STARS */}
+                  <div className="feedback-stars">
+                    ★ ★ ★ ★ ★
+                  </div>
+                  {/* REVIEW */}
+                  <p>
+                    “{item.review}”
+                  </p>
+                  
+
+                </div>
+
+              </SwiperSlide>
+
+            ))}
+
+          </Swiper>
+
+
+          {/* =================================
+              GOOGLE REVIEWS BUTTON
+          ================================= */}
 
           <a
             className="review-button"
@@ -50,17 +168,30 @@ export default function Feedback() {
             target="_blank"
             rel="noreferrer"
           >
-            <span><img src={google} alt="" /></span>
+
+            <span>
+              <img src={google} alt="Google" />
+            </span>
+
             See All Reviews
+
           </a>
+
         </div>
+
+
+        {/* =================================
+            RIGHT ABSTRACT ART
+        ================================= */}
 
         <img
           className="feedback-art"
           src={abstractRight}
           alt="Abstract colorful 3D artwork"
         />
+
       </div>
+
     </section>
   );
 }
