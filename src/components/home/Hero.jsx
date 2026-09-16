@@ -11,6 +11,12 @@ import aiSolutionsIcon from "../../assets/AISolutions.png";
 import arrowbtn from "../../assets/arrowbtn.svg";
 import arrowtop from "../../assets/arrowtop.svg";
 import platform from "../../assets/platform.svg";
+import upworks from "../../assets/upworks.png";
+import freelance from "../../assets/freelance.png";
+import people from "../../assets/people.png";
+import truelancer from "../../assets/truelancer.png";
+import gmail from "../../assets/gmail.png";
+
 
 const heroServices = [
   [uiuxIcon, "UI/UX Design"],
@@ -187,7 +193,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
       <div className="hero-socials hero-fade-in hero-delay-3">
         <div>
           <a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/master-intech-solutions-43ba9b39"
             target="_blank"
             rel="noreferrer"
             className="socialmedialinks1"
@@ -199,7 +205,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           </a>
 
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/mastersintechsolutions/"
             target="_blank"
             rel="noreferrer"
             className="socialmedialinks1"
@@ -211,7 +217,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           </a>
 
           <a
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/MasterIntechSolutions/"
             target="_blank"
             rel="noreferrer"
             className="socialmedialinks1"
@@ -226,7 +232,19 @@ export default function Hero({ menuOpen, setMenuOpen }) {
         <span className="socialmedialinks1">
           CONNECT WITH US :{" "}
           <span>
-            <img src={platform} alt="arrow" />
+            <a href="https://www.upwork.com/freelancers/~01e7473140f1676ff9" target="_blank"><img src={upworks} alt="arrow" /></a>
+          </span>
+          <span>
+            <a href="https://www.freelancer.in/u/Masterintech" target="_blank"><img src={freelance} alt="arrow" /></a>
+          </span>
+          <span>
+            <a href="https://www.peopleperhour.com/freelancer/technology-programming/vinit-kumar-full-stack-developer-ios-android-jwxzxz" target="_blank"><img src={people} alt="arrow" /></a>
+          </span>
+          <span>
+            <a href="https://www.truelancer.com/freelancer/vinitkumar1516" target="_blank"><img src={truelancer} alt="arrow" /></a>
+          </span>
+          <span>
+            <a href="mailto:info@masterintechsolutions.com" target="_blank"><img src={gmail} alt="arrow" /></a>
           </span>
         </span>
       </div>

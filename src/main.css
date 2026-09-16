@@ -40,7 +40,14 @@ p {
     align-items: end;
     gap: 7px;
 }
-
+span.socialmedialinks1 img {
+    width: 70px;
+    margin-right: 16px;
+    transition: 0.3s;
+}
+span.socialmedialinks1 img:hover {
+    transform: scale(1.05);
+}
 .site-home {
   background: var(--bg);
   color: var(--white);
