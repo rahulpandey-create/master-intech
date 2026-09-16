@@ -1,9 +1,11 @@
 import phone from "../../assets/phone.svg"
 import email from "../../assets/email.svg"
 import location from "../../assets/location.svg"
+import heroBackground from "../../assets/bgvid.gif";
+import arrowdown from "../../assets/arrowdown.svg";
 export default function Contact({ formData, loading, feedback, updateField, handleSubmit }) {
   return (
-<section id="contact" className="contact-design">
+<section id="contact" className="contact-design" style={{ backgroundImage: `url(${heroBackground})` }}>
   <div className="section-shell contact-grid">
     <div className="contact-details" data-reveal>
       <h2>LET&apos;S TALK</h2>
@@ -30,6 +32,22 @@ export default function Contact({ formData, loading, feedback, updateField, hand
       <label>EMAIL*
         <input name="email" type="email" value={formData.email} onChange={updateField} required />
       </label>
+     <label class="service-field">
+    Select Service*
+
+    <div class="select-wrap">
+        <select class="custom-select">
+            <option value="">Select Field</option>
+            <option value="ui-ux">UI/UX Design</option>
+            <option value="web-development">Web Development</option>
+            <option value="wordpress">CMS Development</option>
+            <option value="shopify">E-Commerce Solutions</option>
+            <option value="app-development">App Development</option>
+        </select>
+
+        <span class="select-arrow"><img src={arrowdown}></img> </span>
+    </div>
+</label>
       <label>MESSAGE*
         <textarea name="message" value={formData.message} onChange={updateField} required minLength={10} maxLength={5000} />
       </label>

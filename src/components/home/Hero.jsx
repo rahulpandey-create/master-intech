@@ -12,7 +12,6 @@ import arrowbtn from "../../assets/arrowbtn.svg";
 import arrowtop from "../../assets/arrowtop.svg";
 import platform from "../../assets/platform.svg";
 import upworks from "../../assets/upworks.png";
-import freelance from "../../assets/freelance.png";
 import people from "../../assets/people.png";
 import truelancer from "../../assets/truelancer.png";
 import gmail from "../../assets/gmail.png";
@@ -234,9 +233,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           <span>
             <a href="https://www.upwork.com/freelancers/~01e7473140f1676ff9" target="_blank"><img src={upworks} alt="arrow" /></a>
           </span>
-          <span>
-            <a href="https://www.freelancer.in/u/Masterintech" target="_blank"><img src={freelance} alt="arrow" /></a>
-          </span>
+          
           <span>
             <a href="https://www.peopleperhour.com/freelancer/technology-programming/vinit-kumar-full-stack-developer-ios-android-jwxzxz" target="_blank"><img src={people} alt="arrow" /></a>
           </span>

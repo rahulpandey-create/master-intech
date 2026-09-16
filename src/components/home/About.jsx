@@ -1,4 +1,4 @@
-import aboutImage from "../../assets/codrr.gif";
+import aboutImage from "../../assets/codrrr.gif";
 import google from "../../assets/google.svg";
 import trust from "../../assets/trust.svg";
 
