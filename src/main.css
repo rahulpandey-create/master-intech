@@ -888,7 +888,7 @@ h2.uniqeheading {
     line-height: 56px;
 }
 a.review-button {
-    width: 54%;
+    width: 55%;
     gap: 10px;
     margin-top: 20px;
 }
@@ -1924,10 +1924,13 @@ a.review-button {
     line-height: 58px;
 }
 a.review-button {
-    width: 55%;
+    width: 56%;
     gap: 10px;
     margin: auto;
     margin-top: 24px;
+}
+.testimonial-copy.is-visible h2 {
+    text-align: center;
 }
 
   .brand-grid > div {
@@ -2265,225 +2268,712 @@ h2.master-intech {
 }
 
 /* swiper */
-/* =========================================
-   FEEDBACK SWIPER
-========================================= */
+/* =========================================================
+   FEEDBACK SECTION
+========================================================= */
+
+.feedback-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.feedback-section .section-shell {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.feedback-grid {
+    position: relative;
+    /* min-height: 600px; */
+
+    display: grid;
+    /* grid-template-columns: minmax(250px, 0.8fr) minmax(300px, 1fr) minmax(150px, 0.5fr); */
+    align-items: center;
+}
+
+
+/* =========================================================
+   FLOATING PEOPLE
+========================================================= */
+
+.floating-people {
+    position: relative;
+
+    width: 100%;
+    /* height: 500px; */
+
+    z-index: 1;
+}
+
+
+
+/* Existing image positions can remain if you already
+   have them. These are safe defaults. */
+
+.floating-people .bord1 {
+    left: 5%;
+    top: 5%;
+}
+
+.floating-people .bord2 {
+    left: 35%;
+    top: 0;
+}
+
+.floating-people .bord3 {
+    left: 0;
+    top: 38%;
+}
+
+.floating-people .bord4 {
+    left: 40%;
+    top: 40%;
+}
+
+.floating-people .bord5 {
+    left: 18%;
+    top: 65%;
+}
+
+
+/* =========================================================
+   MAIN TESTIMONIAL PHOTO
+========================================================= */
+
+.testimonial-photo {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    max-width: 300px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.testimonial-photo > div {
+    margin-top: 12px;
+}
+
+.testimonial-photo strong {
+    display: block;
+
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.testimonial-photo span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+
+/* =========================================================
+   TESTIMONIAL COPY
+========================================================= */
 
 .testimonial-copy {
-  position: relative;
-  width: 100%;
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 20px 0;
 }
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.center-heading {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.center-heading h2 {
+    margin: 0;
+
+    /* font-size: clamp(28px, 3vw, 48px); */
+    line-height: 1.05;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SWIPER
+========================================================= */
 
 .feedback-swiper {
     width: 100%;
-    max-width: 416px;
+    max-width: 450px;
+
+    margin: 0;
+
     overflow: hidden;
-    padding-bottom: 50px;
+
+    padding-bottom: 15px;
+}
+
+.feedback-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.feedback-swiper .swiper-slide {
+    width: 100%;
+
+    display: flex;
+
+    align-items: stretch;
 }
 
 
-/* =========================================
+/* =========================================================
    REVIEW
-========================================= */
+========================================================= */
 
 .feedback-review {
-  width: 100%;
-  min-height: auto;
+    width: 100%;
+    min-width: 0;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    min-height: 150px;
 }
 
 
-/* =========================================
-   STARS
-========================================= */
-
-.feedback-stars {
-  font-size: 19px;
-  line-height: 1;
-  letter-spacing: 4px;
-
-  margin-bottom: 10px;
-  color: #f9c426;
-}
-
-
-/* =========================================
+/* =========================================================
    REVIEWER
-========================================= */
+========================================================= */
 
 .feedback-reviewer {
-  margin-bottom: 5px;
+    width: 100%;
+
+    margin-bottom: 6px;
 }
 
 .feedback-reviewer h2 {
-    margin: 0 0 7px;
+    margin: 0 0 4px;
+
     font-size: 18px;
-    line-height: 1.05;
+    line-height: 1.15;
     font-weight: 700;
-    text-transform: math-auto;
-    font-family: 'Inter';
+
+    text-transform: none;
+
+    font-family: "Inter", sans-serif;
+
+    overflow-wrap: anywhere;
 }
 
 .feedback-reviewer span {
-  display: block;
+    display: block;
 
-  font-size: 14px;
-  line-height: 1.4;
+    max-width: 100%;
 
-  opacity: 0.6;
+    font-size: 14px;
+    line-height: 1.4;
+
+    opacity: 0.6;
+
+    overflow-wrap: anywhere;
 }
 
 
-/* =========================================
+/* =========================================================
+   STARS
+========================================================= */
+
+.feedback-stars {
+    margin-bottom: 9px;
+
+    font-size: 19px;
+    line-height: 1;
+
+    letter-spacing: 4px;
+
+    color: #f9c426;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
    REVIEW TEXT
-========================================= */
+========================================================= */
 
 .feedback-review > p {
+    width: 100%;
     max-width: 520px;
+
     margin: 0;
+
     font-size: 14px;
     line-height: 1.6;
-    margin-bottom: 6px;
+
     color: #fff;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 
-/* =========================================
-   PAGINATION
-========================================= */
+/* =========================================================
+   SWIPER PAGINATION
+========================================================= */
 
 .feedback-swiper .swiper-pagination {
-  position: absolute;
-
-  left: 0 !important;
-  right: auto !important;
-
-  width: auto !important;
-
-  bottom: 5px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 7px;
-  display: none;
-
-}
-
-.feedback-swiper .swiper-pagination-bullet {
-    width: 7px;
-    height: 7px;
-    margin: 0 !important;
-    opacity: 0.35;
-    border-radius: 20px;
-    transition: all 0.35s ease;
-    background: gainsboro;
-}
-
-.feedback-swiper .swiper-pagination-bullet-active {
-  width: 25px;
-background: gainsboro;
-  opacity: 1;
+    display: none !important;
 }
 
 
-/* =========================================
+/* =========================================================
    GOOGLE BUTTON
-========================================= */
+========================================================= */
 
 .review-button {
-  display: inline-flex;
-  align-items: center;
+    display: inline-flex;
+    align-items: center;
 
-  gap: 10px;
+    width: max-content;
+    max-width: 100%;
 
-  margin-top: 5px;
+    gap: 10px;
 
-  text-decoration: none;
+    margin-top: 15px;
 
-  transition: transform 0.3s ease;
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: transform 0.3s ease;
 }
 
 .review-button span {
-  width: 26px;
-  height: 26px;
+    width: 26px;
+    height: 26px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    flex: 0 0 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .review-button img {
-  width: 22px;
-  height: 22px;
+    width: 22px;
+    height: 22px;
 
-  display: block;
+    display: block;
 
-  object-fit: contain;
+    object-fit: contain;
 }
 
 .review-button:hover {
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
+/* =========================================================
+   RIGHT ABSTRACT ART
+========================================================= */
+
+
+
+/* =========================================================
+   LARGE LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .feedback-section .section-shell {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+ .feedback-grid {
+    grid-template-columns: minmax(220px, 0.75fr) minmax(280px, 1fr) minmax(130px, 1.4fr);
+    column-gap: 25px;
+}
+
+    .floating-people {
+        height: 450px;
+    }
+
+    .testimonial-photo {
+        /* max-width: 280px; */
+    }
+
+    .feedback-swiper {
+        max-width: 100%;
+    }
+
+   
+}
+
+
+/* =========================================================
+   LAPTOP / TABLET
+========================================================= */
 
 @media (max-width: 991px) {
 
-  .feedback-swiper {
-    max-width: 100%;
-  }
+    .feedback-section .section-shell {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
 
-  .feedback-reviewer h2 {
-    font-size: 32px;
-  }
+    .feedback-grid {
+        min-height: auto;
 
-  .feedback-review > p {
-    font-size: 17px;
-  }
+        grid-template-columns:
+            minmax(180px, 0.8fr)
+            minmax(250px, 1fr)
+            minmax(100px, 0.35fr);
+
+        column-gap: 20px;
+
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .floating-people {
+        height: 400px;
+    }
+
+    .testimonial-photo {
+        /* max-width: 250px; */
+    }
+
+    .center-heading h2 {
+        font-size: 34px;
+    }
+
+    .feedback-reviewer h2 {
+        font-size: 18px;
+    }
+
+    .feedback-review > p {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .feedback-stars {
+        font-size: 17px;
+        letter-spacing: 3px;
+    }
+
 
 }
 
 
-/* =========================================
+/* =========================================================
+   TABLET PORTRAIT
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .feedback-section {
+        overflow: hidden;
+    }
+
+    .feedback-section .section-shell {
+        width: 100%;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .feedback-grid {
+
+        /*
+         * Three columns ko remove karke
+         * 2-column layout
+         */
+        grid-template-columns: 1fr 1fr;
+
+        gap: 30px;
+
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+
+    /* Floating people */
+
+    .floating-people {
+        width: 100%;
+        height: 350px;
+    }
+
+
+    /* Main image */
+
+    .testimonial-photo {
+        width: 100%;
+        /* max-width: 230px; */
+
+        justify-self: center;
+    }
+
+
+    /* Testimonial */
+
+    .testimonial-copy {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .center-heading h2 {
+        font-size: 30px;
+    }
+
+    .feedback-swiper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .feedback-review {
+        min-height: 145px;
+    }
+
+
+    /* Art */
+
+ 
+
+}
+
+
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
 
-  .feedback-swiper {
-    width: 100%;
-    padding-bottom: 45px;
-  }
+    .feedback-section .section-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
 
-  .feedback-review {
-    min-height: 220px;
-  }
+    .feedback-grid {
 
-  .feedback-stars {
-    font-size: 16px;
-    letter-spacing: 3px;
-    margin-bottom: 16px;
-  }
+        /*
+         * Everything becomes single column
+         */
+        display: flex;
+        flex-direction: column;
 
-  .feedback-reviewer h2 {
-    font-size: 27px;
-  }
+        gap: 0;
 
-  .feedback-reviewer span {
-    font-size: 13px;
-  }
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 
-  .feedback-review > p {
-    font-size: 15px;
-    line-height: 1.5;
-  }
+
+    /* -----------------------------------------
+       FLOATING PEOPLE
+    ----------------------------------------- */
+
+    .floating-people {
+        order: 1;
+
+        width: 100%;
+        height: 230px;
+
+        margin-bottom: 25px;
+    }
+
+
+    /* -----------------------------------------
+       MAIN PHOTO
+    ----------------------------------------- */
+
+    .testimonial-photo {
+        order: 2;
+
+        width: 100%;
+        /* max-width: 210px; */
+
+        margin: 0 auto 35px;
+    }
+
+    .testimonial-photo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .testimonial-photo > div {
+        margin-top: 10px;
+    }
+
+    .testimonial-photo strong {
+        font-size: 14px;
+    }
+
+    .testimonial-photo span {
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------
+       TESTIMONIAL
+    ----------------------------------------- */
+
+    .testimonial-copy {
+        order: 3;
+
+        width: 100%;
+
+        padding: 0;
+    }
+
+    .center-heading {
+        margin-bottom: 18px;
+    }
+
+    .center-heading h2 {
+        font-size: 28px;
+        line-height: 1.05;
+    }
+
+
+    /* -----------------------------------------
+       SWIPER
+    ----------------------------------------- */
+
+    .feedback-swiper {
+        width: 100%;
+        max-width: 100%;
+
+        padding-bottom: 5px;
+    }
+
+    .feedback-review {
+        min-height: auto;
+    }
+
+    .feedback-reviewer h2 {
+        font-size: 18px;
+    }
+
+    .feedback-reviewer span {
+        font-size: 13px;
+    }
+
+    .feedback-stars {
+        margin-bottom: 9px;
+
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+
+    .feedback-review > p {
+        width: 100%;
+
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+
+    /* -----------------------------------------
+       GOOGLE BUTTON
+    ----------------------------------------- */
+
+    .review-button {
+        margin-top: 18px;
+
+        font-size: 13px;
+    }
+
+
+    /* -----------------------------------------
+       ABSTRACT ART
+    ----------------------------------------- */
+
+  
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .feedback-section .section-shell {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .feedback-grid {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .floating-people {
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-photo {
+        max-width: 180px;
+        margin-bottom: 30px;
+    }
+
+    .center-heading h2 {
+        font-size: 25px;
+    }
+
+    .feedback-reviewer h2 {
+        font-size: 17px;
+    }
+
+    .feedback-reviewer span {
+        font-size: 12px;
+    }
+
+    .feedback-stars {
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    .feedback-review > p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .review-button {
+        font-size: 12px;
+        gap: 7px;
+    }
+
+    .review-button span {
+        width: 23px;
+        height: 23px;
+        flex-basis: 23px;
+    }
+
+    .review-button img {
+        width: 19px;
+        height: 19px;
+    }
+
+
 
 }
 /* swiper end */
