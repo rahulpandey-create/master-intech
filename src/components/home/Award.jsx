@@ -73,6 +73,15 @@ function Counter({ end, suffix = "", duration = 2000 }) {
 
 
 export default function Award() {
+  const handleSectionLink = (event, sectionId) => {
+    event.preventDefault();
+
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <section id="projects" className="award-section">
       <div className="uniqheadingflex">
@@ -80,12 +89,12 @@ export default function Award() {
           
         </div>
         <div>
-           <h2 className="uniqeheading container">
+          <h2 className="uniqeheading container">
             AWARD-WINNING MANCHESTER WEB DESIGN <br></br>& BRANDING AGENCY SINCE 2008.
           </h2>
         </div>
      
-          </div>
+      </div>
 
       <div className="section-shell award-grid">
 
@@ -181,7 +190,8 @@ export default function Award() {
           {/* CTA Button */}
           <a
             className="outline-button hero-pill"
-            href="#contact"
+            href={window.location.pathname}
+            onClick={(event) => handleSectionLink(event, "contact")}
           >
             <span>
               <img
