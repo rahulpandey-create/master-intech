@@ -13,11 +13,17 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   background: #0d0e0f;
+}
+
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 *,
