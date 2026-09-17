@@ -1,7 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import arrowbtn from "../assets/arrowbtn.svg";
 import DesignNav from "../components/home/designNav";
-
 
 const services = [
   {
@@ -156,15 +155,12 @@ const services = [
   },
 ];
 
-
 function ServiceVisual({ icon, label }) {
   return (
-    
     <div className="service-visual">
       <div className="service-icon-box">
         <i className={icon}></i>
       </div>
-     
 
       <span className="service-icon-label">{label}</span>
 
@@ -200,15 +196,33 @@ function ServiceRow({ service }) {
         </div>
       </div>
 
-      <ServiceVisual icon={service.icon} label={service.label} />
+      <ServiceVisual
+        icon={service.icon}
+        label={service.label}
+      />
     </article>
   );
 }
 
 export default function Services() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleLocalLink = (event, sectionId) => {
+    event.preventDefault();
+
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <section className="services-page">
-      
+      <DesignNav
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+      />
+
       {/* HERO */}
       <div className="services-hero">
         <div className="services-hero-grid"></div>
@@ -236,16 +250,22 @@ export default function Services() {
 
           <div className="services-hero-buttons">
             <a
-              href="#contact"
+              href="/"
               className="service-btn service-btn-primary"
+              onClick={(event) => handleLocalLink(event, "contact")}
             >
               Let's Build Together
-              <span><img src={arrowbtn} alt=""></img> </span>
+              <span>
+                <img src={arrowbtn} alt="" />
+              </span>
             </a>
 
             <a
-              href="#services-list"
+              href="/"
               className="service-btn service-btn-outline"
+              onClick={(event) =>
+                handleLocalLink(event, "services-list")
+              }
             >
               Explore Services
             </a>
@@ -271,7 +291,7 @@ export default function Services() {
           <div className="cta-content">
             <div className="services-eyebrow">
               <span></span>
-              LET'S WORK TOGETHER
+              LET&apos;S WORK TOGETHER
             </div>
 
             <h2>
@@ -284,9 +304,12 @@ export default function Services() {
               digital solutions.
             </p>
 
-            <a href="#" className="service-btn service-btn-primary">
+            <a
+              href="/"
+              className="service-btn service-btn-primary"
+              onClick={(event) => handleLocalLink(event, "contact")}
+            >
               Start a Conversation
-  
             </a>
           </div>
         </div>
