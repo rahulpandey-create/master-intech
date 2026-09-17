@@ -8,6 +8,7 @@ import Brands from "../components/home/Brands";
 import Feedback from "../components/home/Feedback";
 import Contact from "../components/home/Contact";
 import Footer from "../components/home/Footer";
+import WhatsAppButton from "../components/home/WhatsAppButton";
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -62,6 +63,7 @@ function Home() {
       <Feedback />
       <Contact formData={formData} loading={loading} feedback={feedback} updateField={updateField} handleSubmit={handleSubmit} />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }

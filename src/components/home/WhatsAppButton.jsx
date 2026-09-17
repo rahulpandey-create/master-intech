@@ -1,6 +1,6 @@
 import whatsappIcon from "../../assets/whatsapp.svg";
 
-const WHATSAPP_LINK = "https://wa.me/919876543210"; // replace later with your direct link
+const WHATSAPP_LINK = "https://wa.me/919878263393"; // this is a dummy link replace it later with your direct link
 
 export default function WhatsAppButton() {
   return (
