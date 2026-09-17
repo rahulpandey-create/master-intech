@@ -3,6 +3,8 @@ import Lenis from "lenis";
 import { Routes, Route, useLocation } from "react-router-dom"; 
 import PortfolioBento from './pages/Portfolio.jsx';
 import Home from "./pages/Home";
+import Services from "./pages/Services";
+
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -66,6 +68,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} /> 
       <Route path="/portfolio" element={<PortfolioBento />} />
+      <Route path="/services" element={<Services />} />
     </Routes>
   );
 }

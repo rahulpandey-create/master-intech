@@ -34,12 +34,11 @@ export default function DesignNav({ menuOpen, setMenuOpen }) {
           ABOUT
         </a>
 
-        <a
-          href="/"
-          onClick={(event) => handleSectionLink(event, "services")}
-        >
-          SERVICES
-        </a>
+      
+          <Link to="/services">SERVICES</Link>
+      
+          
+      
 
         <Link to="/portfolio">PORTFOLIO</Link>
       </div>
