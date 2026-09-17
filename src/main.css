@@ -1698,6 +1698,13 @@ box-shadow: 0px 0px 53px #ef88ffa3;
 /* TABLET */
 
 @media (max-width: 1100px) {
+  .award-section {
+    height: auto;
+    background: #050708;
+}
+br {
+    display: none;
+}
   .hero-main {
     top: 166px;
 }
@@ -2083,6 +2090,17 @@ a.review-button {
 }
 
 @media (max-width: 560px) {
+  .section-shell.is-visible h2 {
+    line-height: 54px;
+}
+.brands-section {
+    padding: 24px 0;
+}
+h2.master-intech {
+    font-size: 22px !important;
+    padding-top: 29px !important;
+    padding-bottom: 0 !important;
+}
   .hamburger {
 
     display: grid;
@@ -2148,7 +2166,7 @@ a.review-button {
     text-align: center;
 }
 .footer-social {
-    margin-top: 31px;
+    margin-top: 15px;
     display: flex;
     gap: 11px;
     font-size: 12px;
@@ -2234,7 +2252,7 @@ a.review-button {
 
   .expertise-tools {
     justify-content: space-between;
-    gap: 5px;
+    gap: 20px;
   }
 
   .tool-logo {
