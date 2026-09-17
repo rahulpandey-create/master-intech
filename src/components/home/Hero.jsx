@@ -1,4 +1,5 @@
-import logo from "../../assets/logomaster.svg";
+// import logo from "../../assets/logomaster.svg";
+import DesignNav from "./designNav";
 import heroBackground from "../../assets/bgvid.gif";
 import awardWinningIcon from "../../assets/awardWinningAgency.png";
 import yearsExperienceIcon from "../../assets/yearsExperience.png";
@@ -15,6 +16,7 @@ import upworks from "../../assets/upworks.png";
 import people from "../../assets/people.png";
 import truelancer from "../../assets/truelancer.png";
 import gmail from "../../assets/gmail.png";
+import { Link } from "react-router-dom";
 
 
 const heroServices = [
@@ -51,74 +53,11 @@ export default function Hero({ menuOpen, setMenuOpen }) {
       className="design-hero"
       style={{ backgroundImage: `url(${heroBackground})` }}
     >
-      <nav className="design-nav" aria-label="Main navigation">
-        <div className={`design-nav-links ${menuOpen ? "open" : ""}`}>
-          <a
-            href={currentPath}
-            onClick={(event) => handleSectionLink(event, "hero")}
-          >
-            HOME
-          </a>
 
-          <a
-            href={currentPath}
-            onClick={(event) => handleSectionLink(event, "about")}
-          >
-            ABOUT
-          </a>
-
-          <a
-            href={currentPath}
-            onClick={(event) => handleSectionLink(event, "services")}
-          >
-            SERVICES
-          </a>
-
-          <a
-            href={currentPath}
-            onClick={(event) => handleSectionLink(event, "projects")}
-          >
-            Portfolio
-          </a>
-        </div>
-
-        <a
-          href={currentPath}
-          onClick={(event) => handleSectionLink(event, "hero")}
-          className="design-logo"
-          aria-label="Master Intech Solutions home"
-        >
-          <img src={logo} alt="Master Intech Solutions" />
-        </a>
-
-        <div className="design-nav-actions">
-          <a
-            className="hire"
-            href="http://upwork.com/freelancers/~01e7473140f1676ff9"
-            target="_blank"
-            rel="noreferrer"
-          >
-            HIRE US
-          </a>
-
-          <a
-            href={currentPath}
-            onClick={(event) => handleSectionLink(event, "contact")}
-          >
-            CONTACT
-          </a>
-
-          <button
-            className={`hamburger ${menuOpen ? "open" : ""}`}
-            onClick={() => setMenuOpen((value) => !value)}
-            aria-label="Toggle navigation"
-            aria-expanded={menuOpen}
-          >
-            <span />
-            <span />
-          </button>
-        </div>
-      </nav>
+      <DesignNav
+  menuOpen={menuOpen}
+  setMenuOpen={setMenuOpen}
+/>
 
       <div className="hero-stat-card hero-stat-left hero-fade-in hero-delay-1">
         <div>
@@ -253,7 +192,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           <span>
             <a href="https://www.upwork.com/freelancers/~01e7473140f1676ff9" target="_blank"><img src={upworks} alt="arrow" /></a>
           </span>
-          
+
           <span>
             <a href="https://www.peopleperhour.com/freelancer/technology-programming/vinit-kumar-full-stack-developer-ios-android-jwxzxz" target="_blank"><img src={people} alt="arrow" /></a>
           </span>
