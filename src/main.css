@@ -203,7 +203,7 @@ span.socialmedialinks1 img:hover {
 .outline-button, .review-button {
     display: flex !important;
     /* margin-left: auto; */
-    width: 50%;
+    width: 56%;
 }
 .site-home a {
     color: #F4F4F4;
@@ -2089,7 +2089,11 @@ a.review-button {
   }
 }
 
-@media (max-width: 560px) {
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .outline-button, .review-button {
+    display: flex !important;
+    width: 100% !important;
+}
   .section-shell.is-visible h2 {
     line-height: 54px;
 }
@@ -2183,7 +2187,7 @@ h2.master-intech {
     border-right: 1px solid #28292a;
 }
   a.outline-button {
-    width: 81%;
+    width: 335px !important;
     gap: 14px;
 }
 .avatars {
@@ -2192,7 +2196,7 @@ h2.master-intech {
     margin: 0px 0 17px;
 }
   .design-hero {
-    height: 680px;
+    height: 572px;
   }
 
   .hero-stat-card {
@@ -2215,7 +2219,7 @@ h2.master-intech {
   .hero-pill {
     min-height: 29px;
     margin-bottom: 25px;
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .cyan-button {
@@ -2231,6 +2235,7 @@ h2.master-intech {
   }
   .hero-copy {
     width: 100%;
+    display: none;
 }
 
   .hero-socials > div {
@@ -2251,31 +2256,54 @@ h2.master-intech {
   }
 
   .expertise-tools {
-    justify-content: space-between;
-    gap: 20px;
-  }
+    justify-content: space-around;
+    gap: 60px;
+}
+.expertise-tools {
+    display: flex;
+  
+    flex: 1;
+    flex-wrap: balance;
+}
 
+.design-hero::before {
+    background: rgb(0 0 0 / 41%) !important;
+}
   .tool-logo {
-    width: 82px;
-    height: 82px;
+    width: 67px;
+    height: 67px;
   }
 
   .tool-logo:nth-child(1) img {
-    transform: scale(2.25);
+    transform: scale(3.25);
   }
 
   .tool-logo:nth-child(2) img {
-    transform: scale(2.15);
+    transform: scale(3.15);
   }
 
   .tool-logo:nth-child(3) img {
-    transform: scale(2.05);
+    transform: scale(3.05);
   }
 
   .tool-logo:nth-child(4) img {
-    transform: scale(2.25);
+    transform: scale(3.25);
   }
-
+span.socialmedialinks1 img {
+    width: 72px;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+span.socialmedialinks1 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 400;
+    color: #CACACA;
+    font-size: 16px;
+    justify-content: center;
+    margin-top: 20px;
+}
 .about-wordmark {
     --word-line-height: 62px;
     height: 250px;
@@ -2331,7 +2359,7 @@ h2.master-intech {
   }
 
   .stats strong {
-    font-size: 38px;
+    font-size: 28px;
   }
 
 
@@ -2392,6 +2420,11 @@ a.review-button {
     grid-template-columns: 41px 1fr;
     row-gap: 18px;
   }
+.contact-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    justify-content: center;
+}
   .contact-line strong {
     display: block;
     font-size: 15px;
@@ -3337,7 +3370,7 @@ h2.master-intech {
     }
 
     .feedback-grid {
-        padding-top: 40px;
+        padding-top: 10px;
         padding-bottom: 40px;
     }
 
@@ -3347,7 +3380,7 @@ h2.master-intech {
     }
 
     .testimonial-photo {
-        max-width: 180px;
+        /* max-width: 180px; */
         margin-bottom: 30px;
     }
 

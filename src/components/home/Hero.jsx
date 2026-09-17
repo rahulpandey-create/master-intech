@@ -185,7 +185,27 @@ export default function Hero({ menuOpen, setMenuOpen }) {
 
         <div className="connects block xl:hidden md:hidden mt-5">
           <h3>Connect With Us</h3>
-          <img src={platform} alt="" className="m-auto block" />
+           <span className="socialmedialinks1">
+          <span>
+            <a href="https://www.upwork.com/freelancers/~01e7473140f1676ff9" target="_blank"><img src={upworks} alt="arrow" /></a>
+          </span>
+          
+          <span>
+            <a href="https://www.peopleperhour.com/freelancer/technology-programming/vinit-kumar-full-stack-developer-ios-android-jwxzxz" target="_blank"><img src={people} alt="arrow" /></a>
+          </span>
+          <span>
+            <a href="https://www.truelancer.com/freelancer/vinitkumar1516" target="_blank"><img src={truelancer} alt="arrow" /></a>
+          </span>
+          <span>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@masterintechsolutions.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={gmail} alt="Gmail" />
+            </a>
+          </span>
+        </span>
         </div>
       </div>
 
