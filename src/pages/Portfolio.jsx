@@ -1,128 +1,420 @@
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { submitEnquiry } from "../services/api";
+import DesignNav from "../components/home/designNav";
+import Contact from "../components/home/Contact";
 
-const projects = [
+const projectGroups = [
   {
-    id: 1,
-    title: "Radiant Skincare",
-    category: "Branding",
-    type: "Branding",
-    description:
-      "A refined identity and digital storefront created for a modern skincare brand.",
-    image:
-      "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1400&q=85",
+    id: "ui",
+    number: "01",
+    title: "UI/UX Design",
+    projects: [
+      {
+        image: "https://picsum.photos/id/1015/1400/875",
+        label: "UI/UX — Project 01",
+      },
+      {
+        image: "https://picsum.photos/id/1016/1400/875",
+        label: "UI/UX — Project 02",
+      },
+      {
+        image: "https://picsum.photos/id/1018/1400/875",
+        label: "UI/UX — Project 03",
+      },
+      {
+        image: "https://picsum.photos/id/1020/1400/875",
+        label: "UI/UX — Project 04",
+      },
+    ],
   },
   {
-    id: 2,
-    title: "Apex Clothing Co.",
-    category: "Web Design",
-    type: "Web Design",
-    description:
-      "A clean e-commerce experience focused on product discovery and conversion.",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=85",
+    id: "logo",
+    number: "02",
+    title: "Logo Design",
+    projects: [
+      {
+        image: "https://picsum.photos/id/1025/1400/875",
+        label: "Logo — Project 01",
+      },
+      {
+        image: "https://picsum.photos/id/1027/1400/875",
+        label: "Logo — Project 02",
+      },
+      {
+        image: "https://picsum.photos/id/1029/1400/875",
+        label: "Logo — Project 03",
+      },
+      {
+        image: "https://picsum.photos/id/1033/1400/875",
+        label: "Logo — Project 04",
+      },
+    ],
   },
   {
-    id: 3,
-    title: "Vero Mobile App",
-    category: "Development",
-    type: "Development",
-    description:
-      "A product-led mobile experience designed around a simple, fast user journey.",
-    image:
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1400&q=85",
+    id: "banner",
+    number: "03",
+    title: "Banner Design",
+    projects: [
+      {
+        image: "https://picsum.photos/id/1035/1400/875",
+        label: "Banner — Project 01",
+      },
+      {
+        image: "https://picsum.photos/id/1037/1400/875",
+        label: "Banner — Project 02",
+      },
+      {
+        image: "https://picsum.photos/id/1040/1400/875",
+        label: "Banner — Project 03",
+      },
+      {
+        image: "https://picsum.photos/id/1043/1400/875",
+        label: "Banner — Project 04",
+      },
+    ],
   },
   {
-    id: 4,
-    title: "Stoyo",
-    category: "Branding",
-    type: "Branding",
-    description:
-      "Visual identity and packaging direction built to give the brand a distinct voice.",
-    image:
-      "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=1400&q=85",
-  },
-  {
-    id: 5,
-    title: "Timeless Impressions",
-    category: "Web Design",
-    type: "Web Design",
-    description:
-      "A portfolio-led website redesign with a sharper visual system and stronger hierarchy.",
-    image:
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
-  },
-  {
-    id: 6,
-    title: "Digital Growth Platform",
-    category: "Support",
-    type: "Support",
-    description:
-      "Ongoing design, development, optimisation, and support for a growing digital product.",
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85",
+    id: "poster",
+    number: "04",
+    title: "Poster Design",
+    projects: [
+      {
+        image: "https://picsum.photos/id/1044/1400/875",
+        label: "Poster — Project 01",
+      },
+      {
+        image: "https://picsum.photos/id/1045/1400/875",
+        label: "Poster — Project 02",
+      },
+      {
+        image: "https://picsum.photos/id/1047/1400/875",
+        label: "Poster — Project 03",
+      },
+      {
+        image: "https://picsum.photos/id/1050/1400/875",
+        label: "Poster — Project 04",
+      },
+    ],
   },
 ];
 
-const categories = [
-  "All",
-  "Web Design",
-  "Branding",
-  "Development",
-  "Support",
-];
+export default function Portfolio() {
+  const [activeCategory, setActiveCategory] = useState("ui");
 
-export default function PortfolioBento() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [contactOpen, setContactOpen] = useState(false);
+  const [contactClosing, setContactClosing] = useState(false);
 
-  const filteredProjects = useMemo(
-    () =>
-      activeCategory === "All"
-        ? projects
-        : projects.filter(
-            (project) => project.category === activeCategory
-          ),
-    [activeCategory]
-  );
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const [feedback, setFeedback] = useState({
+    success: "",
+    error: "",
+  });
+
+  const groupRefs = useRef([]);
+
+  /* ========================================================
+     ACTIVE CATEGORY
+     ======================================================== */
+
+  useEffect(() => {
+    const sections = groupRefs.current.filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              Math.abs(a.boundingClientRect.top) -
+              Math.abs(b.boundingClientRect.top)
+          );
+
+        if (visibleEntries.length > 0) {
+          const category =
+            visibleEntries[0].target.dataset.category;
+
+          if (category) {
+            setActiveCategory(category);
+          }
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-20% 0px -55% 0px",
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  /* ========================================================
+     CATEGORY CLICK
+     ======================================================== */
+
+  const handleCategoryClick = (category) => {
+    const section = document.querySelector(
+      `[data-category="${category}"]`
+    );
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  /* ========================================================
+     FORM
+     ======================================================== */
+
+  const updateField = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    setLoading(true);
+
+    setFeedback({
+      success: "",
+      error: "",
+    });
+
+    try {
+      const data = await submitEnquiry(formData);
+
+      setFeedback({
+        success: data.message,
+        error: "",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setFeedback({
+        success: "",
+        error:
+          error.message ||
+          "Something went wrong. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /* ========================================================
+     OPEN CONTACT
+     ======================================================== */
+
+  const openContact = (project) => {
+    setSelectedProject(project);
+    setContactOpen(true);
+
+    document.body.style.overflow = "hidden";
+  };
+
+  /* ========================================================
+     CLOSE CONTACT
+     ======================================================== */
+
+  const closeContact = () => {
+    setContactOpen(false);
+    setSelectedProject(null);
+
+    document.body.style.overflow = "";
+  };
+
+
+
+  /* ========================================================
+     CLICK OUTSIDE
+     ======================================================== */
+
+  const handleOverlayClick = (event) => {
+    if (event.target === event.currentTarget) {
+      closeContact();
+    }
+  };
+
+  /* ========================================================
+     ESC KEY
+     ======================================================== */
+
+  useEffect(() => {
+    if (!contactOpen) return;
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        closeContact();
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [contactOpen]);
+
+  /* ========================================================
+     CLEANUP
+     ======================================================== */
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   return (
-    <div className="portfolio-page">
-      {/* <DesignNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
+    <main className="portfolio-project-page">
 
-      <div className="portfolio-content">
-        <h1>Portfolio</h1>
+      <DesignNav />
 
-        <div className="category-filters">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={`category-button ${
-                activeCategory === category ? "active" : ""
-              }`}
-              onClick={() => setActiveCategory(category)}
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
+      <section className="portfolio-project-hero">
+        <div className="portfolio-project-hero-content">
+          <h1>MY WORK</h1>
+
+          <p>
+            A collection of selected creative work across UI/UX,
+            branding, banners and visual design.
+          </p>
+        </div>
+      </section>
+
+      {/* =====================================================
+          PROJECTS
+      ===================================================== */}
+
+      <section className="projects-section">
+
+        <aside className="projects-sidebar">
+          <div className="projects-categories">
+            {projectGroups.map((group) => (
+              <button
+                key={group.id}
+                type="button"
+                className={`project-category ${activeCategory === group.id
+                  ? "active"
+                  : ""
+                  }`}
+                onClick={() =>
+                  handleCategoryClick(group.id)
+                }
+              >
+                <span className="category-number">
+                  {group.number}
+                </span>
+
+                <span className="category-title">
+                  {group.title}
+                </span>
+              </button>
+            ))}
+          </div>
+        </aside>
+
+        <div className="projects-content">
+          {projectGroups.map((group, groupIndex) => (
+            <section
+              key={group.id}
+              ref={(element) => {
+                groupRefs.current[groupIndex] = element;
+              }}
+              className="project-group"
+              data-category={group.id}
             >
-              {category}
-            </button>
+              <div className="project-grid">
+                {group.projects.map((project, index) => (
+                  <article
+                    className="project-card"
+                    key={`${group.id}-${index}`}
+                  >
+                    <div className="project-image">
+                      <img
+                        src={project.image}
+                        alt={`${group.title} project ${index + 1
+                          }`}
+                      />
+                    </div>
+
+                    <button
+                      type="button"
+                      className="project-info"
+                      onClick={() =>
+                        openContact(project)
+                      }
+                    >
+                      <h4>{project.label}</h4>
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
 
-        <div className="project-grid">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="project-card">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="project-image"
-              />
-              <div className="project-info">
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
-                <span className="project-category">{project.category}</span>
-              </div>
-            </div>
-          ))}
+      </section>
+
+
+      {/* =====================================================
+          CONTACT POPUP
+      ===================================================== */}
+
+      {contactOpen && (
+        <div
+          className="portfolio-contact-overlay"
+          onMouseDown={handleOverlayClick}
+        >
+          <div className="portfolio-contact-modal">
+
+            <button
+              type="button"
+              className="portfolio-contact-close"
+              onClick={closeContact}
+              aria-label="Close contact form"
+            >
+              ×
+            </button>
+
+            <Contact
+              formData={formData}
+              loading={loading}
+              feedback={feedback}
+              updateField={updateField}
+              handleSubmit={handleSubmit}
+            />
+
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+
+    </main>
   );
 }

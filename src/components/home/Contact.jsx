@@ -32,11 +32,11 @@ export default function Contact({ formData, loading, feedback, updateField, hand
       <label>EMAIL*
         <input name="email" type="email" value={formData.email} onChange={updateField} required />
       </label>
-     <label class="service-field">
+     <label className="service-field">
     Select Service*
 
-    <div class="select-wrap">
-        <select class="custom-select">
+    <div className="select-wrap">
+        <select className="custom-select">
             <option value="">Select Field</option>
             <option value="ui-ux">UI/UX Design</option>
             <option value="web-development">Web Development</option>
@@ -45,7 +45,7 @@ export default function Contact({ formData, loading, feedback, updateField, hand
             <option value="app-development">App Development</option>
         </select>
 
-        <span class="select-arrow"><img src={arrowdown}></img> </span>
+        <span className="select-arrow"><img src={arrowdown}></img> </span>
     </div>
 </label>
       <label>MESSAGE*
