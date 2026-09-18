@@ -112,11 +112,11 @@ span.socialmedialinks1 img:hover {
   right: 98px;
   gap: 7px;
 }
-
 .design-nav a {
-  font: 600 11px/1 "Inter", sans-serif;
-  text-transform: uppercase;
-  /* letter-spacing: 0.02em; */
+    font: 600 16px/1 "Inter", sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'Intel One Mono';
 }
 
 .design-nav-links a {
@@ -141,7 +141,8 @@ span.socialmedialinks1 img:hover {
   width: 100%;
 }
 
-.design-nav .hire {
+.design-nav .hire
+ {
     color: #0a0a0a;
     background: linear-gradient(45deg, #85fef6, #37c2fb);
     padding: 10px 12px 8px 10px;
@@ -2681,6 +2682,7 @@ h2.master-intech {
     font-size: 58px;
     text-align: center;
     padding: 29px 0px;
+    font-family: 'Boldonse';
 }
 h2.master-intech {
     background: linear-gradient(
@@ -3876,7 +3878,7 @@ article.service-row.reverse {
     font-size: 32px;
     font-weight: 400;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     line-height: normal;
 }
 

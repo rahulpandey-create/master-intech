@@ -89,7 +89,7 @@ export default function PortfolioBento() {
 
   return (
     <div className="portfolio-page">
-      <DesignNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      {/* <DesignNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
 
       <div className="portfolio-content">
         <h1>Portfolio</h1>

@@ -1,5 +1,4 @@
 // import logo from "../../assets/logomaster.svg";
-import DesignNav from "./designNav";
 import heroBackground from "../../assets/bgvid.gif";
 import awardWinningIcon from "../../assets/awardWinningAgency.png";
 import yearsExperienceIcon from "../../assets/yearsExperience.png";
@@ -54,10 +53,10 @@ export default function Hero({ menuOpen, setMenuOpen }) {
       style={{ backgroundImage: `url(${heroBackground})` }}
     >
 
-      <DesignNav
+      {/* <DesignNav
   menuOpen={menuOpen}
   setMenuOpen={setMenuOpen}
-/>
+/> */}
 
       <div className="hero-stat-card hero-stat-left hero-fade-in hero-delay-1">
         <div>

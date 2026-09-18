@@ -1,58 +1,78 @@
+import { useState } from "react";
 import logo from "../../assets/logomaster.svg";
 import { Link } from "react-router-dom";
 
-export default function DesignNav({ menuOpen, setMenuOpen }) {
+export default function DesignNav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const isHome = window.location.pathname === "/";
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   const handleSectionLink = (event, sectionId) => {
     if (!isHome) return;
 
     event.preventDefault();
 
-    document.getElementById(sectionId)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    const section = document.getElementById(sectionId);
 
-    setMenuOpen(false);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    closeMenu();
   };
 
   return (
     <nav className="design-nav" aria-label="Main navigation">
+
+      {/* NAV LINKS */}
       <div className={`design-nav-links ${menuOpen ? "open" : ""}`}>
-        <a
-          href="/"
-          onClick={(event) => handleSectionLink(event, "hero")}
-        >
+
+        <Link to="/" onClick={closeMenu}>
           HOME
-        </a>
+        </Link>
 
         <a
           href="/"
-          onClick={(event) => handleSectionLink(event, "about")}
+          onClick={(event) =>
+            handleSectionLink(event, "about")
+          }
         >
           ABOUT
         </a>
 
-      
-          <Link to="/services">SERVICES</Link>
-      
-          
-      
+        <Link to="/services" onClick={closeMenu}>
+          SERVICES
+        </Link>
 
-        <Link to="/portfolio">PORTFOLIO</Link>
+        <Link to="/portfolio" onClick={closeMenu}>
+          PORTFOLIO
+        </Link>
+
       </div>
 
+      {/* LOGO */}
       <Link
         to="/"
         className="design-logo"
         aria-label="Master Intech Solutions home"
-        onClick={() => setMenuOpen(false)}
+        onClick={closeMenu}
       >
-        <img src={logo} alt="Master Intech Solutions" />
+        <img
+          src={logo}
+          alt="Master Intech Solutions"
+        />
       </Link>
 
+      {/* ACTIONS */}
       <div className="design-nav-actions">
+
         <a
           className="hire"
           href="https://www.upwork.com/freelancers/~01e7473140f1676ff9"
@@ -64,20 +84,27 @@ export default function DesignNav({ menuOpen, setMenuOpen }) {
 
         <a
           href="/"
-          onClick={(event) => handleSectionLink(event, "contact")}
+          onClick={(event) =>
+            handleSectionLink(event, "contact")
+          }
         >
           CONTACT
         </a>
 
+        {/* HAMBURGER */}
         <button
+          type="button"
           className={`hamburger ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen((value) => !value)}
-          aria-label="Toggle navigation"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={
+            menuOpen ? "Close navigation" : "Open navigation"
+          }
           aria-expanded={menuOpen}
         >
-          <span />
-          <span />
+          <span></span>
+          <span></span>
         </button>
+
       </div>
     </nav>
   );
