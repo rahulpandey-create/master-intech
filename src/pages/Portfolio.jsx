@@ -1,6 +1,4 @@
 import { useMemo, useState } from "react";
-import DesignNav from "../components/home/designNav";
-import { Link } from "react-router-dom";
 
 const projects = [
   {

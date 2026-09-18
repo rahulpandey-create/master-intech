@@ -8,9 +8,9 @@ export default function Contact({ formData, loading, feedback, updateField, hand
 <section id="contact" className="contact-design" style={{ backgroundImage: `url(${heroBackground})` }}>
   <div className="section-shell contact-grid">
     <div className="contact-details" data-reveal>
-      <h2>LET&apos;S TALK</h2>
-      <p>Tell us about your project — whether it&apos;s<br />a website, SEO, or marketing.</p>
-      <div className="contact-rule" />
+      <h2>LET'S BUILD WHAT'S NEXT</h2>
+      <p>Tell us what you're building, what you're trying to improve, or where technology is holding your business back. Our team will help you identify the right path forward.</p>
+      {/* <div className="contact-rule" /> */}
       <div className="contact-line">
         <span className="contact-dot phone-dot"><img src={phone}></img> </span>
         <div><strong>Phone</strong><span>+91-98782 63393<br />+91-98068 85887</span></div>

@@ -48,7 +48,7 @@ export default function DesignNav() {
         </a>
 
         <Link to="/services" onClick={closeMenu}>
-          SERVICES
+          SOLUTIONS
         </Link>
 
         <Link to="/portfolio" onClick={closeMenu}>

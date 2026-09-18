@@ -30,10 +30,9 @@ export default function About() {
     </div>
 
     <div className="about-intro" data-reveal>
-      <p className="eyebrow">ABOUT ME</p>
-      <h2>WHAT WE DO</h2>
-      <p>Creative solutions. Digital experiences.
-<br></br>Designed to make an impact.</p>
+      <p className="eyebrow">What We Do</p>
+      <h2>Technology That Moves Your Business Forward</h2>
+      <p>AI-powered technology built to solve real business challenges.</p>
       <img src={aboutImage} alt="Developer working at a computer" />
     </div>
   </div>

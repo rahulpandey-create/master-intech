@@ -5,6 +5,7 @@ import facebook from "../../assets/facebook.svg";
 import whatsapp from "../../assets/whatsapp.svg";
 import instagram from "../../assets/instagram.svg";
 import linkedin from "../../assets/linkedin.svg";
+import WhatsAppButton from "../../components/home/WhatsAppButton"
 
 const services = [
   "Web Development",
@@ -52,6 +53,7 @@ export default function Footer() {
         <span>© 2026 Master Intech Solutions</span>
         <span>Registration No : 03AATFM8663C1ZO</span>
       </div>
+      <WhatsAppButton/>
     </footer>
   );
 }

@@ -98,16 +98,22 @@ export default function Hero({ menuOpen, setMenuOpen }) {
 
       <div className="hero-main">
         <p className="hero-pill hero-fade-in">Master Intech Solutions</p>
-
+        <div class="tech-line">
+          <span>AI</span>
+          <i>•</i>
+          <span>CLOUD</span>
+          <i>•</i>
+          <span>SOFTWARE</span>
+          <i>•</i>
+          <span>DIGITAL TRANSFORMATION</span>
+        </div>
         <h1 className="hero-title hero-fade-in hero-delay-1">
-          BUILD DIGITAL SOLUTIONS <br />
-          THAT DRIVE THE FUTURE
+          BUILDING INTELLIGENT DIGITAL <br />
+          SOLUTIONS FOR A FASTER FUTURE
         </h1>
 
         <p className="hero-copy hero-fade-in hero-delay-2">
-          We design and develop high-performance websites, intelligent
-          solutions, and digital experiences that help businesses grow and
-          succeed.
+          We help businesses transform ideas into scalable digital products with AI, automation, cloud, and modern software engineering.
         </p>
 
         <a
@@ -115,7 +121,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           href={currentPath}
           onClick={(event) => handleSectionLink(event, "contact")}
         >
-          LET&apos;S TALK{" "}
+          START A PROJECT{" "}
           <span>
             <img src={arrowbtn} alt="arrow" />
           </span>
@@ -123,27 +129,27 @@ export default function Hero({ menuOpen, setMenuOpen }) {
 
         <div className="connects block xl:hidden md:hidden mt-5">
           <h3>Connect With Us</h3>
-           <span className="socialmedialinks1">
-          <span>
-            <a href="https://www.upwork.com/freelancers/~01e7473140f1676ff9" target="_blank"><img src={upworks} alt="arrow" /></a>
+          <span className="socialmedialinks1">
+            <span>
+              <a href="https://www.upwork.com/freelancers/~01e7473140f1676ff9" target="_blank"><img src={upworks} alt="arrow" /></a>
+            </span>
+
+            <span>
+              <a href="https://www.peopleperhour.com/freelancer/technology-programming/vinit-kumar-full-stack-developer-ios-android-jwxzxz" target="_blank"><img src={people} alt="arrow" /></a>
+            </span>
+            <span>
+              <a href="https://www.truelancer.com/freelancer/vinitkumar1516" target="_blank"><img src={truelancer} alt="arrow" /></a>
+            </span>
+            <span>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@masterintechsolutions.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={gmail} alt="Gmail" />
+              </a>
+            </span>
           </span>
-          
-          <span>
-            <a href="https://www.peopleperhour.com/freelancer/technology-programming/vinit-kumar-full-stack-developer-ios-android-jwxzxz" target="_blank"><img src={people} alt="arrow" /></a>
-          </span>
-          <span>
-            <a href="https://www.truelancer.com/freelancer/vinitkumar1516" target="_blank"><img src={truelancer} alt="arrow" /></a>
-          </span>
-          <span>
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@masterintechsolutions.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={gmail} alt="Gmail" />
-            </a>
-          </span>
-        </span>
         </div>
       </div>
 

@@ -16,6 +16,7 @@
 }
 a.cyan-button.hero-fade-in.hero-delay-3.btnn {
     font-family: 'Inter';
+    width: 36%;
 }
 span {
     font-family: "Intel One Mono", monospace;
@@ -108,12 +109,13 @@ span.socialmedialinks1 img:hover {
   left: 98px;
 }
 
+
 .design-nav-actions {
   right: 98px;
   gap: 7px;
 }
 .design-nav a {
-    font: 600 16px/1 "Inter", sans-serif;
+    font-weight: 500;
     text-transform: uppercase;
     color: #fff;
     font-family: 'Intel One Mono';
@@ -145,13 +147,13 @@ span.socialmedialinks1 img:hover {
  {
     color: #0a0a0a;
     background: linear-gradient(45deg, #85fef6, #37c2fb);
-    padding: 10px 12px 8px 10px;
+      padding: 7px 12px 6px 10px;
     border-radius: 8px;
 }
 .design-nav-actions a {
     color: #0a0a0a !important;
     background: linear-gradient(45deg, #85fef6, #37c2fb);
-    padding: 10px 12px 8px 10px;
+        padding: 7px 12px 6px 10px;
     border-radius: 8px;
     font-family: 'Inter' !important;
 }
@@ -229,15 +231,122 @@ a.outline-button {
     font-weight: 700;
 }
 
+/* banner eyebrow */
+.tech-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-family: "Inclusive Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #ffffff;
+    position: relative;
+    bottom: 8px;
+}
+
+.tech-line span {
+  position: relative;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: techReveal 0.7s ease forwards;
+}
+
+/* Individual delays */
+.tech-line span:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+
+.tech-line span:nth-of-type(2) {
+  animation-delay: 0.25s;
+}
+
+.tech-line span:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+
+.tech-line span:nth-of-type(4) {
+  animation-delay: 0.55s;
+}
+
+.tech-line i {
+  font-style: normal;
+  color: #2ac9fb;
+  font-size: 18px;
+  opacity: 0;
+  animation: dotReveal 0.5s ease forwards;
+}
+
+.tech-line i:nth-of-type(1) {
+  animation-delay: 0.18s;
+}
+
+.tech-line i:nth-of-type(2) {
+  animation-delay: 0.33s;
+}
+
+.tech-line i:nth-of-type(3) {
+  animation-delay: 0.48s;
+}
+
+@keyframes techReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dotReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effect */
+.tech-line span {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+
+/* Mobile */
+@media (max-width: 600px) {
+  .tech-line {
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .tech-line i {
+    font-size: 14px;
+  }
+}
+/* banner eyebrow end*/
+
 .hero-title {
     margin: 0;
     font-weight: 400;
-    font-size: clamp(42px, 4.25vw, 42px);
-    letter-spacing: -0.7px;
+    font-size: clamp(32px, 4.25vw, 32px);
+    letter-spacing: 0.3px;
     text-transform: uppercase;
-    line-height: 80px;
+    line-height: 60px;
 }
-
 .hero-title-line {
   display: block;
   white-space: nowrap;
@@ -840,7 +949,7 @@ span.socialmedialinks1 {
 /* ABOUT */
 
 .about-design {
-  height: 612px;
+  height: auto;
   background: #121314;
 }
 
@@ -934,7 +1043,7 @@ span.socialmedialinks1 {
   color: #35c8ff;
 }
 .about-intro {
-  padding: 46px 0 0 26px;
+    padding: 2px 0 38px 26px;
 }
 
 .eyebrow {
@@ -945,9 +1054,8 @@ span.socialmedialinks1 {
 }
 
 .about-intro h2 {
-  margin: 5px 0 8px;
-  /* font-size: 46px; */
-  line-height: 1;
+    margin: 5px 0 8px;
+    line-height: 60px;
 }
 
 .about-intro > p:not(.eyebrow) {
@@ -1067,7 +1175,7 @@ h2.uniqeheading {
 
 .stats strong {
     display: block;
-    font-size: 28px;
+    font-size: 32px;
     background: linear-gradient(90deg, #fafcfc, #00a2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1075,11 +1183,12 @@ h2.uniqeheading {
 }
 
 .stats span {
-  display: block;
-  margin-top: 7px;
-  color: #D3D3D3;
-  font-size: 14px;
-  line-height: 1.35;
+    display: block;
+    margin-top: 7px;
+    color: #D3D3D3;
+    font-size: 14px;
+    line-height: 1.35;
+    font-family: 'Inclusive Sans';
 }
 
 .outline-button,
@@ -1191,19 +1300,19 @@ h2.uniqeheading {
 }
 
 .floating-people img:nth-child(1) {
-  left: 8%;
-  top: 37%;
+  left: 19%;
+  top: 27%;
   animation-delay: -0.6s;
 }
 
 .floating-people img:nth-child(2) {
-  left: 66%;
+  left: 79%;
   top: 4%;
   animation-delay: -1.2s;
 }
 
 .floating-people img:nth-child(3) {
-    left: 39%;
+    left: 44%;
     top: 43%;
     animation-delay: -1.8s;
 }
@@ -1215,7 +1324,7 @@ h2.uniqeheading {
 }
 
 .floating-people img:nth-child(5) {
-    left: 66%;
+    left: 73%;
     top: 69%;
     width: 72px;
     height: 72px;
@@ -1308,20 +1417,28 @@ a.review-button {
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  gap: 74px;
-  align-items: start;
-  
+    display: grid;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 74px;
+    align-items: start;
+    align-items: center;
 }
 
 .contact-details {
-  padding-top: 105px;
+  padding-top: 50px;
 }
 
 .contact-details h2 {
   font-size: 36px;
-  line-height: 1;
+  line-height: 60px;
+}
+.contact-line {
+    border: 1px solid #3a3b3d;
+    border-radius: 24px;
+    background: rgba(8, 9, 10, 0.13);
+    backdrop-filter: blur(8px);
+    padding: 18px 22px;
+    justify-content: center;
 }
 
 .contact-details > p {
@@ -1345,7 +1462,7 @@ a.review-button {
     display: grid;
     grid-template-columns: 42px 1fr 40px 1.35fr;
     gap: 9px;
-    margin-top: 17px;
+    margin-top: 34px;
     max-width: 675px;
 }
 
@@ -1525,30 +1642,30 @@ a.review-button {
 img.bord2 {
     border: 3px solid transparent;
     background: linear-gradient(#fff, #fff) padding-box, linear-gradient(181deg, #FFDB6E, #FFC107) border-box;
-    box-shadow: 0px 0px 53px #f9c426;
+    /* box-shadow: 0px 0px 53px #f9c426c7; */
 }
 img.bord3 {
     border: 3px solid transparent;
     background: linear-gradient(#fff, #fff) padding-box, linear-gradient(181deg, #00B2FF, #00B2FF) border-box;
-    box-shadow: 0px 0px 53px #85daffd6;
+    /* box-shadow: 0px 0px 53px #85daffd6; */
 
 }
 img.bord4 {
     border: 3px solid transparent;
     background: linear-gradient(#fff, #fff) padding-box, linear-gradient(181deg, #fff, #86FFF7) border-box;
-    box-shadow: 0px 0px 53px #89fff7a1;
+    /* box-shadow: 0px 0px 53px #89fff7a1; */
 }
 img.bord1 {
     border: 3px solid transparent;
     background: linear-gradient(#fff, #fff) padding-box, linear-gradient(
 181deg, #C291FF, #EF88FF) border-box;
-box-shadow: 0px 0px 53px #ef88ff;
+/* box-shadow: 0px 0px 53px #ef88ff; */
 }
 img.bord5 {
     border: 2px solid transparent;
     background: linear-gradient(#fff, #fff) padding-box, linear-gradient(
 181deg, #C291FF, #EF88FF) border-box;
-box-shadow: 0px 0px 53px #ef88ffa3;
+/* box-shadow: 0px 0px 53px #ef88ffa3; */
 }
 .footer-brand p {
     margin-top: 27px;
@@ -1786,14 +1903,17 @@ br {
     display: block;
 }
 .contact-details {
-    padding-top: 56px;
+    padding-top: 0px;
+}
+.section-shell.contact-grid {
+    align-items: center;
 }
 .contact-line {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 9px;
     margin-top: 17px;
-    max-width: 49%;
+    max-width: 100%;
+    grid-template-columns: 41px 1fr;
 }
 .outline-button, .review-button {
     display: flex !important;
@@ -2091,6 +2211,13 @@ a.review-button {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .contact-line.address {
+    margin-top: 14px;
+}
+  a.cyan-button.hero-fade-in.hero-delay-3.btnn {
+    font-family: 'Inter';
+    width: 64%;
+}
   .outline-button, .review-button {
     display: flex !important;
     width: 100% !important;
@@ -2197,9 +2324,13 @@ h2.master-intech {
     margin: 0px 0 17px;
 }
   .design-hero {
-    height: 572px;
+    height: 616px;
   }
 
+  .contact-details.is-visible {
+    margin: auto;
+    width: 94%;
+}
   .hero-stat-card {
     display: none;
   }
@@ -2414,7 +2545,7 @@ a.review-button {
   }
 
   .contact-details h2 {
-    font-size: 37px;
+    font-size: 32px;
   }
 
   .contact-line {
@@ -2440,7 +2571,8 @@ a.review-button {
   .message-card {
     padding: 30px 23px;
     min-height: 520px;
-    width: 100%;
+    width: 94%;
+    margin: auto;
   }
 
   .message-card h3 {
@@ -2572,6 +2704,13 @@ a.review-button {
   .platform-content {
     grid-template-columns: 1fr;
   }
+  .contact-line {
+    display: grid;
+    gap: 9px;
+    margin-top: 17px;
+    max-width: 100%;
+    grid-template-columns: 41px 1fr;
+}
 
   .platform-info h2 {
     font-size: 42px;
@@ -3938,14 +4077,12 @@ article.service-row.reverse {
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
-
 .service-impact p {
     margin: 8px 0 0;
-
-    color: #8493a6;
-
+    color: #b8babc;
     font-size: 13px;
     line-height: 1.7;
+    font-family: 'Inter';
 }
 
 /* VISUAL */
@@ -4149,7 +4286,7 @@ article.service-row.reverse {
 .services-cta {
     position: relative;
 
-    padding: 150px 0;
+    padding: 56px 0;
 
     text-align: center;
 
@@ -4236,15 +4373,17 @@ article.service-row.reverse {
 @media (max-width: 600px) {
 
     .services-container {
-        width: 90%;
-    }
+    width: 90%;
+    margin-top: 117px;
+    margin-bottom: 42px;
+}
 
     .services-hero {
-        min-height: 620px;
+        min-height: 448px;
     }
 
     .services-hero h1 {
-        font-size: 32px;
+        font-size: 28px;
         letter-spacing: 3px;
         line-height: normal;
     }
@@ -4252,6 +4391,7 @@ article.service-row.reverse {
     .services-hero p {
         font-size: 14px;
         line-height: 1.7;
+        display: none;
     }
 
     .services-hero-buttons {
@@ -4280,7 +4420,7 @@ article.service-row.reverse {
     }
 
     .service-features span {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .service-visual {
@@ -4324,7 +4464,7 @@ article.service-row.reverse {
     }
 
     .services-cta {
-        padding: 100px 0;
+        padding: 56px 0;
     }
 
     .services-cta h2 {
@@ -4334,3 +4474,627 @@ article.service-row.reverse {
     }
 }
 /* service page end */
+
+/* =====================================================
+   MASTER INTECH
+   TECHNOLOGY SECTION
+===================================================== */
+
+.mi-technology {
+  --mi-bg: #0d0e0f;
+  --mi-card: #121415;
+  --mi-card-hover: #171a1b;
+  --mi-border: #292d2f;
+  --mi-text: #f7f7f7;
+  --mi-muted: #858a8d;
+  --mi-cyan: #20c4f4;
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  padding: 140px 0;
+
+  background: var(--mi-bg);
+  color: var(--mi-text);
+
+  isolation: isolate;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.mi-technology-bg {
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0.25;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+}
+
+
+/* Cyan ambient glow */
+
+.mi-technology::before {
+  content: "";
+
+  position: absolute;
+
+  width: 550px;
+  height: 550px;
+
+  top: -280px;
+  right: -180px;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  border-radius: 50%;
+
+  background: rgba(32, 196, 244, 0.08);
+
+  filter: blur(120px);
+}
+
+
+/* Second glow */
+
+.mi-technology::after {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  bottom: -250px;
+  left: -180px;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  border-radius: 50%;
+
+  background: rgba(32, 196, 244, 0.045);
+
+  filter: blur(110px);
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.mi-technology-container {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(1200px, calc(100% - 80px));
+
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.mi-technology-header {
+  width: 100%;
+
+  max-width: 850px;
+
+  margin-bottom: 70px;
+}
+
+
+/* Eyebrow */
+
+.mi-technology-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 24px;
+
+  color: var(--mi-cyan);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+
+  line-height: 1;
+}
+
+.mi-technology-label span {
+  display: block;
+
+  width: 30px;
+
+  height: 1px;
+
+  background: var(--mi-cyan);
+}
+
+
+/* Heading */
+
+.mi-technology-header h2 {
+  margin: 0;
+
+  color: var(--mi-text);
+
+  font-size: clamp(44px, 6vw, 78px);
+
+  font-weight: 700;
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+}
+
+.mi-technology-header h2 strong {
+  color: var(--mi-cyan);
+
+  font-weight: 700;
+}
+
+
+/* Description */
+
+.mi-technology-header p {
+  max-width: 650px;
+
+  margin: 28px 0 0;
+
+  color: var(--mi-muted);
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   TECHNOLOGY GRID
+===================================================== */
+
+.mi-technology-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1px;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid var(--mi-border);
+
+  background: var(--mi-border);
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.mi-technology-card {
+  position: relative;
+
+  min-height: 360px;
+
+  overflow: hidden;
+
+  padding: 38px;
+
+  background: var(--mi-card);
+
+  transition:
+    background 0.4s ease,
+    transform 0.4s ease;
+}
+
+
+/* Card hover */
+
+.mi-technology-card:hover {
+  background: var(--mi-card-hover);
+}
+
+
+/* =====================================================
+   CARD TOP
+===================================================== */
+
+.mi-technology-card-head {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 65px;
+}
+
+
+/* Number */
+
+.mi-technology-number {
+  color: #5d6265;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+}
+
+
+/* Arrow */
+
+.mi-technology-arrow {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 42px;
+
+  height: 42px;
+
+  border: 1px solid #303538;
+
+  color: var(--mi-cyan);
+
+  font-size: 18px;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.mi-technology-card:hover .mi-technology-arrow {
+  border-color: var(--mi-cyan);
+
+  background: rgba(32, 196, 244, 0.06);
+
+  transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   CARD CONTENT
+===================================================== */
+
+.mi-technology-content {
+  position: relative;
+
+  z-index: 3;
+}
+
+.mi-technology-content h3 {
+  margin: 0;
+
+  color: var(--mi-text);
+
+  font-size: 28px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.8px;
+}
+
+.mi-technology-content p {
+  max-width: 480px;
+
+  margin: 14px 0 28px;
+
+  color: var(--mi-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   TAGS
+===================================================== */
+
+.mi-technology-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.mi-technology-tags span {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 9px 13px;
+
+  border: 1px solid #2b3032;
+
+  background: #17191a;
+
+  color: #aeb3b6;
+
+  font-size: 11px;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.mi-technology-tags span:hover {
+  border-color: var(--mi-cyan);
+
+  background: rgba(32, 196, 244, 0.05);
+
+  color: var(--mi-cyan);
+}
+
+
+/* =====================================================
+   CARD GLOW
+===================================================== */
+
+.mi-technology-glow {
+  position: absolute;
+
+  width: 220px;
+
+  height: 220px;
+
+  right: -120px;
+
+  bottom: -120px;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  border-radius: 50%;
+
+  background: rgba(32, 196, 244, 0.08);
+
+  filter: blur(60px);
+
+  transition:
+    width 0.5s ease,
+    height 0.5s ease,
+    background 0.5s ease;
+}
+
+.mi-technology-card:hover .mi-technology-glow {
+  width: 300px;
+
+  height: 300px;
+
+  background: rgba(32, 196, 244, 0.14);
+}
+
+
+/* =====================================================
+   BOTTOM TECHNOLOGY STRIP
+===================================================== */
+
+.mi-technology-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  margin-top: 65px;
+
+  color: #555a5d;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  text-align: center;
+}
+
+.mi-technology-bottom i {
+  display: block;
+
+  width: 4px;
+
+  height: 4px;
+
+  flex: 0 0 4px;
+
+  border-radius: 50%;
+
+  background: var(--mi-cyan);
+}
+
+
+/* =====================================================
+   IMPORTANT - REVEAL COMPATIBILITY
+===================================================== */
+
+/*
+   Home.jsx mein IntersectionObserver
+   [data-reveal] elements ko handle karta hai.
+
+   Technology section ko intentionally
+   data-reveal ki zarurat nahi hai.
+*/
+
+.mi-technology,
+.mi-technology * {
+  visibility: visible;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .mi-technology {
+    padding: 110px 0;
+  }
+
+  .mi-technology-container {
+    width: min(100% - 50px, 1200px);
+  }
+
+  .mi-technology-header {
+    margin-bottom: 50px;
+  }
+
+  .mi-technology-card {
+    min-height: 330px;
+
+    padding: 30px;
+  }
+
+  .mi-technology-card-head {
+    margin-bottom: 45px;
+  }
+
+  .mi-technology-content h3 {
+    font-size: 25px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+  .mi-technology {
+    padding: 80px 0;
+  }
+
+  .mi-technology-container {
+    width: calc(100% - 36px);
+  }
+
+
+  /* Header */
+
+  .mi-technology-header {
+    margin-bottom: 40px;
+  }
+
+  .mi-technology-label {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .mi-technology-header h2 {
+    font-size: 42px;
+
+    letter-spacing: -2px;
+
+    line-height: 0.98;
+  }
+
+  .mi-technology-header p {
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+  }
+
+
+  /* Cards */
+
+  .mi-technology-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mi-technology-card {
+    min-height: auto;
+
+    padding: 28px;
+  }
+
+  .mi-technology-card-head {
+    margin-bottom: 45px;
+  }
+
+  .mi-technology-content h3 {
+    font-size: 24px;
+  }
+
+  .mi-technology-content p {
+    font-size: 13px;
+  }
+
+
+  /* Bottom */
+
+  .mi-technology-bottom {
+    gap: 10px;
+
+    margin-top: 40px;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .mi-technology-bottom i {
+    display: none;
+  }
+}

@@ -5,9 +5,10 @@ import Expertise from "../components/home/Expertise";
 import About from "../components/home/About";
 import Award from "../components/home/Award";
 import Brands from "../components/home/Brands";
+// import Technology from "../components/home/Technology";
 import Feedback from "../components/home/Feedback";
 import Contact from "../components/home/Contact";
-import WhatsAppButton from "../components/home/WhatsAppButton";
+
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,10 +60,11 @@ function Home() {
       <About />
       <Award />
       <Brands />
+      {/* <Technology/> */}
       <Feedback />
       <Contact formData={formData} loading={loading} feedback={feedback} updateField={updateField} handleSubmit={handleSubmit} />
       
-      <WhatsAppButton />
+      
     </main>
   );
 }

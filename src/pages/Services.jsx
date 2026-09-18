@@ -9,7 +9,7 @@ const services = [
     title: (
       <>
         AI & Intelligent
-        Automation
+         Automation
       </>
     ),
     description:
@@ -28,6 +28,7 @@ const services = [
     label: "INTELLIGENCE",
     reverse: false,
   },
+
   {
     number: "02",
     tag: "PORTALS • DASHBOARDS • BUSINESS SYSTEMS",
@@ -53,13 +54,14 @@ const services = [
     label: "ENGINEERING",
     reverse: true,
   },
+
   {
     number: "03",
     tag: "WEB • APPS • DIGITAL",
     title: (
       <>
         Web & Application
-        <span> Development</span>
+        Development
       </>
     ),
     description:
@@ -78,58 +80,8 @@ const services = [
     label: "DIGITAL",
     reverse: false,
   },
-  {
+   {
     number: "04",
-    tag: "CLOUD • DEVOPS • INFRASTRUCTURE",
-    title: (
-      <>
-        Cloud &
-        DevOps
-      </>
-    ),
-    description:
-      "Modernize infrastructure, optimize cloud environments, and build reliable deployment pipelines for faster and more resilient operations.",
-    features: [
-      "Cloud Migration",
-      "Cloud Architecture",
-      "AWS / Azure / GCP",
-      "CI/CD Pipelines",
-      "Infrastructure Automation",
-      "Monitoring",
-    ],
-    impact:
-      "Improve scalability, deployment speed, reliability, and infrastructure efficiency.",
-    icon: "ri-cloud-line",
-    label: "INFRASTRUCTURE",
-    reverse: true,
-  },
-  {
-    number: "05",
-    tag: "SECURITY • RISK • PROTECTION",
-    title: (
-      <>
-        Cyber
-        Security
-      </>
-    ),
-    description:
-      "Strengthen your digital environment with security-focused architecture, monitoring, risk management, and proactive protection.",
-    features: [
-      "Security Assessment",
-      "Vulnerability Management",
-      "Application Security",
-      "Network Security",
-      "Identity & Access",
-      "Risk & Compliance",
-    ],
-    impact:
-      "Identify vulnerabilities earlier, protect critical systems, and build security into your technology foundation.",
-    icon: "ri-shield-check-line",
-    label: "PROTECTION",
-    reverse: false,
-  },
-  {
-    number: "06",
     tag: "UX • UI • PRODUCT",
     title: (
       <>
@@ -153,167 +105,378 @@ const services = [
     label: "EXPERIENCE",
     reverse: true,
   },
+
+  // ==============================
+  // 04 DIGITAL MARKETING
+  // ==============================
+  {
+    number: "05",
+    tag: "SEO • SOCIAL MEDIA • PERFORMANCE",
+    title: (
+      <>
+        Digital
+        Marketing
+      </>
+    ),
+    description:
+      "Build a stronger digital presence with data-driven marketing strategies that attract the right audience, increase visibility, and turn traffic into measurable business growth.",
+    features: [
+      "Search Engine Optimization",
+      "Social Media Marketing",
+      "Google & Meta Ads",
+      "Content Marketing",
+      "Lead Generation",
+      "Analytics & Reporting",
+    ],
+    impact:
+      "Increase online visibility, reach high-intent customers, generate qualified leads, and improve marketing performance with measurable campaigns.",
+    icon: "ri-megaphone-line",
+    label: "GROWTH",
+    noRowClass: true,
+  },
+
+  {
+    number: "06",
+    tag: "SECURITY • RISK • PROTECTION",
+    title: (
+      <>
+        Cyber
+        Security
+      </>
+    ),
+    description:
+      "Strengthen your digital environment with security-focused architecture, monitoring, risk management, and proactive protection.",
+    features: [
+      "Security Assessment",
+      "Vulnerability Management",
+      "Application Security",
+      "Network Security",
+      "Identity & Access",
+      "Risk & Compliance",
+    ],
+    impact:
+      "Identify vulnerabilities earlier, protect critical systems, and build security into your technology foundation.",
+    icon: "ri-shield-check-line",
+    label: "PROTECTION",
+    reverse: true,
+  },
+
+ 
 ];
+
+
+// ==========================================
+// SERVICE VISUAL
+// ==========================================
 
 function ServiceVisual({ icon, label }) {
   return (
     <div className="service-visual">
+
       <div className="service-icon-box">
         <i className={icon}></i>
       </div>
 
-      <span className="service-icon-label">{label}</span>
+      <span className="service-icon-label">
+        {label}
+      </span>
 
       <span className="service-icon-dot service-icon-dot-1"></span>
       <span className="service-icon-dot service-icon-dot-2"></span>
       <span className="service-icon-dot service-icon-dot-3"></span>
+
     </div>
   );
 }
 
+
+// ==========================================
+// SERVICE ROW
+// ==========================================
+
 function ServiceRow({ service }) {
   return (
-    <article className={`service-row ${service.reverse ? "reverse" : ""}`}>
+    <article
+      className={`service-row ${
+        service.reverse ? "reverse" : ""
+      }`}
+    >
+
       <div className="service-content">
-        <div className="service-number">{service.number}</div>
 
-        <div className="service-tag">{service.tag}</div>
+        <div className="service-number">
+          {service.number}
+        </div>
 
-        <h2>{service.title}</h2>
+        <div className="service-tag">
+          {service.tag}
+        </div>
 
-        <p className="service-description">{service.description}</p>
+        <h2>
+          {service.title}
+        </h2>
+
+        <p className="service-description">
+          {service.description}
+        </p>
 
         <div className="service-features">
           {service.features.map((feature) => (
-            <span key={feature}>{feature}</span>
+            <span key={feature}>
+              {feature}
+            </span>
           ))}
         </div>
 
         <div className="service-impact">
-          <strong>Business Impact</strong>
 
-          <p>{service.impact}</p>
+          <strong>
+            Business Impact
+          </strong>
+
+          <p>
+            {service.impact}
+          </p>
+
         </div>
+
       </div>
+
 
       <ServiceVisual
         icon={service.icon}
         label={service.label}
       />
+
     </article>
   );
 }
 
+
+// ==========================================
+// SERVICES PAGE
+// ==========================================
+
 export default function Services() {
+
   const [menuOpen, setMenuOpen] = useState(false);
 
+
+  // ========================================
+  // LOCAL SMOOTH SCROLL
+  // ========================================
+
   const handleLocalLink = (event, sectionId) => {
+
     event.preventDefault();
 
-    document.getElementById(sectionId)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    document
+      .getElementById(sectionId)
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
   };
+
 
   return (
     <section className="services-page">
+
+      {/* =====================================
+          NAVIGATION
+      ====================================== */}
+
       <DesignNav
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
       />
 
-      {/* HERO */}
+
+      {/* =====================================
+          HERO
+      ====================================== */}
+
       <div className="services-hero">
+
         <div className="services-hero-grid"></div>
 
         <div className="services-glow services-glow-1"></div>
+
         <div className="services-glow services-glow-2"></div>
 
+
         <div className="services-container">
+
+          {/* EYEBROW */}
+
           <div className="services-eyebrow">
+
             <span></span>
+
             OUR SERVICES
+
           </div>
+
+
+          {/* HEADING */}
 
           <h1>
             Technology That
+           
             Moves Your Business
+            
             Forward
           </h1>
 
+
+          {/* DESCRIPTION */}
+
           <p>
-            From AI-powered automation to scalable software, cloud
-            infrastructure, cybersecurity, and digital experiences — we build
-            technology solutions designed around your business.
+            From AI-powered automation to scalable software,
+            digital marketing, cybersecurity, and digital
+            experiences — we build technology solutions
+            designed around your business.
           </p>
 
+
+          {/* BUTTONS */}
+
           <div className="services-hero-buttons">
+
+            {/* PRIMARY */}
+
             <a
               href="/"
               className="service-btn service-btn-primary"
-              onClick={(event) => handleLocalLink(event, "contact")}
+              onClick={(event) =>
+                handleLocalLink(event, "contact")
+              }
             >
+
               Let's Build Together
+
               <span>
-                <img src={arrowbtn} alt="" />
+
+                <img
+                  src={arrowbtn}
+                  alt=""
+                />
+
               </span>
+
             </a>
+
+
+            {/* SECONDARY */}
 
             <a
               href="/"
               className="service-btn service-btn-outline"
               onClick={(event) =>
-                handleLocalLink(event, "services-list")
+                handleLocalLink(
+                  event,
+                  "services-list"
+                )
               }
             >
+
               Explore Services
+
             </a>
+
           </div>
+
         </div>
+
       </div>
 
-      {/* SERVICES */}
-      <div className="services-list" id="services-list">
+
+      {/* =====================================
+          SERVICES LIST
+      ====================================== */}
+
+      <div
+        className="services-list"
+        id="services-list"
+      >
+
         {services.map((service) => (
+
           <ServiceRow
             key={service.number}
             service={service}
           />
+
         ))}
+
       </div>
 
-      {/* CTA */}
-      <section className="services-cta" id="contact">
+
+      {/* =====================================
+          CTA SECTION
+      ====================================== */}
+
+      <section
+        className="services-cta"
+        id="contact"
+      >
+
         <div className="cta-glow"></div>
 
+
         <div className="services-container">
+
           <div className="cta-content">
+
+            {/* EYEBROW */}
+
             <div className="services-eyebrow">
+
               <span></span>
+
               LET&apos;S WORK TOGETHER
+
             </div>
+
+
+            {/* CTA HEADING */}
 
             <h2>
               Have a Technology
+              <br />
               Challenge?
             </h2>
 
+
+            {/* CTA DESCRIPTION */}
+
             <p>
-              Let's turn your ideas, processes, and challenges into scalable
-              digital solutions.
+              Let's turn your ideas, processes, and
+              challenges into scalable digital solutions.
             </p>
+
+
+            {/* CTA BUTTON */}
 
             <a
               href="/"
               className="service-btn service-btn-primary"
-              onClick={(event) => handleLocalLink(event, "contact")}
+              onClick={(event) =>
+                handleLocalLink(event, "contact")
+              }
             >
+
               Start a Conversation
+
             </a>
+
           </div>
+
         </div>
+
       </section>
+
     </section>
   );
 }
