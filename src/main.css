@@ -3814,7 +3814,7 @@ label.service-field img {
 .whatsapp-float {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 95px;
   z-index: 9999;
   width: 56px;
   height: 56px;
@@ -6113,7 +6113,140 @@ color: #ffffff;
     font-size: 82px;
     letter-spacing: 2px;
 } 
-
-
-
 /* end portfolio */
+
+/* Back to Top Button Layout and Styling */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 1000;
+  padding: 12px 18px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  
+  /* Smooth entry animation properties */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.2s ease;
+}
+
+/* Hover State */
+.back-to-top-btn:hover {
+  background-color: #222222;
+}
+
+/* Active Visible State */
+.back-to-top-btn.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+/* back to top Button end */
+
+/* contact us popup start */
+/* Dark blurred background overlay */
+.contact-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Keeps it on top of everything including the nav and buttons */
+  
+  /* Hidden states for smooth fade */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Active open state */
+.contact-popup-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* The Popup Card Container */
+.contact-popup-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  
+  /* Slide down entry animation */
+  transform: translateY(-20px);
+  transition: transform 0.4s ease;
+}
+
+.contact-popup-overlay.active .contact-popup-box {
+  transform: translateY(0);
+}
+
+/* Close Window 'X' Button */
+.popup-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666666;
+}
+.popup-close-btn:hover {
+  color: #000000;
+}
+
+/* Content Elements */
+.contact-popup-box h3 {
+  margin: 0 0 10px 0;
+  font-family: sans-serif;
+  color: #111111;
+  font-size: 22px;
+}
+
+.contact-popup-box p {
+  margin: 0 0 24px 0;
+  font-family: sans-serif;
+  color: #555555;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Green WhatsApp Action Button */
+.popup-cta-btn {
+  background-color: #25D366; /* Official WhatsApp Green */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0px 4px 12px rgba(37, 211, 102, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.popup-cta-btn:hover {
+  background-color: #1ebd58;
+  transform: scale(1.02);
+}
+/* contact us popup end */

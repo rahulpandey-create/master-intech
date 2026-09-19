@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react"; // Added useRef
 import Lenis from "lenis";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -9,8 +9,11 @@ import Services from "./pages/Services";
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
 
+const WHATSAPP_LINK = "https://wa.me/919878263393";
+
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const lenisRef = useRef(null); // Ref to hold the Lenis instance
 
   useEffect(() => {
     // ==========================================
@@ -23,6 +26,8 @@ function App() {
       syncTouch: true,
     });
 
+    lenisRef.current = lenis; // Assign instance to ref
+
     let animationFrame;
 
     function raf(time) {
@@ -33,14 +38,14 @@ function App() {
     animationFrame = requestAnimationFrame(raf);
 
     // ==========================================
-    // 2. SCROLL LISTENER
+    // 2. SCROLL LISTENER (UPDATED FOR LENIS)
     // ==========================================
 
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 500);
+    const handleScroll = (e) => {
+      setShowBackToTop(e.scroll > 500); // Tracks scroll position from Lenis event
     };
 
-    window.addEventListener("scroll", handleScroll);
+    lenis.on("scroll", handleScroll); // Listen to Lenis instead of window
 
     // ==========================================
     // 3. CONTENT PROTECTION
@@ -80,7 +85,7 @@ function App() {
     // ==========================================
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      lenis.off("scroll", handleScroll); // Clean up Lenis listener
 
       document.removeEventListener(
         "contextmenu",
@@ -104,8 +109,45 @@ function App() {
 
       cancelAnimationFrame(animationFrame);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  // ==========================================
+  // SCROLL TO TOP HANDLER
+  // ==========================================
+  const handleScrollToTop = () => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, {
+        // 1. CONTROL SCROLL SPEED. 
+        duration: 2.5, 
+
+        // 2. CONTROL TOP ANIMATION (SLOW EASE-OUT):
+        easing: (t) => 1 - Math.pow(1 - t, 5) // This creates a slow ease-out effect increase the last number to make it slower, decrease to make it faster
+      });
+    }
+  };
+
+  const [showPopup, setShowPopup] = useState(false);
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowPopup(true);
+  }, 6000); // 6000 milliseconds = 6 seconds
+
+  return () => clearTimeout(timer); // Clean up the timer if the user leaves the page early
+}, []);
+
+// 3. Add this handler function to link the popup to your existing WhatsApp button
+const handlePopupWhatsAppClick = () => {
+  setShowPopup(false); // Hide the popup
+  
+  // Find your existing WhatsApp button and trigger its click event
+  // Replace '.whatsapp-btn-class' with the actual class name, ID, or tag of your working button
+  const existingWhatsAppBtn = document.querySelector(`a[href="${WHATSAPP_LINK}"]`);
+  if (existingWhatsAppBtn) {
+    existingWhatsAppBtn.click();
+  }
+};
 
   return (
     <Router>
@@ -118,6 +160,29 @@ function App() {
       </Routes>
 
       <Footer />
+
+      {/* Unstyled button toggled by the conditional state */}
+      <button
+        onClick={handleScrollToTop}
+        className={`back-to-top-btn ${showBackToTop ? "visible" : ""}`}
+      >
+        ↑ Back to Top
+      </button>
+
+      {/* ==========================================
+    WHATSAPP CONTACT US POPUP
+   ========================================== */}
+<div className={`contact-popup-overlay ${showPopup ? "active" : ""}`}>
+  <div className="contact-popup-box">
+    <button className="popup-close-btn" onClick={() => setShowPopup(false)}>×</button>
+    <h3>Have any questions?</h3>
+    <p>Chat with us live on WhatsApp for instant assistance!</p>
+    <button className="popup-cta-btn" onClick={handlePopupWhatsAppClick}>
+      Chat on WhatsApp
+    </button>
+  </div>
+</div>
+
     </Router>
   );
 }

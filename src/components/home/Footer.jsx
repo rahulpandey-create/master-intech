@@ -53,6 +53,7 @@ export default function Footer() {
         <span>© 2026 Master Intech Solutions</span>
         <span>Registration No : 03AATFM8663C1ZO</span>
       </div>
+      
       <WhatsAppButton/>
     </footer>
   );
