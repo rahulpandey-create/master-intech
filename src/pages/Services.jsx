@@ -1,6 +1,6 @@
 import { useState } from "react";
 import arrowbtn from "../assets/arrowbtn.svg";
-import DesignNav from "../components/home/designNav";
+
 
 const services = [
   {
@@ -287,10 +287,10 @@ export default function Services() {
           NAVIGATION
       ====================================== */}
 
-      <DesignNav
+      {/* <DesignNav
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
-      />
+      /> */}
 
 
       {/* =====================================

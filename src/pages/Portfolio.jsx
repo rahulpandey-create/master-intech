@@ -1,25 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { submitEnquiry } from "../services/api";
-import DesignNav from "../components/home/designNav";
+import arrowbtn from "../assets/arrowbtn.svg";
+import ellebeline from "../assets/ellebeline.png";
+import nusi from "../assets/nusi.png";
+import enigmanova from "../assets/enigmanova.png";
+
 import Contact from "../components/home/Contact";
 
 const projectGroups = [
   {
-    id: "ui",
+    id: "CMS",
     number: "01",
-    title: "UI/UX Design",
+    title: "CMS",
     projects: [
       {
-        image: "https://picsum.photos/id/1015/1400/875",
-        label: "UI/UX — Project 01",
+        image: ellebeline,
+        label: "Ellebeline — CMS",
       },
       {
-        image: "https://picsum.photos/id/1016/1400/875",
-        label: "UI/UX — Project 02",
+        image: nusi,
+        label: "Jonathan Holmes — CMS",
       },
       {
-        image: "https://picsum.photos/id/1018/1400/875",
-        label: "UI/UX — Project 03",
+        image: enigmanova,
+        label: "enigmanova — CMS",
       },
       {
         image: "https://picsum.photos/id/1020/1400/875",
@@ -27,6 +31,7 @@ const projectGroups = [
       },
     ],
   },
+
   {
     id: "logo",
     number: "02",
@@ -50,6 +55,7 @@ const projectGroups = [
       },
     ],
   },
+
   {
     id: "banner",
     number: "03",
@@ -73,6 +79,7 @@ const projectGroups = [
       },
     ],
   },
+
   {
     id: "poster",
     number: "04",
@@ -102,7 +109,6 @@ export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("ui");
 
   const [contactOpen, setContactOpen] = useState(false);
-  const [contactClosing, setContactClosing] = useState(false);
 
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -121,12 +127,16 @@ export default function Portfolio() {
 
   const groupRefs = useRef([]);
 
-  /* ========================================================
-     ACTIVE CATEGORY
-     ======================================================== */
+  /*
+   * ========================================================
+   * ACTIVE CATEGORY
+   * ========================================================
+   */
 
   useEffect(() => {
     const sections = groupRefs.current.filter(Boolean);
+
+    if (!sections.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -154,14 +164,20 @@ export default function Portfolio() {
       }
     );
 
-    sections.forEach((section) => observer.observe(section));
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
-  /* ========================================================
-     CATEGORY CLICK
-     ======================================================== */
+  /*
+   * ========================================================
+   * CATEGORY CLICK
+   * ========================================================
+   */
 
   const handleCategoryClick = (category) => {
     const section = document.querySelector(
@@ -173,12 +189,37 @@ export default function Portfolio() {
         behavior: "smooth",
         block: "start",
       });
+
+      setActiveCategory(category);
     }
   };
 
-  /* ========================================================
-     FORM
-     ======================================================== */
+  /*
+   * ========================================================
+   * LOCAL LINK
+   * ========================================================
+   */
+
+  const handleLocalLink = (event, target) => {
+    event.preventDefault();
+
+    if (target === "contact") {
+      const contactSection = document.getElementById("contact");
+
+      if (contactSection) {
+        contactSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  };
+
+  /*
+   * ========================================================
+   * FORM
+   * ========================================================
+   */
 
   const updateField = (event) => {
     const { name, value } = event.target;
@@ -203,7 +244,9 @@ export default function Portfolio() {
       const data = await submitEnquiry(formData);
 
       setFeedback({
-        success: data.message,
+        success:
+          data?.message ||
+          "Your enquiry has been submitted successfully.",
         error: "",
       });
 
@@ -216,7 +259,7 @@ export default function Portfolio() {
       setFeedback({
         success: "",
         error:
-          error.message ||
+          error?.message ||
           "Something went wrong. Please try again.",
       });
     } finally {
@@ -224,9 +267,11 @@ export default function Portfolio() {
     }
   };
 
-  /* ========================================================
-     OPEN CONTACT
-     ======================================================== */
+  /*
+   * ========================================================
+   * OPEN CONTACT
+   * ========================================================
+   */
 
   const openContact = (project) => {
     setSelectedProject(project);
@@ -235,9 +280,11 @@ export default function Portfolio() {
     document.body.style.overflow = "hidden";
   };
 
-  /* ========================================================
-     CLOSE CONTACT
-     ======================================================== */
+  /*
+   * ========================================================
+   * CLOSE CONTACT
+   * ========================================================
+   */
 
   const closeContact = () => {
     setContactOpen(false);
@@ -246,11 +293,11 @@ export default function Portfolio() {
     document.body.style.overflow = "";
   };
 
-
-
-  /* ========================================================
-     CLICK OUTSIDE
-     ======================================================== */
+  /*
+   * ========================================================
+   * CLICK OUTSIDE
+   * ========================================================
+   */
 
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -258,9 +305,11 @@ export default function Portfolio() {
     }
   };
 
-  /* ========================================================
-     ESC KEY
-     ======================================================== */
+  /*
+   * ========================================================
+   * ESC KEY
+   * ========================================================
+   */
 
   useEffect(() => {
     if (!contactOpen) return;
@@ -278,9 +327,11 @@ export default function Portfolio() {
     };
   }, [contactOpen]);
 
-  /* ========================================================
-     CLEANUP
-     ======================================================== */
+  /*
+   * ========================================================
+   * CLEANUP
+   * ========================================================
+   */
 
   useEffect(() => {
     return () => {
@@ -288,24 +339,61 @@ export default function Portfolio() {
     };
   }, []);
 
+  /*
+   * ========================================================
+   * RENDER
+   * ========================================================
+   */
+
   return (
     <main className="portfolio-project-page">
-
-      <DesignNav />
 
       {/* =====================================================
           HERO
       ===================================================== */}
 
       <section className="portfolio-project-hero">
+
         <div className="portfolio-project-hero-content">
-          <h1>MY WORK</h1>
+
+          <h1>MY PORTFOLIO</h1>
 
           <p>
             A collection of selected creative work across UI/UX,
             branding, banners and visual design.
           </p>
+
+          <div className="buttonlets">
+
+            <div className="buttonletss">
+
+              <a
+                href="/"
+                className="service-btn service-btn-primary"
+                onClick={(event) =>
+                  handleLocalLink(event, "contact")
+                }
+              >
+                Let's Build Together
+
+                <span>
+                  <img
+                    src={arrowbtn}
+                    alt=""
+                  />
+                </span>
+              </a>
+
+            </div>
+
+          </div>
+
+          <div className="services-glow services-glow-1"></div>
+
+          <div className="services-glow services-glow-2"></div>
+
         </div>
+
       </section>
 
       {/* =====================================================
@@ -315,19 +403,23 @@ export default function Portfolio() {
       <section className="projects-section">
 
         <aside className="projects-sidebar">
+
           <div className="projects-categories">
+
             {projectGroups.map((group) => (
               <button
                 key={group.id}
                 type="button"
-                className={`project-category ${activeCategory === group.id
-                  ? "active"
-                  : ""
-                  }`}
+                className={`project-category ${
+                  activeCategory === group.id
+                    ? "active"
+                    : ""
+                }`}
                 onClick={() =>
                   handleCategoryClick(group.id)
                 }
               >
+
                 <span className="category-number">
                   {group.number}
                 </span>
@@ -335,12 +427,16 @@ export default function Portfolio() {
                 <span className="category-title">
                   {group.title}
                 </span>
+
               </button>
             ))}
+
           </div>
+
         </aside>
 
         <div className="projects-content">
+
           {projectGroups.map((group, groupIndex) => (
             <section
               key={group.id}
@@ -350,18 +446,25 @@ export default function Portfolio() {
               className="project-group"
               data-category={group.id}
             >
+
               <div className="project-grid">
+
                 {group.projects.map((project, index) => (
                   <article
                     className="project-card"
                     key={`${group.id}-${index}`}
                   >
+
                     <div className="project-image">
+
                       <img
                         src={project.image}
-                        alt={`${group.title} project ${index + 1
-                          }`}
+                        alt={`${group.title} project ${
+                          index + 1
+                        }`}
+                        loading="lazy"
                       />
+
                     </div>
 
                     <button
@@ -371,17 +474,24 @@ export default function Portfolio() {
                         openContact(project)
                       }
                     >
-                      <h4>{project.label}</h4>
+
+                      <h4>
+                        {project.label}
+                      </h4>
+
                     </button>
+
                   </article>
                 ))}
+
               </div>
+
             </section>
           ))}
+
         </div>
 
       </section>
-
 
       {/* =====================================================
           CONTACT POPUP
@@ -392,7 +502,13 @@ export default function Portfolio() {
           className="portfolio-contact-overlay"
           onMouseDown={handleOverlayClick}
         >
-          <div className="portfolio-contact-modal">
+
+          <div
+            className="portfolio-contact-modal"
+            onMouseDown={(event) =>
+              event.stopPropagation()
+            }
+          >
 
             <button
               type="button"
@@ -409,9 +525,11 @@ export default function Portfolio() {
               feedback={feedback}
               updateField={updateField}
               handleSubmit={handleSubmit}
+              selectedProject={selectedProject}
             />
 
           </div>
+
         </div>
       )}
 

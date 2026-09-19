@@ -97,7 +97,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
       </div>
 
       <div className="hero-main">
-        <p className="hero-pill hero-fade-in">Master Intech Solutions</p>
+        {/* <p className="hero-pill hero-fade-in">Master Intech Solutions</p> */}
         <div class="tech-line">
           <span>AI</span>
           <i>•</i>
