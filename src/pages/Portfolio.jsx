@@ -4,6 +4,7 @@ import arrowbtn from "../assets/arrowbtn.svg";
 import ellebeline from "../assets/ellebeline.png";
 import nusi from "../assets/nusi.png";
 import enigmanova from "../assets/enigmanova.png";
+import tasarden from "../assets/tasarden.png";
 
 import Contact from "../components/home/Contact";
 
@@ -26,8 +27,8 @@ const projectGroups = [
         label: "enigmanova — CMS",
       },
       {
-        image: "https://picsum.photos/id/1020/1400/875",
-        label: "UI/UX — Project 04",
+        image: tasarden,
+        label: "tasarden — CMS",
       },
     ],
   },

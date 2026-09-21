@@ -8,7 +8,7 @@ import Services from "./pages/Services";
 
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
-
+import question from "./assets/question.gif"
 const WHATSAPP_LINK = "https://wa.me/919878263393";
 
 function App() {
@@ -175,10 +175,11 @@ const handlePopupWhatsAppClick = () => {
 <div className={`contact-popup-overlay ${showPopup ? "active" : ""}`}>
   <div className="contact-popup-box">
     <button className="popup-close-btn" onClick={() => setShowPopup(false)}>×</button>
+    <img src={question} alt=""></img>
     <h3>Have any questions?</h3>
     <p>Chat with us live on WhatsApp for instant assistance!</p>
     <button className="popup-cta-btn" onClick={handlePopupWhatsAppClick}>
-      Chat on WhatsApp
+      Talk to Our Experts
     </button>
   </div>
 </div>
