@@ -5,7 +5,6 @@ import ellebeline from "../assets/ellebeline.png";
 import nusi from "../assets/nusi.png";
 import enigmanova from "../assets/enigmanova.png";
 import tasarden from "../assets/tasarden.png";
-
 import Contact from "../components/home/Contact";
 
 const projectGroups = [
@@ -104,10 +103,13 @@ const projectGroups = [
       },
     ],
   },
+
 ];
 
 export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState("ui");
+  const [activeCategory, setActiveCategory] = useState("CMS");
+  
+  
 
   const [contactOpen, setContactOpen] = useState(false);
 
@@ -357,14 +359,14 @@ export default function Portfolio() {
 
         <div className="portfolio-project-hero-content">
 
-          <h1>MY PORTFOLIO</h1>
+          <h1 data-reveal>PORTFOLIO</h1>
 
-          <p>
+          <p data-reveal>
             A collection of selected creative work across UI/UX,
             branding, banners and visual design.
           </p>
 
-          <div className="buttonlets">
+          <div className="buttonlets" data-reveal>
 
             <div className="buttonletss">
 
@@ -411,11 +413,10 @@ export default function Portfolio() {
               <button
                 key={group.id}
                 type="button"
-                className={`project-category ${
-                  activeCategory === group.id
-                    ? "active"
-                    : ""
-                }`}
+                className={`project-category ${activeCategory === group.id
+                  ? "active"
+                  : ""
+                  }`}
                 onClick={() =>
                   handleCategoryClick(group.id)
                 }
@@ -454,34 +455,36 @@ export default function Portfolio() {
                   <article
                     className="project-card"
                     key={`${group.id}-${index}`}
+                    data-reveal
                   >
 
                     <div className="project-image">
 
                       <img
                         src={project.image}
-                        alt={`${group.title} project ${
-                          index + 1
-                        }`}
+                        alt={`${group.title} project ${index + 1
+                          }`}
                         loading="lazy"
                       />
 
                     </div>
 
-                    <button
-                      type="button"
-                      className="project-info"
-                      onClick={() =>
-                        openContact(project)
-                      }
-                    >
+                    <div className="project-actions">
 
-                      <h4>
-                        {project.label}
-                      </h4>
+                      <div className="project-info">
+                        <h4>{project.label}</h4>
+                      </div>
 
-                    </button>
+                      <button
+                        type="button"
+                        className="project-contact-cta"
+                        onClick={() => openContact(project)}
+                      >
+                        Let's Talk
+                        <span>↗</span>
+                      </button>
 
+                    </div>
                   </article>
                 ))}
 

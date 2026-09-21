@@ -7,7 +7,7 @@ export default function Contact({ formData, loading, feedback, updateField, hand
   return (
 <section id="contact" className="contact-design" style={{ backgroundImage: `url(${heroBackground})` }}>
   <div className="section-shell contact-grid">
-    <div className="contact-details" data-reveal>
+    <div className="contact-details">
       <h2>LET'S BUILD WHAT'S NEXT</h2>
       <p>Tell us what you're building, what you're trying to improve, or where technology is holding your business back. Our team will help you identify the right path forward.</p>
       {/* <div className="contact-rule" /> */}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import arrowbtn from "../assets/arrowbtn.svg";
 
 
@@ -9,7 +9,7 @@ const services = [
     title: (
       <>
         AI & Intelligent
-         Automation
+        Automation
       </>
     ),
     description:
@@ -80,7 +80,7 @@ const services = [
     label: "DIGITAL",
     reverse: false,
   },
-   {
+  {
     number: "04",
     tag: "UX • UI • PRODUCT",
     title: (
@@ -161,7 +161,7 @@ const services = [
     reverse: true,
   },
 
- 
+
 ];
 
 
@@ -197,9 +197,9 @@ function ServiceVisual({ icon, label }) {
 function ServiceRow({ service }) {
   return (
     <article
-      className={`service-row ${
-        service.reverse ? "reverse" : ""
-      }`}
+      className={`service-row ${service.reverse ? "reverse" : ""
+        }`}
+      data-reveal
     >
 
       <div className="service-content">
@@ -261,7 +261,6 @@ export default function Services() {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-
   // ========================================
   // LOCAL SMOOTH SCROLL
   // ========================================
@@ -281,7 +280,7 @@ export default function Services() {
 
 
   return (
-    <section className="services-page">
+    <section className=" page-enter services-page">
 
       {/* =====================================
           NAVIGATION
@@ -323,9 +322,9 @@ export default function Services() {
 
           <h1>
             Technology That
-           
+
             Moves Your Business
-            
+
             Forward
           </h1>
 
