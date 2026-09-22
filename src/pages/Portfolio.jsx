@@ -4,7 +4,7 @@ import arrowbtn from "../assets/arrowbtn.svg";
 import ellebeline from "../assets/ellebeline.png";
 import chamundi from "../assets/chamundi.png";
 import celegence from "../assets/celegence.png";
-import daben from "../assets/daben.png";
+import daben from "../assets/Daben.png";
 import DRUM from "../assets/DRUM.png";
 import diversity from "../assets/diversity.png";
 import enigmanova from "../assets/enigmanova.png";
@@ -558,6 +558,7 @@ export default function Portfolio() {
       <section className="projects-section">
 
         <aside className="projects-sidebar">
+          <h1 className="featuredprojec">FEATURED PROJECTS</h1>
 
           <div className="projects-categories">
 
