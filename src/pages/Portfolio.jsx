@@ -42,6 +42,13 @@ import hindustanasrologyone from "../assets/hindustanasrologyone.png";
 import shipforma from "../assets/shipforma.png";
 import property from "../assets/property.png";
 import kreative from "../assets/kreative.png";
+import mbbs from "../assets/mbbs.png";
+import nusii from "../assets/nusii.png";
+import beejartha from "../assets/beejartha.png";
+import strawberry from "../assets/strawberry.png";
+import diversitys from "../assets/diversitys.png";
+import comingsoon from "../assets/comingsoon.png";
+import aboutImage from "../assets/codrrr.gif";
 
 const projectGroups = [
   {
@@ -235,24 +242,44 @@ const projectGroups = [
   {
     id: "poster",
     number: "04",
-    title: "Poster Design",
+    title: "Banner Design",
     projects: [
       {
-        image: "https://picsum.photos/id/1044/1400/875",
-        label: "Poster — Project 01",
+        image: mbbs,
+        label: "photoshop",
       },
       {
-        image: "https://picsum.photos/id/1045/1400/875",
-        label: "Poster — Project 02",
+        image: nusii,
+        label: "photoshop",
       },
       {
-        image: "https://picsum.photos/id/1047/1400/875",
-        label: "Poster — Project 03",
+        image: beejartha,
+        label: "photoshop",
       },
       {
-        image: "https://picsum.photos/id/1050/1400/875",
-        label: "Poster — Project 04",
+        image: strawberry,
+        label: "photoshop",
       },
+      {
+        image: diversitys,
+        label: "photoshop",
+      },
+      {
+        image: comingsoon,
+        label: "photoshop",
+      },
+    ],
+  },
+  {
+    id: "videos",
+    number: "05",
+    title: "AI Videos",
+    projects: [
+      {
+        image: aboutImage,
+        label: "photoshop",
+      },
+      
     ],
   },
 

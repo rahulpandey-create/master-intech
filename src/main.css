@@ -2321,11 +2321,14 @@ img.bord5 {
   .portfolio-project-page .project-category.active .category-title {
     color: #ffffff;
     font-family: 'Boldonse';
-    font-size: 14px !important;
+    font-size: 20px !important;
   }
+  .portfolio-project-page .project-category {
+    border-left: 1px solid #a4a4a4 !important;
+}
 
   .portfolio-project-page .project-category .category-title {
-    font-size: 14px !important;
+    font-size: 20px !important;
   }
 
   .portfolio-project-hero-content h1 {
@@ -2864,9 +2867,13 @@ img.bord5 {
 }
 
 @media (max-width: 768px) {
+
 .portfolio-project-page .project-category .category-title {
     display: block;
     font-size: 20px !important;
+}
+h1.featuredprojec {
+    margin-bottom: 10px !important ;
 }
 .projects-section {
     column-gap: 3px !important;
@@ -3891,12 +3898,12 @@ label.service-field img {
 }
 
 @media (max-width: 560px) {
-  .whatsapp-float {
-    right: 14px;
-    bottom: 14px;
+ .whatsapp-float {
+    right: 25px;
+    bottom: 86px;
     width: 50px;
     height: 50px;
-  }
+}
 
   .whatsapp-float img {
     width: 26px;
@@ -5334,7 +5341,7 @@ article.service-row.reverse {
 
   margin: 0 auto;
 
-  padding: 130px 50px;
+  padding: 100px 50px;
 
   align-items: start;
 }
@@ -5347,7 +5354,7 @@ article.service-row.reverse {
 .projects-sidebar {
   position: sticky;
 
-  top: 120px;
+  top: 50px;
 
   align-self: start;
 
@@ -5359,7 +5366,7 @@ article.service-row.reverse {
 
   flex-direction: column;
 
-  gap: 42px;
+  gap: 18px;
 }
 
 
@@ -5384,7 +5391,7 @@ article.service-row.reverse {
     transition: color 0.3s ease;
     background: linear-gradient(45deg, #dcdcdc1c, transparent);
     width: 100%;
-    padding: 32px;
+    padding: 20px;
     padding-top: 14px;
     border-radius: 0px;
     border-left: 3px solid #a4a4a4;
@@ -5434,14 +5441,15 @@ article.service-row.reverse {
 
 .portfolio-project-page .project-category .category-title {
   display: block;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 0.96;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 2px;
   white-space: nowrap;
   color: rgba(255, 255, 255, 0.22);
   transition: color 0.3s ease;
-  font-family: 'Boldonse';
+  font-family: 'Inclusive Sans';
+    letter-spacing: -1px;
 }
 
 .portfolio-project-hero-content {
@@ -5458,9 +5466,9 @@ article.service-row.reverse {
 }
 
 .portfolio-project-page .project-category.active .category-title {
-  color: #ffffff;
-  font-family: 'Boldonse';
-  font-size: 42px;
+    color: #ffffff;
+    font-family: 'Inclusive Sans';
+    font-size: 36px;
 }
 
 
@@ -5828,7 +5836,7 @@ article.service-row.reverse {
   .portfolio-project-page .project-category.active {
 
 
-    border-color: #ffffff;
+    /* border-color: #ffffff; */
 
     color: #ffffff;
   }
@@ -5864,7 +5872,7 @@ article.service-row.reverse {
   }
 
   .project-image {
-    aspect-ratio: 4 / 3;
+    /* aspect-ratio: 4 / 3; */
   }
 
   .project-actions {
@@ -6369,6 +6377,16 @@ width: 52px;
   height: 100%;
   object-fit: cover;
 }
+.project-group[data-category="poster"] .project-image {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.project-group[data-category="poster"] .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* =========================================================
    DEFAULT PROJECT GRID
    ========================================================= */
@@ -6388,9 +6406,13 @@ width: 52px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.project-group[data-category="poster"] .project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 
 /* Logo project card */
-.project-group[data-category="logo"] .project-card {
+.project-group[data-category="poster"] .project-card {
   width: 100%;
 }
 
@@ -6400,8 +6422,7 @@ width: 52px;
    ========================================================= */
 
 .project-group[data-category="CMS"] .project-grid,
-.project-group[data-category="banner"] .project-grid,
-.project-group[data-category="poster"] .project-grid {
+.project-group[data-category="banner"] .project-grid {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
@@ -6411,6 +6432,14 @@ width: 52px;
    ========================================================= */
 
 @media (max-width: 768px) {
+  h1.featuredprojec {
+    font-family: 'Boldonse';
+    font-size: 28px !important;
+    margin-bottom: 38px;
+}
+  .project-group[data-category="poster"] .project-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
   .project-group[data-category="logo"] .project-grid {
     grid-template-columns: 1fr;
   }
@@ -6435,7 +6464,7 @@ width: 52px;
 }
 .portfolio-project-page .project-category.active .category-title {
     color: #ffffff;
-    font-family: 'Boldonse';
+
     font-size: 32px;
 }
 .project-info h4 {
@@ -6445,4 +6474,13 @@ width: 52px;
 .project-actions {
     gap: 6px;
 }
+}
+h1.featuredprojec {
+    font-family: 'Boldonse';
+    font-size: 32px;
+    margin-bottom: 38px;
+}
+
+button.project-category.active {
+border-left:3px solid #0ab8fb;
 }
