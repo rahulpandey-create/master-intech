@@ -10,6 +10,7 @@ import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
 import question from "./assets/question.gif"
 const WHATSAPP_LINK = "https://wa.me/919878263393";
+import arrowtopp from "./assets/arrowtopp.svg";
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -166,7 +167,7 @@ function App() {
         onClick={handleScrollToTop}
         className={`back-to-top-btn ${showBackToTop ? "visible" : ""}`}
       >
-        ↑ Back to Top
+       <img src={arrowtopp} alt="arrow" />
       </button>
 
       {/* ==========================================

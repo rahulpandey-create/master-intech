@@ -2,10 +2,46 @@ import { useEffect, useRef, useState } from "react";
 import { submitEnquiry } from "../services/api";
 import arrowbtn from "../assets/arrowbtn.svg";
 import ellebeline from "../assets/ellebeline.png";
-import nusi from "../assets/nusi.png";
+import chamundi from "../assets/chamundi.png";
+import celegence from "../assets/celegence.png";
+import daben from "../assets/daben.png";
+import DRUM from "../assets/DRUM.png";
+import diversity from "../assets/diversity.png";
 import enigmanova from "../assets/enigmanova.png";
-import tasarden from "../assets/tasarden.png";
 import Contact from "../components/home/Contact";
+import logoone from "../assets/logoone.png";
+import logotwo from "../assets/logotwo.png";
+import logothree from "../assets/logothree.png";
+import logofour from "../assets/logofour.png";
+import logofive from "../assets/logofive.png";
+import logosix from "../assets/logosix.png";
+import logoseven from "../assets/logoseven.png";
+import logoeight from "../assets/logoeight.png";
+import logonine from "../assets/logonine.png";
+import logoten from "../assets/logoten.png";
+import logoeleven from "../assets/logoeleven.png";
+import logotwelve from "../assets/logotwelve.png";
+import logothirteen from "../assets/logothirteen.png";
+import logofourteen from "../assets/logofourteen.png";
+import logofivteen from "../assets/logofivteen.png";
+import logosixteen from "../assets/logosixteen.png";
+import logoseventeen from "../assets/logoseventeen.png";
+import logoeighteen from "../assets/logoeighteen.png";
+import logonineteen from "../assets/logonineteen.png";
+import logotwenty from "../assets/logotwenty.png";
+import logotwentyone from "../assets/logotwentyone.png";
+import infraoptics from "../assets/infraoptics.png";
+import thewaya from "../assets/thewaya.png";
+import jacaranda from "../assets/jacaranda.png";
+import smartbol from "../assets/smartbol.png";
+import verito from "../assets/verito.png";
+import fastrack from "../assets/fastrack.png";
+import medisync from "../assets/medisync.png";
+import bryanstrohmone from "../assets/bryanstrohmone.png";
+import hindustanasrologyone from "../assets/hindustanasrologyone.png";
+import shipforma from "../assets/shipforma.png";
+import property from "../assets/property.png";
+import kreative from "../assets/kreative.png";
 
 const projectGroups = [
   {
@@ -14,20 +50,32 @@ const projectGroups = [
     title: "CMS",
     projects: [
       {
+        image: daben,
+        label: "Daben — CMS",
+      },
+      {
+        image: DRUM,
+        label: "DRUM — CMS",
+      },
+      {
         image: ellebeline,
         label: "Ellebeline — CMS",
       },
       {
-        image: nusi,
-        label: "Jonathan Holmes — CMS",
+        image: chamundi,
+        label: "Chamundi — CMS",
+      },
+      {
+        image: celegence,
+        label: "Celegence — CMS",
       },
       {
         image: enigmanova,
-        label: "enigmanova — CMS",
+        label: "Enigmanova — CMS",
       },
       {
-        image: tasarden,
-        label: "tasarden — CMS",
+        image: diversity,
+        label: "Diversity — CMS",
       },
     ],
   },
@@ -38,20 +86,88 @@ const projectGroups = [
     title: "Logo Design",
     projects: [
       {
-        image: "https://picsum.photos/id/1025/1400/875",
-        label: "Logo — Project 01",
+        image: logoone,
+        label: "Fashion",
       },
       {
-        image: "https://picsum.photos/id/1027/1400/875",
-        label: "Logo — Project 02",
+        image: logotwo,
+        label: "Life Sciences & AI",
       },
       {
-        image: "https://picsum.photos/id/1029/1400/875",
-        label: "Logo — Project 03",
+        image: logothree,
+        label: "Media & Publishing",
       },
       {
-        image: "https://picsum.photos/id/1033/1400/875",
-        label: "Logo — Project 04",
+        image: logofour,
+        label: "Travelers & Travel Enthusiasts",
+      },
+      {
+        image: logofive,
+        label: "10 Book Series",
+      },
+      {
+        image: logosix,
+        label: "Healthcare | AI Solution",
+      },
+      {
+        image: logoseven,
+        label: "Mobile Case Covers",
+      },
+      {
+        image: logoeight,
+        label: "Mobile Case Covers",
+      },
+      {
+        image: logonine,
+        label: "Customer Referral & Rewards Platform",
+      },
+      {
+        image: logoten,
+        label: "Digital Shipping",
+      },
+      {
+        image: logoeleven,
+        label: "Jwellery",
+      },
+      {
+        image: logotwelve,
+        label: "Disability Services",
+      },
+      {
+        image: logothirteen,
+        label: "Disability Care & Support",
+      },
+      {
+        image: logofourteen,
+        label: "Care center",
+      },
+      {
+        image: logofivteen,
+        label: "South Indian Food",
+      },
+      {
+        image: logosixteen,
+        label: "Study & Work Abroad",
+      },
+      {
+        image: logoseventeen,
+        label: "Leadership & Business Coaching",
+      },
+      {
+        image: logoeighteen,
+        label: "Premium Tea & Wellness",
+      },
+      {
+        image: logonineteen,
+        label: "Pet Shop",
+      },
+      {
+        image: logotwenty,
+        label: "Oracle IT Solutions",
+      },
+      {
+        image: logotwentyone,
+        label: "Fibre Optic Solutions",
       },
     ],
   },
@@ -59,23 +175,59 @@ const projectGroups = [
   {
     id: "banner",
     number: "03",
-    title: "Banner Design",
+    title: "Ui/UX Design",
     projects: [
       {
-        image: "https://picsum.photos/id/1035/1400/875",
-        label: "Banner — Project 01",
+        image: infraoptics,
+        label: "Ui/Ux Design",
       },
       {
-        image: "https://picsum.photos/id/1037/1400/875",
-        label: "Banner — Project 02",
+        image: thewaya,
+        label: "Ui/Ux Design",
       },
       {
-        image: "https://picsum.photos/id/1040/1400/875",
-        label: "Banner — Project 03",
+        image: jacaranda,
+        label: "Ui/Ux Design",
       },
       {
-        image: "https://picsum.photos/id/1043/1400/875",
-        label: "Banner — Project 04",
+        image: smartbol,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: verito,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: fastrack,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: medisync,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: bryanstrohmone,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: hindustanasrologyone,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: shipforma,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: diversity,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: property,
+        label: "Ui/Ux Design",
+      },
+      {
+        image: kreative,
+        label: "Ui/Ux Design",
       },
     ],
   },
@@ -481,7 +633,7 @@ export default function Portfolio() {
                         onClick={() => openContact(project)}
                       >
                         Let's Talk
-                        <span>↗</span>
+                        <span><img src={arrowbtn} alt="arrow" /></span>
                       </button>
 
                     </div>

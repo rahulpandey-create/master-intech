@@ -2308,6 +2308,10 @@ img.bord5 {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .portfolio-project-page .project-category {
+    width: 50% !important;
+    
+}
 
   section.portfolio-project-hero .services-glow.services-glow-1,
   .services-glow.services-glow-2 {
@@ -2317,11 +2321,11 @@ img.bord5 {
   .portfolio-project-page .project-category.active .category-title {
     color: #ffffff;
     font-family: 'Boldonse';
-    font-size: 20px !important;
+    font-size: 14px !important;
   }
 
   .portfolio-project-page .project-category .category-title {
-    font-size: 20px !important;
+    font-size: 14px !important;
   }
 
   .portfolio-project-hero-content h1 {
@@ -2860,7 +2864,14 @@ img.bord5 {
 }
 
 @media (max-width: 768px) {
+.portfolio-project-page .project-category .category-title {
+    display: block;
+    font-size: 20px !important;
+}
+.projects-section {
+    column-gap: 3px !important;
 
+}
   .projects-sidebar {
     position: sticky;
     top: 0 !important;
@@ -3855,8 +3866,8 @@ label.service-field img {
   right: 20px;
   bottom: 95px;
   z-index: 9999;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5271,11 +5282,11 @@ article.service-row.reverse {
    ========================================================= */
 
 .portfolio-project-hero {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 50px 80px;
+  padding: 225px 50px 80px;
   position: relative;
   overflow: hidden;
   /* background: #1f1f1f; */
@@ -5357,33 +5368,26 @@ article.service-row.reverse {
    ========================================================= */
 
 .portfolio-project-page .project-category {
-  position: relative;
-
-  display: flex;
-
-  flex-direction: column;
-
-  width: fit-content;
-
-  margin: 0;
-
-  padding: 0;
-
-  border: none;
-
-  outline: none;
-
-  background: transparent;
-
-  text-align: left;
-
-  font-family: inherit;
-
-  cursor: pointer;
-
-  color: rgba(255, 255, 255, 0.22);
-
-  transition: color 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.22);
+    transition: color 0.3s ease;
+    background: linear-gradient(45deg, #dcdcdc1c, transparent);
+    width: 100%;
+    padding: 32px;
+    padding-top: 14px;
+    border-radius: 0px;
+    border-left: 3px solid #a4a4a4;
 }
 
 
@@ -5392,21 +5396,15 @@ article.service-row.reverse {
    ========================================================= */
 
 .portfolio-project-page .project-category.active::before {
-  content: "";
-
-  position: absolute;
-
-  left: -35px;
-
-  top: 68%;
-
-  width: 30px;
-
-  height: 1px;
-
-  background: #ffffff;
-
-  transform: translateY(-50%);
+    content: "";
+    position: absolute;
+    left: -35px;
+    top: 55%;
+    width: 30px;
+    height: 1px;
+    background: #09b5f7;
+    transform: translateY(-50%);
+    display: none;
 }
 
 
@@ -5456,7 +5454,7 @@ article.service-row.reverse {
    ========================================================= */
 
 .portfolio-project-page .project-category.active .category-number {
-  color: #ffffff;
+  color: #0ab8fb;
 }
 
 .portfolio-project-page .project-category.active .category-title {
@@ -5509,6 +5507,8 @@ article.service-row.reverse {
    PROJECT GRID
    ========================================================= */
 
+
+   
 .project-grid {
   display: grid;
 
@@ -5635,39 +5635,34 @@ article.service-row.reverse {
 /* =========================================================
    PROJECT LABEL
    ========================================================= */
-
 .project-info {
-  position: static;
-  flex: 0 1 auto;
-  min-width: 0;
-  max-width: calc(100% - 130px);
-
-  display: flex;
-  align-items: center;
-
-  padding: 11px 17px;
-
-  background: rgba(0, 0, 0, 0.82);
-  border-radius: 30px;
-
-  backdrop-filter: blur(10px);
-
-  pointer-events: none;
-  box-sizing: border-box;
+    position: static;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 130px);
+    display: flex;
+    align-items: center;
+    padding: 11px 17px;
+    background: rgba(0, 0, 0, 0.82);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+    box-sizing: border-box;
+    border: 1px solid #b1b1b1;
+    /* box-shadow: 0px 0px 8px #0ab8fb; */
 }
 
 .project-info h4 {
-  margin: 0;
-
-  color: #ffffff;
-
-  font-size: 13px;
-  line-height: 1;
-  font-weight: 500;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    margin: 0;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0px;
+    font-family: 'Inclusive Sans';
 }
 
 
@@ -5676,36 +5671,25 @@ article.service-row.reverse {
    ========================================================= */
 
 .project-contact-cta {
-  flex: 0 0 auto;
-  margin-left: auto;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 11px 16px;
-
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 30px;
-
-  background: rgba(255, 255, 255, 0.95);
-  color: #080808;
-
-  font-family: inherit;
-  font-size: 13px;
-  line-height: 1;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  backdrop-filter: blur(10px);
-
-  pointer-events: auto;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
+    flex: 0 0 auto;
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #080808;
+    font-family: 'Boldonse';
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    pointer-events: auto;
+    transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .project-contact-cta span {
@@ -5807,12 +5791,14 @@ article.service-row.reverse {
     overflow: hidden;
   }
 
-  .projects-categories {
-    flex-direction: column;
-    gap: 8px;
+.projects-categories {
+    flex-direction: row;
+    gap: 0px;
     overflow-x: auto;
     scrollbar-width: none;
-  }
+    flex-wrap: wrap;
+}
+
 
   .projects-categories::-webkit-scrollbar {
     display: none;
@@ -6213,7 +6199,8 @@ article.service-row.reverse {
   font-size: 14px;
   font-weight: 600;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-
+width: 52px;
+    height: 52px;
   /* Smooth entry animation properties */
   opacity: 0;
   pointer-events: none;
@@ -6371,3 +6358,91 @@ article.service-row.reverse {
   transform: translateY(0);
 }
 /* Scrolling transition end */
+
+.project-group[data-category="logo"] .project-image {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.project-group[data-category="logo"] .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* =========================================================
+   DEFAULT PROJECT GRID
+   ========================================================= */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 8px;
+}
+
+
+/* =========================================================
+   LOGO DESIGN — 2 COLUMNS
+   ========================================================= */
+
+.project-group[data-category="logo"] .project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+
+/* Logo project card */
+.project-group[data-category="logo"] .project-card {
+  width: 100%;
+}
+
+
+/* =========================================================
+   OTHER CATEGORIES — SINGLE COLUMN
+   ========================================================= */
+
+.project-group[data-category="CMS"] .project-grid,
+.project-group[data-category="banner"] .project-grid,
+.project-group[data-category="poster"] .project-grid {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .project-group[data-category="logo"] .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1366px) {
+  
+ .projects-section {
+
+    column-gap: 30px;
+}
+
+}
+@media screen and (min-width: 1280px) and (max-width: 1366px) {
+  
+ .projects-section {
+
+    column-gap:0px;
+}
+.portfolio-project-page .project-category .category-title {
+    font-size: 32px;
+}
+.portfolio-project-page .project-category.active .category-title {
+    color: #ffffff;
+    font-family: 'Boldonse';
+    font-size: 32px;
+}
+.project-info h4 {
+    font-size: 12px;
+    line-height: 16px;
+}
+.project-actions {
+    gap: 6px;
+}
+}
