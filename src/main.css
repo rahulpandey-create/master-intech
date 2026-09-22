@@ -5959,7 +5959,7 @@ article.service-row.reverse {
 
   /* Only the modal scrolls */
   max-height: calc(100vh - 40px);
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
 
   border-radius: 20px;
@@ -5970,6 +5970,7 @@ article.service-row.reverse {
     0 30px 100px rgba(0, 0, 0, 0.65);
 
   scrollbar-width: thin;
+
 
   /* Prevent scroll from propagating to the page/overlay */
   /* overscroll-behavior: contain; */
@@ -6045,6 +6046,11 @@ article.service-row.reverse {
   background-position: center;
 
   border-radius: 20px;
+}
+/* Remove Contact section GIF only inside Portfolio popup */
+.portfolio-contact-modal .contact-design {
+  background-image: none !important;
+  background: #000000 !important;
 }
 
 
