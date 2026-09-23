@@ -39,7 +39,7 @@ span {
 }
 
 p {
-  margin-top: 22px;
+  margin-top: 12px;
   color: #D3D3D3;
   font-size: 16px;
   line-height: 1.55;
@@ -1085,6 +1085,7 @@ span.socialmedialinks1 {
   font-size: 12px;
   font-family: 'Boldonse';
   margin-bottom: 15px;
+  margin-top: 32px;
 }
 
 .about-intro h2 {
@@ -1467,7 +1468,7 @@ a.review-button {
 }
 
 .contact-details {
-  padding-top: 50px;
+  padding-top: 0px;
 }
 
 .contact-details h2 {
@@ -1487,6 +1488,7 @@ a.review-button {
 
 .contact-details>p {
   margin-top: 24px;
+  margin-bottom: 24px;
   /* color: #bbb; */
   /* font-size: 14px; */
   line-height: 1.48;
@@ -1512,9 +1514,9 @@ a.review-button {
 }
 
 .contact-line.address {
-  grid-template-columns: 41px 1fr;
-  margin-top: 25px;
-  width: 100%;
+  grid-template-columns: 50px 1fr;
+  margin-top: 18px;
+  width: 80%;
 }
 
 .contact-dot {
@@ -1536,17 +1538,19 @@ a.review-button {
 }
 
 .contact-line strong {
-  display: block;
-  font-size: 15px;
-  color: #fff;
+    display: block;
+    font-size: 15px;
+    color: #fff;
+    font-family: 'Boldonse';
 }
 
 .contact-line div>span {
-  display: block;
-  margin-top: 4px;
-  line-height: 1.4;
-  font-weight: 100;
-  color: #dbd7d7;
+    display: block;
+    margin-top: 4px;
+    line-height: 1.4;
+    font-weight: 100;
+    color: #dbd7d7;
+    font-family: 'Inclusive Sans';
 }
 
 .brand-grid>div:hover {
@@ -1561,7 +1565,7 @@ a.review-button {
   width: 92%;
   justify-self: end;
   border-radius: 18px;
-  padding: 38px 35px 34px;
+  padding: 24px 35px 34px;
   background: #18191a;
   border: 5px solid transparent;
   background: linear-gradient(#161617, #161617) padding-box, linear-gradient(181deg, #86FFF7, #00B2FF) border-box;
