@@ -287,8 +287,8 @@ const projectGroups = [
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("CMS");
-  
-  
+
+
 
   const [contactOpen, setContactOpen] = useState(false);
 
@@ -549,22 +549,20 @@ export default function Portfolio() {
 
             <div className="buttonletss">
 
-              <a
-                href="/"
+              <button
                 className="service-btn service-btn-primary"
-                onClick={(event) =>
-                  handleLocalLink(event, "contact")
-                }
+                type="button"
+                onClick={() => openContact()}
               >
                 Let's Build Together
 
                 <span>
                   <img
                     src={arrowbtn}
-                    alt=""
+                    alt="Contact Us"
                   />
                 </span>
-              </a>
+              </button>
 
             </div>
 
