@@ -159,7 +159,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<PortfolioBento />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/startup-offer/" element={<StartupOffer />} />
+          <Route path="/startup-offer" element={<StartupOffer />} />
         </Routes>
       </PageTransition>
       <Footer />

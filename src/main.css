@@ -26,7 +26,7 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
 }
 a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
     margin-left: 10px;
-    border: 1px solid #3a3b3d;
+    border: 1px solid #9b9b9b;
     background: rgb(8 9 10 / 14%);
     color: #ffffff !important;
     width: 55%;
@@ -1461,7 +1461,7 @@ a.review-button {
 .contact-grid {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
-  gap: 74px;
+  gap: 0px;
   align-items: start;
   align-items: center;
 }
@@ -1996,8 +1996,16 @@ img.bord5 {
 
   .section-shell.contact-grid {
     align-items: center;
+    display: block;
   }
+.contact-design {
 
+    padding-top: 20px;
+}
+.message-card {
+    width: 100%;
+    margin-top: 25px;
+}
   .contact-line {
     display: grid;
     gap: 9px;
@@ -2018,8 +2026,9 @@ img.bord5 {
   }
 
   .contact-line div>span {
-    margin-bottom: 20px;
-  }
+    margin-bottom: 0px;
+    word-break: break-all;
+}
 
 }
 
@@ -2318,6 +2327,18 @@ img.bord5 {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+
+.contact-details {
+    padding-top: 0;
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
+    margin-bottom: 22px;
+}
+.contact-grid {
+    display: block;
+  
+}
+
   .portfolio-project-page .project-category {
     width: 50% !important;
     
@@ -2353,7 +2374,7 @@ img.bord5 {
 
   a.cyan-button.hero-fade-in.hero-delay-3.btnn {
     font-family: 'Inter';
-    width: 64%;
+    width:100%;
   }
 
   .outline-button,
@@ -2435,7 +2456,7 @@ img.bord5 {
   }
 
   .design-logo img {
-    width: 20%;
+    width: 36%;
     height: 100%;
     object-fit: contain;
     padding: 10px;
@@ -2497,17 +2518,22 @@ img.bord5 {
   }
 
   .hero-main {
-    top: 90px;
+    top: 140px;
     width: 95%;
   }
+a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
+    width: 100%;
+    margin: auto;
+    margin-top: 16px;
+}
 
   br {
     display: none;
   }
 
   .hero-title {
-    font-size: 28px;
-    line-height: 55px;
+    font-size: 24px;
+    line-height: 44px;
   }
 
   .hero-pill {
@@ -2588,7 +2614,7 @@ img.bord5 {
   }
 
   span.socialmedialinks1 img {
-    width: 72px;
+    width: 80px;
     margin-right: 5px;
     transition: 0.3s;
   }
@@ -2727,11 +2753,11 @@ img.bord5 {
     row-gap: 18px;
   }
 
-  .contact-grid {
+  /* .contact-grid {
     grid-template-columns: 1fr;
     gap: 12px;
     justify-content: center;
-  }
+  } */
 
   .contact-line strong {
     display: block;
@@ -2747,9 +2773,12 @@ img.bord5 {
   .message-card {
     padding: 30px 23px;
     min-height: 520px;
-    width: 94%;
+    width: 100%;
     margin: auto;
   }
+  .contact-line {
+    padding: 18px 15px;
+}
 
   .message-card h3 {
     font-size: 27px;
@@ -5956,8 +5985,7 @@ article.service-row.reverse {
   justify-content: center;
 
   padding: 20px;
-
-  background: rgba(0, 0, 0, 0.78);
+  background: rgb(78 78 78 / 78%);
   backdrop-filter: blur(8px);
 
   /* IMPORTANT:
@@ -5987,11 +6015,16 @@ article.service-row.reverse {
   box-shadow:
     0 30px 100px rgba(0, 0, 0, 0.65);
 
-  scrollbar-width: thin;
+  /* scrollbar-width: thin; */
 
 
   /* Prevent scroll from propagating to the page/overlay */
   /* overscroll-behavior: contain; */
+}
+.portfolio-contact-modal::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 
@@ -6470,10 +6503,6 @@ width: 52px;
 
 }
 @media screen and (min-width: 1280px) and (max-width: 1366px) {
-  .portfolio-project-page .project-category {
-
-    padding: 6px 20px 12px;
-}
   
  .projects-section {
 
