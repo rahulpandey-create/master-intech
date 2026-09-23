@@ -3,7 +3,7 @@ name: Deploy Master Intech Frontend
 on:
   push:
     branches:
-      - master
+      - designer-work-backup
     paths:
       - "src/**"
       - "public/**"

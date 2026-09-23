@@ -3,7 +3,7 @@ name: Deploy Master Intech Backend
 on:
   push:
     branches:
-      - master
+      - designer-work-backup
     paths:
       - "server/**"
       - ".github/workflows/deploy-backend.yml"
