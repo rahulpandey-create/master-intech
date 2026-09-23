@@ -687,8 +687,8 @@ export default function Portfolio() {
 
           <div
             className="portfolio-contact-modal"
-            onMouseDown={(event) =>
-              event.stopPropagation()
+  data-lenis-prevent
+  onWheel={(e) => e.stopPropagation()
             }
           >
 

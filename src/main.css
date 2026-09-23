@@ -1481,7 +1481,7 @@ a.review-button {
   border-radius: 24px;
   background: rgba(8, 9, 10, 0.13);
   backdrop-filter: blur(8px);
-  padding: 18px 22px;
+  padding: 18px 18px;
   justify-content: center;
 }
 
@@ -1508,12 +1508,13 @@ a.review-button {
   grid-template-columns: 42px 1fr 40px 1.35fr;
   gap: 9px;
   margin-top: 34px;
-  max-width: 675px;
+  max-width: 100%;
 }
 
 .contact-line.address {
   grid-template-columns: 41px 1fr;
   margin-top: 25px;
+  width: 100%;
 }
 
 .contact-dot {
@@ -6503,6 +6504,14 @@ width: 52px;
 
 }
 @media screen and (min-width: 1280px) and (max-width: 1366px) {
+  .contact-line div>span {
+    display: block;
+    margin-top: 4px;
+    line-height: 1.4;
+    font-weight: 100;
+    color: #dbd7d7;
+    word-break: break-all;
+}
   
  .projects-section {
 

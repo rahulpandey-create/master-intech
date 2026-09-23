@@ -9,13 +9,18 @@ export default function Contact({ formData, loading, feedback, updateField, hand
   <div className="section-shell contact-grid">
     <div className="contact-details">
       <h2>LET'S BUILD WHAT'S NEXT</h2>
-      <p>Tell us what you're building, what you're trying to improve, or where technology is holding your business back. Our team will help you identify the right path forward.</p>
+      <p>Tell us what you’re building or what’s holding your business back. We’ll help you find the right technology solution.
+</p>
       {/* <div className="contact-rule" /> */}
-      <div className="contact-line">
-        <span className="contact-dot phone-dot"><img src={phone}></img> </span>
-        <div><strong>Phone</strong><span>+91-98782 63393<br />+91-98068 85887</span></div>
-        <span className="contact-dot email-dot"><img src={email}></img></span>
+      <div className="xl:flex md:flex gap-5 justify-between ">
+      <div className="contact-line address ">
+        <span className="contact-dot address-dot"><img src={phone}></img></span>
+        <div><strong>Support</strong><span>+91-98782 63393<br/>+91-98068 85887</span></div>
+      </div>
+      <div className="contact-line address ">
+        <span className="contact-dot address-dot"><img src={email}></img></span>
         <div><strong>Email</strong><span>info@masterintechsolutions.com</span></div>
+      </div>
       </div>
       <div className="contact-line address">
         <span className="contact-dot address-dot"><img src={location}></img></span>
