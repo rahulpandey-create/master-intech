@@ -15,7 +15,7 @@ export default function Contact({ formData, loading, feedback, updateField, hand
       <div className="xl:block md:flex gap-5 justify-between ">
       <div className="contact-line address ">
         <span className="contact-dot address-dot"><img src={phone}></img></span>
-        <div><strong>Support</strong><span>+91-98782 63393 | +91-98068 85887</span></div>
+        <div><strong>Support</strong><span>+91-98782 63393 | +91-8968 085887</span></div>
       </div>
       <div className="contact-line address ">
         <span className="contact-dot address-dot"><img src={email}></img></span>

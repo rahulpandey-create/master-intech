@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef } from "react"; // Added useRef
 import Lenis from "lenis";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import logo from "./assets/logomaster.svg";
 import PortfolioBento from "./pages/Portfolio.jsx";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import StartupOffer from "./pages/StartupOffer";
-import ThankYou from "./pages/ThankYou";
+import ThankYou from "./pages/Thankyou";
 import PageTransition from "./components/home/PageTransition";
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
@@ -180,11 +180,11 @@ function App() {
       <div className={`contact-popup-overlay ${showPopup ? "active" : ""}`}>
         <div className="contact-popup-box">
           <button className="popup-close-btn" onClick={() => setShowPopup(false)}>×</button>
-          <img src={question} alt=""></img>
-          <h3>Have any questions?</h3>
-          <p>Chat with us live on WhatsApp for instant assistance!</p>
+          <img src={logo} alt=""></img>
+          <h3>Let's Build Something Great</h3>
+          <p>Tell us about your project, and our team will help you find the right solution.</p>
           <button className="popup-cta-btn" onClick={handlePopupWhatsAppClick}>
-            Talk to Our Experts
+            Chat With Our Experts
           </button>
         </div>
       </div>

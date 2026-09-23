@@ -3914,8 +3914,8 @@ label.service-field img {
 
 .whatsapp-float {
   position: fixed;
-  right: 20px;
-  bottom: 95px;
+  right: 10px;
+  bottom: 10px;
   z-index: 9999;
   width: 52px;
   height: 52px;
@@ -6247,8 +6247,8 @@ article.service-row.reverse {
 /* Back to Top Button Layout and Styling */
 .back-to-top-btn {
   position: fixed;
-  bottom: 30px;
-  right: 20px;
+  bottom: 10px;
+  left: 10px;
   z-index: 1000;
   padding: 12px 18px;
   background-color: #000000;
@@ -6314,7 +6314,7 @@ width: 52px;
 
 /* The Popup Card Container */
 .contact-popup-box {
-  background-color: #fefefe;
+  background-color: #181717;
   padding: 30px;
   border-radius: 16px;
   max-width: 400px;
@@ -6346,50 +6346,53 @@ width: 52px;
 }
 
 .popup-close-btn:hover {
-  color: #000000;
+  color: #ffff;
 }
 
 /* Content Elements */
 .contact-popup-box h3 {
   margin: 0 0 10px 0;
   font-family: 'Boldonse';
-  color: #111111;
-  font-size: 22px;
+  color: #fff;
+  font-size: 28px;
 
 }
 
 .contact-popup-box p {
-  margin: 0 0 24px 0;
-  font-family: 'Inter';
-  color: #555555;
-  font-size: 15px;
-  line-height: 1.5;
+    margin: 0 0 24px 0;
+    font-family: 'Inclusive Sans';
+    color: #d1d1d1;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 100;
+    margin-top: 24px;
 }
 
 /* Green WhatsApp Action Button */
 .popup-cta-btn {
-  background-color: #25D366;
-  /* Official WhatsApp Green */
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  width: 100%;
-  box-shadow: 0px 4px 12px rgba(37, 211, 102, 0.3);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+    background-color: #35c1fc;
+    color: #000000;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0px 4px 12px rgb(53 193 252 / 22%);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    width: 74%;
 }
 
 .popup-cta-btn:hover {
-  background-color: #1ebd58;
+  background-color: #a7e5ff;
   transform: scale(1.02);
 }
 
 .contact-popup-box img {
   margin: auto;
-  width: 80%;
+  width: 30%;
+  margin-bottom: 26px;
 }
 
 /* contact us popup end */

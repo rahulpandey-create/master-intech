@@ -30,9 +30,10 @@ export default function About() {
     </div>
 
     <div className="about-intro" data-reveal>
-      <p className="eyebrow">What We Do</p>
-      <h2>Technology That Moves Your Business Forward</h2>
-      <p>AI-powered technology built to solve real business challenges.</p>
+      <p className="eyebrow">About Us</p>
+      <h2>Master Intech Solutions</h2>
+      <p>Is a full-service IT partner delivering innovative web development, eCommerce, branding, digital marketing, and AI automation solutions.
+With 15+ years of experience, we help businesses build, grow, and automate their digital presence with practical, scalable technology.</p>
       <img src={aboutImage} alt="Developer working at a computer" />
     </div>
   </div>

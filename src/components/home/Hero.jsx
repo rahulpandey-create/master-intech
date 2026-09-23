@@ -74,7 +74,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
         <div>
           <StatIcon src={yearsExperienceIcon} />
           <span>
-            Years
+            15+ Years
             <br />
             Experience
           </span>
@@ -84,7 +84,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
 
         <div>
           <StatIcon src={happyClientsIcon} />
-          <span>Happy Clients</span>
+          <span>50K+ Happy Clients</span>
         </div>
       </div>
 
@@ -166,7 +166,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
       <div className="hero-socials hero-fade-in hero-delay-3">
         <div>
           <a
-            href="https://www.linkedin.com/in/master-intech-solutions-43ba9b39"
+            href="https://www.linkedin.com/company/master-intech-solutions/"
             target="_blank"
             rel="noreferrer"
             className="socialmedialinks1"
