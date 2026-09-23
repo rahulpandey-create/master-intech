@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { submitEnquiry } from "../services/api";
+import { useNavigate } from "react-router-dom";
 import arrowbtn from "../assets/arrowbtn.svg";
 import "../main.css";
 
@@ -129,7 +130,8 @@ function StartupOffer() {
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [feedback, setFeedback] = useState({ success: "", error: "" });
+  const [feedback, setFeedback] = useState({ error: "" });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const nodes = document.querySelectorAll(".startup-offer-page [data-startup-reveal]");
@@ -177,7 +179,7 @@ function StartupOffer() {
   );
 
   const openModal = () => {
-    setFeedback({ success: "", error: "" });
+    setFeedback({ error: "" });
     setErrors({});
     setIsModalOpen(true);
   };
@@ -239,7 +241,7 @@ function StartupOffer() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setFeedback({ success: "", error: "" });
+    setFeedback({ error: "" });
 
     const nextErrors = validate();
     setErrors(nextErrors);
@@ -262,17 +264,15 @@ function StartupOffer() {
     ].join("\n");
 
     try {
-      const data = await submitEnquiry({
+      await submitEnquiry({
         name: formData.name.trim(),
         email: formData.email.trim(),
         message,
       });
 
-      setFeedback({ success: data.message || "Your startup enquiry has been submitted.", error: "" });
-      setFormData(initialForm);
-      setErrors({});
+      navigate("/thank-you/");
     } catch (error) {
-      setFeedback({ success: "", error: error.message || "We could not submit your enquiry. Please try again." });
+      setFeedback({ error: error.message || "We could not submit your enquiry. Please try again." });
     } finally {
       setLoading(false);
     }
@@ -559,17 +559,7 @@ function StartupOffer() {
               </button>
             </div>
 
-            {feedback.success ? (
-              <div className="startup-offer-form-success" role="status">
-                <span aria-hidden="true">✓</span>
-                <h3>Enquiry submitted</h3>
-                <p>{feedback.success}</p>
-                <button type="button" className="startup-offer-outline-button" onClick={closeModal}>
-                  Close
-                </button>
-              </div>
-            ) : (
-              <form className="startup-offer-form" onSubmit={handleSubmit} noValidate>
+            <form className="startup-offer-form" onSubmit={handleSubmit} noValidate>
                 <div className="startup-offer-form-grid">
                   <Field label="Your Name" name="name" value={formData.name} onChange={updateField} error={errors.name} required autoComplete="name" />
                   <Field label="Business / Startup Name" name="businessName" value={formData.businessName} onChange={updateField} error={errors.businessName} required autoComplete="organization" />
@@ -635,7 +625,6 @@ function StartupOffer() {
                   </button>
                 </div>
               </form>
-            )}
           </div>
         </div>
       )}

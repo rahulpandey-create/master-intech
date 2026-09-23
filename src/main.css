@@ -5998,7 +5998,6 @@ article.service-row.reverse {
   overflow: hidden;
 }
 
-
 /* =========================================================
    POPUP CONTAINER
    ========================================================= */
@@ -7783,3 +7782,457 @@ img.arrowtrans {
 }
 
 /* Startup Offer page End */
+
+
+
+/* =========================================
+   THANK YOU PAGE
+   ========================================= */
+
+.thank-you-page {
+  position: relative;
+  overflow: hidden;
+  background: #0d0e0f;
+  color: var(--white, #f7f7f7);
+  font-family: "Boldonse", sans-serif;
+}
+
+.thank-you-page,
+.thank-you-page * {
+  box-sizing: border-box;
+}
+
+.thank-you-hero {
+  position: relative;
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 150px 28px 100px;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(32, 196, 244, 0.11), transparent 27%),
+    radial-gradient(circle at 82% 70%, rgba(48, 91, 255, 0.08), transparent 30%),
+    #0d0e0f;
+}
+
+.thank-you-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 75%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 75%, transparent);
+}
+
+.thank-you-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(10px);
+  z-index: -2;
+}
+
+.thank-you-glow-one {
+  width: 520px;
+  height: 520px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(32, 196, 244, 0.10), transparent 66%);
+}
+
+.thank-you-glow-two {
+  width: 420px;
+  height: 420px;
+  right: -180px;
+  bottom: -120px;
+  background: radial-gradient(circle, rgba(0, 178, 255, 0.09), transparent 68%);
+}
+
+.thank-you-container {
+  width: min(1040px, 100%);
+  margin-inline: auto;
+}
+
+.thank-you-confirmation {
+  width: min(790px, 100%);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.thank-you-success-icon {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(102, 241, 231, 0.52);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(146, 255, 247, 0.22), transparent 38%),
+    rgba(14, 24, 27, 0.78);
+  box-shadow:
+    0 0 0 12px rgba(32, 196, 244, 0.035),
+    0 0 48px rgba(32, 196, 244, 0.18),
+    inset 0 0 32px rgba(32, 196, 244, 0.06);
+  animation: thankYouIconIn 0.62s cubic-bezier(.2,.8,.25,1) both;
+}
+
+.thank-you-checkmark {
+  width: 46px;
+  height: 26px;
+  display: block;
+  border-left: 5px solid #73f1e5;
+  border-bottom: 5px solid #27c9f3;
+  transform: rotate(-45deg) translate(4px, -2px);
+  filter: drop-shadow(0 0 8px rgba(67, 232, 226, 0.45));
+  animation: thankYouCheckIn 0.46s 0.18s cubic-bezier(.2,.8,.25,1) both;
+}
+
+.thank-you-eyebrow,
+.thank-you-section-label {
+  font-family: "Intel One Mono", monospace;
+  color: #6fe8e0;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.thank-you-eyebrow {
+  margin: 34px 0 0;
+}
+
+.thank-you-confirmation h1 {
+  margin: 10px 0 0;
+  color: #fff;
+  font-size: clamp(58px, 9vw, 106px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.thank-you-message-title {
+  margin: 24px auto 0 !important;
+  color: #edf8fa !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: clamp(18px, 2.1vw, 23px) !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+}
+
+.thank-you-message {
+  width: min(680px, 100%);
+  margin: 13px auto 0 !important;
+  color: #9ca6a8 !important;
+  font-family: "Intel One Mono", monospace !important;
+  font-size: 13px !important;
+  font-weight: 300 !important;
+  line-height: 1.75 !important;
+}
+
+.thank-you-divider {
+  width: min(320px, 72%);
+  margin: 31px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.thank-you-divider span {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(74, 226, 239, 0.42));
+}
+
+.thank-you-divider span:last-child {
+  background: linear-gradient(90deg, rgba(74, 226, 239, 0.42), transparent);
+}
+
+.thank-you-divider i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #55e7e1;
+  box-shadow: 0 0 12px rgba(85, 231, 225, 0.5);
+}
+
+.thank-you-contact {
+  margin: 42px auto 0;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 30px;
+  align-items: center;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    rgba(10, 13, 15, 0.82);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25);
+}
+
+.thank-you-contact-copy .thank-you-section-label {
+  margin: 0;
+}
+
+.thank-you-contact-copy h2 {
+  margin: 9px 0 0;
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+}
+
+.thank-you-contact-copy > p:last-child {
+  margin: 14px 0 0 !important;
+  color: #909a9c !important;
+  font-family: "Intel One Mono", monospace !important;
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+}
+
+.thank-you-contact-actions {
+  display: grid;
+  gap: 11px;
+}
+
+.thank-you-phone,
+.thank-you-whatsapp,
+.thank-you-home {
+  min-height: 54px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thank-you-phone {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.thank-you-phone span {
+  font-family: "Intel One Mono", monospace;
+  color: #687274;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.thank-you-phone strong {
+  margin-top: 3px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.thank-you-phone:hover,
+.thank-you-phone:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(70, 226, 228, 0.38);
+  background: rgba(70, 226, 228, 0.045);
+}
+
+.thank-you-whatsapp {
+  padding: 8px 12px;
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid rgba(77, 226, 204, 0.32);
+  background: linear-gradient(135deg, rgba(48, 218, 205, 0.12), rgba(0, 178, 255, 0.08));
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.thank-you-whatsapp:hover,
+.thank-you-whatsapp:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(106, 246, 235, 0.62);
+  box-shadow: 0 10px 28px rgba(34, 210, 218, 0.10);
+}
+
+.thank-you-whatsapp-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: rgba(37, 211, 102, 0.94);
+}
+
+.thank-you-whatsapp-icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.thank-you-whatsapp > span:last-child {
+  font-size: 20px;
+  color: #62ebe2;
+}
+
+.thank-you-home {
+  width: max-content;
+  margin: 22px auto 0;
+  padding: 11px 18px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f2f5f6;
+  background: rgba(255, 255, 255, 0.02);
+  font-family: "Intel One Mono", monospace;
+  font-size: 12px;
+}
+
+.thank-you-home img {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+}
+
+.thank-you-home:hover,
+.thank-you-home:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(116, 241, 232, 0.5);
+  background: rgba(116, 241, 232, 0.06);
+}
+
+.thank-you-page a:focus-visible,
+.thank-you-page button:focus-visible {
+  outline: 2px solid #73f1e5;
+  outline-offset: 3px;
+}
+
+@keyframes thankYouIconIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes thankYouCheckIn {
+  from {
+    opacity: 0;
+    transform: rotate(-45deg) translate(5px, -4px) scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-45deg) translate(4px, -2px) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thank-you-success-icon,
+  .thank-you-checkmark {
+    animation: none;
+  }
+
+  .thank-you-phone,
+  .thank-you-whatsapp,
+  .thank-you-home {
+    transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .thank-you-hero {
+    min-height: 720px;
+    padding: 142px 20px 80px;
+  }
+
+  .thank-you-contact {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .thank-you-hero {
+    min-height: auto;
+    padding: 132px 16px 66px;
+  }
+
+  .thank-you-success-icon {
+    width: 94px;
+    height: 94px;
+  }
+
+  .thank-you-checkmark {
+    width: 38px;
+    height: 22px;
+    border-width: 4px;
+  }
+
+  .thank-you-eyebrow {
+    margin-top: 28px;
+    font-size: 9px;
+  }
+
+  .thank-you-confirmation h1 {
+    font-size: clamp(52px, 17vw, 76px);
+  }
+
+  .thank-you-message-title {
+    margin-top: 20px !important;
+    font-size: 17px !important;
+  }
+
+  .thank-you-message {
+    font-size: 11px !important;
+  }
+
+  .thank-you-contact {
+    margin-top: 34px;
+    padding: 22px 18px;
+    border-radius: 17px;
+  }
+
+  .thank-you-contact-copy h2 {
+    font-size: 29px;
+  }
+
+  .thank-you-phone strong {
+    font-size: 16px;
+  }
+
+  .thank-you-whatsapp {
+    grid-template-columns: 34px 1fr auto;
+    font-size: 13px;
+    gap: 9px;
+  }
+
+  .thank-you-whatsapp-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .thank-you-home {
+    width: 100%;
+  }
+}
+/* =========================================
+   THANK YOU PAGE END
+   ========================================= */

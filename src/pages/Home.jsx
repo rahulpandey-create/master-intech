@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { submitEnquiry } from "../services/api";
+import { useNavigate } from "react-router-dom";
 import Hero from "../components/home/Hero";
 import Expertise from "../components/home/Expertise";
 import About from "../components/home/About";
@@ -12,6 +13,7 @@ import Contact from "../components/home/Contact";
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState({ success: "", error: "" });
@@ -43,9 +45,9 @@ function Home() {
     setLoading(true);
     setFeedback({ success: "", error: "" });
     try {
-      const data = await submitEnquiry(formData);
-      setFeedback({ success: data.message, error: "" });
+      await submitEnquiry(formData);
       setFormData({ name: "", email: "", message: "" });
+      navigate("/thank-you/");
     } catch (error) {
       setFeedback({ success: "", error: error.message });
     } finally {
