@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PortfolioBento from "./pages/Portfolio.jsx";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import StartupOffer from "./pages/StartupOffer";
 import PageTransition from "./components/home/PageTransition";
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
@@ -158,6 +159,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<PortfolioBento />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/startup-offer/" element={<StartupOffer />} />
         </Routes>
       </PageTransition>
       <Footer />

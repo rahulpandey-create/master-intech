@@ -129,8 +129,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
         </a>
         <a
           className="cyan-button hero-fade-in hero-delay-3 btnn btn-one"
-          href={currentPath}
-          onClick={(event) => handleSectionLink(event, "contact")}
+          href="/startup-offer"
         >
           SPECIAL OFFERS FOR NEW BUSINESS?{" "}
           <span>
