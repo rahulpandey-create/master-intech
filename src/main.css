@@ -6470,6 +6470,10 @@ width: 52px;
 
 }
 @media screen and (min-width: 1280px) and (max-width: 1366px) {
+  .portfolio-project-page .project-category {
+
+    padding: 6px 20px 12px;
+}
   
  .projects-section {
 

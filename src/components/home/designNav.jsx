@@ -82,14 +82,14 @@ export default function DesignNav() {
           HIRE US
         </a>
 
-        <a
+        {/* <a
           href="/"
           onClick={(event) =>
             handleSectionLink(event, "contact")
           }
         >
           CONTACT
-        </a>
+        </a> */}
 
         {/* HAMBURGER */}
         <button
