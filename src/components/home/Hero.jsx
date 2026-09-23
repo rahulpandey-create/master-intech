@@ -9,6 +9,7 @@ import brandingIcon from "../../assets/Branding.png";
 import seoIcon from "../../assets/SEO.png";
 import aiSolutionsIcon from "../../assets/AISolutions.png";
 import arrowbtn from "../../assets/arrowbtn.svg";
+import arrowhitee from "../../assets/arrowhitee.svg";
 import arrowtop from "../../assets/arrowtop.svg";
 import platform from "../../assets/platform.svg";
 import upworks from "../../assets/upworks.png";
@@ -126,6 +127,16 @@ export default function Hero({ menuOpen, setMenuOpen }) {
             <img src={arrowbtn} alt="arrow" />
           </span>
         </a>
+        <a
+          className="cyan-button hero-fade-in hero-delay-3 btnn btn-one"
+          href={currentPath}
+          onClick={(event) => handleSectionLink(event, "contact")}
+        >
+          SPECIAL OFFERS FOR NEW BUSINESS?{" "}
+          <span>
+            <img src={arrowhitee} alt="arrow" />
+          </span>
+        </a>
 
         <div className="connects block xl:hidden md:hidden mt-5">
           <h3>Connect With Us</h3>
@@ -163,7 +174,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           >
             LINKEDIN{" "}
             <span>
-              <img src={arrowtop} alt="arrow" />
+              <img src={arrowtop} alt="arrow" className="arrowtrans" />
             </span>
           </a>
 
@@ -175,7 +186,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           >
             INSTAGRAM{" "}
             <span>
-              <img src={arrowtop} alt="arrow" />
+              <img src={arrowtop} alt="arrow" className="arrowtrans" />
             </span>
           </a>
 
@@ -187,7 +198,7 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           >
             FACEBOOK{" "}
             <span>
-              <img src={arrowtop} alt="arrow" />
+              <img src={arrowtop} alt="arrow" className="arrowtrans" />
             </span>
           </a>
         </div>

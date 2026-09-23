@@ -19,7 +19,17 @@
 
 a.cyan-button.hero-fade-in.hero-delay-3.btnn {
   font-family: 'Inter';
-  width: 36%;
+  width: 32%;
+}
+a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
+    margin-left: 10px;
+}
+a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
+    margin-left: 10px;
+    border: 1px solid #3a3b3d;
+    background: rgb(8 9 10 / 14%);
+    color: #ffffff !important;
+    width: 55%;
 }
 
 span {
@@ -409,7 +419,7 @@ span.socialmedialinks1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 35px;
+  gap: 15px;
   border-radius: 12px;
   background: linear-gradient(358deg, #35C1FC, #45C8FA);
   color: #001018 !important;
@@ -3878,7 +3888,7 @@ label.service-field img {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 20%;
   background: #25d366;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -6483,4 +6493,11 @@ h1.featuredprojec {
 
 button.project-category.active {
 border-left:3px solid #0ab8fb;
+}
+img.arrowtrans:hover {
+    transform: rotate(
+320deg);
+}
+img.arrowtrans {
+ transition: 0.3s;
 }
