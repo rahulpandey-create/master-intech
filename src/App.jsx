@@ -13,6 +13,7 @@ import Footer from "./components/home/Footer.jsx";
 import question from "./assets/question.gif"
 const WHATSAPP_LINK = "https://wa.me/919878263393";
 import arrowtopp from "./assets/arrowtopp.svg";
+import support from "./assets/support.svg";
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -184,7 +185,7 @@ function App() {
           <h3>Let's Build Something Great</h3>
           <p>Tell us about your project, and our team will help you find the right solution.</p>
           <button className="popup-cta-btn" onClick={handlePopupWhatsAppClick}>
-            Chat With Our Experts
+            Chat With Our Experts <span className="support-img"><img src={support} alt=""/> </span>
           </button>
         </div>
       </div>

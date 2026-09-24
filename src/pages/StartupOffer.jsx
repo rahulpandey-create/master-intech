@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { submitEnquiry } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import arrowbtn from "../assets/arrowbtn.svg";
+import arrowhitee from "../assets/arrowhitee.svg";
 import "../main.css";
 
 const SERVICE_OPTIONS = [
@@ -282,20 +283,21 @@ function StartupOffer() {
     <main className="startup-offer-page">
       <section className="startup-offer-hero">
         <div className="startup-offer-hero-grid" aria-hidden="true" />
-        <div className="startup-offer-glow startup-offer-glow-one" aria-hidden="true" />
-        <div className="startup-offer-glow startup-offer-glow-two" aria-hidden="true" />
+        <div className="services-glow services-glow-1" aria-hidden="true" />
+        <div className="services-glow services-glow-2" aria-hidden="true" />
 
         <div className="startup-offer-container startup-offer-hero-content">
           <div className="startup-offer-eyebrow" data-startup-reveal>
             <span className="startup-offer-eyebrow-line" />
-            MASTER INTECH STARTUP LAUNCH PROGRAM
+            STARTUP LAUNCH PROGRAM
             <span className="startup-offer-eyebrow-line" />
           </div>
 
-          <p className="startup-offer-kicker" data-startup-reveal>BUILD. BRAND. LAUNCH. GROW.</p>
+          
+          <div class="tech-line"><span>BUILD</span><i>•</i><span>BRAND</span><i>•</i><span>LAUNCH</span><i>•</i><span>GROW</span></div>
 
           <h1 data-startup-reveal>
-            Start Your Business Online <span>— Without the Big Upfront Cost</span>
+            Start Your Business Online <br></br><span className="quoteline">"Without the Big Upfront Cost"</span>
           </h1>
 
           <p className="startup-offer-hero-copy" data-startup-reveal>
@@ -397,7 +399,7 @@ function StartupOffer() {
           </div>
           <button type="button" className="startup-offer-outline-button" onClick={openModal}>
             Get Startup Pricing
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true"><img src={arrowhitee} alt=""/></span>
           </button>
         </div>
       </section>
@@ -514,18 +516,7 @@ function StartupOffer() {
         </div>
       </section>
 
-      <section className="startup-offer-final-cta">
-        <div className="startup-offer-final-glow" aria-hidden="true" />
-        <div className="startup-offer-container startup-offer-final-inner" data-startup-reveal>
-          <p className="startup-offer-section-label">08 / LET&apos;S BUILD WHAT&apos;S NEXT</p>
-          <h2>Launching something new?</h2>
-          <p>Let&apos;s build the digital foundation for your business.</p>
-          <button type="button" className="startup-offer-primary-button" onClick={openModal}>
-            Apply for Startup Pricing
-            <img src={arrowbtn} alt="" aria-hidden="true" />
-          </button>
-        </div>
-      </section>
+     
 
       {isModalOpen && (
         <div
@@ -541,7 +532,7 @@ function StartupOffer() {
             aria-modal="true"
             aria-labelledby="startup-offer-modal-title"
             onMouseDown={(event) => event.stopPropagation()}
-          >
+          data-lenis-prevent>
             <div className="startup-offer-modal-header">
               <div>
                 <p className="startup-offer-section-label">STARTUP LAUNCH PROGRAM</p>

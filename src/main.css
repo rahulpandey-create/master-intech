@@ -165,12 +165,11 @@ span.socialmedialinks1 img:hover {
 }
 
 .design-nav .hire {
-  color: #0a0a0a;
-  background: linear-gradient(45deg, #85fef6, #37c2fb);
-  padding: 7px 12px 6px 10px;
-  border-radius: 8px;
+    color: #0a0a0a;
+    background: #77ff77;
+    padding: 7px 12px 6px 10px;
+    border-radius: 8px;
 }
-
 .design-nav-actions a {
   color: #0a0a0a !important;
   background: linear-gradient(45deg, #85fef6, #37c2fb);
@@ -259,19 +258,21 @@ a.outline-button {
 
 /* banner eyebrow */
 .tech-line {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4px;
-  font-family: "Inclusive Sans", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: #ffffff;
-  position: relative;
-  bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-family: "Inclusive Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #ffffff;
+    position: relative;
+    bottom: 8px;
+    margin-top: 28px;
+    margin-bottom: 10px;
 }
 
 .tech-line span {
@@ -2332,6 +2333,22 @@ img.bord5 {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .popup-cta-btn {
+    width: 100% !important;
+}
+  .startup-offer-hero h1 {
+    font-size: 32px !important;
+    letter-spacing: 2px !important;
+}
+.startup-offer-eyebrow {
+    font-size: 16px !important;
+}
+.contact-popup-box img {
+    width: 42% !important;
+}
+.contact-popup-box h3 {
+    font-size: 25px !important;
+}
 
 .contact-details {
     padding-top: 0;
@@ -3942,9 +3959,9 @@ label.service-field img {
 }
 
 @media (max-width: 560px) {
- .whatsapp-float {
-    right: 25px;
-    bottom: 86px;
+.whatsapp-float {
+    right: 10px;
+    bottom: 10px;
     width: 50px;
     height: 50px;
 }
@@ -6378,12 +6395,20 @@ width: 52px;
     font-weight: 600;
     border-radius: 50px;
     cursor: pointer;
-    width: 100%;
+    width: 82%;
     box-shadow: 0px 4px 12px rgb(53 193 252 / 22%);
     transition: background-color 0.2s ease, transform 0.2s ease;
-    width: 74%;
+  margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
 }
 
+span.support-img img {
+    margin: auto;
+    width: 20px;
+}
 .popup-cta-btn:hover {
   background-color: #a7e5ff;
   transform: scale(1.02);
@@ -6648,12 +6673,12 @@ img.arrowtrans {
 }
 
 .startup-offer-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  color: #dffcff;
-  font: 600 11px/1 "Inter", sans-serif;
-  letter-spacing: 2.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #a6a6a6;
+    letter-spacing: 1px;
+    font-family: 'Intel One Mono';
 }
 
 .startup-offer-eyebrow-line {
@@ -6670,15 +6695,19 @@ img.arrowtrans {
   letter-spacing: 4px;
   text-transform: uppercase;
 }
-
+span.quoteline {
+    letter-spacing: 0px !important;
+    font-size: 28px !important;
+    font-family: 'Inter' !important;
+}
 .startup-offer-hero h1 {
-  max-width: 920px;
-  margin: 0 auto;
-  font-family: "Inter", sans-serif;
-  font-size: clamp(48px, 7vw, 88px);
-  line-height: .99;
-  letter-spacing: -3.8px;
-  font-weight: 600;
+    max-width: 920px;
+    margin: 0 auto;
+    font-size: 32px;
+    letter-spacing: normal;
+    font-weight: 600;
+    font-family: "Boldonse", sans-serif;
+    line-height: 42px;
 }
 
 .startup-offer-hero h1 span {
@@ -6692,8 +6721,8 @@ img.arrowtrans {
 
 .startup-offer-hero-copy {
   max-width: 710px;
-  margin: 30px auto 0 !important;
-  color: #bdc4c5 !important;
+  margin: 24px auto 0 !important;
+  color: #EDEDED !important;
   font: 300 16px/1.75 "Intel One Mono", monospace !important;
 }
 
@@ -6737,11 +6766,19 @@ img.arrowtrans {
   outline: 2px solid #85fef6;
   outline-offset: 3px;
 }
-
+/* guri modal */
+/* guri modal end */
 .startup-offer-eligibility-note {
-  margin-top: 17px !important;
-  color: #828b8d !important;
-  font: 12px/1.6 "Intel One Mono", monospace !important;
+    color: #8c989b !important;
+    background: #1a1919;
+    width: fit-content;
+    margin: auto !important;
+    margin-top: 22px !important;
+    border: 1px solid #404040;
+    padding: 7px 26px;
+    border-radius: 100px;
+    font-family: 'Inter' !important;
+    font-size: 12px;
 }
 
 .startup-offer-section {
@@ -6761,31 +6798,27 @@ img.arrowtrans {
 }
 
 .startup-offer-section-label {
-  color: #63ddec !important;
+  color: #11bbfe !important;
   font: 600 11px/1.4 "Intel One Mono", monospace !important;
-  letter-spacing: 2.1px;
+  letter-spacing: 1.1px;
   text-transform: uppercase;
 }
 
 .startup-offer-section h2 {
-  margin: 17px 0 0;
-  font: 600 clamp(40px, 5vw, 66px)/1.02 "Inter", sans-serif;
-  letter-spacing: -2.8px;
+    margin: 17px 0 0;
+    letter-spacing: 2px;
+    font-family: 'Boldonse';
+    font-size: 32px;
+    line-height: 62px;
 }
 
-.startup-offer-section-copy {
-  margin-top: 0 !important;
-  color: #bdc5c6 !important;
-  font: 300 15px/1.8 "Intel One Mono", monospace !important;
-}
+
 
 .startup-offer-section-copy+.startup-offer-section-copy {
   margin-top: 22px !important;
 }
 
-.startup-offer-section-copy.muted {
-  color: #80898b !important;
-}
+
 
 .startup-offer-services-section {
   background: var(--startup-bg);
@@ -6818,20 +6851,19 @@ img.arrowtrans {
 }
 
 .startup-offer-service-card::after {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  right: -80px;
-  top: -80px;
-  border-radius: 50%;
-  background: rgba(32, 196, 244, .08);
-  filter: blur(20px);
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -80px;
+    top: -80px;
+    border-radius: 50%;
+    background: rgb(117 224 255 / 8%);
+    filter: blur(66px);
 }
-
 .startup-offer-service-card:hover {
   transform: translateY(-5px);
-  border-color: var(--startup-line-bright);
+  border-color: rgb(255 255 255 / 28%);
   background: linear-gradient(145deg, rgba(24, 31, 33, .98), rgba(13, 16, 17, .98));
 }
 
@@ -6851,28 +6883,30 @@ img.arrowtrans {
   place-items: center;
   border: 1px solid rgba(133, 254, 246, .28);
   border-radius: 50%;
-  color: #85fef6;
+  color: #ffffff;
   font: 300 21px/1 "Inter", sans-serif;
 }
 
 .startup-offer-card-label {
-  margin-top: 45px !important;
-  color: #6e7b7e !important;
-  font: 600 10px/1 "Intel One Mono", monospace !important;
-  letter-spacing: 2px;
+    margin-top: 45px !important;
+    color: #11bbfe !important;
+    font: 600 10px/1 "Intel One Mono", monospace !important;
+    letter-spacing: 1px;
 }
 
 .startup-offer-service-card h3 {
-  margin: 12px 0 0;
-  font: 600 34px/1.05 "Inter", sans-serif;
-  letter-spacing: -1.4px;
+    margin: 22px 0 0;
+    letter-spacing: 2px;
+    font-family: 'Boldonse';
+    font-size: 24px;
 }
 
 .startup-offer-card-intro {
-  max-width: 510px;
-  margin-top: 16px !important;
-  color: #a9b1b2 !important;
-  font: 300 14px/1.7 "Intel One Mono", monospace !important;
+    max-width: 510px;
+    margin-top: 16px !important;
+    color: #ededed !important;
+    font-family: 'Inter' !important;
+    font-size: 14px;
 }
 
 .startup-offer-service-card ul {
@@ -6887,14 +6921,14 @@ img.arrowtrans {
   display: flex;
   gap: 10px;
   align-items: flex-start;
-  color: #d9dddd;
+  color: #dfdfdf;
   font: 300 13px/1.5 "Intel One Mono", monospace;
 }
 
 .startup-offer-service-card li span {
-  flex: 0 0 auto;
-  color: #54dae9;
-  font-family: "Inter", sans-serif;
+    flex: 0 0 auto;
+    color: #11bbfe;
+    font-family: "Inter", sans-serif;
 }
 
 .startup-offer-custom-cta {
@@ -6911,12 +6945,13 @@ img.arrowtrans {
 }
 
 .startup-offer-custom-inner h2 {
-  max-width: 760px;
-  margin-top: 15px;
-  font: 500 clamp(30px, 4vw, 50px)/1.1 "Inter", sans-serif;
-  letter-spacing: -2px;
+    max-width: 760px;
+    margin-top: 15px;
+    font-family: 'Boldonse';
+    letter-spacing: 2px;
+    font-size: 32px;
+    line-height: 56px;
 }
-
 .startup-offer-outline-button {
   min-height: 50px;
   display: inline-flex;
@@ -6939,9 +6974,9 @@ img.arrowtrans {
 }
 
 .startup-offer-outline-button:hover {
-  transform: translateY(-2px);
-  border-color: #64dce9;
-  background: rgba(36, 199, 236, .07);
+    transform: translateY(-2px);
+    border-color: #10acea;
+    background: rgb(17 187 254 / 10%);
 }
 
 .startup-offer-packages-section {
@@ -6965,10 +7000,9 @@ img.arrowtrans {
 }
 
 .startup-offer-package-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(133, 254, 246, .35);
+    transform: translateY(-4px);
+    border-color: rgb(255 255 255 / 50%);
 }
-
 .startup-offer-package-top {
   display: flex;
   justify-content: space-between;
@@ -6978,13 +7012,15 @@ img.arrowtrans {
 }
 
 .startup-offer-package-top span:first-child {
-  color: #61dbe9;
+    color: #11bbfe;
+    font-size: 18px;
 }
 
 .startup-offer-package-card h3 {
-  margin: 60px 0 13px;
-  font: 600 28px/1 "Inter", sans-serif;
-  letter-spacing: 1px;
+    margin: 60px 0 13px;
+    letter-spacing: 1px;
+    font-family: 'Boldonse';
+    font-size: 26px;
 }
 
 .startup-offer-package-title {
@@ -6994,9 +7030,11 @@ img.arrowtrans {
 }
 
 .startup-offer-package-card>p:not(.startup-offer-package-title) {
-  margin-top: 20px !important;
-  color: #929b9d !important;
-  font: 300 12px/1.7 "Intel One Mono", monospace !important;
+    margin-top: 8px !important;
+    color: #dbdbdb !important;
+    font-family: 'Intel One Mono' !important;
+    font-size: 13px !important;
+    line-height: 21px !important;
 }
 
 .startup-offer-package-line {
@@ -7006,10 +7044,10 @@ img.arrowtrans {
 }
 
 .startup-offer-package-note {
-  display: block;
-  margin-top: 14px;
-  color: #5fcddd;
-  font: 10px/1.4 "Intel One Mono", monospace;
+    display: block;
+    margin-top: 14px;
+    color: #11bbfe;
+    font: 12px/1.4 "Intel One Mono", monospace;
 }
 
 .startup-offer-eligibility-section {
@@ -7042,20 +7080,21 @@ img.arrowtrans {
 }
 
 .startup-offer-check-item>span {
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 28px;
-  border: 1px solid rgba(76, 218, 236, .38);
-  border-radius: 50%;
-  color: #5edfeb;
-  font-family: "Inter", sans-serif;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 28px;
+    border: 1px solid rgba(76, 218, 236, .38);
+    border-radius: 50%;
+    color: #11bbfe;
+    font-family: "Inter", sans-serif;
 }
 
 .startup-offer-check-item p {
-  color: #d4dada !important;
-  font: 300 12px/1.5 "Intel One Mono", monospace !important;
+    color: #d4dada !important;
+    font-family: 'Inter' !important;
+    font-size: 14px !important;
 }
 
 .startup-offer-not-sure {
@@ -7072,9 +7111,14 @@ img.arrowtrans {
 }
 
 .startup-offer-not-sure h2 {
-  margin-top: 14px;
-  font: 600 clamp(38px, 5vw, 60px)/1 "Inter", sans-serif;
-  letter-spacing: -2.5px;
+    margin-top: 14px;
+    letter-spacing: 2px;
+    font-family: 'Boldonse';
+    font-size: 32px;
+}
+button.startup-offer-faq-question span {
+    font-family: 'Inclusive Sans';
+    font-size: 20px;
 }
 
 .startup-offer-not-sure p:not(.startup-offer-section-label) {
@@ -7209,7 +7253,7 @@ img.arrowtrans {
   display: grid;
   place-items: center;
   padding: 28px;
-  background: rgba(2, 5, 6, .78);
+  background: rgb(78 78 78 / 78%);
   backdrop-filter: blur(10px);
   animation: startupOfferModalFade .18s ease both;
 }
@@ -7218,7 +7262,7 @@ img.arrowtrans {
   width: min(900px, 100%);
   max-height: min(90vh, 850px);
   overflow: auto;
-  overscroll-behavior: contain;
+  /* overscroll-behavior: contain; */
   border: 1px solid rgba(133, 254, 246, .18);
   border-radius: 22px;
   background: #0d1112;
@@ -7241,15 +7285,15 @@ img.arrowtrans {
 }
 
 .startup-offer-modal-header h2 {
-  margin: 10px 0 0;
-  font: 600 38px/1 "Inter", sans-serif;
-  letter-spacing: -1.7px;
+    margin: 10px 0 0;
+    font: 600 28px/2 "BOLDONSE", sans-serif;
+    letter-spacing: -1.7px;
 }
 
 .startup-offer-modal-header p:not(.startup-offer-section-label) {
   margin-top: 12px !important;
-  color: #929b9d !important;
-  font: 300 12px/1.65 "Intel One Mono", monospace !important;
+  color: #d7d7d7 !important;
+  font: 300 14px/1.65 "Intel One Mono", monospace !important;
 }
 
 .startup-offer-modal-close {
@@ -7630,13 +7674,13 @@ img.arrowtrans {
     min-height: 51px;
   }
 
-  .startup-offer-section {
-    padding: 78px 0;
-  }
+.startup-offer-section {
+    padding: 32px 0;
+}
 
   .startup-offer-section h2 {
-    font-size: 39px;
-    letter-spacing: -1.9px;
+    font-size: 32px;
+    letter-spacing: 1px;
   }
 
   .startup-offer-intro-grid {
@@ -8239,3 +8283,4 @@ img.arrowtrans {
 /* =========================================
    THANK YOU PAGE END
    ========================================= */
+
