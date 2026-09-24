@@ -128,6 +128,10 @@ const initialForm = {
 function StartupOffer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
+  
+  // NEW: State to track how many FAQs are currently visible
+  const [visibleFaqsCount, setVisibleFaqsCount] = useState(4);
+  
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -486,8 +490,9 @@ function StartupOffer() {
             </p>
           </div>
 
+          {/* UPDATED: Added logic to slice FAQS array based on state */}
           <div className="startup-offer-faq-list" data-startup-reveal>
-            {FAQS.map(([question, answer], index) => {
+            {FAQS.slice(0, visibleFaqsCount).map(([question, answer], index) => {
               const isOpen = openFaq === index;
               return (
                 <div className={`startup-offer-faq ${isOpen ? "is-open" : ""}`} key={question}>
@@ -513,6 +518,24 @@ function StartupOffer() {
               );
             })}
           </div>
+
+          {/* NEW: Load More Button */}
+          {visibleFaqsCount < FAQS.length && (
+            <div 
+              style={{ display: "flex", justifyContent: "flex-start", marginTop: "2rem" }} 
+              data-startup-reveal
+            >
+              <button 
+                type="button" 
+                className="startup-offer-outline-button" 
+                onClick={() => setVisibleFaqsCount(prev => prev + 4)}
+              >
+                Load More Questions
+                <span aria-hidden="true">↓</span>
+              </button>
+            </div>
+          )}
+
         </div>
       </section>
 
