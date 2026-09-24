@@ -46,10 +46,10 @@ const createEnquiry = async (req, res, next) => {
       });
     }
 
-    if (trimmedMessage.length > 5000) {
+    if (trimmedMessage.length > 15000) {
       return res.status(400).json({
         success: false,
-        message: "Message cannot exceed 5000 characters.",
+        message: "Message cannot exceed 15000 characters.",
       });
     }
 
