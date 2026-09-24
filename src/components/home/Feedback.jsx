@@ -76,6 +76,7 @@ export default function Feedback() {
         ================================= */}
 
         <div className="testimonial-photo" data-reveal>
+          
 
           <img
             src={client6}

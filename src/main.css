@@ -167,7 +167,7 @@ span.socialmedialinks1 img:hover {
 .design-nav .hire {
     color: #0a0a0a;
     background: #77ff77;
-    padding: 7px 12px 6px 10px;
+    padding: 7px 20px 6px 20px;
     border-radius: 8px;
 }
 .design-nav-actions a {
@@ -742,213 +742,6 @@ span.socialmedialinks1 {
 }
 
 
-/* ================================
-   SHUFFLE BUTTON
-================================ */
-
-.expertise-shuffle {
-  position: relative;
-  z-index: 9999;
-
-  width: 62px;
-  height: 62px;
-  min-width: 62px;
-
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-
-  background: transparent;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  transition:
-    background 0.35s ease,
-    transform 0.3s ease,
-    border-color 0.3s ease;
-}
-
-
-/* Hover */
-
-.expertise-shuffle:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #fff;
-}
-
-
-/* Click */
-
-.expertise-shuffle:active {
-  transform: scale(0.9);
-}
-
-
-/* ================================
-   SHUFFLE ICON
-================================ */
-
-.shuffle-icon {
-  position: relative;
-
-  width: 25px;
-  height: 25px;
-
-  display: block;
-
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-/* Top curved line */
-
-.shuffle-icon::before {
-  content: "";
-
-  position: absolute;
-
-  width: 15px;
-  height: 8px;
-
-  left: 1px;
-  top: 3px;
-
-  border-top: 1.8px solid #fff;
-  border-right: 1.8px solid #fff;
-
-  border-radius: 0 8px 0 0;
-
-  transform: skewX(25deg);
-}
-
-
-/* Bottom curved line */
-
-.shuffle-icon::after {
-  content: "";
-
-  position: absolute;
-
-  width: 15px;
-  height: 8px;
-
-  left: 1px;
-  bottom: 3px;
-
-  border-bottom: 1.8px solid #fff;
-  border-right: 1.8px solid #fff;
-
-  border-radius: 0 0 8px 0;
-
-  transform: skewX(-25deg);
-}
-
-
-/* ================================
-   ARROW HEADS
-================================ */
-
-.shuffle-icon span {
-  position: absolute;
-
-  width: 7px;
-  height: 7px;
-
-  border-top: 1.8px solid #fff;
-  border-right: 1.8px solid #fff;
-
-  transform: rotate(45deg);
-}
-
-
-/* Top arrow */
-
-.shuffle-icon span:nth-child(1) {
-  right: 0;
-  top: 1px;
-}
-
-
-/* Middle crossing */
-
-.shuffle-icon span:nth-child(2) {
-  left: 8px;
-  top: 9px;
-
-  width: 5px;
-  height: 5px;
-
-  border: none;
-}
-
-
-/* Bottom arrow */
-
-.shuffle-icon span:nth-child(3) {
-  right: 0;
-  bottom: 1px;
-
-  transform: rotate(45deg);
-}
-
-
-/* ================================
-   SHUFFLE ANIMATION
-================================ */
-
-.expertise-shuffle.is-shuffling .shuffle-icon {
-  animation: shuffleRotate 0.6s ease;
-}
-
-@keyframes shuffleRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  35% {
-    transform: rotate(90deg) scale(1.08);
-  }
-
-  70% {
-    transform: rotate(180deg) scale(0.95);
-  }
-
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-
-/* ================================
-   LOGO TRANSITION
-================================ */
-
-.tool-logo {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  animation: expertiseShuffle 1.7s ease both;
-}
-
-@keyframes expertiseShuffle {
-  0% {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* banner swiper end */
 
@@ -1390,7 +1183,7 @@ h2.uniqeheading {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(6px);
+
 }
 
 .testimonial-photo div {
@@ -2330,13 +2123,17 @@ img.bord5 {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  p.startup-offer-hero-copy.is-visible {
+    display: none;
+}
   .popup-cta-btn {
     width: 100% !important;
 }
   .startup-offer-hero h1 {
-    font-size: 32px !important;
+    font-size: 28px !important;
     letter-spacing: 2px !important;
 }
+
 .startup-offer-eyebrow {
     font-size: 16px !important;
 }
@@ -2389,10 +2186,12 @@ img.bord5 {
 
   .contact-line.address {
     margin-top: 14px;
+    width: 100%;
   }
 
   a.cyan-button.hero-fade-in.hero-delay-3.btnn {
     font-family: 'Inter';
+    font-size: 14px;
     width:100%;
   }
 
@@ -2917,6 +2716,11 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
 }
 
 @media (max-width: 768px) {
+  .contact-line.address {
+    grid-template-columns: 50px 1fr;
+    margin-top: 18px;
+    width: 100%;
+}
 
 .portfolio-project-page .project-category .category-title {
     display: block;
@@ -6658,7 +6462,7 @@ img.arrowtrans {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #a6a6a6;
+    color: #dfdfdf;
     letter-spacing: 1px;
     font-family: 'Intel One Mono';
 }
@@ -7106,7 +6910,7 @@ button.startup-offer-faq-question span {
 .startup-offer-not-sure p:not(.startup-offer-section-label) {
   max-width: 700px;
   margin-top: 20px !important;
-  color: #aab3b4 !important;
+  color: #cccccc !important;
   font: 300 14px/1.75 "Intel One Mono", monospace !important;
 }
 
@@ -7662,10 +7466,11 @@ button.startup-offer-faq-question span {
     padding: 32px 0;
 }
 
-  .startup-offer-section h2 {
+.startup-offer-section h2 {
     font-size: 32px;
     letter-spacing: 1px;
-  }
+    margin-bottom: 10px;
+}
 
   .startup-offer-intro-grid {
     gap: 32px;
@@ -7727,7 +7532,7 @@ button.startup-offer-faq-question span {
   }
 
   .startup-offer-not-sure h2 {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .startup-offer-not-sure .startup-offer-primary-button {
@@ -7897,22 +7702,22 @@ button.startup-offer-faq-question span {
 }
 
 .thank-you-success-icon {
-  width: 112px;
-  height: 112px;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  border: 1px solid rgba(102, 241, 231, 0.52);
-  background:
-    radial-gradient(circle at 35% 28%, rgba(146, 255, 247, 0.22), transparent 38%),
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(102, 241, 231, 0.52);
+    background: radial-gradient(circle at 35% 28%, rgba(146, 255, 247, 0.22), transparent 38%),
     rgba(14, 24, 27, 0.78);
-  box-shadow:
-    0 0 0 12px rgba(32, 196, 244, 0.035),
+    box-shadow: 0 0 0 12px rgba(32, 196, 244, 0.035),
     0 0 48px rgba(32, 196, 244, 0.18),
     inset 0 0 32px rgba(32, 196, 244, 0.06);
-  animation: thankYouIconIn 0.62s cubic-bezier(.2,.8,.25,1) both;
-}
+    animation: thankYouIconIn 0.62s cubic-bezier(.2,.8,.25,1) both;
+    margin-top: 10px;
+    padding: 8px;
+} 
 
 .thank-you-checkmark {
   width: 46px;
@@ -7925,30 +7730,39 @@ button.startup-offer-faq-question span {
   animation: thankYouCheckIn 0.46s 0.18s cubic-bezier(.2,.8,.25,1) both;
 }
 
-.thank-you-eyebrow,
-.thank-you-section-label {
-  font-family: "Intel One Mono", monospace;
-  color: #6fe8e0;
-  font-size: 11px;
-  line-height: 1.4;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.thank-you-eyebrow, .thank-you-section-label {
+    font-family: "Intel One Mono", monospace;
+    color: #27c9f3;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-transform: uppercase;
 }
 
 .thank-you-eyebrow {
   margin: 34px 0 0;
 }
-
-.thank-you-confirmation h1 {
-  margin: 10px 0 0;
-  color: #fff;
-  font-size: clamp(58px, 9vw, 106px);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+a.thank-you-whatsapp span {
+    font-family: 'Inter';
 }
 
+.thank-you-confirmation h1 {
+    margin: 20px 0 0;
+    color: #fff;
+    font-size: clamp(32px, 9vw, 32px);
+    line-height: normal;
+    letter-spacing: 2px;
+}
+.main-thanks {
+    background: #1f1f1f52;
+    padding: 26px;
+    border-radius: 26px;
+    border: 1px solid #262626;
+    margin-top: 26px;
+    box-shadow: 7px 5px 95px #00b0fd29;
+}
 .thank-you-message-title {
-  margin: 24px auto 0 !important;
+  margin: 0px auto 0 !important;
   color: #edf8fa !important;
   font-family: "Inter", sans-serif !important;
   font-size: clamp(18px, 2.1vw, 23px) !important;
@@ -7957,13 +7771,13 @@ button.startup-offer-faq-question span {
 }
 
 .thank-you-message {
-  width: min(680px, 100%);
-  margin: 13px auto 0 !important;
-  color: #9ca6a8 !important;
-  font-family: "Intel One Mono", monospace !important;
-  font-size: 13px !important;
-  font-weight: 300 !important;
-  line-height: 1.75 !important;
+    width: min(680px, 100%);
+    margin: 13px auto 0 !important;
+    color: #dbdbdb !important;
+    font-family: "Intel One Mono", monospace !important;
+    font-size: 15px !important;
+    font-weight: 300 !important;
+    line-height: 1.75 !important;
 }
 
 .thank-you-divider {
@@ -8015,21 +7829,21 @@ button.startup-offer-faq-question span {
 }
 
 .thank-you-contact-copy h2 {
-  margin: 9px 0 0;
-  color: #fff;
-  font-family: "Anton", sans-serif;
-  font-size: clamp(26px, 3vw, 38px);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: 0.01em;
+    margin: 12px 0 0;
+    color: #fff;
+    font-family: 'Boldonse';
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.01em;
 }
 
 .thank-you-contact-copy > p:last-child {
-  margin: 14px 0 0 !important;
-  color: #909a9c !important;
-  font-family: "Intel One Mono", monospace !important;
-  font-size: 12px !important;
-  line-height: 1.7 !important;
+    margin: 14px 0 0 !important;
+    color: #d4d4ce !important;
+    font-family: "Intel One Mono", monospace !important;
+    font-size: 15px !important;
+    line-height: normal !important;
 }
 
 .thank-you-contact-actions {
@@ -8079,19 +7893,21 @@ button.startup-offer-faq-question span {
 }
 
 .thank-you-whatsapp {
-  padding: 8px 12px;
-  display: grid;
-  grid-template-columns: 38px 1fr auto;
-  align-items: center;
-  gap: 11px;
-  border: 1px solid rgba(77, 226, 204, 0.32);
-  background: linear-gradient(135deg, rgba(48, 218, 205, 0.12), rgba(0, 178, 255, 0.08));
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+    padding: 8px 12px;
+    display: grid;
+    grid-template-columns: 38px 1fr auto;
+    align-items: center;
+    gap: 11px;
+    border: 1px solid rgb(53 193 252);
+    background: linear-gradient(135deg, rgb(53 193 252 / 18%), rgba(0, 178, 255, 0.08));
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    width: 33%;
+    margin: auto;
+    margin-top: 24px;
 }
-
 .thank-you-whatsapp:hover,
 .thank-you-whatsapp:focus-visible {
   transform: translateY(-2px);
@@ -8115,23 +7931,23 @@ button.startup-offer-faq-question span {
 }
 
 .thank-you-whatsapp > span:last-child {
-  font-size: 20px;
-  color: #62ebe2;
+  font-size: 16px;
+  color: #fff;
 }
-
 .thank-you-home {
-  width: max-content;
-  margin: 22px auto 0;
-  padding: 11px 18px 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #f2f5f6;
-  background: rgba(255, 255, 255, 0.02);
-  font-family: "Intel One Mono", monospace;
-  font-size: 12px;
+    width: max-content;
+    margin: 22px auto 0;
+    padding: 11px 18px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #000000;
+    background: linear-gradient(45deg, #27c9f3, #73f1e5);
+    font-family: 'Inclusive Sans';
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .thank-you-home img {
@@ -8143,8 +7959,8 @@ button.startup-offer-faq-question span {
 .thank-you-home:hover,
 .thank-you-home:focus-visible {
   transform: translateY(-2px);
-  border-color: rgba(116, 241, 232, 0.5);
-  background: rgba(116, 241, 232, 0.06);
+  /* border-color: rgba(116, 241, 232, 0.5); */
+  background: linear-gradient(45deg, #73f1e5, #27c9f3);
 }
 
 .thank-you-page a:focus-visible,
@@ -8223,7 +8039,7 @@ button.startup-offer-faq-question span {
   }
 
   .thank-you-confirmation h1 {
-    font-size: clamp(52px, 17vw, 76px);
+    font-size: clamp(32px, 17vw, 32px);
   }
 
   .thank-you-message-title {
@@ -8231,9 +8047,10 @@ button.startup-offer-faq-question span {
     font-size: 17px !important;
   }
 
-  .thank-you-message {
-    font-size: 11px !important;
-  }
+.thank-you-message {
+    font-size: 14px !important;
+    line-height: 22px !important;
+}
 
   .thank-you-contact {
     margin-top: 34px;
@@ -8249,11 +8066,16 @@ button.startup-offer-faq-question span {
     font-size: 16px;
   }
 
-  .thank-you-whatsapp {
+.thank-you-whatsapp {
     grid-template-columns: 34px 1fr auto;
     font-size: 13px;
     gap: 9px;
-  }
+    width: 100%;
+}
+.main-thanks {
+
+    margin-top: 0px;
+}
 
   .thank-you-whatsapp-icon {
     width: 34px;
@@ -8267,3 +8089,10 @@ button.startup-offer-faq-question span {
 /* =========================================
    THANK YOU PAGE END
    ========================================= */
+.stillimage {
+    position: relative;
+}
+img.stillimg {
+    position: absolute;
+}
+

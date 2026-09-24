@@ -1355,14 +1355,15 @@ function StartupOffer() {
                   >
                     <p>{answer}</p>
                   </div>
+
                 </div>
+
               );
             })}
-          </div>
-          {/* NEW: Load More Button */}
+            {/* NEW: Load More Button */}
           {visibleFaqsCount < FAQS.length && (
-            <div
-              style={{ display: "flex", justifyContent: "flex-start", marginTop: "2rem" }}
+            <div 
+              style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }} 
               data-startup-reveal
             >
               <button
@@ -1375,6 +1376,8 @@ function StartupOffer() {
               </button>
             </div>
           )}
+          </div>
+
         </div>
       </section>
       {isModalOpen && (
