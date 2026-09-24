@@ -7259,15 +7259,19 @@ button.startup-offer-faq-question span {
 }
 
 .startup-offer-modal {
-  width: min(900px, 100%);
-  max-height: min(90vh, 850px);
-  overflow: auto;
-  /* overscroll-behavior: contain; */
-  border: 1px solid rgba(133, 254, 246, .18);
-  border-radius: 22px;
-  background: #0d1112;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, .55);
-  animation: startupOfferModalIn .22s ease both;
+    width: min(900px, 100%);
+    max-height: min(90vh, 850px);
+    overflow: auto;
+    /* overscroll-behavior: contain; */
+    border: 1px solid rgba(133, 254, 246, .18);
+    border-radius: 22px;
+    background: #0d1112;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, .55);
+    animation: startupOfferModalIn .22s ease both;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .startup-offer-modal-header {
@@ -7291,9 +7295,9 @@ button.startup-offer-faq-question span {
 }
 
 .startup-offer-modal-header p:not(.startup-offer-section-label) {
-  margin-top: 12px !important;
-  color: #d7d7d7 !important;
-  font: 300 14px/1.65 "Intel One Mono", monospace !important;
+    margin-top: 2px !important;
+    color: #d7d7d7 !important;
+    font: 100 14px/1.65 "Inter", monospace !important;
 }
 
 .startup-offer-modal-close {
@@ -7328,13 +7332,14 @@ button.startup-offer-faq-question span {
   margin-bottom: 19px;
 }
 
-.startup-offer-field label,
-.startup-offer-fieldset legend {
-  display: block;
-  margin-bottom: 9px;
-  color: #d9e0e1;
-  font: 600 11px/1.4 "Inter", sans-serif;
-  letter-spacing: .5px;
+.startup-offer-field label, .startup-offer-fieldset legend {
+    display: block;
+    margin-bottom: 8px;
+    color: #d9e0e1;
+    font-family: 'Intel One Mono';
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .startup-offer-field label span,
@@ -7342,18 +7347,16 @@ button.startup-offer-faq-question span {
   color: #57d8e9;
 }
 
-.startup-offer-field input,
-.startup-offer-field select,
-.startup-offer-field textarea {
-  width: 100%;
-  border: 1px solid #303a3c;
-  border-radius: 10px;
-  outline: none;
-  background: #111718;
-  color: #f3f7f7;
-  padding: 13px 14px;
-  font: 300 13px/1.5 "Intel One Mono", monospace;
-  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+.startup-offer-field input, .startup-offer-field select, .startup-offer-field textarea {
+    width: 100%;
+    border: 1px solid #303133;
+    border-radius: 10px;
+    outline: none;
+    background: #303133;
+    color: #f3f7f7;
+    padding: 13px 14px;
+    font: 300 13px/1.5 "Intel One Mono", monospace;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 .startup-offer-field input,
@@ -7482,12 +7485,11 @@ button.startup-offer-faq-question span {
 }
 
 .startup-offer-form-footer p {
-  max-width: 480px;
-  margin-top: 20px !important;
-  color: #737d7f !important;
-  font: 10px/1.55 "Intel One Mono", monospace !important;
+    max-width: 480px;
+    margin-top: 20px !important;
+    color: #ffffff !important;
+    font: 14px/1.55 "Intel One Mono", monospace !important;
 }
-
 .startup-offer-submit-button {
   flex: 0 0 auto;
   margin-top: 20px;
