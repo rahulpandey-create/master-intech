@@ -2124,9 +2124,6 @@ img.bord5 {
     right: 20px;
   }
 
-  .design-nav-actions>a {
-    /* display: none; */
-  }
 
   .design-logo {
     width: 60px;
@@ -2588,14 +2585,6 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
 
   .desktop-only {
     display: none;
-  }
-
-  .expertise-copy h2 {
-    /* font-size: 36px; */
-  }
-
-  .expertise-copy p {
-    /* font-size: 12px; */
   }
 
   .expertise-tools {
@@ -3458,9 +3447,6 @@ h2.master-intech {
     height: 450px;
   }
 
-  .testimonial-photo {
-    /* max-width: 280px; */
-  }
 
   .feedback-swiper {
     max-width: 100%;
@@ -8285,4 +8271,3 @@ button.startup-offer-faq-question span {
 /* =========================================
    THANK YOU PAGE END
    ========================================= */
-
