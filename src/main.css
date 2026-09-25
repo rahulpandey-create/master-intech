@@ -2123,6 +2123,12 @@ img.bord5 {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .portfolio-project-page .project-category .category-number {
+   display: none !important;
+}
+button.project-category.active {
+    border-left: 1px solid #0ab8fb !important;
+}
   p.startup-offer-hero-copy.is-visible {
     display: none;
 }
@@ -3967,6 +3973,7 @@ article.service-row.reverse {
 
   box-shadow:
     0 10px 40px rgba(1, 179, 255, .15);
+    cursor:pointer;
 }
 
 .service-btn-primary:hover {
@@ -5667,7 +5674,7 @@ article.service-row.reverse {
   .portfolio-project-page .project-category {
     flex-shrink: 0;
     width: auto;
-    padding: 19px 15px;
+    padding: 10px 15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 0px;
   }
@@ -6335,17 +6342,18 @@ span.support-img img {
     column-gap:0px;
 }
 .portfolio-project-page .project-category .category-title {
-    font-size: 32px;
+    font-size: 28px;
 }
 .portfolio-project-page .project-category.active .category-title {
     color: #ffffff;
 
-    font-size: 32px;
+    font-size: 28px;
 }
 .project-info h4 {
     font-size: 12px;
     line-height: 16px;
 }
+
 .project-actions {
     gap: 6px;
 }
@@ -6353,11 +6361,15 @@ span.support-img img {
 h1.featuredprojec {
     font-family: 'Boldonse';
     font-size: 32px;
-    margin-bottom: 38px;
+    margin-bottom: 16px;
 }
 
 button.project-category.active {
 border-left:3px solid #0ab8fb;
+}
+.projects-sidebar {
+    top: 28px;
+
 }
 img.arrowtrans:hover {
     transform: rotate(

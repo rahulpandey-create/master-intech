@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { submitEnquiry } from "../services/api";
 import arrowbtn from "../assets/arrowbtn.svg";
+import Contact from "../components/home/Contact";
 
+const MASTER_INTECH_WHATSAPP_LINK = "https://wa.me/919878263393";
 
 const services = [
   {
@@ -80,6 +83,7 @@ const services = [
     label: "DIGITAL",
     reverse: false,
   },
+
   {
     number: "04",
     tag: "UX • UI • PRODUCT",
@@ -106,9 +110,6 @@ const services = [
     reverse: true,
   },
 
-  // ==============================
-  // 04 DIGITAL MARKETING
-  // ==============================
   {
     number: "05",
     tag: "SEO • SOCIAL MEDIA • PERFORMANCE",
@@ -160,10 +161,7 @@ const services = [
     label: "PROTECTION",
     reverse: true,
   },
-
-
 ];
-
 
 // ==========================================
 // SERVICE VISUAL
@@ -172,7 +170,6 @@ const services = [
 function ServiceVisual({ icon, label }) {
   return (
     <div className="service-visual">
-
       <div className="service-icon-box">
         <i className={icon}></i>
       </div>
@@ -184,11 +181,9 @@ function ServiceVisual({ icon, label }) {
       <span className="service-icon-dot service-icon-dot-1"></span>
       <span className="service-icon-dot service-icon-dot-2"></span>
       <span className="service-icon-dot service-icon-dot-3"></span>
-
     </div>
   );
 }
-
 
 // ==========================================
 // SERVICE ROW
@@ -197,13 +192,12 @@ function ServiceVisual({ icon, label }) {
 function ServiceRow({ service }) {
   return (
     <article
-      className={`service-row ${service.reverse ? "reverse" : ""
-        }`}
+      className={`service-row ${
+        service.reverse ? "reverse" : ""
+      }`}
       data-reveal
     >
-
       <div className="service-content">
-
         <div className="service-number">
           {service.number}
         </div>
@@ -229,7 +223,6 @@ function ServiceRow({ service }) {
         </div>
 
         <div className="service-impact">
-
           <strong>
             Business Impact
           </strong>
@@ -237,36 +230,163 @@ function ServiceRow({ service }) {
           <p>
             {service.impact}
           </p>
-
         </div>
-
       </div>
-
 
       <ServiceVisual
         icon={service.icon}
         label={service.label}
       />
-
     </article>
   );
 }
-
 
 // ==========================================
 // SERVICES PAGE
 // ==========================================
 
 export default function Services() {
-
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [contactOpen, setContactOpen] = useState(false);
+
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const [feedback, setFeedback] = useState({
+    success: "",
+    error: "",
+  });
+
+  // ========================================
+  // OPEN CONTACT
+  // ========================================
+
+  const openContact = (project = null) => {
+    const contactProject =
+      project || {
+        label: "General Enquiry",
+      };
+
+    setSelectedProject(contactProject);
+    setContactOpen(true);
+
+    document.body.style.overflow = "hidden";
+  };
+
+  // ========================================
+  // CLOSE CONTACT
+  // ========================================
+
+  const closeContact = () => {
+    setContactOpen(false);
+    setSelectedProject(null);
+
+    document.body.style.overflow = "";
+  };
+
+  // ========================================
+  // FORM
+  // ========================================
+
+  const updateField = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    setLoading(true);
+
+    setFeedback({
+      success: "",
+      error: "",
+    });
+
+    try {
+      const data = await submitEnquiry(formData);
+
+      setFeedback({
+        success:
+          data?.message ||
+          "Your enquiry has been submitted successfully.",
+        error: "",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setFeedback({
+        success: "",
+        error:
+          error?.message ||
+          "Something went wrong. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // ========================================
+  // CLICK OUTSIDE
+  // ========================================
+
+  const handleOverlayClick = (event) => {
+    if (event.target === event.currentTarget) {
+      closeContact();
+    }
+  };
+
+  // ========================================
+  // ESC KEY
+  // ========================================
+
+  useEffect(() => {
+    if (!contactOpen) return;
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        closeContact();
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [contactOpen]);
+
+  // ========================================
+  // CLEANUP
+  // ========================================
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   // ========================================
   // LOCAL SMOOTH SCROLL
   // ========================================
 
   const handleLocalLink = (event, sectionId) => {
-
     event.preventDefault();
 
     document
@@ -275,13 +395,10 @@ export default function Services() {
         behavior: "smooth",
         block: "start",
       });
-
   };
 
-
   return (
-    <section className=" page-enter services-page">
-
+    <section className="page-enter services-page">
       {/* =====================================
           NAVIGATION
       ====================================== */}
@@ -291,43 +408,32 @@ export default function Services() {
         setMenuOpen={setMenuOpen}
       /> */}
 
-
       {/* =====================================
           HERO
       ====================================== */}
 
       <div className="services-hero">
-
         <div className="services-hero-grid"></div>
 
         <div className="services-glow services-glow-1"></div>
 
         <div className="services-glow services-glow-2"></div>
 
-
         <div className="services-container">
-
           {/* EYEBROW */}
 
           <div className="services-eyebrow">
-
             <span></span>
-
             OUR SERVICES
-
           </div>
-
 
           {/* HEADING */}
 
           <h1>
             Technology That
-
             Moves Your Business
-
             Forward
           </h1>
-
 
           {/* DESCRIPTION */}
 
@@ -338,34 +444,25 @@ export default function Services() {
             designed around your business.
           </p>
 
-
           {/* BUTTONS */}
 
           <div className="services-hero-buttons">
-
             {/* PRIMARY */}
 
-            <a
-              href="/"
+            <button
               className="service-btn service-btn-primary"
-              onClick={(event) =>
-                handleLocalLink(event, "contact")
-              }
+              type="button"
+              onClick={() => openContact()}
             >
-
               Let's Build Together
 
               <span>
-
                 <img
                   src={arrowbtn}
-                  alt=""
+                  alt="Contact Us"
                 />
-
               </span>
-
-            </a>
-
+            </button>
 
             {/* SECONDARY */}
 
@@ -379,17 +476,11 @@ export default function Services() {
                 )
               }
             >
-
               Explore Services
-
             </a>
-
           </div>
-
         </div>
-
       </div>
-
 
       {/* =====================================
           SERVICES LIST
@@ -399,18 +490,13 @@ export default function Services() {
         className="services-list"
         id="services-list"
       >
-
         {services.map((service) => (
-
           <ServiceRow
             key={service.number}
             service={service}
           />
-
         ))}
-
       </div>
-
 
       {/* =====================================
           CTA SECTION
@@ -420,24 +506,16 @@ export default function Services() {
         className="services-cta"
         id="contact"
       >
-
         <div className="cta-glow"></div>
 
-
         <div className="services-container">
-
           <div className="cta-content">
-
             {/* EYEBROW */}
 
             <div className="services-eyebrow">
-
               <span></span>
-
               LET&apos;S WORK TOGETHER
-
             </div>
-
 
             {/* CTA HEADING */}
 
@@ -447,7 +525,6 @@ export default function Services() {
               Challenge?
             </h2>
 
-
             {/* CTA DESCRIPTION */}
 
             <p>
@@ -455,27 +532,54 @@ export default function Services() {
               challenges into scalable digital solutions.
             </p>
 
-
             {/* CTA BUTTON */}
 
             <a
-              href="/"
+              href={MASTER_INTECH_WHATSAPP_LINK}
               className="service-btn service-btn-primary"
-              onClick={(event) =>
-                handleLocalLink(event, "contact")
-              }
+              target="_blank"
+              rel="noopener noreferrer"
             >
-
               Start a Conversation
-
             </a>
-
           </div>
-
         </div>
-
       </section>
 
+      {/* =====================================
+          CONTACT POPUP
+      ====================================== */}
+
+      {contactOpen && (
+        <div
+          className="portfolio-contact-overlay"
+          onMouseDown={handleOverlayClick}
+        >
+          <div
+            className="portfolio-contact-modal"
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="portfolio-contact-close"
+              onClick={closeContact}
+              aria-label="Close contact form"
+            >
+              ×
+            </button>
+
+            <Contact
+              formData={formData}
+              loading={loading}
+              feedback={feedback}
+              updateField={updateField}
+              handleSubmit={handleSubmit}
+              selectedProject={selectedProject}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

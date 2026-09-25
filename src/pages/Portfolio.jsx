@@ -277,7 +277,7 @@ const projectGroups = [
     projects: [
       {
         image: aboutImage,
-        label: "photoshop",
+        label: "AI Videos",
       },
       
     ],
