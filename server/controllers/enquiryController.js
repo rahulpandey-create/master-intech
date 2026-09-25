@@ -1,8 +1,15 @@
 const db = require("../config/db");
-
 const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+const escapeHtml = (value = "") =>
+  value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 const createEnquiry = async (req, res, next) => {
   try {
@@ -53,6 +60,10 @@ const createEnquiry = async (req, res, next) => {
       });
     }
 
+    const safeName = escapeHtml(trimmedName);
+    const safeEmail = escapeHtml(trimmedEmail);
+    const safeMessage = escapeHtml(trimmedMessage);
+
     const [result] = await db.execute(
       `
         INSERT INTO enquiries (name, email, message)
@@ -64,6 +75,7 @@ const createEnquiry = async (req, res, next) => {
         trimmedMessage,
       ]
     );
+
     await resend.emails.send({
       from: "MIT Solutions <noreply@masterintechsolutions.com>",
       to: process.env.CONTACT_EMAIL,
@@ -71,207 +83,182 @@ const createEnquiry = async (req, res, next) => {
       subject: `New Contact Enquiry from ${trimmedName}`,
 
       html: `
-    <div style="
-      margin: 0;
-      padding: 40px 20px;
-      background-color: #080808;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #ffffff;
-    ">
-
-      <div style="
-        max-width: 650px;
-        margin: 0 auto;
-        background-color: #111111;
-        border: 1px solid #292929;
-        border-radius: 16px;
-        overflow: hidden;
-      ">
-
-        <!-- Header -->
         <div style="
-          padding: 28px 32px;
-          border-bottom: 1px solid #292929;
-          background: linear-gradient(135deg, #111111 0%, #171717 100%);
+          margin: 0;
+          padding: 40px 20px;
+          background-color: #080808;
+          font-family: Arial, Helvetica, sans-serif;
+          color: #ffffff;
         ">
-
           <div style="
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #8f8f8f;
-            margin-bottom: 10px;
-          ">
-            MASTER INTECH SOLUTIONS
-          </div>
-
-          <h1 style="
-            margin: 0;
-            font-size: 28px;
-            line-height: 1.2;
-            font-weight: 700;
-            color: #ffffff;
-          ">
-            New Contact Enquiry
-          </h1>
-
-          <p style="
-            margin: 10px 0 0;
-            font-size: 14px;
-            color: #8f8f8f;
-          ">
-            A new enquiry has been submitted through your website.
-          </p>
-
-        </div>
-
-
-        <!-- Enquiry Details -->
-        <div style="padding: 32px;">
-
-          <div style="
-            margin-bottom: 20px;
-            padding: 18px;
-            background-color: #181818;
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #111111;
             border: 1px solid #292929;
-            border-radius: 10px;
+            border-radius: 16px;
+            overflow: hidden;
           ">
 
             <div style="
-              font-size: 11px;
-              font-weight: 600;
-              letter-spacing: 1.5px;
-              text-transform: uppercase;
-              color: #777777;
-              margin-bottom: 7px;
+              padding: 30px 32px;
+              border-bottom: 1px solid #292929;
+              background-color: #151515;
             ">
-              Name
-            </div>
-
-            <div style="
-              font-size: 16px;
-              font-weight: 600;
-              color: #ffffff;
-            ">
-              ${trimmedName}
-            </div>
-
-          </div>
-
-
-          <div style="
-            margin-bottom: 20px;
-            padding: 18px;
-            background-color: #181818;
-            border: 1px solid #292929;
-            border-radius: 10px;
-          ">
-
-            <div style="
-              font-size: 11px;
-              font-weight: 600;
-              letter-spacing: 1.5px;
-              text-transform: uppercase;
-              color: #777777;
-              margin-bottom: 7px;
-            ">
-              Email
-            </div>
-
-            <div style="
-              font-size: 16px;
-              color: #ffffff;
-            ">
-              ${trimmedEmail}
-            </div>
-
-          </div>
-
-
-          <div style="
-            padding: 20px;
-            background-color: #181818;
-            border: 1px solid #292929;
-            border-radius: 10px;
-          ">
-
-            <div style="
-              font-size: 11px;
-              font-weight: 600;
-              letter-spacing: 1.5px;
-              text-transform: uppercase;
-              color: #777777;
-              margin-bottom: 10px;
-            ">
-              Message
-            </div>
-
-            <div style="
-              font-size: 15px;
-              line-height: 1.7;
-              color: #dddddd;
-              white-space: pre-line;
-            ">
-              ${trimmedMessage}
-            </div>
-
-          </div>
-
-
-          <!-- Reply Button -->
-          <div style="
-            margin-top: 28px;
-            text-align: center;
-          ">
-
-            <a
-              href="mailto:${trimmedEmail}"
-              style="
-                display: inline-block;
-                padding: 13px 26px;
-                background-color: #ffffff;
-                color: #080808;
-                text-decoration: none;
-                font-size: 14px;
+              <div style="
+                margin-bottom: 10px;
+                font-size: 12px;
                 font-weight: 700;
-                border-radius: 6px;
-              "
-            >
-              Reply to Enquiry ↗
-            </a>
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #777777;
+              ">
+                MASTER INTECH SOLUTIONS
+              </div>
+
+              <div style="
+                font-size: 28px;
+                line-height: 1.3;
+                font-weight: 700;
+                color: #ffffff;
+              ">
+                New Contact Enquiry
+              </div>
+
+              <div style="
+                margin-top: 8px;
+                font-size: 14px;
+                color: #888888;
+              ">
+                A new enquiry has been submitted through your website.
+              </div>
+            </div>
+
+            <div style="padding: 30px 32px;">
+
+              <div style="
+                margin-bottom: 18px;
+                padding: 18px 20px;
+                background-color: #181818;
+                border: 1px solid #292929;
+                border-radius: 10px;
+              ">
+                <div style="
+                  margin-bottom: 7px;
+                  font-size: 11px;
+                  font-weight: 700;
+                  letter-spacing: 1.5px;
+                  text-transform: uppercase;
+                  color: #777777;
+                ">
+                  Name
+                </div>
+
+                <div style="
+                  font-size: 16px;
+                  font-weight: 600;
+                  color: #ffffff;
+                ">
+                  ${safeName}
+                </div>
+              </div>
+
+              <div style="
+                margin-bottom: 22px;
+                padding: 18px 20px;
+                background-color: #181818;
+                border: 1px solid #292929;
+                border-radius: 10px;
+              ">
+                <div style="
+                  margin-bottom: 7px;
+                  font-size: 11px;
+                  font-weight: 700;
+                  letter-spacing: 1.5px;
+                  text-transform: uppercase;
+                  color: #777777;
+                ">
+                  Email
+                </div>
+
+                <div style="
+                  font-size: 16px;
+                  color: #ffffff;
+                ">
+                  ${safeEmail}
+                </div>
+              </div>
+
+              <div style="
+                margin-bottom: 12px;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: #777777;
+              ">
+                Enquiry Details
+              </div>
+
+              <div style="
+                padding: 22px;
+                background-color: #181818;
+                border: 1px solid #292929;
+                border-radius: 12px;
+              ">
+                <div style="
+                  font-size: 15px;
+                  line-height: 1.8;
+                  color: #dddddd;
+                  white-space: pre-line;
+                ">
+                  ${safeMessage}
+                </div>
+              </div>
+
+              <div style="
+                margin-top: 28px;
+                text-align: center;
+              ">
+                <a
+                  href="mailto:${safeEmail}"
+                  style="
+                    display: inline-block;
+                    padding: 13px 26px;
+                    background-color: #ffffff;
+                    color: #080808;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 700;
+                    border-radius: 7px;
+                  "
+                >
+                  Reply to Enquiry ↗
+                </a>
+              </div>
+
+            </div>
+
+            <div style="
+              padding: 20px 32px;
+              border-top: 1px solid #292929;
+              background-color: #0d0d0d;
+              text-align: center;
+            ">
+              <div style="
+                font-size: 12px;
+                color: #666666;
+              ">
+                This enquiry was submitted through the
+                <span style="color: #999999;">
+                  Master Intech Solutions
+                </span>
+                website.
+              </div>
+            </div>
 
           </div>
-
         </div>
-
-
-        <!-- Footer -->
-        <div style="
-          padding: 20px 32px;
-          border-top: 1px solid #292929;
-          background-color: #0d0d0d;
-          text-align: center;
-        ">
-
-          <p style="
-            margin: 0;
-            font-size: 12px;
-            color: #666666;
-          ">
-            This enquiry was submitted through the
-            <span style="color: #999999;">
-              Master Intech Solutions
-            </span>
-            website.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-  `,
+      `,
     });
 
     res.status(201).json({
