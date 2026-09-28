@@ -1,60 +1,91 @@
-import { Link, useLocation } from "react-router-dom";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import "./servicePages.css";
 
-const breadcrumbLabels = {
-  services: "Services",
-  "ai-intelligent-automation": "AI & Intelligent Automation",
-  "custom-portal-development": "Custom Portal Development",
-  "web-application-development": "Web & Application Development",
-  "ui-ux-product-design": "UI/UX & Product Design",
-  "digital-marketing": "Digital Marketing",
-  portfolio: "Portfolio",
-  "startup-offer": "Startup Offer",
-};
-
-export default function Breadcrumbs() {
-  const location = useLocation();
-
-  const segments = location.pathname
-    .split("/")
-    .filter(Boolean);
-
-  if (segments.length === 0) {
-    return null;
-  }
-
+export default function ServiceDetailPage({ service }) {
   return (
-    <nav className="breadcrumbs" aria-label="Breadcrumb">
-      <ol className="breadcrumbs-list">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
+    <main className="service-page">
+      <Breadcrumbs />
 
-        {segments.map((segment, index) => {
-          const path = `/${segments
-            .slice(0, index + 1)
-            .join("/")}`;
+      {/* Hero */}
+      <section className="service-hero">
+        <div className="service-hero-content">
+          <span className="service-tag">{service.tag}</span>
 
-          const isLast = index === segments.length - 1;
+          <h1 className="service-title">{service.title}</h1>
 
-          const label =
-            breadcrumbLabels[segment] ||
-            segment
-              .replace(/-/g, " ")
-              .replace(/\b\w/g, (char) => char.toUpperCase());
+          <p className="service-description">{service.description}</p>
+        </div>
+      </section>
 
-          return (
-            <li key={path}>
-              <span aria-hidden="true">/</span>
+      {/* Overview */}
+      <section className="service-overview">
+        <div className="service-section-label">OVERVIEW</div>
 
-              {isLast ? (
-                <span aria-current="page">{label}</span>
-              ) : (
-                <Link to={path}>{label}</Link>
-              )}
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
+        <div className="service-overview-content">
+          <h2>{service.overviewTitle}</h2>
+
+          <p>{service.overview}</p>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="service-features">
+        <div className="service-section-label">WHAT WE OFFER</div>
+
+        <div className="service-features-grid">
+          {service.features.map((feature, index) => (
+            <article className="service-feature-card" key={index}>
+              <span className="service-feature-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <h3>{feature.title}</h3>
+
+              <p>{feature.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Impact */}
+      <section className="service-impact">
+        <div className="service-section-label">IMPACT</div>
+
+        <p>{service.impact}</p>
+      </section>
+
+      {/* Process */}
+      <section className="service-process">
+        <div className="service-section-label">OUR PROCESS</div>
+
+        <div className="service-process-grid">
+          {service.process.map((step, index) => (
+            <article className="service-process-card" key={index}>
+              <span className="service-process-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <h3>{step.title}</h3>
+
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="service-cta">
+        <h2>Let's Build Something Together</h2>
+
+        <p>
+          Have a project in mind? Let's discuss how we can build a solution
+          around your business.
+        </p>
+
+        <a href="/#contact" className="service-cta-button">
+          Let's Talk
+        </a>
+      </section>
+    </main>
   );
 }
