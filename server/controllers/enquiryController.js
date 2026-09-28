@@ -78,7 +78,9 @@ const createEnquiry = async (req, res, next) => {
 
     await resend.emails.send({
       from: "MIT Solutions <noreply@masterintechsolutions.com>",
-      to: process.env.CONTACT_EMAIL,
+      to: process.env.CONTACT_EMAIL
+        .split(",")
+        .map((email) => email.trim()),
       replyTo: trimmedEmail,
       subject: `New Contact Enquiry from ${trimmedName}`,
 
