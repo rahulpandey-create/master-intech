@@ -1,14 +1,17 @@
 import Breadcrumbs from "../../components/Breadcrumbs";
-import "./servicePages.css";
+
 
 export default function ServiceDetailPage({ service }) {
   return (
     <main className="service-page">
-      <Breadcrumbs />
+      
 
       {/* Hero */}
       <section className="service-hero">
+        <div class="services-glow services-glow-1"></div>
+        <div class="services-glow services-glow-2"></div>
         <div className="service-hero-content">
+          <Breadcrumbs />
           <span className="service-tag">{service.tag}</span>
 
           <h1 className="service-title">{service.title}</h1>
@@ -82,7 +85,7 @@ export default function ServiceDetailPage({ service }) {
           around your business.
         </p>
 
-        <a href="/#contact" className="service-cta-button">
+        <a href="https://wa.me/919878263393" target="_blank" className="service-cta-button">
           Let's Talk
         </a>
       </section>

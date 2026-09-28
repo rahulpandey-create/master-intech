@@ -44,7 +44,7 @@ export default function Breadcrumbs() {
 
           return (
             <li key={path}>
-              <span aria-hidden="true">/</span>
+              <span aria-hidden="true">|</span>
 
               {isLast ? (
                 <span aria-current="page">{label}</span>
