@@ -54,13 +54,13 @@ jobs:
             ${{ secrets.MASTERINTECH_SSH_USER }}@${{ secrets.MASTERINTECH_SSH_HOST }} \
             "cd /home/sloaofao/masterintech-api && tar -xzf backend.tar.gz && rm backend.tar.gz"
 
-      - name: Install production dependencies
-        run: |
-          ssh \
-            -p "${{ secrets.MASTERINTECH_SSH_PORT }}" \
-            -i ~/.ssh/id_ed25519 \
-            ${{ secrets.MASTERINTECH_SSH_USER }}@${{ secrets.MASTERINTECH_SSH_HOST }} \
-            "source /home/sloaofao/nodevenv/masterintech-api/20/bin/activate && cd /home/sloaofao/masterintech-api && npm ci --omit=dev"
+      # - name: Install production dependencies
+      #   run: |
+      #     ssh \
+      #       -p "${{ secrets.MASTERINTECH_SSH_PORT }}" \
+      #       -i ~/.ssh/id_ed25519 \
+      #       ${{ secrets.MASTERINTECH_SSH_USER }}@${{ secrets.MASTERINTECH_SSH_HOST }} \
+      #       "source /home/sloaofao/nodevenv/masterintech-api/20/bin/activate && cd /home/sloaofao/masterintech-api && npm ci --omit=dev"
 
       - name: Restart Node.js application
         run: |
