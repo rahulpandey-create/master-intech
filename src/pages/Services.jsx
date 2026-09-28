@@ -3,6 +3,8 @@ import { createPortal } from "react-dom";
 import { submitEnquiry } from "../services/api";
 import arrowbtn from "../assets/arrowbtn.svg";
 import Contact from "../components/home/Contact";
+import Breadcrumbs from "../components/Breadcrumbs";
+import { Link } from "react-router-dom";
 
 const MASTER_INTECH_WHATSAPP_LINK =
   "https://wa.me/919878263393";
@@ -10,6 +12,7 @@ const MASTER_INTECH_WHATSAPP_LINK =
 const services = [
   {
     number: "01",
+    slug: "ai-intelligent-automation",
     tag: "AI • AUTOMATION • AGENTS",
     title: (
       <>
@@ -37,6 +40,7 @@ const services = [
 
   {
     number: "02",
+    slug: "custom-portal-development",
     tag: "PORTALS • DASHBOARDS • BUSINESS SYSTEMS",
     title: (
       <>
@@ -64,6 +68,7 @@ const services = [
 
   {
     number: "03",
+    slug: "web-application-development",
     tag: "WEB • APPS • DIGITAL",
     title: (
       <>
@@ -91,6 +96,7 @@ const services = [
 
   {
     number: "04",
+    slug: "ui-ux-product-design",
     tag: "UX • UI • PRODUCT",
     title: (
       <>
@@ -118,6 +124,7 @@ const services = [
 
   {
     number: "05",
+    slug: "digital-marketing",
     tag: "SEO • SOCIAL MEDIA • PERFORMANCE",
     title: (
       <>
@@ -200,9 +207,8 @@ function ServiceVisual({ icon, label }) {
 function ServiceRow({ service }) {
   return (
     <article
-      className={`service-row ${
-        service.reverse ? "reverse" : ""
-      }`}
+      className={`service-row ${service.reverse ? "reverse" : ""
+        }`}
       data-reveal
     >
       <div className="service-content">
@@ -239,6 +245,12 @@ function ServiceRow({ service }) {
             {service.impact}
           </p>
         </div>
+        <Link
+          to={`/services/${service.slug}`}
+          className="service-detail-link"
+        >
+          Explore Service →
+        </Link>
       </div>
 
       <ServiceVisual
@@ -418,7 +430,7 @@ export default function Services() {
 
   return (
     <section className="page-enter services-page">
-
+      <Breadcrumbs />
       {/* =====================================
           NAVIGATION
       ====================================== */}

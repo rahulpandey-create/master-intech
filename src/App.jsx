@@ -14,6 +14,13 @@ import question from "./assets/question.gif"
 const WHATSAPP_LINK = "https://wa.me/919878263393";
 import arrowtopp from "./assets/arrowtopp.svg";
 import support from "./assets/support.svg";
+// import Breadcrumbs from "./components/Breadcrumbs.jsx";
+import AIIntelligentAutomation from "./pages/services/AIIntelligentAutomation";
+import CustomPortalDevelopment from "./pages/services/CustomPortalDevelopment";
+import WebApplicationDevelopment from "./pages/services/WebApplicationDevelopment";
+import UIUXProductDesign from "./pages/services/UIUXProductDesign";
+import DigitalMarketing from "./pages/services/DigitalMarketing";
+import Portfolio from "./pages/Portfolio";
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -159,9 +166,38 @@ function App() {
       <PageTransition>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/portfolio" element={<PortfolioBento />} />
+
+          <Route path="/portfolio" element={<Portfolio />} />
+
           <Route path="/services" element={<Services />} />
+
+          <Route
+            path="/services/ai-intelligent-automation"
+            element={<AIIntelligentAutomation />}
+          />
+
+          <Route
+            path="/services/custom-portal-development"
+            element={<CustomPortalDevelopment />}
+          />
+
+          <Route
+            path="/services/web-application-development"
+            element={<WebApplicationDevelopment />}
+          />
+
+          <Route
+            path="/services/ui-ux-product-design"
+            element={<UIUXProductDesign />}
+          />
+
+          <Route
+            path="/services/digital-marketing"
+            element={<DigitalMarketing />}
+          />
+
           <Route path="/startup-offer" element={<StartupOffer />} />
+
           <Route path="/thank-you" element={<ThankYou />} />
         </Routes>
       </PageTransition>
@@ -172,7 +208,7 @@ function App() {
         onClick={handleScrollToTop}
         className={`back-to-top-btn ${showBackToTop ? "visible" : ""}`}
       >
-       <img src={arrowtopp} alt="arrow" />
+        <img src={arrowtopp} alt="arrow" />
       </button>
 
       {/* ==========================================
@@ -185,7 +221,7 @@ function App() {
           <h3>Let's Build Something Great</h3>
           <p>Tell us about your project, and our team will help you find the right solution.</p>
           <button className="popup-cta-btn" onClick={handlePopupWhatsAppClick}>
-            Chat With Our Experts <span className="support-img"><img src={support} alt=""/> </span>
+            Chat With Our Experts <span className="support-img"><img src={support} alt="" /> </span>
           </button>
         </div>
       </div>

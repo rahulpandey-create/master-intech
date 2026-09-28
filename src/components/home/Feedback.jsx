@@ -377,13 +377,17 @@ export default function Feedback() {
   ========================================================= */
 
   useEffect(() => {
-    if (autoTimerRef.current) {
-      clearTimeout(autoTimerRef.current);
-    }
-
-    autoTimerRef.current = setTimeout(() => {
-      moveToNextClient();
-    }, 6000);
+  if (autoTimerRef.current) {
+    clearTimeout(autoTimerRef.current);
+  }
+ /*
+     * NO VIDEO:
+     * Show "Testimonial video coming soon" for 3.5 seconds,
+     * then move to the next client.
+     */
+  autoTimerRef.current = setTimeout(() => {
+    moveToNextClient();
+  }, 8000);
 
     return () => {
       clearTimeout(autoTimerRef.current);
