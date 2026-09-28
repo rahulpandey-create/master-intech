@@ -21,6 +21,7 @@ import WebApplicationDevelopment from "./pages/services/WebApplicationDevelopmen
 import UIUXProductDesign from "./pages/services/UIUXProductDesign";
 import DigitalMarketing from "./pages/services/DigitalMarketing";
 import Portfolio from "./pages/Portfolio";
+import SEO from "./components/SEO";
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -162,6 +163,7 @@ function App() {
 
   return (
     <Router>
+      <SEO />
       <DesignNav />
       <PageTransition>
         <Routes>
