@@ -89,6 +89,7 @@ export default function Feedback() {
    * Play / Pause state
    */
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isVideoHovered, setIsVideoHovered] = useState(false);
 
   /*
    * Swiper instance is kept only for the
@@ -377,17 +378,18 @@ export default function Feedback() {
   ========================================================= */
 
   useEffect(() => {
-  if (autoTimerRef.current) {
-    clearTimeout(autoTimerRef.current);
-  }
- /*
+    if (autoTimerRef.current) {
+      clearTimeout(autoTimerRef.current);
+    }
+
+    /*
      * NO VIDEO:
      * Show "Testimonial video coming soon" for 3.5 seconds,
      * then move to the next client.
      */
-  autoTimerRef.current = setTimeout(() => {
-    moveToNextClient();
-  }, 8000);
+    autoTimerRef.current = setTimeout(() => {
+      moveToNextClient();
+    }, 8000);
 
     return () => {
       clearTimeout(autoTimerRef.current);
@@ -494,6 +496,8 @@ export default function Feedback() {
           style={{
             position: "relative",
           }}
+          onMouseEnter={() => setIsVideoHovered(true)}
+          onMouseLeave={() => setIsVideoHovered(false)}
         >
           {activeClient?.video ? (
             <>
@@ -501,15 +505,12 @@ export default function Feedback() {
                 key={activeClient.id}
                 ref={videoRef}
                 src={activeClient.video}
-                controls
                 playsInline
                 preload="metadata"
 
                 onPlay={() => {
                   /*
                    * Video is playing.
-                   * This automatically hides
-                   * the center Play button.
                    */
                   setIsPlaying(true);
 
@@ -526,7 +527,6 @@ export default function Feedback() {
                 onPause={() => {
                   /*
                    * Video paused.
-                   * Center Play button comes back.
                    */
                   setIsPlaying(false);
                 }}
@@ -545,16 +545,20 @@ export default function Feedback() {
               />
 
               {/* =================================
-                  CENTER PLAY BUTTON
+                  CUSTOM PLAY / PAUSE BUTTON
 
-                  HIDDEN WHILE VIDEO IS PLAYING
+                  PAUSED:
+                  Always visible
+
+                  PLAYING:
+                  Only visible on hover
               ================================= */}
 
-              {!isPlaying && (
+              {(!isPlaying || isVideoHovered) && (
                 <button
                   type="button"
                   onClick={toggleVideo}
-                  aria-label="Play video"
+                  aria-label={isPlaying ? "Pause video" : "Play video"}
                   style={{
                     position: "absolute",
                     top: "50%",
@@ -574,7 +578,7 @@ export default function Feedback() {
                     justifyContent: "center",
                   }}
                 >
-                  ▶
+                  {isPlaying ? "❚❚" : "▶"}
                 </button>
               )}
             </>
