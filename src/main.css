@@ -465,6 +465,7 @@ span.socialmedialinks1 {
   height: 264px;
 }
 
+
 .hero-stat-card div {
   display: flex;
   align-items: center;
@@ -550,11 +551,318 @@ span.socialmedialinks1 {
 
 .expertise-copy p {
   margin-top: 22px;
-  /* color: #b2b2b2; */
-  /* font-size: 14px; */
   line-height: 1.55;
   letter-spacing: 0.04em;
 }
+
+/* expertise slider */
+/* =========================================
+   EXPERTISE STRIP
+========================================= */
+
+.expertise-strip {
+  width: 100%;
+  overflow: hidden;
+}
+
+.expertise-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.expertise-copy {
+  flex: 0 0 auto;
+}
+
+.expertise-copy h2 {
+  margin: 0;
+
+  font-family: "Boldonse", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.1;
+
+  color: #f7f7f7;
+}
+
+.expertise-copy p {
+  margin: 16px 0 0;
+
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: #a5a5a5;
+}
+
+
+/* =========================================
+   TICKER VIEWPORT
+========================================= */
+.expertise-slider {
+    flex: 1;
+    min-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* =========================================
+   TICKER TRACK
+========================================= */
+
+.expertise-track {
+  display: flex;
+  width: max-content;
+
+  animation: expertiseTicker 22s linear infinite;
+
+  will-change: transform;
+}
+
+
+/* =========================================
+   EACH LOGO SET
+========================================= */
+
+.expertise-tools {
+  display: flex;
+  flex-shrink: 0;
+
+  align-items: center;
+
+  width: max-content;
+}
+
+
+/* =========================================
+   LOGO ITEM
+========================================= */
+
+.tool-logo {
+  position: relative;
+
+  flex: 0 0 140px;
+  width: 140px;
+
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   LOGO IMAGE
+========================================= */
+
+.tool-logo img {
+  display: block;
+
+  width: auto;
+  height: 48px;
+  max-width: 72px;
+
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
+}
+
+.tool-logo:hover img {
+  transform: scale(1.08);
+}
+
+
+/* =========================================
+   TOOLTIP
+========================================= */
+
+.expertise-tooltip {
+  position: absolute;
+
+  left: 50%;
+  bottom: calc(100% - 5px);
+
+  width: 190px;
+
+  padding: 12px 14px;
+
+  background: #151617;
+  border: 1px solid #2a2b2c;
+  border-radius: 8px;
+
+  transform: translateX(-50%) translateY(8px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  z-index: 50;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.tool-logo:hover .expertise-tooltip {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.expertise-tooltip strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #f7f7f7;
+}
+
+.expertise-tooltip span {
+  display: block;
+
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+
+  color: #999;
+}
+
+
+/* =========================================
+   SEAMLESS TICKER ANIMATION
+========================================= */
+
+@keyframes expertiseTicker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================
+   PAUSE ON HOVER
+========================================= */
+
+.expertise-slider:hover .expertise-track {
+  animation-play-state: paused;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .expertise-inner {
+    gap: 30px;
+  }
+
+  .expertise-copy h2 {
+    font-size: 26px;
+  }
+
+  .expertise-copy p {
+    font-size: 13px;
+  }
+
+  .tool-logo {
+    flex-basis: 120px;
+    width: 120px;
+  }
+
+  .tool-logo img {
+    height: 42px;
+    max-width: 62px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .expertise-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .expertise-slider {
+    width: unset;
+  }
+
+  .expertise-track {
+    animation-duration: 18s;
+  }
+
+  .tool-logo {
+    flex-basis: 110px;
+    width: 110px;
+    height: 90px;
+  }
+
+  .tool-logo img {
+    height: 40px;
+    max-width: 58px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .expertise-copy h2 {
+    font-size: 23px;
+    letter-spacing: 2px;
+  }
+
+  .expertise-copy p {
+    font-size: 12px;
+  }
+
+  .tool-logo {
+    flex-basis: 95px;
+    width: 95px;
+    height: 80px;
+  }
+
+  .tool-logo img {
+    height: 34px;
+    max-width: 52px;
+  }
+
+  .expertise-track {
+    animation-duration: 16s;
+    gap: 16px;
+}
+}
+
+/* expertise slider end */
 
 /* Large expertise logo area */
 
@@ -570,7 +878,7 @@ span.socialmedialinks1 {
 
 .tool-logo {
   width: 115px;
-  height: 115px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -673,24 +981,7 @@ span.socialmedialinks1 {
    TOOLTIP ARROW
 ================================ */
 
-.expertise-tooltip::after {
-  content: "";
 
-  position: absolute;
-
-  left: 50%;
-  bottom: -6px;
-
-  width: 11px;
-  height: 11px;
-
-  background: rgba(20, 20, 20, 0.96);
-
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-
-  transform: translateX(-50%) rotate(45deg);
-}
 
 
 /* ================================
@@ -701,7 +992,7 @@ span.socialmedialinks1 {
   opacity: 1;
   visibility: visible;
 
-  transform: translateX(-50%) translateY(0);
+
 }
 
 
@@ -709,16 +1000,8 @@ span.socialmedialinks1 {
    LOGO HOVER
 ================================ */
 
-.tool-logo img {
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
-}
 
-.tool-logo:hover img {
-  transform: translateY(-4px) scale(1.06);
-  filter: drop-shadow(0 8px 18px rgba(255, 255, 255, 0.15));
-}
+
 
 /* toggle end */
 
@@ -727,54 +1010,44 @@ span.socialmedialinks1 {
    EXPERTISE SLIDER
 ================================ */
 
-.expertise-slider {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  position: relative;
-}
 
-.expertise-tools {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 60px;
-  flex: 1;
-}
+
+
 
 
 
 /* banner swiper end */
 
 .tool-logo:nth-child(1) img {
-  transform: scale(1.8);
+  transform: scale(2.8);
 }
 
 .tool-logo:nth-child(2) img {
-  transform: scale(1.8);
+  transform: scale(2.8);
 }
 
 .tool-logo:nth-child(3) img {
-  transform: scale(1.8);
+  transform: scale(2.8);
 }
 
 .tool-logo:nth-child(4) img {
-  transform: scale(1.8);
+  transform: scale(2.8);
 }
 
 .tool-logo:nth-child(5) img {
-  transform: scale(1.8);
+  transform: scale(2.8);
 }
 
 .tool-logo:nth-child(6) img {
-  transform: scale(1.8);
+  transform: scale(2.8);
 }
 
 .tool-logo:nth-child(7) img {
-  transform: scale(1.8);
+  transform: scale(2.8);
 }
 
 .tool-logo:nth-child(8) img {
-  transform: scale(1.8);
+  transform: scale(2.8);
 }
 
 /* ABOUT */
@@ -1104,6 +1377,39 @@ h2.uniqeheading {
 
 /* FEEDBACK */
 
+/* video button */
+
+
+
+/* video button end */
+
+/* Side client images */
+.floating-people img {
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease,
+    opacity 0.6s ease;
+}
+
+/* Center highlighted image */
+.floating-people .bord3 {
+  transform: scale(2.0) !important;
+  filter: blur(0);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* Other images */
+.floating-people .bord1,
+.floating-people .bord2,
+.floating-people .bord4,
+.floating-people .bord5 {
+
+  filter: blur(2px);
+  opacity: 0.55;
+  z-index: 1;
+}
+
 .feedback-section {
   height: 560px;
   background: #030506;
@@ -1133,8 +1439,8 @@ h2.uniqeheading {
 }
 
 .floating-people img:nth-child(1) {
-  left: 19%;
-  top: 27%;
+  left: 16%;
+  top: 24%;
   animation-delay: -0.6s;
 }
 
@@ -1145,7 +1451,7 @@ h2.uniqeheading {
 }
 
 .floating-people img:nth-child(3) {
-  left: 44%;
+  left: 45%;
   top: 43%;
   animation-delay: -1.8s;
 }
@@ -1302,7 +1608,7 @@ a.review-button {
   text-align: center;
   padding: 30px;
   box-sizing: border-box;
-  background: #080b0d;
+  background: #030506;
 }
 
 
@@ -1458,10 +1764,10 @@ a.review-button {
 }
 
 .message-card h3 {
-  margin: 7px 0 27px;
-  font: 400 32px/1 "Anton", sans-serif;
+    margin: 7px 0 27px;
+    font: 400 32px/1 "Anton", sans-serif;
+    color: #fff;
 }
-
 .message-card label {
   display: block;
   margin-top: 17px;
@@ -1578,29 +1884,119 @@ img.bord2 {
   background: linear-gradient(#fff, #fff) padding-box, linear-gradient(181deg, #FFDB6E, #FFC107) border-box;
   /* box-shadow: 0px 0px 53px #f9c426c7; */
 }
+/* guri feedback */
+.floating-people img {
+  cursor: pointer;
+}
+
+/* Active image animation */
+.floating-people .floating-changing.floating-active {
+  animation: floatingClientIn 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes floatingClientIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.78) translateY(18px);
+    filter: blur(5px);
+  }
+
+  55% {
+    opacity: 0.85;
+    transform: scale(1.05) translateY(-3px);
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+/* guri feedback end */
+
+/* =========================================================
+   FLOATING CLIENT IMAGES
+========================================================= */
+
+.floating-people img {
+  cursor: pointer;
+  will-change: transform;
+}
+
+
+/* =========================================================
+   CENTER CLIENT
+========================================================= */
 
 img.bord3 {
-  border: 3px solid transparent;
-  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(181deg, #00B2FF, #00B2FF) border-box;
-  /* box-shadow: 0px 0px 53px #85daffd6; */
+  border: 2px solid transparent;
 
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(
+      181deg,
+      #00B2FF,
+      #00B2FF
+    ) border-box;
+
+  box-shadow: 0px 0px 53px #85daff8a;
 }
+
+
+/* =========================================================
+   CLIENT 4
+========================================================= */
 
 img.bord4 {
   border: 3px solid transparent;
-  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(181deg, #fff, #86FFF7) border-box;
+
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(
+      181deg,
+      #fff,
+      #86FFF7
+    ) border-box;
+
   /* box-shadow: 0px 0px 53px #89fff7a1; */
 }
 
+
+/* =========================================================
+   CLIENT 1
+========================================================= */
+
 img.bord1 {
   border: 3px solid transparent;
-  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(181deg, #C291FF, #EF88FF) border-box;
+
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(
+      181deg,
+      #C291FF,
+      #EF88FF
+    ) border-box;
+
   /* box-shadow: 0px 0px 53px #ef88ff; */
 }
 
+
+/* =========================================================
+   CLIENT 5
+========================================================= */
+
 img.bord5 {
   border: 2px solid transparent;
-  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(181deg, #C291FF, #EF88FF) border-box;
+
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(
+      181deg,
+      #C291FF,
+      #EF88FF
+    ) border-box;
+
   /* box-shadow: 0px 0px 53px #ef88ffa3; */
 }
 
@@ -2209,6 +2605,22 @@ img.bord5 {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .expertise-copy p {
+    margin: 0px 0 0;
+}
+.expertise-slider::before {
+    left: 0;
+    background: linear-gradient(to right, #101112 0%, rgb(16 17 18 / 0%) 30%, rgba(13, 14, 15, 0) 100%) !important;
+}
+.expertise-strip {
+    height: auto;
+    padding: 18px 0;
+}
+  .expertise-copy p {
+    font-size: 18px;
+    font-family: 'Intel One Mono';
+    font-weight: 400;
+}
   .portfolio-project-page .project-category .category-number {
    display: none !important;
 }
@@ -2426,9 +2838,12 @@ button.project-category.active {
   .hero-stat-card {
     display: none;
   }
+  .about-intro {
+    padding: 48px 0 28px;
+}
 
   .hero-main {
-    top: 140px;
+    top: 124px;
     width: 95%;
   }
 a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
@@ -2480,7 +2895,7 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
 
   .expertise-tools {
     justify-content: space-around;
-    gap: 60px;
+    gap: 14px;
   }
 
   .expertise-tools {
@@ -2496,7 +2911,7 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
 
   .tool-logo {
     width: 67px;
-    height: 67px;
+    height: 117px;
   }
 
   .tool-logo:nth-child(1) img {
@@ -2573,7 +2988,7 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
     text-align: start;
     position: relative;
     right: 0;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 20px;
     line-height: 58px;
   }
@@ -3079,7 +3494,7 @@ h2.master-intech {
   z-index: 3;
 
   width: 100%;
-  max-width: 352px;
+  max-width: 380px;
 
   margin: 0 auto;
 
@@ -8194,3 +8609,39 @@ img.stillimg {
     position: absolute;
 }
 
+.contact-details h2 {
+    color: #fff;
+}
+
+/* overlay expertise  */
+.expertise-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-slider::before,
+.expertise-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.expertise-slider::before {
+    left: 0;
+    background: linear-gradient(to right, #101112 0%, rgb(16 17 18) 30%, rgba(13, 14, 15, 0) 100%);
+}
+
+.expertise-slider::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #0d0e0f 0%,
+    rgba(13, 14, 15, 0.9) 30%,
+    rgba(13, 14, 15, 0) 100%
+  );
+}
+/* overlay expertise end  */

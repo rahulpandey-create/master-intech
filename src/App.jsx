@@ -136,7 +136,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 6000); // 6000 milliseconds = 6 seconds
+    }, 10000); // 10000 milliseconds = 10 seconds
 
     return () => clearTimeout(timer); // Clean up the timer if the user leaves the page early
   }, []);

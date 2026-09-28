@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { submitEnquiry } from "../services/api";
 import arrowbtn from "../assets/arrowbtn.svg";
 import Contact from "../components/home/Contact";
 
-const MASTER_INTECH_WHATSAPP_LINK = "https://wa.me/919878263393";
+const MASTER_INTECH_WHATSAPP_LINK =
+  "https://wa.me/919878263393";
 
 const services = [
   {
@@ -12,6 +14,7 @@ const services = [
     title: (
       <>
         AI & Intelligent
+        <br />
         Automation
       </>
     ),
@@ -38,6 +41,7 @@ const services = [
     title: (
       <>
         Custom Portal
+        <br />
         Development
       </>
     ),
@@ -64,6 +68,7 @@ const services = [
     title: (
       <>
         Web & Application
+        <br />
         Development
       </>
     ),
@@ -90,6 +95,7 @@ const services = [
     title: (
       <>
         UI/UX &
+        <br />
         Product Design
       </>
     ),
@@ -116,6 +122,7 @@ const services = [
     title: (
       <>
         Digital
+        <br />
         Marketing
       </>
     ),
@@ -142,6 +149,7 @@ const services = [
     title: (
       <>
         Cyber
+        <br />
         Security
       </>
     ),
@@ -250,7 +258,8 @@ export default function Services() {
 
   const [contactOpen, setContactOpen] = useState(false);
 
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] =
+    useState(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -278,6 +287,7 @@ export default function Services() {
     setSelectedProject(contactProject);
     setContactOpen(true);
 
+    // Stop background page scrolling
     document.body.style.overflow = "hidden";
   };
 
@@ -365,10 +375,16 @@ export default function Services() {
       }
     };
 
-    window.addEventListener("keydown", handleEscape);
+    window.addEventListener(
+      "keydown",
+      handleEscape
+    );
 
     return () => {
-      window.removeEventListener("keydown", handleEscape);
+      window.removeEventListener(
+        "keydown",
+        handleEscape
+      );
     };
   }, [contactOpen]);
 
@@ -386,7 +402,10 @@ export default function Services() {
   // LOCAL SMOOTH SCROLL
   // ========================================
 
-  const handleLocalLink = (event, sectionId) => {
+  const handleLocalLink = (
+    event,
+    sectionId
+  ) => {
     event.preventDefault();
 
     document
@@ -399,14 +418,17 @@ export default function Services() {
 
   return (
     <section className="page-enter services-page">
+
       {/* =====================================
           NAVIGATION
       ====================================== */}
 
-      {/* <DesignNav
+      {/* 
+      <DesignNav
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
-      /> */}
+      />
+      */}
 
       {/* =====================================
           HERO
@@ -420,6 +442,7 @@ export default function Services() {
         <div className="services-glow services-glow-2"></div>
 
         <div className="services-container">
+
           {/* EYEBROW */}
 
           <div className="services-eyebrow">
@@ -447,6 +470,7 @@ export default function Services() {
           {/* BUTTONS */}
 
           <div className="services-hero-buttons">
+
             {/* PRIMARY */}
 
             <button
@@ -510,6 +534,7 @@ export default function Services() {
 
         <div className="services-container">
           <div className="cta-content">
+
             {/* EYEBROW */}
 
             <div className="services-eyebrow">
@@ -548,38 +573,48 @@ export default function Services() {
 
       {/* =====================================
           CONTACT POPUP
+          RENDERED DIRECTLY INSIDE BODY
       ====================================== */}
 
-      {contactOpen && (
-        <div
-          className="portfolio-contact-overlay"
-          onMouseDown={handleOverlayClick}
-        >
+      {contactOpen &&
+        createPortal(
           <div
-            className="portfolio-contact-modal"
-            data-lenis-prevent
-            onWheel={(e) => e.stopPropagation()}
+            className="portfolio-contact-overlay"
+            onMouseDown={handleOverlayClick}
           >
-            <button
-              type="button"
-              className="portfolio-contact-close"
-              onClick={closeContact}
-              aria-label="Close contact form"
+            <div
+              className="portfolio-contact-modal"
+              data-lenis-prevent
+              onWheel={(event) =>
+                event.stopPropagation()
+              }
             >
-              ×
-            </button>
 
-            <Contact
-              formData={formData}
-              loading={loading}
-              feedback={feedback}
-              updateField={updateField}
-              handleSubmit={handleSubmit}
-              selectedProject={selectedProject}
-            />
-          </div>
-        </div>
-      )}
+              {/* CLOSE BUTTON */}
+
+              <button
+                type="button"
+                className="portfolio-contact-close"
+                onClick={closeContact}
+                aria-label="Close contact form"
+              >
+                ×
+              </button>
+
+              {/* CONTACT FORM */}
+
+              <Contact
+                formData={formData}
+                loading={loading}
+                feedback={feedback}
+                updateField={updateField}
+                handleSubmit={handleSubmit}
+                selectedProject={selectedProject}
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </section>
   );
 }

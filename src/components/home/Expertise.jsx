@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import figmaLogo from "../../assets/figma.png";
 import photoshopLogo from "../../assets/photoshop.png";
 import wordpressLogo from "../../assets/wordpress.png";
@@ -53,27 +51,11 @@ const expertise = [
 ];
 
 export default function Expertise() {
-  const [startIndex, setStartIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setStartIndex((prev) => (prev + 4) % expertise.length);
-    }, 4500);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const visibleTools = [
-    expertise[startIndex],
-    expertise[(startIndex + 1) % expertise.length],
-    expertise[(startIndex + 2) % expertise.length],
-    expertise[(startIndex + 3) % expertise.length],
-  ];
-
   return (
     <section id="services" className="expertise-strip">
       <div className="section-shell expertise-inner" data-reveal>
 
+        {/* LEFT CONTENT */}
         <div className="expertise-copy">
           <h2>OUR EXPERTISE</h2>
 
@@ -83,21 +65,49 @@ export default function Expertise() {
           </p>
         </div>
 
+        {/* RIGHT TICKER */}
         <div className="expertise-slider">
 
-          <div className="expertise-tools">
-            {visibleTools.map((item) => (
-              <div className="tool-logo" key={item.alt}>
+          <div className="expertise-track">
 
-                <img src={item.src} alt={item.alt} />
+            {/* FIRST SET */}
+            <div className="expertise-tools">
+              {expertise.map((item) => (
+                <div className="tool-logo" key={`first-${item.alt}`}>
 
-                <div className="expertise-tooltip">
-                  <strong>{item.alt}</strong>
-                  <span>{item.description}</span>
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                  />
+
+                  <div className="expertise-tooltip">
+                    <strong>{item.alt}</strong>
+                    <span>{item.description}</span>
+                  </div>
+
                 </div>
+              ))}
+            </div>
 
-              </div>
-            ))}
+            {/* DUPLICATE SET FOR SEAMLESS LOOP */}
+            <div className="expertise-tools" aria-hidden="true">
+              {expertise.map((item) => (
+                <div className="tool-logo" key={`second-${item.alt}`}>
+
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                  />
+
+                  <div className="expertise-tooltip">
+                    <strong>{item.alt}</strong>
+                    <span>{item.description}</span>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+
           </div>
 
         </div>

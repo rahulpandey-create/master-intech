@@ -8,21 +8,17 @@ import client5 from "../../assets/design/15.png";
 import client6 from "../../assets/design/16.png";
 import google from "../../assets/google.svg";
 import KatyaVideo from "../../assets/KatyaVideo.mp4";
+import shenton from "../../assets/shenton.png";
 import KatyaFaris from "../../assets/KatyaFaris.png";
 
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 /* =========================================================
    CLIENT DATA
-
-   image = floating circular thumbnail
-   video = large testimonial video
-   video can be null until the video is uploaded
 ========================================================= */
 
 const clients = [
@@ -30,7 +26,6 @@ const clients = [
     id: "katya",
     image: KatyaFaris,
     video: KatyaVideo,
-    // video: katyaVideo,
 
     name: "Katya Faris",
     role: "Hindustan Astrology",
@@ -42,7 +37,6 @@ const clients = [
     id: "johan",
     image: client3,
     video: null,
-    // video: johanVideo,
 
     name: "Johan Lim",
     role: "Malaysia",
@@ -54,7 +48,6 @@ const clients = [
     id: "bernie",
     image: client4,
     video: null,
-    // video: bernieVideo,
 
     name: "Bernie Leigh",
     role: "Director, SpeediBoats",
@@ -75,51 +68,234 @@ const clients = [
 
   {
     id: "client-5",
-    image: client6,
+    image: shenton,
     video: null,
 
-    name: "Client Name",
-    role: "Client Role",
+    name: "Shenton Adams",
+    role: "Co-Founder & Creative Director",
     review:
-      "We had a great experience working with the MIT team.",
+      "Fantastic work by Vinit and his team, two websites completed and a few more to come Will definitely rehire for additional work ! Keep up the good work team!",
   },
 ];
 
 export default function Feedback() {
-  /*
-   * The THIRD floating position is always the active client.
-   *
-   * Example:
-   *
-   * [A, B, C, D, E]
-   *       ↑
-   *    ACTIVE
-   *
-   * After next:
-   *
-   * [B, C, D, E, A]
-   *       ↑
-   *    ACTIVE
-   */
+  /* =========================================================
+     STATES
+  ========================================================= */
 
   const [floatingClients, setFloatingClients] = useState(clients);
 
+  /*
+   * Play / Pause state
+   */
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  /*
+   * Swiper instance is kept only for the
+   * feedback column itself.
+   *
+   * It is NOT synchronized with video/client.
+   */
   const [swiperInstance, setSwiperInstance] = useState(null);
 
   const autoTimerRef = useRef(null);
 
   /*
-   * Active client is always whoever is in position 3.
+   * Feedback section DOM reference
+   */
+  const feedbackSectionRef = useRef(null);
+
+  /*
+   * Active video DOM reference
+   */
+  const videoRef = useRef(null);
+
+  /*
+   * Store every image DOM element
+   */
+  const imageRefs = useRef({});
+
+  /*
+   * Prevent multiple clicks during animation
+   */
+  const animationRef = useRef(false);
+
+  /*
+   * Active video client is always position 3 / center
    */
   const activeClient = floatingClients[2];
 
   /* =========================================================
-     MOVE TO NEXT CLIENT
+     STOP VIDEO HELPER
+  ========================================================= */
+
+  const stopVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+
+    setIsPlaying(false);
+  };
+
+  /* =========================================================
+     PLAY / PAUSE BUTTON
+  ========================================================= */
+
+  const toggleVideo = () => {
+    if (!videoRef.current) {
+      return;
+    }
+
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  };
+
+  /* =========================================================
+     STOP VIDEO WHEN ACTIVE CLIENT CHANGES
+  ========================================================= */
+
+  useEffect(() => {
+    /*
+     * Whenever the video client changes:
+     * pause previous video
+     * reset playback
+     */
+    stopVideo();
+  }, [activeClient?.id]);
+
+  /* =========================================================
+     PAUSE VIDEO WHEN SECTION LEAVES VIEWPORT
+  ========================================================= */
+
+  useEffect(() => {
+    const section = feedbackSectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        /*
+         * Feedback section is outside viewport
+         * so stop the video.
+         */
+        if (!entry.isIntersecting) {
+          stopVideo();
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  /* =========================================================
+     ANIMATE CLIENT INTO CENTER
+  ========================================================= */
+
+  const animateClientToCenter = (clientId, oldRect) => {
+    requestAnimationFrame(() => {
+      const element = imageRefs.current[clientId];
+
+      if (!element || !oldRect) {
+        animationRef.current = false;
+        return;
+      }
+
+      const newRect = element.getBoundingClientRect();
+
+      /*
+       * Calculate distance between
+       * old position and new position
+       */
+      const deltaX = oldRect.left - newRect.left;
+      const deltaY = oldRect.top - newRect.top;
+
+      /*
+       * Start from old position
+       * and slide to center.
+       */
+      const animation = element.animate(
+        [
+          {
+            transform: `translate(${deltaX}px, ${deltaY}px)`,
+          },
+          {
+            transform: "translate(0, 0)",
+          },
+        ],
+        {
+          duration: 750,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+          fill: "none",
+        }
+      );
+
+      animation.finished
+        .catch(() => {})
+        .finally(() => {
+          animationRef.current = false;
+        });
+    });
+  };
+
+  /* =========================================================
+     MOVE TO NEXT VIDEO CLIENT
   ========================================================= */
 
   const moveToNextClient = () => {
-    setFloatingClients((current) => {
-      const next = [...current];
+    if (animationRef.current) {
+      return;
+    }
+
+    /*
+     * Stop current video before changing client.
+     */
+    stopVideo();
+
+    const current = floatingClients;
+
+    /*
+     * Current:
+     *
+     * A B C D E
+     *     ↑
+     *   CENTER
+     *
+     * Next:
+     *
+     * B C D E A
+     *     ↑
+     *   CENTER
+     */
+
+    const nextActiveClient = current[3];
+
+    if (!nextActiveClient) {
+      return;
+    }
+
+    const nextElement = imageRefs.current[nextActiveClient.id];
+
+    const oldRect = nextElement
+      ? nextElement.getBoundingClientRect()
+      : null;
+
+    animationRef.current = true;
+
+    setFloatingClients((currentClients) => {
+      const next = [...currentClients];
 
       const firstClient = next.shift();
 
@@ -127,103 +303,138 @@ export default function Feedback() {
 
       return next;
     });
+
+    /*
+     * Slide next client into center.
+     */
+    animateClientToCenter(nextActiveClient.id, oldRect);
   };
 
   /* =========================================================
-     ACTIVATE CLICKED CLIENT
+     ACTIVATE CLICKED VIDEO CLIENT
   ========================================================= */
 
   const activateClient = (clickedClient) => {
-    setFloatingClients((current) => {
-      const clickedIndex = current.findIndex(
-        (client) => client.id === clickedClient.id
-      );
-
-      if (clickedIndex === -1) {
-        return current;
-      }
-
-      /*
-       * Already in the middle.
-       */
-      if (clickedIndex === 2) {
-        return current;
-      }
-
-      const reordered = [...current];
-
-      /*
-       * Remove selected client.
-       */
-      const [selectedClient] = reordered.splice(clickedIndex, 1);
-
-      /*
-       * Put selected client into middle position.
-       */
-      reordered.splice(2, 0, selectedClient);
-
-      return reordered;
-    });
-  };
-
-  /* =========================================================
-     AUTOMATIC CHANGE
-  ========================================================= */
-
-  useEffect(() => {
-  if (autoTimerRef.current) {
-    clearTimeout(autoTimerRef.current);
-  }
- /*
-     * NO VIDEO:
-     * Show "Testimonial video coming soon" for 3.5 seconds,
-     * then move to the next client.
-     */
-  autoTimerRef.current = setTimeout(() => {
-    moveToNextClient();
-  }, 3500);
-
-  return () => {
-    clearTimeout(autoTimerRef.current);
-  };
-}, [activeClient?.id]);
-  /* =========================================================
-     KEEP SWIPER SYNCHRONIZED
-  ========================================================= */
-
-  useEffect(() => {
-    if (!swiperInstance || !activeClient) {
+    if (animationRef.current) {
       return;
     }
 
-    const clientIndex = clients.findIndex(
-      (client) => client.id === activeClient.id
+    const current = floatingClients;
+
+    const clickedIndex = current.findIndex(
+      (client) => client.id === clickedClient.id
     );
 
-    if (clientIndex === -1) {
+    if (clickedIndex === -1) {
       return;
     }
 
     /*
-     * Avoid unnecessary slide changes.
+     * Already center.
      */
-    if (swiperInstance.realIndex !== clientIndex) {
-      swiperInstance.slideToLoop(clientIndex);
-    }
-  }, [activeClient?.id, swiperInstance]);
-
-  /* =========================================================
-     SWIPER PAGINATION / MANUAL REVIEW CHANGE
-  ========================================================= */
-
-  const handleSwiperChange = (swiper) => {
-    const selectedClient = clients[swiper.realIndex];
-
-    if (!selectedClient) {
+    if (clickedIndex === 2) {
       return;
     }
 
-    activateClient(selectedClient);
+    /*
+     * Stop current video before changing client.
+     */
+    stopVideo();
+
+    /*
+     * Get exact current image position
+     * before React reorders it.
+     */
+    const clickedElement = imageRefs.current[clickedClient.id];
+
+    const oldRect = clickedElement
+      ? clickedElement.getBoundingClientRect()
+      : null;
+
+    animationRef.current = true;
+
+    /*
+     * Move clicked client to center.
+     */
+    setFloatingClients((currentClients) => {
+      const reordered = [...currentClients];
+
+      const [selectedClient] = reordered.splice(clickedIndex, 1);
+
+      reordered.splice(2, 0, selectedClient);
+
+      return reordered;
+    });
+
+    /*
+     * Animate clicked image into center.
+     */
+    animateClientToCenter(clickedClient.id, oldRect);
+  };
+
+  /* =========================================================
+     AUTOMATIC VIDEO CLIENT CHANGE
+  ========================================================= */
+
+  useEffect(() => {
+    if (autoTimerRef.current) {
+      clearTimeout(autoTimerRef.current);
+    }
+
+    autoTimerRef.current = setTimeout(() => {
+      moveToNextClient();
+    }, 6000);
+
+    return () => {
+      clearTimeout(autoTimerRef.current);
+    };
+  }, [activeClient?.id]);
+
+  /* =========================================================
+     CLEANUP VIDEO + TIMER
+  ========================================================= */
+
+  useEffect(() => {
+    return () => {
+      /*
+       * Stop video when component unmounts.
+       */
+      stopVideo();
+
+      /*
+       * Clear automatic timer.
+       */
+      if (autoTimerRef.current) {
+        clearTimeout(autoTimerRef.current);
+      }
+    };
+  }, []);
+
+  /* =========================================================
+     FEEDBACK SWIPER
+
+     IMPORTANT:
+     This Swiper is completely independent
+     from the video/client slider.
+  ========================================================= */
+
+  const handleFeedbackSwiperChange = (swiper) => {
+    /*
+     * Only the feedback Swiper changes here.
+     *
+     * DO NOT call activateClient().
+     * DO NOT change floatingClients.
+     * DO NOT change video.
+     */
+    const selectedReview = clients[swiper.realIndex];
+
+    if (!selectedReview) {
+      return;
+    }
+
+    /*
+     * Feedback review changes independently.
+     */
   };
 
   /* =========================================================
@@ -244,7 +455,10 @@ export default function Feedback() {
   ========================================================= */
 
   return (
-    <section className="feedback-section">
+    <section
+      ref={feedbackSectionRef}
+      className="feedback-section"
+    >
       <div className="section-shell feedback-grid">
 
         {/* =================================
@@ -254,7 +468,10 @@ export default function Feedback() {
         <div className="floating-people" data-reveal>
           {floatingClients.map((client, index) => (
             <img
-              key={`${client.id}-${index}`}
+              key={client.id}
+              ref={(element) => {
+                imageRefs.current[client.id] = element;
+              }}
               src={client.image}
               alt={client.name}
               className={`bord${index + 1}`}
@@ -267,21 +484,96 @@ export default function Feedback() {
             MAIN TESTIMONIAL MEDIA
         ================================= */}
 
-        <div className="testimonial-photo" data-reveal>
+        <div
+          className="testimonial-photo"
+          data-reveal
+          style={{
+            position: "relative",
+          }}
+        >
           {activeClient?.video ? (
-            <video
-              key={activeClient.id}
-              src={activeClient.video}
-              controls
-              playsInline
-              onPlay={() => {
-                if (autoTimerRef.current) {
-                  clearTimeout(autoTimerRef.current);
-                  autoTimerRef.current = null;
-                }
-              }}
-              onEnded={moveToNextClient}
-            />
+            <>
+              <video
+                key={activeClient.id}
+                ref={videoRef}
+                src={activeClient.video}
+                controls
+                playsInline
+                preload="metadata"
+
+                onPlay={() => {
+                  /*
+                   * Video is playing.
+                   * This automatically hides
+                   * the center Play button.
+                   */
+                  setIsPlaying(true);
+
+                  /*
+                   * User manually started video.
+                   * Stop automatic client timer.
+                   */
+                  if (autoTimerRef.current) {
+                    clearTimeout(autoTimerRef.current);
+                    autoTimerRef.current = null;
+                  }
+                }}
+
+                onPause={() => {
+                  /*
+                   * Video paused.
+                   * Center Play button comes back.
+                   */
+                  setIsPlaying(false);
+                }}
+
+                onEnded={() => {
+                  /*
+                   * Stop and reset video first.
+                   */
+                  stopVideo();
+
+                  /*
+                   * Then move to next video client.
+                   */
+                  moveToNextClient();
+                }}
+              />
+
+              {/* =================================
+                  CENTER PLAY BUTTON
+
+                  HIDDEN WHILE VIDEO IS PLAYING
+              ================================= */}
+
+              {!isPlaying && (
+                <button
+                  type="button"
+                  onClick={toggleVideo}
+                  aria-label="Play video"
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    zIndex: 10,
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "50%",
+                    border: "1px solid rgba(255, 255, 255, 0.7)",
+                    background: "rgba(0, 0, 0, 0.55)",
+                    color: "#fff",
+                    cursor: "pointer",
+                    fontSize: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  ▶
+                </button>
+              )}
+            </>
           ) : (
             <div
               className="testimonial-video-placeholder"
@@ -289,9 +581,7 @@ export default function Feedback() {
             >
               <span>TESTIMONIAL VIDEO</span>
 
-              <strong>
-                Coming Soon
-              </strong>
+              <strong>Coming Soon</strong>
 
               <small>
                 We’re still uploading this client’s testimonial.
@@ -299,14 +589,20 @@ export default function Feedback() {
             </div>
           )}
 
-          <div key={`${activeClient?.id}-info`}>
+          <div
+            key={`${activeClient?.id}-info`}
+            className="text-start"
+          >
             <strong>{activeClient?.name}</strong>
+
             <span>{activeClient?.role}</span>
           </div>
         </div>
 
         {/* =================================
-            TESTIMONIAL / REVIEWS
+            CLIENT FEEDBACK
+
+            COMPLETELY INDEPENDENT FROM VIDEO
         ================================= */}
 
         <div className="testimonial-copy" data-reveal>
@@ -315,14 +611,19 @@ export default function Feedback() {
           </div>
 
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             slidesPerView={1}
             spaceBetween={0}
             loop={true}
             speed={700}
-            initialSlide={2}
-            onSwiper={setSwiperInstance}
-            onSlideChange={handleSwiperChange}
+            initialSlide={0}
+            autoplay={{
+              delay: 8000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false,
+            }}
+            onSwiper={(swiper) => setSwiperInstance(swiper)}
+            onSlideChange={handleFeedbackSwiperChange}
             pagination={{
               clickable: true,
             }}
@@ -332,25 +633,19 @@ export default function Feedback() {
               <SwiperSlide key={client.id}>
                 <div className="feedback-review">
 
-                  {/* REVIEWER */}
-
                   <div className="feedback-reviewer">
                     <h2>{client.name}</h2>
-
                     <span>{client.role}</span>
                   </div>
-
-                  {/* STARS */}
 
                   <div className="feedback-stars">
                     ★ ★ ★ ★ ★
                   </div>
 
-                  {/* REVIEW */}
-
                   <p>
                     “{client.review}”
                   </p>
+
                 </div>
               </SwiperSlide>
             ))}
@@ -383,6 +678,7 @@ export default function Feedback() {
           src={abstractRight}
           alt="Abstract colorful 3D artwork"
         />
+
       </div>
     </section>
   );
