@@ -31,6 +31,16 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
     color: #ffffff !important;
     width: 55%;
 }
+ol.breadcrumbs-list {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    transition: 0.4s;
+    margin-bottom :10px ;
+}
+ol.breadcrumbs-list a:hover {
+    color: #01b2fe;
+}
 
 span {
   font-family: "Intel One Mono", monospace;
@@ -4599,7 +4609,16 @@ article.service-row.reverse {
 
   transition: .3s ease;
 }
-
+a.service-detail-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+a.service-detail-link img {
+    width: 14px;
+    position: relative;
+    top: 1px;
+}
 .service-features span:hover {
   color: white;
   border-color: rgba(1, 179, 255, .4);
@@ -4609,10 +4628,10 @@ article.service-row.reverse {
 /* IMPACT */
 
 .service-impact {
-  margin-top: 35px;
-  padding-left: 18px;
-
-  border-left: 2px solid var(--service-blue);
+    margin-top: 35px;
+    padding-left: 18px;
+    border-left: 2px solid var(--service-blue);
+    margin-bottom: 35px;
 }
 
 .service-impact strong {

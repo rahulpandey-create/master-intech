@@ -4,6 +4,7 @@ import { submitEnquiry } from "../services/api";
 import arrowbtn from "../assets/arrowbtn.svg";
 import Contact from "../components/home/Contact";
 import Breadcrumbs from "../components/Breadcrumbs";
+import arrowhitee from "../assets/arrowhitee.svg";
 import { Link } from "react-router-dom";
 
 const MASTER_INTECH_WHATSAPP_LINK =
@@ -249,7 +250,7 @@ function ServiceRow({ service }) {
           to={`/services/${service.slug}`}
           className="service-detail-link"
         >
-          Explore Service →
+          Explore Service <span> <img src={arrowhitee} alt=""/> </span>
         </Link>
       </div>
 
@@ -430,7 +431,7 @@ export default function Services() {
 
   return (
     <section className="page-enter services-page">
-      <Breadcrumbs />
+      
       {/* =====================================
           NAVIGATION
       ====================================== */}
@@ -457,11 +458,7 @@ export default function Services() {
 
           {/* EYEBROW */}
 
-          <div className="services-eyebrow">
-            <span></span>
-            OUR SERVICES
-          </div>
-
+<Breadcrumbs />
           {/* HEADING */}
 
           <h1>
