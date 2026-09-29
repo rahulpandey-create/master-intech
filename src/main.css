@@ -9094,4 +9094,86 @@ a.service-detail-link {
 .service-hero-content p {
   text-align: center;
 }
+
+/* =========================================================
+   CYBER SECURITY SERVICE
+   ========================================================= */
+
+.service-detail-page:has(.service-detail-tag) {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-detail-page:has(.service-detail-tag)::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: -250px;
+  right: -200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(84, 221, 255, 0.08) 0%,
+    rgba(84, 221, 255, 0) 70%
+  );
+  pointer-events: none;
+}
+
+.service-detail-page .service-detail-tag {
+  position: relative;
+}
+
+.service-detail-page .service-detail-hero {
+  position: relative;
+}
+
+.service-detail-page .service-detail-card {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.service-detail-page .service-detail-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(84, 221, 255, 0.35);
+  background: #10171d;
+}
+
+.service-detail-page .service-detail-process-item {
+  transition: padding-left 0.25s ease;
+}
+
+.service-detail-page .service-detail-process-item:hover {
+  padding-left: 8px;
+}
+
+.service-detail-page .service-detail-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-detail-page .service-detail-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(84, 221, 255, 0.04),
+      transparent
+    );
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .service-detail-page:has(.service-detail-tag)::before {
+    width: 350px;
+    height: 350px;
+    top: -120px;
+    right: -150px;
+  }
+}
 /* Services page css end*/

@@ -20,6 +20,7 @@ import CustomPortalDevelopment from "./pages/services/CustomPortalDevelopment";
 import WebApplicationDevelopment from "./pages/services/WebApplicationDevelopment";
 import UIUXProductDesign from "./pages/services/UIUXProductDesign";
 import DigitalMarketing from "./pages/services/DigitalMarketing";
+import CyberSecurity from "./pages/services/CyberSecurity.jsx";
 import Portfolio from "./pages/Portfolio";
 import SEO from "./components/SEO";
 
@@ -197,7 +198,10 @@ function App() {
             path="/services/digital-marketing"
             element={<DigitalMarketing />}
           />
-
+          <Route
+            path="/services/cyber-security"
+            element={<CyberSecurity />}
+          />
           <Route path="/startup-offer" element={<StartupOffer />} />
 
           <Route path="/thank-you" element={<ThankYou />} />

@@ -153,6 +153,7 @@ const services = [
 
   {
     number: "06",
+    slug: "cyber-security",
     tag: "SECURITY • RISK • PROTECTION",
     title: (
       <>
@@ -250,7 +251,7 @@ function ServiceRow({ service }) {
           to={`/services/${service.slug}`}
           className="service-detail-link"
         >
-          Explore Service <span> <img src={arrowhitee} alt=""/> </span>
+          Explore Service <span> <img src={arrowhitee} alt="" /> </span>
         </Link>
       </div>
 
@@ -431,7 +432,7 @@ export default function Services() {
 
   return (
     <section className="page-enter services-page">
-      
+
       {/* =====================================
           NAVIGATION
       ====================================== */}
@@ -458,7 +459,7 @@ export default function Services() {
 
           {/* EYEBROW */}
 
-<Breadcrumbs />
+          <Breadcrumbs />
           {/* HEADING */}
 
           <h1>

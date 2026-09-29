@@ -1,77 +1,77 @@
 import ServiceDetailPage from "./ServiceDetailPage";
 
 const service = {
-  title: "Web & Application Development",
-  tag: "WEB • APPS • DIGITAL",
+  title: "UI/UX & Product Design",
+  tag: "UX • UI • PRODUCT",
 
   description:
-    "Create high-performance websites and web applications that deliver seamless experiences across every device.",
+    "Turn complex products into intuitive digital experiences through research-driven UX and modern interface design.",
 
-  overviewTitle: "Modern Digital Products That Perform",
+  overviewTitle: "Design Experiences People Understand",
 
   overview:
-    "We design and develop websites and web applications that combine strong user experiences with scalable technical foundations.",
+    "We simplify complex digital products by combining user research, structured information architecture, interaction design, and modern interfaces.",
 
   features: [
     {
-      title: "Corporate Websites",
+      title: "UX Research",
       description:
-        "Build professional websites designed to communicate your brand, services, and value proposition.",
+        "Understand users, their needs, behaviors, and problems before designing the experience.",
     },
     {
-      title: "Web Applications",
+      title: "User Journey Mapping",
       description:
-        "Develop custom web applications for business workflows, customers, teams, and digital products.",
+        "Map important user interactions and identify opportunities to improve the overall experience.",
     },
     {
-      title: "E-Commerce",
+      title: "Wireframing",
       description:
-        "Create commerce experiences designed around products, customers, payments, and business operations.",
+        "Create clear structural layouts that define functionality and content hierarchy.",
     },
     {
-      title: "Frontend & Backend",
+      title: "UI Design",
       description:
-        "Develop complete applications across user interfaces, APIs, databases, and backend systems.",
+        "Create modern interfaces that balance visual quality, usability, and consistency.",
     },
     {
-      title: "Progressive Web Apps",
+      title: "Design Systems",
       description:
-        "Build fast web experiences with application-like functionality and accessibility across devices.",
+        "Establish reusable components and patterns to maintain consistency across products.",
     },
     {
-      title: "Performance Optimization",
+      title: "Prototyping",
       description:
-        "Improve loading performance, responsiveness, usability, and overall technical efficiency.",
+        "Create interactive prototypes to validate ideas and workflows before development.",
     },
   ],
 
   impact:
-    "Build responsive digital platforms that improve usability, customer engagement, performance, and online conversions.",
+    "Create simpler, more intuitive products that improve usability, engagement, consistency, and customer satisfaction.",
 
   process: [
     {
-      title: "Planning",
+      title: "Research",
       description:
-        "Define goals, users, functionality, content, and technical requirements.",
+        "Understand the product, users, business goals, and existing experience.",
+    },
+    {
+      title: "Structure",
+      description:
+        "Define information architecture, user flows, and key product interactions.",
     },
     {
       title: "Design",
       description:
-        "Translate requirements into intuitive and practical digital experiences.",
+        "Develop wireframes, interfaces, components, and responsive experiences.",
     },
     {
-      title: "Development",
+      title: "Validate",
       description:
-        "Build the frontend, backend, integrations, and supporting infrastructure.",
-    },
-    {
-      title: "Launch & Improve",
-      description:
-        "Deploy the product, monitor performance, and continuously improve the experience.",
+        "Use prototypes and feedback to refine the product experience before development.",
     },
   ],
 };
 
-export default function WebApplicationDevelopment() {
+export default function UIUXProductDesign() {
   return <ServiceDetailPage service={service} />;
 }

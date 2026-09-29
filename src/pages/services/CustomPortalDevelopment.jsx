@@ -1,77 +1,77 @@
 import ServiceDetailPage from "./ServiceDetailPage";
 
 const service = {
-  title: "AI & Intelligent Automation",
-  tag: "AI • AUTOMATION • AGENTS",
+  title: "Custom Portal Development",
+  tag: "PORTALS • DASHBOARDS • BUSINESS SYSTEMS",
 
   description:
-    "Build AI-powered workflows, intelligent assistants, automation systems, and agentic solutions that reduce repetitive work and accelerate business decision-making.",
+    "Build secure, scalable custom portals designed to connect teams, customers, partners, and business operations through one seamless digital platform.",
 
-  overviewTitle: "AI Solutions Built Around Your Business",
+  overviewTitle: "Software Designed Around Your Operations",
 
   overview:
-    "We help businesses identify high-value automation opportunities and turn them into practical AI solutions. From intelligent assistants to automated workflows, our approach focuses on measurable operational improvements.",
+    "We build custom portals that bring business workflows, users, data, and internal processes together in a secure and scalable environment.",
 
   features: [
     {
-      title: "AI Strategy & Consulting",
+      title: "Customer Portals",
       description:
-        "Identify practical AI opportunities and define an implementation roadmap aligned with business goals.",
+        "Give customers secure access to information, services, documents, and self-service functionality.",
     },
     {
-      title: "AI Agents",
+      title: "Partner Portals",
       description:
-        "Build intelligent agents that can handle repetitive tasks, information retrieval, and business workflows.",
+        "Create centralized platforms for partner communication, collaboration, and operations.",
     },
     {
-      title: "Business Automation",
+      title: "Employee Portals",
       description:
-        "Automate repetitive processes and connect systems to reduce manual operational effort.",
+        "Build internal systems that simplify employee workflows, resources, and business processes.",
     },
     {
-      title: "Generative AI",
+      title: "Admin Dashboards",
       description:
-        "Use modern generative AI capabilities for content, knowledge systems, assistants, and workflows.",
+        "Provide teams with centralized dashboards for managing users, data, workflows, and operations.",
     },
     {
-      title: "AI Integrations",
+      title: "Self-Service Platforms",
       description:
-        "Connect AI functionality with your existing applications, platforms, and business systems.",
+        "Reduce manual support requirements by giving users access to useful self-service features.",
     },
     {
-      title: "Data & Insights",
+      title: "Role-Based Access",
       description:
-        "Turn operational data into useful insights that support faster and more informed decisions.",
+        "Control access to features and information based on user roles and business requirements.",
     },
   ],
 
   impact:
-    "Automate repetitive operations, reduce manual effort, improve response times, and help teams make faster data-driven decisions.",
+    "Replace disconnected tools and manual workflows with a centralized software platform built around the way your business operates.",
 
   process: [
     {
-      title: "Discovery",
+      title: "Requirements",
       description:
-        "Understand your workflows, challenges, and opportunities for automation.",
+        "Map users, workflows, permissions, integrations, and business requirements.",
     },
     {
-      title: "Strategy",
+      title: "Architecture",
       description:
-        "Define the right AI approach, architecture, and implementation roadmap.",
+        "Design the application structure, database, authentication, and system architecture.",
     },
     {
-      title: "Build",
+      title: "Development",
       description:
-        "Develop and integrate the AI solution into your existing technology environment.",
+        "Build the portal, dashboards, workflows, and integrations.",
     },
     {
-      title: "Optimize",
+      title: "Deployment",
       description:
-        "Measure results, improve workflows, and scale the solution as your needs grow.",
+        "Deploy the system securely and prepare it for ongoing growth and maintenance.",
     },
   ],
 };
 
-export default function AIIntelligentAutomation() {
+export default function CustomPortalDevelopment() {
   return <ServiceDetailPage service={service} />;
 }

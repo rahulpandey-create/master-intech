@@ -7,6 +7,7 @@ const breadcrumbLabels = {
   "web-application-development": "Web & Application Development",
   "ui-ux-product-design": "UI/UX & Product Design",
   "digital-marketing": "Digital Marketing",
+  "cyber-security": "Cyber Security",
   portfolio: "Portfolio",
   "startup-offer": "Startup Offer",
 };

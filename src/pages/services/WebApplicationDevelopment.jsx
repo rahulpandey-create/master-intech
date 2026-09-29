@@ -1,77 +1,77 @@
 import ServiceDetailPage from "./ServiceDetailPage";
 
 const service = {
-  title: "Custom Portal Development",
-  tag: "PORTALS • DASHBOARDS • BUSINESS SYSTEMS",
+  title: "Web & Application Development",
+  tag: "WEB • APPS • DIGITAL",
 
   description:
-    "Build secure, scalable custom portals designed to connect teams, customers, partners, and business operations through one seamless digital platform.",
+    "Create high-performance websites and web applications that deliver seamless experiences across every device.",
 
-  overviewTitle: "Software Designed Around Your Operations",
+  overviewTitle: "Modern Digital Products That Perform",
 
   overview:
-    "We build custom portals that bring business workflows, users, data, and internal processes together in a secure and scalable environment.",
+    "We design and develop websites and web applications that combine strong user experiences with scalable technical foundations.",
 
   features: [
     {
-      title: "Customer Portals",
+      title: "Corporate Websites",
       description:
-        "Give customers secure access to information, services, documents, and self-service functionality.",
+        "Build professional websites designed to communicate your brand, services, and value proposition.",
     },
     {
-      title: "Partner Portals",
+      title: "Web Applications",
       description:
-        "Create centralized platforms for partner communication, collaboration, and operations.",
+        "Develop custom web applications for business workflows, customers, teams, and digital products.",
     },
     {
-      title: "Employee Portals",
+      title: "E-Commerce",
       description:
-        "Build internal systems that simplify employee workflows, resources, and business processes.",
+        "Create commerce experiences designed around products, customers, payments, and business operations.",
     },
     {
-      title: "Admin Dashboards",
+      title: "Frontend & Backend",
       description:
-        "Provide teams with centralized dashboards for managing users, data, workflows, and operations.",
+        "Develop complete applications across user interfaces, APIs, databases, and backend systems.",
     },
     {
-      title: "Self-Service Platforms",
+      title: "Progressive Web Apps",
       description:
-        "Reduce manual support requirements by giving users access to useful self-service features.",
+        "Build fast web experiences with application-like functionality and accessibility across devices.",
     },
     {
-      title: "Role-Based Access",
+      title: "Performance Optimization",
       description:
-        "Control access to features and information based on user roles and business requirements.",
+        "Improve loading performance, responsiveness, usability, and overall technical efficiency.",
     },
   ],
 
   impact:
-    "Replace disconnected tools and manual workflows with a centralized software platform built around the way your business operates.",
+    "Build responsive digital platforms that improve usability, customer engagement, performance, and online conversions.",
 
   process: [
     {
-      title: "Requirements",
+      title: "Planning",
       description:
-        "Map users, workflows, permissions, integrations, and business requirements.",
+        "Define goals, users, functionality, content, and technical requirements.",
     },
     {
-      title: "Architecture",
+      title: "Design",
       description:
-        "Design the application structure, database, authentication, and system architecture.",
+        "Translate requirements into intuitive and practical digital experiences.",
     },
     {
       title: "Development",
       description:
-        "Build the portal, dashboards, workflows, and integrations.",
+        "Build the frontend, backend, integrations, and supporting infrastructure.",
     },
     {
-      title: "Deployment",
+      title: "Launch & Improve",
       description:
-        "Deploy the system securely and prepare it for ongoing growth and maintenance.",
+        "Deploy the product, monitor performance, and continuously improve the experience.",
     },
   ],
 };
 
-export default function CustomPortalDevelopment() {
+export default function WebApplicationDevelopment() {
   return <ServiceDetailPage service={service} />;
 }
