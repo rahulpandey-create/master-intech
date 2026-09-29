@@ -102,7 +102,7 @@ export default function Award() {
         <div className="award-art" data-reveal>
           <img
             src={abstractLeft}
-            alt="Abstract colorful 3D artwork"
+            alt=""
           />
         </div>
 

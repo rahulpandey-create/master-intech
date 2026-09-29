@@ -3,6 +3,44 @@ import { useLocation } from "react-router-dom";
 
 const BASE_URL = "https://masterintechsolutions.com";
 
+const serviceSchemaData = {
+  "/services/ai-intelligent-automation": {
+    name: "AI & Intelligent Automation",
+    description:
+      "Build intelligent AI automation systems that streamline workflows, improve efficiency and help businesses scale.",
+  },
+
+  "/services/custom-portal-development": {
+    name: "Custom Portal Development",
+    description:
+      "Build secure and scalable custom portals tailored to your business workflows, users and operational needs.",
+  },
+
+  "/services/web-application-development": {
+    name: "Web & Application Development",
+    description:
+      "Build scalable, high-performance web applications tailored to your business requirements and users.",
+  },
+
+  "/services/ui-ux-product-design": {
+    name: "UI/UX & Product Design",
+    description:
+      "Create intuitive UI/UX designs and digital product experiences focused on usability and business goals.",
+  },
+
+  "/services/digital-marketing": {
+    name: "Digital Marketing",
+    description:
+      "Grow your online presence with digital marketing strategies designed to reach, engage and convert your target audience.",
+  },
+
+  "/services/cyber-security": {
+    name: "Cyber Security",
+    description:
+      "Strengthen your digital environment with cybersecurity assessment, vulnerability management, application security and proactive protection.",
+  },
+};
+
 const seoData = {
   "/": {
     title: "AI & Web Solutions | Master Intech",
@@ -81,10 +119,16 @@ const SEO = () => {
         "Master Intech provides AI, software development, automation and digital solutions for modern businesses.",
     };
 
+    // ==========================================
     // PAGE TITLE
+    // ==========================================
+
     document.title = currentSEO.title;
 
+    // ==========================================
     // META DESCRIPTION
+    // ==========================================
+
     let metaDescription = document.head.querySelector(
       'meta[name="description"]'
     );
@@ -100,7 +144,10 @@ const SEO = () => {
       currentSEO.description
     );
 
+    // ==========================================
     // CANONICAL URL
+    // ==========================================
+
     const canonicalUrl =
       location.pathname === "/"
         ? BASE_URL
@@ -117,6 +164,218 @@ const SEO = () => {
     }
 
     canonicalLink.setAttribute("href", canonicalUrl);
+
+    // ==========================================
+    // OPEN GRAPH
+    // ==========================================
+
+    const ogTags = {
+      "og:title": currentSEO.title,
+      "og:description": currentSEO.description,
+      "og:url": canonicalUrl,
+      "og:type": "website",
+      "og:image": `${BASE_URL}/og-image.jpg`,
+    };
+
+    Object.entries(ogTags).forEach(([property, content]) => {
+      let tag = document.head.querySelector(
+        `meta[property="${property}"]`
+      );
+
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", property);
+        document.head.appendChild(tag);
+      }
+
+      tag.setAttribute("content", content);
+    });
+
+    // ==========================================
+    // TWITTER / X
+    // ==========================================
+
+    const twitterTags = {
+      "twitter:card": "summary_large_image",
+      "twitter:title": currentSEO.title,
+      "twitter:description": currentSEO.description,
+      "twitter:image": `${BASE_URL}/og-image.jpg`,
+    };
+
+    // ==========================================
+    // ORGANIZATION SCHEMA
+    // ==========================================
+
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Master Intech Solutions",
+      url: BASE_URL,
+      logo: `${BASE_URL}/og-image.jpg`,
+    };
+
+    let organizationSchemaScript = document.head.querySelector(
+      'script[data-seo-schema="organization"]'
+    );
+
+    if (!organizationSchemaScript) {
+      organizationSchemaScript = document.createElement("script");
+      organizationSchemaScript.setAttribute(
+        "type",
+        "application/ld+json"
+      );
+      organizationSchemaScript.setAttribute(
+        "data-seo-schema",
+        "organization"
+      );
+      document.head.appendChild(organizationSchemaScript);
+    }
+
+    organizationSchemaScript.textContent =
+      JSON.stringify(organizationSchema);
+
+    Object.entries(twitterTags).forEach(([name, content]) => {
+      let tag = document.head.querySelector(
+        `meta[name="${name}"]`
+      );
+
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+
+      tag.setAttribute("content", content);
+    });
+    // ==========================================
+    // SERVICE SCHEMA
+    // ==========================================
+
+    const currentService =
+      serviceSchemaData[location.pathname];
+
+    let serviceSchemaScript = document.head.querySelector(
+      'script[data-seo-schema="service"]'
+    );
+
+    if (currentService) {
+      const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: currentService.name,
+        description: currentService.description,
+        url: canonicalUrl,
+        provider: {
+          "@type": "Organization",
+          name: "Master Intech Solutions",
+          url: BASE_URL,
+        },
+      };
+
+      if (!serviceSchemaScript) {
+        serviceSchemaScript = document.createElement("script");
+        serviceSchemaScript.setAttribute(
+          "type",
+          "application/ld+json"
+        );
+        serviceSchemaScript.setAttribute(
+          "data-seo-schema",
+          "service"
+        );
+        document.head.appendChild(serviceSchemaScript);
+      }
+
+      serviceSchemaScript.textContent =
+        JSON.stringify(serviceSchema);
+    } else if (serviceSchemaScript) {
+      serviceSchemaScript.remove();
+    }
+    // ==========================================
+    // BREADCRUMB SCHEMA
+    // ==========================================
+
+    const breadcrumbLabels = {
+      "/": "Home",
+      "/portfolio": "Portfolio",
+      "/services": "Services",
+      "/services/ai-intelligent-automation":
+        "AI & Intelligent Automation",
+      "/services/custom-portal-development":
+        "Custom Portal Development",
+      "/services/web-application-development":
+        "Web & Application Development",
+      "/services/ui-ux-product-design":
+        "UI/UX & Product Design",
+      "/services/digital-marketing":
+        "Digital Marketing",
+      "/services/cyber-security":
+        "Cyber Security",
+      "/startup-offer": "Startup Solutions",
+    };
+
+    let breadcrumbSchemaScript = document.head.querySelector(
+      'script[data-seo-schema="breadcrumb"]'
+    );
+
+    if (breadcrumbLabels[location.pathname]) {
+      const breadcrumbItems = [];
+
+      breadcrumbItems.push({
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: BASE_URL,
+      });
+
+      if (location.pathname.startsWith("/services/")) {
+        breadcrumbItems.push({
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: `${BASE_URL}/services`,
+        });
+
+        breadcrumbItems.push({
+          "@type": "ListItem",
+          position: 3,
+          name: breadcrumbLabels[location.pathname],
+          item: canonicalUrl,
+        });
+      } else if (location.pathname !== "/") {
+        breadcrumbItems.push({
+          "@type": "ListItem",
+          position: 2,
+          name: breadcrumbLabels[location.pathname],
+          item: canonicalUrl,
+        });
+      }
+
+      const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbItems,
+      };
+
+      if (!breadcrumbSchemaScript) {
+        breadcrumbSchemaScript = document.createElement(
+          "script"
+        );
+        breadcrumbSchemaScript.setAttribute(
+          "type",
+          "application/ld+json"
+        );
+        breadcrumbSchemaScript.setAttribute(
+          "data-seo-schema",
+          "breadcrumb"
+        );
+        document.head.appendChild(breadcrumbSchemaScript);
+      }
+
+      breadcrumbSchemaScript.textContent =
+        JSON.stringify(breadcrumbSchema);
+    } else if (breadcrumbSchemaScript) {
+      breadcrumbSchemaScript.remove();
+    }
   }, [location.pathname]);
 
   return null;

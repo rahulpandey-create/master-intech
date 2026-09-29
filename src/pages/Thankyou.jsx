@@ -36,7 +36,7 @@ export default function ThankYou() {
                   aria-label="Chat with Master Intech Solutions on WhatsApp"
                 >
                   <span className="thank-you-whatsapp-icon">
-                    <img src={whatsappIcon} alt="" aria-hidden="true" />
+                    <img src={whatsappIcon} alt="WhatsApp" aria-hidden="true" />
                   </span>
                   <span>Chat on WhatsApp</span>
                   {/* <span aria-hidden="true">→</span> */}

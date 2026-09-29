@@ -684,7 +684,7 @@ export default function Feedback() {
         <img
           className="feedback-art"
           src={abstractRight}
-          alt="Abstract colorful 3D artwork"
+          alt=""
         />
 
       </div>

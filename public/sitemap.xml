@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+
+  <url>
+    <loc>https://masterintechsolutions.com/</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/portfolio</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/services</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/services/ai-intelligent-automation</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/services/custom-portal-development</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/services/web-application-development</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/services/ui-ux-product-design</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/services/digital-marketing</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/services/cyber-security</loc>
+  </url>
+
+  <url>
+    <loc>https://masterintechsolutions.com/startup-offer</loc>
+  </url>
+
+</urlset>

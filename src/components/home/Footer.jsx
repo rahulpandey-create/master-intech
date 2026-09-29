@@ -35,14 +35,14 @@ export default function Footer() {
 
         <div className="footer-social">
           <span>
-            <a href="https://www.facebook.com/MasterIntechSolutions/" target="_blank"><img src={facebook} /></a>
+            <a href="https://www.facebook.com/MasterIntechSolutions/" target="_blank"><img src={facebook} alt="Facebook" /></a>
           </span>
           
           <span>
-             <a href="https://www.instagram.com/mastersintechsolutions/" target="_blank"><img src={instagram} /></a>
+             <a href="https://www.instagram.com/mastersintechsolutions/" target="_blank"><img src={instagram} alt="Instagram" /></a>
           </span>
           <span>
-             <a href="https://www.linkedin.com/in/master-intech-solutions-43ba9b39" target="_blank"><img src={linkedin} /></a>
+             <a href="https://www.linkedin.com/in/master-intech-solutions-43ba9b39" target="_blank"><img src={linkedin} alt="LinkedIn" /></a>
           </span>
         </div>
       </div>

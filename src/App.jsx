@@ -133,10 +133,10 @@ function App() {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, {
         // 1. CONTROL SCROLL SPEED. 
-        duration: 2.5,
+        duration: 3.5,
 
         // 2. CONTROL TOP ANIMATION (SLOW EASE-OUT):
-        easing: (t) => 1 - Math.pow(1 - t, 5) // This creates a slow ease-out effect increase the last number to make it slower, decrease to make it faster
+        easing: (t) => 1 - Math.pow(1 - t, 4) // This creates a slow ease-out effect increase the last number to make it slower, decrease to make it faster
       });
     }
   };
