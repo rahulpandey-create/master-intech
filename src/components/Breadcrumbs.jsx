@@ -10,6 +10,7 @@ const breadcrumbLabels = {
   "cyber-security": "Cyber Security",
   portfolio: "Portfolio",
   "startup-offer": "Startup Offer",
+  "contact-us": "Contact Us",
 };
 
 export default function Breadcrumbs() {

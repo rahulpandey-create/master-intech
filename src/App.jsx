@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import StartupOffer from "./pages/StartupOffer";
 import ThankYou from "./pages/Thankyou";
+import ContactUs from "./pages/ContactUs";
 import PageTransition from "./components/home/PageTransition";
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
@@ -173,6 +174,8 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
 
           <Route path="/services" element={<Services />} />
+
+          <Route path="/contact-us" element={<ContactUs />} />
 
           <Route
             path="/services/ai-intelligent-automation"

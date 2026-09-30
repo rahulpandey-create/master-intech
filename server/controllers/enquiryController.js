@@ -1,4 +1,5 @@
 const db = require("../config/db");
+
 const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -16,17 +17,24 @@ const createEnquiry = async (req, res, next) => {
     const {
       name = "",
       email = "",
+      service = "",
       message = "",
     } = req.body;
 
     const trimmedName = name.trim();
     const trimmedEmail = email.trim().toLowerCase();
+    const trimmedService = service.trim();
     const trimmedMessage = message.trim();
 
-    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+    if (
+      !trimmedName ||
+      !trimmedEmail ||
+      !trimmedService ||
+      !trimmedMessage
+    ) {
       return res.status(400).json({
         success: false,
-        message: "Name, email and message are required.",
+        message: "Name, email, service and message are required.",
       });
     }
 
@@ -46,6 +54,13 @@ const createEnquiry = async (req, res, next) => {
       });
     }
 
+    if (trimmedService.length > 100) {
+      return res.status(400).json({
+        success: false,
+        message: "Service selection is invalid.",
+      });
+    }
+
     if (trimmedMessage.length < 10) {
       return res.status(400).json({
         success: false,
@@ -62,16 +77,18 @@ const createEnquiry = async (req, res, next) => {
 
     const safeName = escapeHtml(trimmedName);
     const safeEmail = escapeHtml(trimmedEmail);
+    const safeService = escapeHtml(trimmedService);
     const safeMessage = escapeHtml(trimmedMessage);
 
     const [result] = await db.execute(
       `
-        INSERT INTO enquiries (name, email, message)
-        VALUES (?, ?, ?)
+        INSERT INTO enquiries (name, email, service, message)
+        VALUES (?, ?, ?, ?)
       `,
       [
         trimmedName,
         trimmedEmail,
+        trimmedService,
         trimmedMessage,
       ]
     );
@@ -83,7 +100,6 @@ const createEnquiry = async (req, res, next) => {
         .map((email) => email.trim()),
       replyTo: trimmedEmail,
       subject: `New Contact Enquiry from ${trimmedName}`,
-
       html: `
         <div style="
           margin: 0;
@@ -165,7 +181,7 @@ const createEnquiry = async (req, res, next) => {
               </div>
 
               <div style="
-                margin-bottom: 22px;
+                margin-bottom: 18px;
                 padding: 18px 20px;
                 background-color: #181818;
                 border: 1px solid #292929;
@@ -187,6 +203,33 @@ const createEnquiry = async (req, res, next) => {
                   color: #ffffff;
                 ">
                   ${safeEmail}
+                </div>
+              </div>
+
+              <div style="
+                margin-bottom: 22px;
+                padding: 18px 20px;
+                background-color: #181818;
+                border: 1px solid #292929;
+                border-radius: 10px;
+              ">
+                <div style="
+                  margin-bottom: 7px;
+                  font-size: 11px;
+                  font-weight: 700;
+                  letter-spacing: 1.5px;
+                  text-transform: uppercase;
+                  color: #777777;
+                ">
+                  Selected Service
+                </div>
+
+                <div style="
+                  font-size: 16px;
+                  font-weight: 600;
+                  color: #ffffff;
+                ">
+                  ${safeService}
                 </div>
               </div>
 

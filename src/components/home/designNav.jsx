@@ -82,14 +82,9 @@ export default function DesignNav() {
           HIRE US
         </a>
 
-        <a
-          href="/"
-          onClick={(event) =>
-            handleSectionLink(event, "contact")
-          }
-        >
+        <Link to="/contact-us" onClick={closeMenu}>
           CONTACT
-        </a>
+        </Link>
 
         {/* HAMBURGER */}
         <button

@@ -102,6 +102,12 @@ const seoData = {
       "Explore technology and digital solutions designed to help startups build, launch and scale.",
   },
 
+  "/contact-us": {
+    title: "Contact Master Intech | AI & Web Solutions",
+    description:
+      "Get in touch with Master Intech for AI solutions, web development, automation, UI/UX, digital marketing and cybersecurity services.",
+  },
+
   "/thank-you": {
     title: "Thank You | Master Intech",
     description:
@@ -311,6 +317,7 @@ const SEO = () => {
       "/services/cyber-security":
         "Cyber Security",
       "/startup-offer": "Startup Solutions",
+      "/contact-us": "Contact Us",
     };
 
     let breadcrumbSchemaScript = document.head.querySelector(
@@ -375,6 +382,126 @@ const SEO = () => {
         JSON.stringify(breadcrumbSchema);
     } else if (breadcrumbSchemaScript) {
       breadcrumbSchemaScript.remove();
+    }
+
+    // ==========================================
+    // CONTACT PAGE SCHEMA
+    // ==========================================
+
+    let contactPageSchemaScript = document.head.querySelector(
+      'script[data-seo-schema="contact-page"]'
+    );
+
+    if (location.pathname === "/contact-us") {
+      const contactPageSchema = {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: currentSEO.title,
+        description: currentSEO.description,
+        url: canonicalUrl,
+        isPartOf: {
+          "@type": "WebSite",
+          name: "Master Intech Solutions",
+          url: BASE_URL,
+        },
+      };
+
+      if (!contactPageSchemaScript) {
+        contactPageSchemaScript = document.createElement("script");
+        contactPageSchemaScript.setAttribute(
+          "type",
+          "application/ld+json"
+        );
+        contactPageSchemaScript.setAttribute(
+          "data-seo-schema",
+          "contact-page"
+        );
+        document.head.appendChild(contactPageSchemaScript);
+      }
+
+      contactPageSchemaScript.textContent =
+        JSON.stringify(contactPageSchema);
+    } else if (contactPageSchemaScript) {
+      contactPageSchemaScript.remove();
+    }
+
+    // ==========================================
+    // CONTACT PAGE FAQ SCHEMA
+    // ==========================================
+
+    let faqSchemaScript = document.head.querySelector(
+      'script[data-seo-schema="faq"]'
+    );
+
+    if (location.pathname === "/contact-us") {
+      const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What information should I include in my enquiry?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Share what you are trying to build or improve, the service you are considering, your main requirements, and any useful project context. A rough budget is optional.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How does the consultation process work?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Start by submitting the enquiry form with the available project context. The team can then review the requirement and continue the discussion using the contact details you provide.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What types of projects does Master Intech work on?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "The current service offering covers AI and intelligent automation, custom portals, web and application development, UI/UX and product design, digital marketing, and cybersecurity.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can you work with an existing product or codebase?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Yes. Include the current product, codebase or technical situation in your requirement so the team can understand the existing context.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How can I request a project estimate?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Describe the project scope and requirements in the form and include a budget range if you have one. This gives the team useful context for the next discussion.",
+            },
+          },
+        ],
+      };
+
+      if (!faqSchemaScript) {
+        faqSchemaScript = document.createElement("script");
+        faqSchemaScript.setAttribute(
+          "type",
+          "application/ld+json"
+        );
+        faqSchemaScript.setAttribute(
+          "data-seo-schema",
+          "faq"
+        );
+        document.head.appendChild(faqSchemaScript);
+      }
+
+      faqSchemaScript.textContent = JSON.stringify(faqSchema);
+    } else if (faqSchemaScript) {
+      faqSchemaScript.remove();
     }
   }, [location.pathname]);
 
