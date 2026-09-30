@@ -2,14 +2,20 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 
 
 export default function ServiceDetailPage({ service }) {
+  const whatsappMessage = `Hi, I came across Master Intech Solutions and I'm interested in ${service.title}. I'd like to discuss my project and understand how you can help.`;
+
+  const whatsappUrl = `https://wa.me/919878263393?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+
   return (
     <main className="service-page">
-      
+
 
       {/* Hero */}
       <section className="service-hero">
-        <div class="services-glow services-glow-1"></div>
-        <div class="services-glow services-glow-2"></div>
+        <div className="services-glow services-glow-1"></div>
+        <div className="services-glow services-glow-2"></div>
         <div className="service-hero-content">
           <Breadcrumbs />
           <span className="service-tag">{service.tag}</span>
@@ -85,9 +91,24 @@ export default function ServiceDetailPage({ service }) {
           around your business.
         </p>
 
-        <a href="https://wa.me/919878263393" target="_blank" className="service-cta-button">
-          Let's Talk
-        </a>
+        <a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="service-cta-button"
+>
+  Let's Talk
+</a>
+
+        <div className="service-cta-links">
+          <a href="/services" className="service-cta-link service-cta-back">
+            ← Back to Services
+          </a>
+
+          <a href="/portfolio" className="service-cta-link service-cta-portfolio">
+            View Portfolio →
+          </a>
+        </div>
       </section>
     </main>
   );
