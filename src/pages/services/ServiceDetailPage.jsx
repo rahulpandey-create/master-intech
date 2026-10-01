@@ -14,9 +14,9 @@ export default function ServiceDetailPage({ service }) {
 
       {/* Hero */}
       <section className="service-hero">
-        <div className="services-glow services-glow-1"></div>
-        <div className="services-glow services-glow-2"></div>
+       
         <div className="service-hero-content">
+          
           <Breadcrumbs />
           <span className="service-tag">{service.tag}</span>
 
