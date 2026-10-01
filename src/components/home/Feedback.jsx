@@ -10,6 +10,7 @@ import google from "../../assets/google.svg";
 import KatyaVideo from "../../assets/KatyaVideo.mp4";
 import shenton from "../../assets/shenton.png";
 import KatyaFaris from "../../assets/KatyaFaris.png";
+import userthumb from "../../assets/userthumb.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -35,7 +36,7 @@ const clients = [
 
   {
     id: "johan",
-    image: thumbnail,
+    image: userthumb,
     video: null,
 
     name: "Tarun Chaudhary",
@@ -46,7 +47,7 @@ const clients = [
 
   {
     id: "bernie",
-    image: thumbnail,
+    image: userthumb,
     video: null,
 
     name: "Santosh Kumar",
@@ -57,7 +58,7 @@ const clients = [
 
   {
     id: "manie",
-    image: thumbnail,
+    image: userthumb,
     video: null,
 
     name: "Mannie",
