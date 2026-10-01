@@ -117,6 +117,7 @@ export default function ContactUs() {
     const validationErrors = validate();
 
     setErrors(validationErrors);
+
     setFeedback({
       success: "",
       error: "",
@@ -252,7 +253,9 @@ export default function ContactUs() {
       >
         <div className="contact-us-container">
           <div className="contact-us-section-heading page-reveal">
-            <span className="contact-us-kicker">GET IN TOUCH</span>
+            <span className="contact-us-kicker">
+              GET IN TOUCH
+            </span>
 
             <h2 id="contact-information-title">
               Tell us what you&apos;re working on.
@@ -276,6 +279,7 @@ export default function ContactUs() {
 
               <span>
                 <strong>Support</strong>
+
                 <span>
                   +91-98782 63393 | +91-8968 085887
                 </span>
@@ -293,7 +297,10 @@ export default function ContactUs() {
 
               <span>
                 <strong>Email</strong>
-                <span>info@masterintechsolutions.com</span>
+
+                <span>
+                  info@masterintechsolutions.com
+                </span>
               </span>
             </a>
 
@@ -317,7 +324,7 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* ENQUIRY + MAP */}
+      {/* ENQUIRY + GOOGLE MAP */}
       <section
         className="contact-us-form-section"
         id="contact-enquiry-form"
@@ -376,46 +383,35 @@ export default function ContactUs() {
               </div>
             </div>
 
-            {/* GOOGLE MAP */}
+            {/* GOOGLE MAPS */}
             <div className="contact-us-map-card">
-              <div className="contact-us-map-header">
-                <span className="contact-us-kicker">
-                  FIND US
-                </span>
-
-                <h3>Our office.</h3>
-
-                <p>
-                  SCF 36 Phase XI, Sector 65,
-                  <br />
-                  Sahibzada Ajit Singh Nagar, Punjab 160055
-                </p>
-              </div>
-
               <div className="contact-us-map-wrapper">
                 <iframe
                   title="Master Intech Solutions location"
-                  src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=SCF+36+Phase+XI,+Sector+65,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055&zoom=17"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214.45616673973734!2d76.7440749768904!3d30.681871751884977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fee617d77cee3%3A0x9a2c176de1908123!2sMaster%20Intech%20Solutions!5e0!3m2!1sen!2sus!4v1790849231594!5m2!1sen!2sus"
+                  width="600"
+                  height="450"
+                  style={{
+                    border: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
                   allowFullScreen
-                ></iframe>
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
               </div>
 
               <a
-                href="https://www.google.com/maps/search/?api=1&query=SCF+36+Phase+XI,+Sector+65,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055"
+                href="https://www.google.com/maps/place/Master+Intech+Solutions/@30.6818399,76.7441781,17z/data=!3m1!4b1!4m6!3m5!1s0x390fee617d77cee3:0x9a2c176de1908123!8m2!3d30.6818399!4d76.7441781!16s%2Fg%2F11bbwl511s?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-us-map-link"
               >
                 Open in Google Maps
-
-                <span aria-hidden="true">
-                  →
-                </span>
+                <span aria-hidden="true">→</span>
               </a>
             </div>
-
           </div>
 
             {/* RIGHT COLUMN — FORM */}

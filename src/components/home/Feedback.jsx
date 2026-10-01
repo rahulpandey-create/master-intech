@@ -60,7 +60,7 @@ const clients = [
     image: thumbnail,
     video: null,
 
-    name: "Manie",
+    name: "Mannie",
     role: "Founder, RecommendMe Australia",
     review:
       "Good team to work with as they are confident with their skills. Communication is also very good as they quickly respond. They priced the project well and competitively. Vinit was our main point of contact and he did an excellent job in communication!",
