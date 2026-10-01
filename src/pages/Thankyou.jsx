@@ -5,7 +5,12 @@ import arrowtick from "../assets/arrowtick.svg";
 
 const MASTER_INTECH_PHONE_DISPLAY = "+91-98782 63393";
 const MASTER_INTECH_PHONE_TEL = "+919878263393";
-const MASTER_INTECH_WHATSAPP_LINK = "https://wa.me/919878263393";
+const MASTER_INTECH_WHATSAPP_MESSAGE =
+  "Hi Master Intech Solutions, I’ve just submitted an enquiry through your website and would like to continue the conversation here.";
+
+const MASTER_INTECH_WHATSAPP_LINK = `https://wa.me/919878263393?text=${encodeURIComponent(
+  MASTER_INTECH_WHATSAPP_MESSAGE
+)}`;
 
 export default function ThankYou() {
   return (
@@ -17,18 +22,18 @@ export default function ThankYou() {
 
         <div className="thank-you-container">
           <div className="thank-you-confirmation" data-reveal>
-          <div className="main-thanks">
+            <div className="main-thanks">
 
-             <div>
-            <div className="thank-you-success-icon" aria-hidden="true">
-              <img src={arrowtick}/>
-            </div>
-            <h1 id="thank-you-title"  >Thank You!</h1>
-            <p className="thank-you-message-title">Your enquiry has been successfully submitted.</p>
-            <p className="thank-you-message">
-              We&apos;ve received your details and our team will review your requirements. We&apos;ll get back to you shortly to discuss the next steps.
-            </p>
-              <a
+              <div>
+                <div className="thank-you-success-icon" aria-hidden="true">
+                  <img src={arrowtick} />
+                </div>
+                <h1 id="thank-you-title"  >Thank You!</h1>
+                <p className="thank-you-message-title">Your enquiry has been successfully submitted.</p>
+                <p className="thank-you-message">
+                  We&apos;ve received your details and our team will review your requirements. We&apos;ll get back to you shortly to discuss the next steps.
+                </p>
+                <a
                   className="thank-you-whatsapp"
                   href={MASTER_INTECH_WHATSAPP_LINK}
                   target="_blank"
@@ -41,16 +46,16 @@ export default function ThankYou() {
                   <span>Chat on WhatsApp</span>
                   {/* <span aria-hidden="true">→</span> */}
                 </a>
-            
-              {/* <div className="thank-you-divider" aria-hidden="true">
+
+                {/* <div className="thank-you-divider" aria-hidden="true">
                 <span />
                 <i />
                 <span />
               </div> */}
-            </div>
+              </div>
 
-            {/* second part */}
-            {/* <div>
+              {/* second part */}
+              {/* <div>
             <div className="thank-you-contact" data-reveal>
               <div className="thank-you-contact-copy">
                 <p className="thank-you-section-label">NEED TO SPEAK WITH US?</p>

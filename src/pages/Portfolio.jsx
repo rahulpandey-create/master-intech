@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { submitEnquiry } from "../services/api";
 import arrowbtn from "../assets/arrowbtn.svg";
 import ellebeline from "../assets/ellebeline.png";
@@ -279,7 +280,7 @@ const projectGroups = [
         image: aboutImage,
         label: "AI Videos",
       },
-      
+
     ],
   },
 
@@ -297,9 +298,10 @@ export default function Portfolio() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    service: "",
     message: "",
   });
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const [feedback, setFeedback] = useState({
@@ -423,20 +425,9 @@ export default function Portfolio() {
     });
 
     try {
-      const data = await submitEnquiry(formData);
+      await submitEnquiry(formData);
 
-      setFeedback({
-        success:
-          data?.message ||
-          "Your enquiry has been submitted successfully.",
-        error: "",
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+      navigate("/thank-you/");
     } catch (error) {
       setFeedback({
         success: "",
@@ -687,8 +678,8 @@ export default function Portfolio() {
 
           <div
             className="portfolio-contact-modal"
-  data-lenis-prevent
-  onWheel={(e) => e.stopPropagation()
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()
             }
           >
 

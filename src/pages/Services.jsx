@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 import { submitEnquiry } from "../services/api";
 import arrowbtn from "../assets/arrowbtn.svg";
 import Contact from "../components/home/Contact";
@@ -9,6 +10,8 @@ import { Link } from "react-router-dom";
 
 const MASTER_INTECH_WHATSAPP_LINK =
   "https://wa.me/919878263393";
+
+const navigate = useNavigate();
 
 const services = [
   {
@@ -278,6 +281,7 @@ export default function Services() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    service: "",
     message: "",
   });
 
@@ -340,20 +344,9 @@ export default function Services() {
     });
 
     try {
-      const data = await submitEnquiry(formData);
+      await submitEnquiry(formData);
 
-      setFeedback({
-        success:
-          data?.message ||
-          "Your enquiry has been submitted successfully.",
-        error: "",
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+      navigate("/thank-you/");
     } catch (error) {
       setFeedback({
         success: "",
