@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import abstractRight from "../../assets/design/10.png";
-import client2 from "../../assets/design/12.png";
+import thumbnail from "../../assets/design/floating_client_thumbnail.jpeg";
 import client3 from "../../assets/design/13.png";
 import client4 from "../../assets/design/14.png";
 import client5 from "../../assets/design/15.png";
@@ -28,7 +28,7 @@ const clients = [
     video: KatyaVideo,
 
     name: "Katya Faris",
-    role: "Hindustan Astrology",
+    role: "Founder, Hindustan Astrology - USA",
     review:
       "An excellent team to collaborate with—highly skilled and confident in their work. Their communication was clear and timely, and they always responded quickly.",
   },
@@ -38,8 +38,8 @@ const clients = [
     image: client3,
     video: null,
 
-    name: "Johan Lim",
-    role: "Malaysia",
+    name: "Tarun Chaudhary",
+    role: "Founder, Infra Optics Australia",
     review:
       "I have hired him several times, i think in general they can deliver the work just need to keep things on time. Overall ill hire them again",
   },
@@ -49,8 +49,8 @@ const clients = [
     image: client4,
     video: null,
 
-    name: "Bernie Leigh",
-    role: "Director, SpeediBoats",
+    name: "Santosh Kumar",
+    role: "Marketing head Celegence",
     review:
       "Looking forward to working with Randeep and the MIT TEAM again very soon",
   },
@@ -61,14 +61,14 @@ const clients = [
     video: null,
 
     name: "Manie",
-    role: "IOSG Venture",
+    role: "Founder, RecommendMe Australia",
     review:
       "Good team to work with as they are confident with their skills. Communication is also very good as they quickly respond. They priced the project well and competitively. Vinit was our main point of contact and he did an excellent job in communication!",
   },
 
   {
     id: "client-5",
-    image: shenton,
+    image: thumbnail,
     video: null,
 
     name: "Shenton Adams",

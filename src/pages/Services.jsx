@@ -11,8 +11,6 @@ import { Link } from "react-router-dom";
 const MASTER_INTECH_WHATSAPP_LINK =
   "https://wa.me/919878263393";
 
-const navigate = useNavigate();
-
 const services = [
   {
     number: "01",
@@ -284,7 +282,7 @@ export default function Services() {
     service: "",
     message: "",
   });
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const [feedback, setFeedback] = useState({
