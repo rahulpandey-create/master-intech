@@ -35,7 +35,7 @@ const clients = [
 
   {
     id: "johan",
-    image: client3,
+    image: thumbnail,
     video: null,
 
     name: "Tarun Chaudhary",
@@ -46,18 +46,18 @@ const clients = [
 
   {
     id: "bernie",
-    image: client4,
+    image: thumbnail,
     video: null,
 
     name: "Santosh Kumar",
-    role: "Marketing head Celegence",
+    role: "Marketing Head, Celegence",
     review:
       "Looking forward to working with Randeep and the MIT TEAM again very soon",
   },
 
   {
     id: "manie",
-    image: client5,
+    image: thumbnail,
     video: null,
 
     name: "Manie",
@@ -68,7 +68,7 @@ const clients = [
 
   {
     id: "client-5",
-    image: thumbnail,
+    image: shenton,
     video: null,
 
     name: "Shenton Adams",
