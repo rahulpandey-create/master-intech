@@ -218,10 +218,7 @@ export default function ContactUs() {
         <div className="contact-us-container contact-us-hero-inner">
           <Breadcrumbs />
 
-          <div className="contact-us-eyebrow">
-            <span aria-hidden="true"></span>
-            CONTACT • LET&apos;S BUILD
-          </div>
+          
 
           <h1>Let&apos;s Build Something That Matters.</h1>
 
@@ -348,7 +345,7 @@ export default function ContactUs() {
             </p>
 
             {/* CAPABILITIES */}
-            <div
+            {/* <div
               className="contact-us-trust-list"
               aria-label="Master Intech capabilities"
             >
@@ -381,7 +378,7 @@ export default function ContactUs() {
                 <span aria-hidden="true">06</span>
                 <p>Cybersecurity</p>
               </div>
-            </div>
+            </div> */}
 
             {/* GOOGLE MAPS */}
             <div className="contact-us-map-card">
@@ -425,7 +422,7 @@ export default function ContactUs() {
 
                 <h3>Leave a message.</h3>
 
-                <p>Fields marked with * are required.</p>
+                {/* <p>Fields marked with * are required.</p> */}
               </div>
 
               <div className="contact-us-form-grid">
@@ -624,7 +621,7 @@ export default function ContactUs() {
                     onChange={updateField}
                     minLength={10}
                     maxLength={5000}
-                    rows={5}
+                    rows={2}
                     aria-invalid={Boolean(errors.requirement)}
                     aria-describedby={
                       errors.requirement
@@ -657,7 +654,7 @@ export default function ContactUs() {
                     onChange={updateField}
                     minLength={10}
                     maxLength={5000}
-                    rows={6}
+                    rows={2}
                     aria-invalid={Boolean(errors.message)}
                     aria-describedby={
                       errors.message
@@ -812,7 +809,7 @@ export default function ContactUs() {
             </span>
 
             <h2 id="contact-final-title">
-              Have an idea? Let&apos;s turn it into something real.
+              Have an idea? Let&apos;s turn it <br></br>into something real.
             </h2>
 
             <button

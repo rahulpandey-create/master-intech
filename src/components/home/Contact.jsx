@@ -68,7 +68,7 @@ export default function Contact({
               <span>
                 SCF 36 Phase XI, Sector 65,
                 <br />
-                Sahibzada Ajit Singh Nagar, Punjab 160055
+                Sahibzada Ajit Singh Nagar, Punjab 160065
               </span>
             </div>
           </div>

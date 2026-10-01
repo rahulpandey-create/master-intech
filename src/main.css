@@ -33,11 +33,12 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
 }
 
 ol.breadcrumbs-list {
-  display: flex;
-  justify-content: center;
-  gap: 2px;
-  transition: 0.4s;
-  margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    transition: 0.4s;
+    margin-bottom: 10px;
+    font-family: 'Intel One Mono';
 }
 
 ol.breadcrumbs-list a:hover {
@@ -1860,7 +1861,7 @@ a.review-button {
 img.bord2 {
   border: 3px solid transparent;
   background:
-    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(#0f1315, #0f1315) padding-box,
     linear-gradient(181deg, #ffdb6e, #ffc107) border-box;
   /* box-shadow: 0px 0px 53px #f9c426c7; */
 }
@@ -1914,7 +1915,7 @@ img.bord3 {
   border: 2px solid transparent;
 
   background:
-    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(#0f1315, #0f1315) padding-box,
     linear-gradient(181deg, #00b2ff, #00b2ff) border-box;
 
   box-shadow: 0px 0px 53px #85daff8a;
@@ -1928,7 +1929,7 @@ img.bord4 {
   border: 3px solid transparent;
 
   background:
-    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(#0f1315, #0f1315) padding-box,
     linear-gradient(181deg, #fff, #86fff7) border-box;
 
   /* box-shadow: 0px 0px 53px #89fff7a1; */
@@ -1942,7 +1943,7 @@ img.bord1 {
   border: 3px solid transparent;
 
   background:
-    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(#0f1315, #0f1315) padding-box,
     linear-gradient(181deg, #c291ff, #ef88ff) border-box;
 
   /* box-shadow: 0px 0px 53px #ef88ff; */
@@ -1956,7 +1957,7 @@ img.bord5 {
   border: 2px solid transparent;
 
   background:
-    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(#0f1315, #0f1315) padding-box,
     linear-gradient(181deg, #c291ff, #ef88ff) border-box;
 
   /* box-shadow: 0px 0px 53px #ef88ffa3; */
@@ -2568,6 +2569,12 @@ img.bord5 {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .contact-us-page .breadcrumbs {
+    margin-bottom: 15px !important;
+}
+  .contact-us-page .breadcrumbs-list {
+    padding-top: 5px !important;
+}
   .service-overview .service-section-label {
     font-size: 16px !important;
   }
@@ -4377,7 +4384,7 @@ article.service-row.reverse {
   font-size: 32px;
   font-weight: 400;
 
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   line-height: normal;
 }
 
@@ -8805,7 +8812,7 @@ img.stillimg {
   font-family: "Boldonse", sans-serif;
   font-size: clamp(32px, 4vw, 32px);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 2.0;
 }
 
 .service-overview-content p {
@@ -9340,7 +9347,7 @@ a.service-detail-link {
   padding-top: 80px;
   list-style: none;
   font-family: "Intel One Mono", monospace;
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.03em;
 }
 
@@ -9349,7 +9356,7 @@ a.service-detail-link {
 }
 
 .contact-us-page .breadcrumbs-list a {
-  font-size: 12px;
+  font-size: 16px !important;
 }
 
 .contact-us-hero {
@@ -9424,18 +9431,17 @@ a.service-detail-link {
   justify-content: center;
 }
 
-.contact-us-eyebrow,
-.contact-us-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  color: #a8b6c3;
-  font-family: "Inclusive Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  line-height: 1.2;
-  text-transform: uppercase;
+.contact-us-eyebrow, .contact-us-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #a8b6c3;
+    font-family: "Inclusive Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-transform: uppercase;
 }
 
 .contact-us-eyebrow {
@@ -9456,7 +9462,7 @@ a.service-detail-link {
   margin: 0 auto;
   color: #ffffff;
   font-family: "Boldonse", sans-serif;
-  font-size: clamp(42px, 6vw, 78px);
+  font-size: clamp(32px, 6vw, 32px);
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1.04;
@@ -9466,7 +9472,7 @@ a.service-detail-link {
 .contact-us-hero-inner>p {
   max-width: 720px;
   margin: 28px auto 0;
-  color: #bfc6ca;
+  color: #ededed;
   font-family: "Intel One Mono", monospace;
   font-size: 15px;
   font-weight: 300;
@@ -9489,22 +9495,24 @@ a.service-detail-link {
 }
 
 .contact-us-primary-btn {
-  min-height: 52px;
-  margin-top: 34px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  background: linear-gradient(358deg, #35c1fc, #45c8fa);
-  color: #001018;
-  font-family: "Inter", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
+    min-height: 52px;
+    margin-top: 34px;
+    padding: 12px 20px;
+    border-radius: 10px;
+        background: linear-gradient(100deg, #01b3ff, #52dfd8);
+    color: #001018;
+    font-family: 'Inclusive Sans' !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
 }
 
 .contact-us-primary-btn img,
 .contact-us-submit img {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   object-fit: contain;
+  position: relative;
+  top: 2px;
 }
 
 .contact-us-primary-btn:hover,
@@ -9520,7 +9528,7 @@ a.service-detail-link {
 }
 
 .contact-us-information {
-  padding: 100px 0;
+  padding: 50px 0;
   background: #101112;
 }
 
@@ -9528,26 +9536,27 @@ a.service-detail-link {
   max-width: 720px;
 }
 
-.contact-us-section-heading h2,
-.contact-us-form-intro h2,
-.contact-us-final-inner h2 {
-  margin: 14px 0 0;
-  color: #ffffff;
-  font-family: "Boldonse", sans-serif;
-  font-size: clamp(30px, 4vw, 48px);
-  font-weight: 400;
-  letter-spacing: 1px;
-  line-height: 1.1;
+.contact-us-section-heading h2, .contact-us-form-intro h2, .contact-us-final-inner h2 {
+    margin: 14px 0 0;
+    color: #ffffff;
+    font-family: "Boldonse", sans-serif;
+    font-size: clamp(32px, 4vw, 32px);
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 2.0;
 }
 
-.contact-us-section-heading>p,
-.contact-us-form-intro>p {
-  max-width: 680px;
-  margin: 18px 0 0;
-  color: #9fa7ab;
-  font-family: "Intel One Mono", monospace;
-  font-size: 14px;
-  line-height: 1.7;
+.contact-us-section-heading>p, .contact-us-form-intro>p {
+    max-width: 680px;
+    margin: 18px 0 0;
+    color: #ededed;
+    font-family: "Intel One Mono", monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.contact-us-info-card {
+  transition: 0.3s;
 }
 
 .contact-us-info-grid {
@@ -9560,11 +9569,12 @@ a.service-detail-link {
 .contact-us-info-card {
   min-width: 0;
   min-height: 138px;
+  flex-direction: column;
   display: flex;
   align-items: flex-start;
   gap: 17px;
   padding: 24px;
-  border: 1px solid #303235;
+  border: 0px solid #0000;
   border-radius: 18px;
   background: rgba(8, 9, 10, 0.34);
   color: #ffffff;
@@ -9581,21 +9591,12 @@ a.service-detail-link {
   transform: translateY(-3px);
 }
 
-.contact-us-info-icon {
-  width: 44px;
-  height: 44px;
-  flex: 0 0 auto;
-  display: grid;
-  place-items: center;
-  border: 1px solid #383b3d;
-  border-radius: 12px;
-  background: #181a1c;
-}
+
 
 .contact-us-info-icon img {
-  width: 21px;
-  height: 21px;
-  object-fit: contain;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
 }
 
 .contact-us-info-card>span:last-child {
@@ -9609,16 +9610,16 @@ a.service-detail-link {
   font-family: "Boldonse", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
 }
 
 .contact-us-info-card>span:last-child>span {
-  display: block;
-  color: #aeb6ba;
-  font-family: "Intel One Mono", monospace;
-  font-size: 12px;
-  line-height: 1.6;
-  overflow-wrap: anywhere;
+    display: block;
+    color: #cccdce;
+    font-family: "Intel One Mono", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
 }
 
 .contact-us-form-section {
@@ -9743,17 +9744,21 @@ a.service-detail-link {
 .contact-us-map-link span {
   font-size: 18px;
 }
+a.contact-us-info-card.page-reveal.is-visible {
+    background: linear-gradient(83deg, #bdecff1a, transparent);
+}
+.contact-us-info-card.page-reveal.is-visible {
+background: linear-gradient(83deg, #bdecff1a, transparent);
+}
 
 .contact-us-form {
-  width: 100%;
-  min-width: 0;
-  padding: 34px 36px 38px;
-  border: 1px solid transparent;
-  border-radius: 20px;
-  background:
-    linear-gradient(#161718, #161718) padding-box,
-    linear-gradient(145deg, rgba(134, 255, 247, 0.9), rgba(0, 178, 255, 0.8), rgba(42, 43, 44, 0.5)) border-box;
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+    width: 100%;
+    min-width: 0;
+    padding: 34px 36px 38px;
+    border-radius: 20px;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+    border: 5px solid transparent;
+    background: linear-gradient(#161617, #161617) padding-box, linear-gradient(181deg, #86fff7, #00b2ff) border-box;
 }
 
 .contact-us-form-header {
@@ -9762,34 +9767,35 @@ a.service-detail-link {
 }
 
 .contact-us-form-header>span {
-  color: #56e9e1;
-  font-family: "Intel One Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 1.8px;
-}
+    color: #56e9e1;
+    font-family: "Intel One Mono", monospace;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+} 
 
 .contact-us-form-header h3 {
-  margin: 8px 0 0;
-  color: #ffffff;
-  font-family: "Anton", sans-serif;
-  font-size: clamp(30px, 4vw, 42px);
-  font-weight: 400;
-  line-height: 1;
+    margin: 8px 0 0;
+    color: #ffffff;
+    font-family: "Anton", sans-serif;
+    font-size: clamp(30px, 4vw, 32px);
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
 }
 
 .contact-us-form-header p {
-  margin: 11px 0 0;
-  color: #858d91;
-  font-family: "Intel One Mono", monospace;
-  font-size: 11px;
+    margin: 11px 0 0;
+    color: #efefef;
+    font-family: "Intel One Mono", monospace;
+    font-size: 12px;
 }
 
 .contact-us-form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 21px 18px;
-  margin-top: 27px;
-}
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 15px;
+    margin-top: 27px;
+} 
 
 .contact-us-field {
   min-width: 0;
@@ -9800,13 +9806,14 @@ a.service-detail-link {
 }
 
 .contact-us-field label {
-  display: block;
-  margin-bottom: 8px;
-  color: #d9dfe1;
-  font-family: "Intel One Mono", monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 8px;
+    color: #d9dfe1;
+    font-family: "Intel One Mono", monospace;
+    font-size: 12px;
+    font-weight: unset;
+    letter-spacing: normal;
+    text-transform: uppercase;
 }
 
 .contact-us-field input,
@@ -9828,12 +9835,12 @@ a.service-detail-link {
 
 .contact-us-field input,
 .contact-us-field select {
-  height: 48px;
+  height: 36px;
   padding: 0 15px;
 }
 
 .contact-us-field textarea {
-  min-height: 130px;
+  min-height: auto;
   padding: 13px 15px;
   resize: vertical;
   line-height: 1.55;
@@ -9904,7 +9911,7 @@ a.service-detail-link {
   color: #111111;
   font-family: "Inter", sans-serif;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 .contact-us-submit:disabled {
@@ -9988,12 +9995,12 @@ a.service-detail-link {
 }
 
 .contact-us-faq>p {
-  margin: 0;
-  padding: 0 22px 23px;
-  color: #a8b0b4;
-  font-family: "Intel One Mono", monospace;
-  font-size: 12px;
-  line-height: 1.7;
+    margin: 0;
+    padding: 0 22px 23px;
+    color: #cbcbcb;
+    font-family: "Intel One Mono", monospace;
+    font-size: 14px;
+    line-height: 1.7;
 }
 
 .contact-us-final-cta {
@@ -10110,9 +10117,9 @@ a.service-detail-link {
     padding-bottom: 60px;
   }
 
-  .contact-us-page .breadcrumbs-list {
-    font-size: 11px;
-  }
+ .contact-us-page .breadcrumbs-list {
+    font-size: 16px;
+}
 
   .contact-us-page .breadcrumbs-list a {
     font-size: 11px;
@@ -10188,9 +10195,10 @@ a.service-detail-link {
     padding-top: 125px;
   }
 
-  .contact-us-hero h1 {
-    font-size: 34px;
-  }
+.contact-us-hero h1 {
+    font-size: 28px;
+    line-height: 56px;
+}
 
   .contact-us-primary-btn {
     width: 100%;
