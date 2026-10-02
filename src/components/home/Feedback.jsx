@@ -1,11 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import abstractRight from "../../assets/design/10.png";
-import thumbnail from "../../assets/design/floating_client_thumbnail.jpeg";
-import client3 from "../../assets/design/13.png";
-import client4 from "../../assets/design/14.png";
-import client5 from "../../assets/design/15.png";
-import client6 from "../../assets/design/16.png";
+
 import google from "../../assets/google.svg";
 import KatyaVideo from "../../assets/KatyaVideo.mp4";
 import shenton from "../../assets/shenton.png";
