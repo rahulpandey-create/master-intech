@@ -1,5 +1,5 @@
 import Breadcrumbs from "../../components/Breadcrumbs";
-
+import { Link } from "react-router-dom";
 
 export default function ServiceDetailPage({ service }) {
   const whatsappMessage = `Hi, I came across Master Intech Solutions and I'm interested in ${service.title}. I'd like to discuss my project and understand how you can help.`;
@@ -11,13 +11,12 @@ export default function ServiceDetailPage({ service }) {
   return (
     <main className="service-page">
 
-
       {/* Hero */}
       <section className="service-hero">
-       
         <div className="service-hero-content">
-          
+
           <Breadcrumbs />
+
           <span className="service-tag">{service.tag}</span>
 
           <h1 className="service-title">{service.title}</h1>
@@ -91,23 +90,34 @@ export default function ServiceDetailPage({ service }) {
           around your business.
         </p>
 
+        {/* External WhatsApp link - keep as <a> */}
         <a
-  href={whatsappUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="service-cta-button"
->
-  Let's Talk
-</a>
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="service-cta-button"
+        >
+          Let's Talk
+        </a>
 
         <div className="service-cta-links">
-          <a href="/services" className="service-cta-link service-cta-back">
-            ← Back to Services
-          </a>
 
-          <a href="/portfolio" className="service-cta-link service-cta-portfolio">
+          {/* Internal React Router navigation */}
+          <Link
+            to="/services"
+            className="service-cta-link service-cta-back"
+          >
+            ← Back to Services
+          </Link>
+
+          {/* Internal React Router navigation */}
+          <Link
+            to="/portfolio"
+            className="service-cta-link service-cta-portfolio"
+          >
             View Portfolio →
-          </a>
+          </Link>
+
         </div>
       </section>
     </main>

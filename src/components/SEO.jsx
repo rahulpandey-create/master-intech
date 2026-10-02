@@ -43,75 +43,192 @@ const serviceSchemaData = {
 
 const seoData = {
   "/": {
-    title: "AI & Web Solutions | Master Intech",
+    title: "Web Development Company | Master Intech Solutions",
     description:
       "Master Intech builds AI-powered solutions, web applications, automation systems and digital experiences for modern businesses.",
+    keywords: [
+      "Web Development Company",
+      "Web Design Company",
+      "IT Solutions Company",
+      "Web Development Services",
+      "Website Design Services",
+      "Website Development Company",
+      "Professional Web Design Company",
+      "Custom Website Development",
+      "Web Development Company India",
+      "Web Design Company India",
+      "IT Services Company India",
+      "Web Development Company Chandigarh",
+      "Web Development Company Mohali",
+      "Web Design Company Chandigarh",
+      "AI Automation Services",
+      "Digital Marketing Services",
+    ],
   },
 
   "/portfolio": {
     title: "Portfolio | Master Intech",
     description:
       "Explore websites, web applications, AI solutions and digital products built by Master Intech.",
+    keywords: [
+      "Web Development Company",
+      "Web Design Company",
+      "Custom Website Development",
+      "Website Development Company",
+      "Web Development Services",
+      "AI Automation",
+      "Digital Marketing",
+    ],
   },
 
   "/services": {
-    title: "AI & Web Development Services | Master Intech",
+    title: "IT Solutions & SEO Services | Master Intech",
     description:
       "Explore AI automation, web development, custom portal, UI/UX, cybersecurity and digital marketing services by Master Intech.",
+    keywords: [
+      "Web Development Services",
+      "Web Development Company",
+      "Web Design Company",
+      "IT Solutions Company",
+      "Website Design Services",
+      "AI Automation Services",
+      "Digital Marketing Services",
+      "SEO Services",
+      "Custom Website Development",
+      "E-commerce Development Company",
+      "Application Development",
+    ],
   },
 
   "/services/ai-intelligent-automation": {
     title: "AI Automation Services | Master Intech",
     description:
       "Build intelligent AI automation systems that streamline workflows, improve efficiency and help businesses scale.",
+    keywords: [
+      "AI Automation Services",
+      "AI Automation",
+      "AI Solutions",
+      "Business Automation",
+      "Intelligent Automation",
+    ],
   },
 
   "/services/custom-portal-development": {
     title: "Custom Portal Development | Master Intech",
     description:
       "Build secure and scalable custom portals tailored to your business workflows, users and operational needs.",
+    keywords: [
+      "Custom Portal Development",
+      "Custom Portal Development Services",
+      "Web Development Services",
+      "Custom Website Development",
+      "Business Portal Development",
+      "Web Application Development",
+    ],
   },
 
   "/services/web-application-development": {
     title: "Web Application Development | Master Intech",
     description:
       "Build scalable, high-performance web applications tailored to your business requirements and users.",
+    keywords: [
+      "Web Development Company",
+      "Web Development Services",
+      "Website Development Company",
+      "Custom Website Development",
+      "Web Application Development",
+      "Website Design Services",
+      "E-commerce Website Development",
+      "E-commerce Development Company",
+      "Website Redesign Services",
+      "Shopify Development Company",
+      "Shopify Development Company India",
+      "WordPress Development Company",
+      "Web Development Company India",
+      "Web Development Company Chandigarh",
+      "Web Development Company Mohali",
+    ],
   },
 
   "/services/ui-ux-product-design": {
     title: "UI/UX Product Design | Master Intech",
     description:
       "Create intuitive UI/UX designs and digital product experiences focused on usability and business goals.",
+    keywords: [
+      "Web Design Company",
+      "Website Design Services",
+      "Professional Web Design Company",
+      "UI/UX Design Services",
+      "Product Design Services",
+      "Web Design Company India",
+      "Web Design Company Chandigarh",
+    ],
   },
 
   "/services/digital-marketing": {
     title: "Digital Marketing Services | Master Intech",
     description:
       "Grow your online presence with digital marketing strategies designed to reach, engage and convert your target audience.",
+    keywords: [
+      "Digital Marketing Services",
+      "Digital Marketing",
+      "SEO Services",
+      "Search Engine Optimization Services",
+    ],
   },
 
   "/services/cyber-security": {
     title: "Cyber Security Services | Master Intech",
     description:
       "Strengthen your digital environment with cybersecurity assessment, vulnerability management, application security and proactive protection.",
+    keywords: [
+      "Cyber Security Services",
+      "Cybersecurity Solutions",
+      "Application Security",
+      "Vulnerability Management",
+      "Network Security",
+      "IT Security Services",
+    ],
   },
 
   "/startup-offer": {
     title: "Startup Solutions | Master Intech",
     description:
       "Explore technology and digital solutions designed to help startups build, launch and scale.",
+    keywords: [
+      "Startup Solutions",
+      "Startup Technology Solutions",
+      "Web Development Services",
+      "Custom Website Development",
+      "AI Automation Services",
+      "Digital Solutions for Startups",
+    ],
   },
 
   "/contact-us": {
-    title: "Contact Master Intech | AI & Web Solutions",
+    title: "Contact Master Intech | Web Design Company",
     description:
       "Get in touch with Master Intech for AI solutions, web development, automation, UI/UX, digital marketing and cybersecurity services.",
+    keywords: [
+      "Web Development Company",
+      "Web Design Company",
+      "IT Solutions Company",
+      "Web Development Services",
+      "AI Automation Services",
+      "Digital Marketing Services",
+      "SEO Services",
+      "IT Services Company India",
+      "Web Development Company India",
+      "Web Development Company Chandigarh",
+      "Web Development Company Mohali",
+    ],
   },
 
   "/thank-you": {
     title: "Thank You | Master Intech",
     description:
       "Thank you for contacting Master Intech. We look forward to discussing your project.",
+    keywords: [],
   },
 };
 
@@ -123,6 +240,12 @@ const SEO = () => {
       title: "Master Intech Solutions",
       description:
         "Master Intech provides AI, software development, automation and digital solutions for modern businesses.",
+      keywords: [
+        "Web Development Company",
+        "Web Design Company",
+        "IT Solutions Company",
+        "Web Development Services",
+      ],
     };
 
     // ==========================================
@@ -148,6 +271,25 @@ const SEO = () => {
     metaDescription.setAttribute(
       "content",
       currentSEO.description
+    );
+
+    // ==========================================
+    // META KEYWORDS
+    // ==========================================
+
+    let metaKeywords = document.head.querySelector(
+      'meta[name="keywords"]'
+    );
+
+    if (!metaKeywords) {
+      metaKeywords = document.createElement("meta");
+      metaKeywords.setAttribute("name", "keywords");
+      document.head.appendChild(metaKeywords);
+    }
+
+    metaKeywords.setAttribute(
+      "content",
+      currentSEO.keywords.join(", ")
     );
 
     // ==========================================
@@ -208,6 +350,20 @@ const SEO = () => {
       "twitter:image": `${BASE_URL}/og-image.jpg`,
     };
 
+    Object.entries(twitterTags).forEach(([name, content]) => {
+      let tag = document.head.querySelector(
+        `meta[name="${name}"]`
+      );
+
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+
+      tag.setAttribute("content", content);
+    });
+
     // ==========================================
     // ORGANIZATION SCHEMA
     // ==========================================
@@ -240,19 +396,6 @@ const SEO = () => {
     organizationSchemaScript.textContent =
       JSON.stringify(organizationSchema);
 
-    Object.entries(twitterTags).forEach(([name, content]) => {
-      let tag = document.head.querySelector(
-        `meta[name="${name}"]`
-      );
-
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute("name", name);
-        document.head.appendChild(tag);
-      }
-
-      tag.setAttribute("content", content);
-    });
     // ==========================================
     // SERVICE SCHEMA
     // ==========================================
@@ -296,6 +439,7 @@ const SEO = () => {
     } else if (serviceSchemaScript) {
       serviceSchemaScript.remove();
     }
+
     // ==========================================
     // BREADCRUMB SCHEMA
     // ==========================================
@@ -499,7 +643,8 @@ const SEO = () => {
         document.head.appendChild(faqSchemaScript);
       }
 
-      faqSchemaScript.textContent = JSON.stringify(faqSchema);
+      faqSchemaScript.textContent =
+        JSON.stringify(faqSchema);
     } else if (faqSchemaScript) {
       faqSchemaScript.remove();
     }

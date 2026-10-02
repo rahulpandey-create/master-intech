@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { submitEnquiry } from "../services/api";
 import { useNavigate } from "react-router-dom";
-
 import Hero from "../components/home/Hero";
 import Expertise from "../components/home/Expertise";
 import About from "../components/home/About";
 import Award from "../components/home/Award";
 import Brands from "../components/home/Brands";
-// import Technology from "../components/home/Technology";
 import Feedback from "../components/home/Feedback";
 import Contact from "../components/home/Contact";
 

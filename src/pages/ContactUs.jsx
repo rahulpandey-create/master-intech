@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { submitEnquiry } from "../services/api";
 import Breadcrumbs from "../components/Breadcrumbs";
-
 import phone from "../assets/phone.svg";
 import emailIcon from "../assets/email.svg";
 import location from "../assets/location.svg";
@@ -218,7 +217,7 @@ export default function ContactUs() {
         <div className="contact-us-container contact-us-hero-inner">
           <Breadcrumbs />
 
-          
+
 
           <h1>Let&apos;s Build Something That Matters.</h1>
 
@@ -286,7 +285,9 @@ export default function ContactUs() {
             {/* EMAIL */}
             <a
               className="contact-us-info-card page-reveal"
-              href="mailto:info@masterintechsolutions.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@masterintechsolutions.com"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span className="contact-us-info-icon">
                 <img src={emailIcon} alt="" />
@@ -313,7 +314,7 @@ export default function ContactUs() {
                 <span>
                   SCF 36 Phase XI, Sector 65,
                   <br />
-                  Sahibzada Ajit Singh Nagar, Punjab 160055
+                  Sahibzada Ajit Singh Nagar, Punjab 160065
                 </span>
               </span>
             </div>
@@ -411,310 +412,310 @@ export default function ContactUs() {
             </div>
           </div>
 
-            {/* RIGHT COLUMN — FORM */}
-            <form
-              className="contact-us-form page-reveal"
-              onSubmit={handleSubmit}
-              noValidate
-            >
-              <div className="contact-us-form-header">
-                <span>MASTER INTECH SOLUTIONS</span>
+          {/* RIGHT COLUMN — FORM */}
+          <form
+            className="contact-us-form page-reveal"
+            onSubmit={handleSubmit}
+            noValidate
+          >
+            <div className="contact-us-form-header">
+              <span>MASTER INTECH SOLUTIONS</span>
 
-                <h3>Leave a message.</h3>
+              <h3>Leave a message.</h3>
 
-                {/* <p>Fields marked with * are required.</p> */}
-              </div>
+              {/* <p>Fields marked with * are required.</p> */}
+            </div>
 
-              <div className="contact-us-form-grid">
-                {/* NAME */}
-                <div className="contact-us-field">
-                  <label htmlFor="contact-name">
-                    Name *
-                  </label>
+            <div className="contact-us-form-grid">
+              {/* NAME */}
+              <div className="contact-us-field">
+                <label htmlFor="contact-name">
+                  Name *
+                </label>
 
-                  <input
-                    id="contact-name"
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={updateField}
-                    minLength={2}
-                    maxLength={100}
-                    autoComplete="name"
-                    aria-invalid={Boolean(errors.name)}
-                    aria-describedby={
-                      errors.name
-                        ? "contact-name-error"
-                        : undefined
-                    }
-                    required
-                  />
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={updateField}
+                  minLength={2}
+                  maxLength={100}
+                  autoComplete="name"
+                  aria-invalid={Boolean(errors.name)}
+                  aria-describedby={
+                    errors.name
+                      ? "contact-name-error"
+                      : undefined
+                  }
+                  required
+                />
 
-                  {errors.name && (
-                    <small
-                      id="contact-name-error"
-                      className="contact-us-field-error"
-                    >
-                      {errors.name}
-                    </small>
-                  )}
-                </div>
-
-                {/* EMAIL */}
-                <div className="contact-us-field">
-                  <label htmlFor="contact-email">
-                    Work / Business Email *
-                  </label>
-
-                  <input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={updateField}
-                    autoComplete="email"
-                    aria-invalid={Boolean(errors.email)}
-                    aria-describedby={
-                      errors.email
-                        ? "contact-email-error"
-                        : undefined
-                    }
-                    required
-                  />
-
-                  {errors.email && (
-                    <small
-                      id="contact-email-error"
-                      className="contact-us-field-error"
-                    >
-                      {errors.email}
-                    </small>
-                  )}
-                </div>
-
-                {/* PHONE */}
-                <div className="contact-us-field">
-                  <label htmlFor="contact-phone">
-                    Phone
-                  </label>
-
-                  <input
-                    id="contact-phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={updateField}
-                    autoComplete="tel"
-                    inputMode="tel"
-                  />
-                </div>
-
-                {/* COMPANY */}
-                <div className="contact-us-field">
-                  <label htmlFor="contact-company">
-                    Company
-                  </label>
-
-                  <input
-                    id="contact-company"
-                    name="company"
-                    type="text"
-                    value={formData.company}
-                    onChange={updateField}
-                    maxLength={150}
-                    autoComplete="organization"
-                  />
-                </div>
-
-                {/* SERVICE */}
-                <div className="contact-us-field">
-                  <label htmlFor="contact-service">
-                    Service *
-                  </label>
-
-                  <div className="contact-us-select-wrap">
-                    <select
-                      id="contact-service"
-                      name="service"
-                      value={formData.service}
-                      onChange={updateField}
-                      aria-invalid={Boolean(errors.service)}
-                      aria-describedby={
-                        errors.service
-                          ? "contact-service-error"
-                          : undefined
-                      }
-                      required
-                    >
-                      <option value="">
-                        Select a service
-                      </option>
-
-                      {SERVICES.map((service) => (
-                        <option
-                          key={service}
-                          value={service}
-                        >
-                          {service}
-                        </option>
-                      ))}
-                    </select>
-
-                    <span aria-hidden="true">
-                      <img src={arrowdown} alt="" />
-                    </span>
-                  </div>
-
-                  {errors.service && (
-                    <small
-                      id="contact-service-error"
-                      className="contact-us-field-error"
-                    >
-                      {errors.service}
-                    </small>
-                  )}
-                </div>
-
-                {/* BUDGET */}
-                <div className="contact-us-field">
-                  <label htmlFor="contact-budget">
-                    Budget
-                  </label>
-
-                  <div className="contact-us-select-wrap">
-                    <select
-                      id="contact-budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={updateField}
-                    >
-                      <option value="">
-                        Select a range
-                      </option>
-
-                      {BUDGETS.map((budget) => (
-                        <option
-                          key={budget}
-                          value={budget}
-                        >
-                          {budget}
-                        </option>
-                      ))}
-                    </select>
-
-                    <span aria-hidden="true">
-                      <img src={arrowdown} alt="" />
-                    </span>
-                  </div>
-                </div>
-
-                {/* REQUIREMENT */}
-                <div className="contact-us-field contact-us-field-full">
-                  <label htmlFor="contact-requirement">
-                    Project / Requirement *
-                  </label>
-
-                  <textarea
-                    id="contact-requirement"
-                    name="requirement"
-                    value={formData.requirement}
-                    onChange={updateField}
-                    minLength={10}
-                    maxLength={5000}
-                    rows={2}
-                    aria-invalid={Boolean(errors.requirement)}
-                    aria-describedby={
-                      errors.requirement
-                        ? "contact-requirement-error"
-                        : undefined
-                    }
-                    required
-                  />
-
-                  {errors.requirement && (
-                    <small
-                      id="contact-requirement-error"
-                      className="contact-us-field-error"
-                    >
-                      {errors.requirement}
-                    </small>
-                  )}
-                </div>
-
-                {/* MESSAGE */}
-                <div className="contact-us-field contact-us-field-full">
-                  <label htmlFor="contact-message">
-                    Message *
-                  </label>
-
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    value={formData.message}
-                    onChange={updateField}
-                    minLength={10}
-                    maxLength={5000}
-                    rows={2}
-                    aria-invalid={Boolean(errors.message)}
-                    aria-describedby={
-                      errors.message
-                        ? "contact-message-error"
-                        : undefined
-                    }
-                    required
-                  />
-
-                  {errors.message && (
-                    <small
-                      id="contact-message-error"
-                      className="contact-us-field-error"
-                    >
-                      {errors.message}
-                    </small>
-                  )}
-                </div>
-              </div>
-
-              {/* SUBMIT */}
-              <button
-                type="submit"
-                className="contact-us-submit"
-                disabled={loading}
-              >
-                {loading
-                  ? "SENDING..."
-                  : "Send Enquiry"}
-
-                {!loading && (
-                  <span aria-hidden="true">
-                    <img src={arrowbtn} alt="" />
-                  </span>
-                )}
-              </button>
-
-              {/* FEEDBACK */}
-              <div
-                className="contact-us-feedback"
-                aria-live="polite"
-                aria-atomic="true"
-              >
-                {feedback.success && (
-                  <p className="contact-us-success">
-                    {feedback.success}
-                  </p>
-                )}
-
-                {feedback.error && (
-                  <p
-                    className="contact-us-error"
-                    role="alert"
+                {errors.name && (
+                  <small
+                    id="contact-name-error"
+                    className="contact-us-field-error"
                   >
-                    {feedback.error}
-                  </p>
+                    {errors.name}
+                  </small>
                 )}
               </div>
-            </form>
-          </div>
+
+              {/* EMAIL */}
+              <div className="contact-us-field">
+                <label htmlFor="contact-email">
+                  Work / Business Email *
+                </label>
+
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={updateField}
+                  autoComplete="email"
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={
+                    errors.email
+                      ? "contact-email-error"
+                      : undefined
+                  }
+                  required
+                />
+
+                {errors.email && (
+                  <small
+                    id="contact-email-error"
+                    className="contact-us-field-error"
+                  >
+                    {errors.email}
+                  </small>
+                )}
+              </div>
+
+              {/* PHONE */}
+              <div className="contact-us-field">
+                <label htmlFor="contact-phone">
+                  Phone
+                </label>
+
+                <input
+                  id="contact-phone"
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={updateField}
+                  autoComplete="tel"
+                  inputMode="tel"
+                />
+              </div>
+
+              {/* COMPANY */}
+              <div className="contact-us-field">
+                <label htmlFor="contact-company">
+                  Company
+                </label>
+
+                <input
+                  id="contact-company"
+                  name="company"
+                  type="text"
+                  value={formData.company}
+                  onChange={updateField}
+                  maxLength={150}
+                  autoComplete="organization"
+                />
+              </div>
+
+              {/* SERVICE */}
+              <div className="contact-us-field">
+                <label htmlFor="contact-service">
+                  Service *
+                </label>
+
+                <div className="contact-us-select-wrap">
+                  <select
+                    id="contact-service"
+                    name="service"
+                    value={formData.service}
+                    onChange={updateField}
+                    aria-invalid={Boolean(errors.service)}
+                    aria-describedby={
+                      errors.service
+                        ? "contact-service-error"
+                        : undefined
+                    }
+                    required
+                  >
+                    <option value="">
+                      Select a service
+                    </option>
+
+                    {SERVICES.map((service) => (
+                      <option
+                        key={service}
+                        value={service}
+                      >
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+
+                  <span aria-hidden="true">
+                    <img src={arrowdown} alt="" />
+                  </span>
+                </div>
+
+                {errors.service && (
+                  <small
+                    id="contact-service-error"
+                    className="contact-us-field-error"
+                  >
+                    {errors.service}
+                  </small>
+                )}
+              </div>
+
+              {/* BUDGET */}
+              <div className="contact-us-field">
+                <label htmlFor="contact-budget">
+                  Budget
+                </label>
+
+                <div className="contact-us-select-wrap">
+                  <select
+                    id="contact-budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={updateField}
+                  >
+                    <option value="">
+                      Select a range
+                    </option>
+
+                    {BUDGETS.map((budget) => (
+                      <option
+                        key={budget}
+                        value={budget}
+                      >
+                        {budget}
+                      </option>
+                    ))}
+                  </select>
+
+                  <span aria-hidden="true">
+                    <img src={arrowdown} alt="" />
+                  </span>
+                </div>
+              </div>
+
+              {/* REQUIREMENT */}
+              <div className="contact-us-field contact-us-field-full">
+                <label htmlFor="contact-requirement">
+                  Project / Requirement *
+                </label>
+
+                <textarea
+                  id="contact-requirement"
+                  name="requirement"
+                  value={formData.requirement}
+                  onChange={updateField}
+                  minLength={10}
+                  maxLength={5000}
+                  rows={2}
+                  aria-invalid={Boolean(errors.requirement)}
+                  aria-describedby={
+                    errors.requirement
+                      ? "contact-requirement-error"
+                      : undefined
+                  }
+                  required
+                />
+
+                {errors.requirement && (
+                  <small
+                    id="contact-requirement-error"
+                    className="contact-us-field-error"
+                  >
+                    {errors.requirement}
+                  </small>
+                )}
+              </div>
+
+              {/* MESSAGE */}
+              <div className="contact-us-field contact-us-field-full">
+                <label htmlFor="contact-message">
+                  Message *
+                </label>
+
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  value={formData.message}
+                  onChange={updateField}
+                  minLength={10}
+                  maxLength={5000}
+                  rows={2}
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={
+                    errors.message
+                      ? "contact-message-error"
+                      : undefined
+                  }
+                  required
+                />
+
+                {errors.message && (
+                  <small
+                    id="contact-message-error"
+                    className="contact-us-field-error"
+                  >
+                    {errors.message}
+                  </small>
+                )}
+              </div>
+            </div>
+
+            {/* SUBMIT */}
+            <button
+              type="submit"
+              className="contact-us-submit"
+              disabled={loading}
+            >
+              {loading
+                ? "SENDING..."
+                : "Send Enquiry"}
+
+              {!loading && (
+                <span aria-hidden="true">
+                  <img src={arrowbtn} alt="" />
+                </span>
+              )}
+            </button>
+
+            {/* FEEDBACK */}
+            <div
+              className="contact-us-feedback"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {feedback.success && (
+                <p className="contact-us-success">
+                  {feedback.success}
+                </p>
+              )}
+
+              {feedback.error && (
+                <p
+                  className="contact-us-error"
+                  role="alert"
+                >
+                  {feedback.error}
+                </p>
+              )}
+            </div>
+          </form>
+        </div>
       </section>
 
       {/* FAQ */}

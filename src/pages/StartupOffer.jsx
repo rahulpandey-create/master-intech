@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import arrowbtn from "../assets/arrowbtn.svg";
 import arrowhitee from "../assets/arrowhitee.svg";
 import "../main.css";
+
 const SERVICE_OPTIONS = [
   "Website",
   "E-commerce / Shopify",
@@ -220,19 +221,19 @@ function StartupOffer() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
     setLoading(true);
-const message = [
-  "STARTUP LAUNCH PROGRAM APPLICATION",
-  "",
-  `Business / Startup: ${formData.businessName.trim()}`,
-  `Phone / WhatsApp: ${formData.phone.trim()}`,
-  `Business stage: ${formData.stage}`,
-  `Services requested: ${selectedServicesLabel}${formData.services.includes("Other") ? ` — ${formData.otherService.trim()}` : ""}`,
-  `Launch timeline: ${formData.launchTimeline}`,
-  `Estimated budget: ${formData.budget}`,
-  "",
-  "Business description:",
-  formData.description.trim(),
-].join("\n");
+    const message = [
+      "STARTUP LAUNCH PROGRAM APPLICATION",
+      "",
+      `Business / Startup: ${formData.businessName.trim()}`,
+      `Phone / WhatsApp: ${formData.phone.trim()}`,
+      `Business stage: ${formData.stage}`,
+      `Services requested: ${selectedServicesLabel}${formData.services.includes("Other") ? ` — ${formData.otherService.trim()}` : ""}`,
+      `Launch timeline: ${formData.launchTimeline}`,
+      `Estimated budget: ${formData.budget}`,
+      "",
+      "Business description:",
+      formData.description.trim(),
+    ].join("\n");
     try {
       await submitEnquiry({
         name: formData.name.trim(),
@@ -465,21 +466,21 @@ const message = [
               );
             })}
             {/* NEW: Load More Button */}
-          {visibleFaqsCount < FAQS.length && (
-            <div 
-              style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }} 
-              data-startup-reveal
-            >
-              <button
-                type="button"
-                className="startup-offer-outline-button"
-                onClick={() => setVisibleFaqsCount(prev => prev + 4)}
+            {visibleFaqsCount < FAQS.length && (
+              <div
+                style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
+                data-startup-reveal
               >
-                Load More Questions
-                <span aria-hidden="true">↓</span>
-              </button>
-            </div>
-          )}
+                <button
+                  type="button"
+                  className="startup-offer-outline-button"
+                  onClick={() => setVisibleFaqsCount(prev => prev + 4)}
+                >
+                  Load More Questions
+                  <span aria-hidden="true">↓</span>
+                </button>
+              </div>
+            )}
           </div>
 
         </div>
