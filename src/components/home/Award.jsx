@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-
 import abstractLeft from "../../assets/design/9.png";
 import clientsmile from "../../assets/clientsmile.png";
 import clientsmile1 from "../../assets/clientsmile1.png";

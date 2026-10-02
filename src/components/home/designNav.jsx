@@ -1,31 +1,52 @@
 import { useState } from "react";
 import logo from "../../assets/logomaster.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function DesignNav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const isHome = window.location.pathname === "/";
+  const isHome = location.pathname === "/";
 
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
   const handleSectionLink = (event, sectionId) => {
-    if (!isHome) return;
-
     event.preventDefault();
+    closeMenu();
 
-    const section = document.getElementById(sectionId);
+    // Already on Home
+    if (isHome) {
+      const section = document.getElementById(sectionId);
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      return;
     }
 
-    closeMenu();
+    // Navigate to Home using React Router — no page refresh
+    navigate("/");
+
+    // Wait for Home to render, then scroll to the section
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+          section.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
   };
 
   return (
@@ -38,14 +59,14 @@ export default function DesignNav() {
           HOME
         </Link>
 
-        <a
-          href="/"
+        <Link
+          to="/"
           onClick={(event) =>
             handleSectionLink(event, "about")
           }
         >
           ABOUT
-        </a>
+        </Link>
 
         <Link to="/services" onClick={closeMenu}>
           SERVICES

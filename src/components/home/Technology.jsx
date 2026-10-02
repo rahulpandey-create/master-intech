@@ -1,5 +1,3 @@
-
-
 const technologies = [
   {
     number: "01",

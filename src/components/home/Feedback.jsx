@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-
 import abstractRight from "../../assets/design/10.png";
-
 import google from "../../assets/google.svg";
 import KatyaVideo from "../../assets/KatyaVideo.mp4";
 import shenton from "../../assets/shenton.png";
 import KatyaFaris from "../../assets/KatyaFaris.png";
 import userthumb from "../../assets/userthumb.png";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -241,7 +237,7 @@ export default function Feedback() {
       );
 
       animation.finished
-        .catch(() => {})
+        .catch(() => { })
         .finally(() => {
           animationRef.current = false;
         });

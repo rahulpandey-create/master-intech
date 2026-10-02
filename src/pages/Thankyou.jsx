@@ -3,8 +3,6 @@ import whatsappIcon from "../assets/whatsapp.svg";
 import arrowbtn from "../assets/arrowbtn.svg";
 import arrowtick from "../assets/arrowtick.svg";
 
-const MASTER_INTECH_PHONE_DISPLAY = "+91-98782 63393";
-const MASTER_INTECH_PHONE_TEL = "+919878263393";
 const MASTER_INTECH_WHATSAPP_MESSAGE =
   "Hi Master Intech Solutions, I’ve just submitted an enquiry through your website and would like to continue the conversation here.";
 
@@ -44,43 +42,9 @@ export default function ThankYou() {
                     <img src={whatsappIcon} alt="WhatsApp" aria-hidden="true" />
                   </span>
                   <span>Chat on WhatsApp</span>
-                  {/* <span aria-hidden="true">→</span> */}
                 </a>
-
-                {/* <div className="thank-you-divider" aria-hidden="true">
-                <span />
-                <i />
-                <span />
-              </div> */}
-              </div>
-
-              {/* second part */}
-              {/* <div>
-            <div className="thank-you-contact" data-reveal>
-              <div className="thank-you-contact-copy">
-                <p className="thank-you-section-label">NEED TO SPEAK WITH US?</p>
-                <h2>Let&apos;s keep the conversation moving.</h2>
-                <p>
-                  Our team can discuss your requirements directly. Call us or start a WhatsApp conversation to continue the discussion.
-                </p>
-              </div>
-
-              <div className="thank-you-contact-actions">
-                <a
-                  className="thank-you-phone"
-                  href={`tel:${MASTER_INTECH_PHONE_TEL}`}
-                  aria-label={`Call Master Intech Solutions at ${MASTER_INTECH_PHONE_DISPLAY}`}
-                >
-                  <span>PHONE</span>
-                  <strong>{MASTER_INTECH_PHONE_DISPLAY}</strong>
-                </a>
-
-              
               </div>
             </div>
-            </div> */}
-            </div>
-            {/* second part */}
             <Link className="thank-you-home" to="/">
               Back to Home
               <img src={arrowbtn} alt="" aria-hidden="true" />

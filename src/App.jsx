@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import Lenis from "lenis";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import logo from "./assets/logomaster.svg";
-
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import StartupOffer from "./pages/StartupOffer";
@@ -21,7 +20,6 @@ const WHATSAPP_LINK = `https://wa.me/919878263393?text=${encodeURIComponent(
 
 import arrowtopp from "./assets/arrowtopp.svg";
 import support from "./assets/support.svg";
-// import Breadcrumbs from "./components/Breadcrumbs.jsx";
 import AIIntelligentAutomation from "./pages/services/AIIntelligentAutomation";
 import CustomPortalDevelopment from "./pages/services/CustomPortalDevelopment";
 import WebApplicationDevelopment from "./pages/services/WebApplicationDevelopment";
@@ -62,7 +60,7 @@ function App() {
     // ==========================================
 
     const handleScroll = (e) => {
-      setShowBackToTop(e.scroll > 500);
+      setShowBackToTop(e.scroll > 400);
     };
 
     lenis.on("scroll", handleScroll);
@@ -155,13 +153,19 @@ function App() {
 
   const [showPopup, setShowPopup] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 10000);
+useEffect(() => {
+  console.log("POPUP EFFECT RAN");
 
-    return () => clearTimeout(timer);
-  }, []);
+  const timer = setTimeout(() => {
+    console.log("POPUP OPENING");
+    setShowPopup(true);
+  }, 2000);
+
+  return () => {
+    console.log("POPUP EFFECT CLEANUP");
+    clearTimeout(timer);
+  };
+}, []);
 
   const handlePopupWhatsAppClick = () => {
     setShowPopup(false);
