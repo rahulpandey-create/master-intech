@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Lenis from "lenis";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import logo from "./assets/logomaster.svg";
-import PortfolioBento from "./pages/Portfolio.jsx";
+
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import StartupOffer from "./pages/StartupOffer";
@@ -11,7 +11,6 @@ import ContactUs from "./pages/ContactUs";
 import PageTransition from "./components/home/PageTransition";
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
-import question from "./assets/question.gif";
 
 const MASTER_INTECH_WHATSAPP_MESSAGE =
   "Hi Master Intech Solutions, I’d like to get in touch with your team I have a question regarding your services and would like to discuss it further. Can we connect on WhatsApp?";
