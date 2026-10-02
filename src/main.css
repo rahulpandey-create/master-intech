@@ -2991,10 +2991,6 @@ img.bord5 {
     right: 8px;
   }
 
-  .about-intro h2 {
-    /* font-size: 38px; */
-  }
-
   .uniqheadingflex {
     gap: 0;
     width: 100%;
@@ -3792,10 +3788,6 @@ h2.master-intech {
 
   .floating-people {
     height: 400px;
-  }
-
-  .testimonial-photo {
-    /* max-width: 250px; */
   }
 
   .center-heading h2 {
@@ -4675,6 +4667,7 @@ a.service-detail-link img {
   font-size: 76px;
 
   background: linear-gradient(135deg, #01b3ff, #52dfd8);
+  background-clip: text;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -8892,10 +8885,6 @@ a.service-detail-link:hover {
 /* =========================================
    PROCESS
 ========================================= */
-
-.service-process {
-  /* border-bottom: 1px solid var(--line); */
-}
 
 .service-process-grid {
   display: grid;

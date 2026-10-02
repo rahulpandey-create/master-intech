@@ -61,10 +61,10 @@ const createEnquiry = async (req, res, next) => {
       });
     }
 
-    if (trimmedMessage.length < 10) {
+    if (trimmedMessage.length < 1) {
       return res.status(400).json({
         success: false,
-        message: "Message must be at least 10 characters long.",
+        message: "Message must be at least 1 character long.",
       });
     }
 
