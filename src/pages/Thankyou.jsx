@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import whatsappIcon from "../assets/whatsapp.svg";
 import arrowbtn from "../assets/arrowbtn.svg";
@@ -11,6 +12,16 @@ const MASTER_INTECH_WHATSAPP_LINK = `https://wa.me/919878263393?text=${encodeURI
 )}`;
 
 export default function ThankYou() {
+  useEffect(() => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: "AW-18489135414/z2vbCOmG4I0dELaip_BE",
+        value: 1.0,
+        currency: "INR",
+      });
+    }
+  }, []);
+
   return (
     <main className="thank-you-page">
       <section className="thank-you-hero" aria-labelledby="thank-you-title">
@@ -21,16 +32,23 @@ export default function ThankYou() {
         <div className="thank-you-container">
           <div className="thank-you-confirmation" data-reveal>
             <div className="main-thanks">
-
               <div>
                 <div className="thank-you-success-icon" aria-hidden="true">
                   <img src={arrowtick} />
                 </div>
-                <h1 id="thank-you-title"  >Thank You!</h1>
-                <p className="thank-you-message-title">Your enquiry has been successfully submitted.</p>
-                <p className="thank-you-message">
-                  We&apos;ve received your details and our team will review your requirements. We&apos;ll get back to you shortly to discuss the next steps.
+
+                <h1 id="thank-you-title">Thank You!</h1>
+
+                <p className="thank-you-message-title">
+                  Your enquiry has been successfully submitted.
                 </p>
+
+                <p className="thank-you-message">
+                  We&apos;ve received your details and our team will review your
+                  requirements. We&apos;ll get back to you shortly to discuss the
+                  next steps.
+                </p>
+
                 <a
                   className="thank-you-whatsapp"
                   href={MASTER_INTECH_WHATSAPP_LINK}
@@ -39,12 +57,17 @@ export default function ThankYou() {
                   aria-label="Chat with Master Intech Solutions on WhatsApp"
                 >
                   <span className="thank-you-whatsapp-icon">
-                    <img src={whatsappIcon} alt="WhatsApp" aria-hidden="true" />
+                    <img
+                      src={whatsappIcon}
+                      alt="WhatsApp"
+                      aria-hidden="true"
+                    />
                   </span>
                   <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </div>
+
             <Link className="thank-you-home" to="/">
               Back to Home
               <img src={arrowbtn} alt="" aria-hidden="true" />
