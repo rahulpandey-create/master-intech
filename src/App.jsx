@@ -159,7 +159,7 @@ useEffect(() => {
   const timer = setTimeout(() => {
     console.log("POPUP OPENING");
     setShowPopup(true);
-  }, 2000);
+  }, 12000); // Contact-us popup will open after 12 seconds
 
   return () => {
     console.log("POPUP EFFECT CLEANUP");
