@@ -10,6 +10,7 @@ import ContactUs from "./pages/ContactUs";
 import PageTransition from "./components/home/PageTransition";
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 const MASTER_INTECH_WHATSAPP_MESSAGE =
   "Hi Master Intech Solutions, I’d like to get in touch with your team I have a question regarding your services and would like to discuss it further. Can we connect on WhatsApp?";
@@ -153,19 +154,19 @@ function App() {
 
   const [showPopup, setShowPopup] = useState(false);
 
-useEffect(() => {
-  console.log("POPUP EFFECT RAN");
+  useEffect(() => {
+    console.log("POPUP EFFECT RAN");
 
-  const timer = setTimeout(() => {
-    console.log("POPUP OPENING");
-    setShowPopup(true);
-  }, 12000); // Contact-us popup will open after 12 seconds
+    const timer = setTimeout(() => {
+      console.log("POPUP OPENING");
+      setShowPopup(true);
+    }, 12000); // Contact-us popup will open after 12 seconds
 
-  return () => {
-    console.log("POPUP EFFECT CLEANUP");
-    clearTimeout(timer);
-  };
-}, []);
+    return () => {
+      console.log("POPUP EFFECT CLEANUP");
+      clearTimeout(timer);
+    };
+  }, []);
 
   const handlePopupWhatsAppClick = () => {
     setShowPopup(false);
@@ -181,6 +182,7 @@ useEffect(() => {
 
   return (
     <Router>
+      <ScrollToTop />
       <SEO />
 
       <DesignNav />
@@ -245,9 +247,8 @@ useEffect(() => {
 
       <button
         onClick={handleScrollToTop}
-        className={`back-to-top-btn ${
-          showBackToTop ? "visible" : ""
-        }`}
+        className={`back-to-top-btn ${showBackToTop ? "visible" : ""
+          }`}
       >
         <img src={arrowtopp} alt="arrow" />
       </button>
@@ -257,9 +258,8 @@ useEffect(() => {
       ========================================== */}
 
       <div
-        className={`contact-popup-overlay ${
-          showPopup ? "active" : ""
-        }`}
+        className={`contact-popup-overlay ${showPopup ? "active" : ""
+          }`}
       >
         <div className="contact-popup-box">
 
