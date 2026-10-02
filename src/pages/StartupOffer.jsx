@@ -211,7 +211,7 @@ function StartupOffer() {
     if (!formData.launchTimeline) nextErrors.launchTimeline = "Please select a launch timeline.";
     if (!formData.budget) nextErrors.budget = "Please select an estimated budget.";
     if (!trimmedDescription) nextErrors.description = "Please tell us briefly about your business.";
-    else if (trimmedDescription.length < 10) nextErrors.description = "Please add a little more detail (at least 10 characters).";
+    else if (trimmedDescription.length < 1) nextErrors.description = "Please add a little more detail (at least 1 characters).";
     return nextErrors;
   };
   const handleSubmit = async (event) => {

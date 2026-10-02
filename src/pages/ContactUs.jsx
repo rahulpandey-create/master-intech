@@ -97,14 +97,14 @@ export default function ContactUs() {
       nextErrors.service = "Please select a service.";
     }
 
-    if (formData.requirement.trim().length < 10) {
+    if (formData.requirement.trim().length < 1) {
       nextErrors.requirement =
-        "Please describe your project or requirement in at least 10 characters.";
+        "Please describe your project or requirement in at least 1 character.";
     }
 
-    if (formData.message.trim().length < 10) {
+    if (formData.message.trim().length < 1) {
       nextErrors.message =
-        "Please provide a message with at least 10 characters.";
+        "Please provide a message with at least 1 character.";
     }
 
     return nextErrors;
@@ -620,7 +620,7 @@ export default function ContactUs() {
                   name="requirement"
                   value={formData.requirement}
                   onChange={updateField}
-                  minLength={10}
+                  minLength={1}
                   maxLength={5000}
                   rows={2}
                   aria-invalid={Boolean(errors.requirement)}
@@ -653,7 +653,7 @@ export default function ContactUs() {
                   name="message"
                   value={formData.message}
                   onChange={updateField}
-                  minLength={10}
+                  minLength={1}
                   maxLength={5000}
                   rows={2}
                   aria-invalid={Boolean(errors.message)}

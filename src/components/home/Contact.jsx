@@ -161,7 +161,7 @@ export default function Contact({
               value={formData.message}
               onChange={updateField}
               required
-              minLength={10}
+              minLength={1}
               maxLength={5000}
             />
           </label>
