@@ -1,6 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import Lenis from "lenis";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import logo from "./assets/logomaster.svg";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -11,6 +16,7 @@ import PageTransition from "./components/home/PageTransition";
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop";
+import ContactUsFigma from "./pages/LandingPage/LandingPage.jsx";
 
 const MASTER_INTECH_WHATSAPP_MESSAGE =
   "Hi Master Intech Solutions, I’d like to get in touch with your team I have a question regarding your services and would like to discuss it further. Can we connect on WhatsApp?";
@@ -29,6 +35,103 @@ import DigitalMarketing from "./pages/services/DigitalMarketing";
 import CyberSecurity from "./pages/services/CyberSecurity.jsx";
 import Portfolio from "./pages/Portfolio";
 import SEO from "./components/SEO";
+const LANDING_PAGE_ROUTE = "/explore";
+
+function RouteChrome({
+  children,
+  showBackToTop,
+  onScrollToTop,
+  showPopup,
+  setShowPopup,
+  onPopupWhatsAppClick,
+  logo,
+  support,
+}) {
+  const location = useLocation();
+
+  const isLandingPage =
+    location.pathname === LANDING_PAGE_ROUTE;
+
+  useEffect(() => {
+    if (isLandingPage && showPopup) {
+      setShowPopup(false);
+    }
+  }, [
+    isLandingPage,
+    showPopup,
+    setShowPopup,
+  ]);
+
+  return (
+    <>
+      {!isLandingPage && <DesignNav />}
+
+      <PageTransition>
+        {children}
+      </PageTransition>
+
+      {!isLandingPage && <Footer />}
+
+      {!isLandingPage && (
+        <button
+          onClick={onScrollToTop}
+          className={`back-to-top-btn ${showBackToTop ? "visible" : ""
+            }`}
+          aria-label="Back to top"
+        >
+          <img
+            src={arrowtopp}
+            alt=""
+          />
+        </button>
+      )}
+
+      {!isLandingPage && showPopup && (
+        <div className="whatsapp-popup-overlay">
+          <div className="whatsapp-popup">
+
+            <button
+              className="popup-close-btn"
+              onClick={() => setShowPopup(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+
+            <img
+              src={logo}
+              alt=""
+            />
+
+            <h3>
+              Let&apos;s Build Something Great
+            </h3>
+
+            <p>
+              Tell us about your project, and our team
+              will help you find the right solution.
+            </p>
+
+            <button
+              className="popup-cta-btn"
+              onClick={onPopupWhatsAppClick}
+            >
+              Chat With Our Experts
+
+              <span className="support-img">
+                <img
+                  src={support}
+                  alt=""
+                />
+              </span>
+            </button>
+
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -181,118 +284,90 @@ function App() {
   };
 
   return (
-    <Router>
-      <ScrollToTop />
-      <SEO />
+  <Router>
+    <ScrollToTop />
+    <SEO />
 
-      <DesignNav />
+    <RouteChrome
+      showBackToTop={showBackToTop}
+      onScrollToTop={handleScrollToTop}
+      showPopup={showPopup}
+      setShowPopup={setShowPopup}
+      onPopupWhatsAppClick={handlePopupWhatsAppClick}
+      logo={logo}
+      support={support}
+    >
+      <Routes>
 
-      <PageTransition>
-        <Routes>
-          <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-          <Route path="/portfolio" element={<Portfolio />} />
+        <Route
+          path="/portfolio"
+          element={<Portfolio />}
+        />
 
-          <Route path="/services" element={<Services />} />
+        <Route
+          path="/services"
+          element={<Services />}
+        />
 
-          <Route path="/contact-us" element={<ContactUs />} />
+        <Route
+          path="/contact-us"
+          element={<ContactUs />}
+        />
 
-          <Route
-            path="/services/ai-intelligent-automation"
-            element={<AIIntelligentAutomation />}
-          />
+        <Route
+          path="/explore"
+          element={<ContactUsFigma />}
+        />
 
-          <Route
-            path="/services/custom-portal-development"
-            element={<CustomPortalDevelopment />}
-          />
+        <Route
+          path="/services/ai-intelligent-automation"
+          element={<AIIntelligentAutomation />}
+        />
 
-          <Route
-            path="/services/web-application-development"
-            element={<WebApplicationDevelopment />}
-          />
+        <Route
+          path="/services/custom-portal-development"
+          element={<CustomPortalDevelopment />}
+        />
 
-          <Route
-            path="/services/ui-ux-product-design"
-            element={<UIUXProductDesign />}
-          />
+        <Route
+          path="/services/web-application-development"
+          element={<WebApplicationDevelopment />}
+        />
 
-          <Route
-            path="/services/digital-marketing"
-            element={<DigitalMarketing />}
-          />
+        <Route
+          path="/services/ui-ux-product-design"
+          element={<UIUXProductDesign />}
+        />
 
-          <Route
-            path="/services/cyber-security"
-            element={<CyberSecurity />}
-          />
+        <Route
+          path="/services/digital-marketing"
+          element={<DigitalMarketing />}
+        />
 
-          <Route
-            path="/startup-offer"
-            element={<StartupOffer />}
-          />
+        <Route
+          path="/services/cyber-security"
+          element={<CyberSecurity />}
+        />
 
-          <Route
-            path="/thank-you"
-            element={<ThankYou />}
-          />
-        </Routes>
-      </PageTransition>
+        <Route
+          path="/startup-offer"
+          element={<StartupOffer />}
+        />
 
-      <Footer />
+        <Route
+          path="/thank-you"
+          element={<ThankYou />}
+        />
 
-      {/* ==========================================
-          BACK TO TOP BUTTON
-      ========================================== */}
-
-      <button
-        onClick={handleScrollToTop}
-        className={`back-to-top-btn ${showBackToTop ? "visible" : ""
-          }`}
-      >
-        <img src={arrowtopp} alt="arrow" />
-      </button>
-
-      {/* ==========================================
-          WHATSAPP CONTACT US POPUP
-      ========================================== */}
-
-      <div
-        className={`contact-popup-overlay ${showPopup ? "active" : ""
-          }`}
-      >
-        <div className="contact-popup-box">
-
-          <button
-            className="popup-close-btn"
-            onClick={() => setShowPopup(false)}
-          >
-            ×
-          </button>
-
-          <img src={logo} alt="" />
-
-          <h3>Let's Build Something Great</h3>
-
-          <p>
-            Tell us about your project, and our team will help you find the right solution.
-          </p>
-
-          <button
-            className="popup-cta-btn"
-            onClick={handlePopupWhatsAppClick}
-          >
-            Chat With Our Experts
-
-            <span className="support-img">
-              <img src={support} alt="" />
-            </span>
-          </button>
-
-        </div>
-      </div>
-    </Router>
-  );
+      </Routes>
+    </RouteChrome>
+  </Router>
+);
 }
 
 export default App;

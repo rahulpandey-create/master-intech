@@ -85,14 +85,14 @@ export default function Award() {
     <section id="projects" className="award-section">
       <div className="uniqheadingflex">
         <div>
-          
+
         </div>
         <div>
           <h2 className="uniqeheading container">
             AWARD-WINNING MANCHESTER WEB DESIGN <br></br>& BRANDING AGENCY SINCE 2008.
           </h2>
         </div>
-     
+
       </div>
 
       <div className="section-shell award-grid">
@@ -105,7 +105,7 @@ export default function Award() {
           />
         </div>
 
-  
+
         {/* Right Content */}
         <div className="award-copy" data-reveal>
 
@@ -144,7 +144,7 @@ export default function Award() {
           {/* Description */}
           <p>
             Driven by innovation, we deliver cutting-edge
-            
+
             IT solutions that empower businesses to grow.
           </p>
 
