@@ -12,7 +12,7 @@ import arrowdown from "../../assets/arrowdown.svg";
 import whatsappIcon from "../../assets/whatsapp.svg";
 import emailIcon from "../../assets/email.svg";
 
-import "./landingPage.css";
+import "./LandingPage.css";
 
 const SERVICES = [
     {
