@@ -52,6 +52,7 @@ function RouteChrome({
   const isLandingPage =
     location.pathname === LANDING_PAGE_ROUTE;
 
+  // Close the popup if the visitor is on the landing page
   useEffect(() => {
     if (isLandingPage && showPopup) {
       setShowPopup(false);
@@ -61,6 +62,21 @@ function RouteChrome({
     showPopup,
     setShowPopup,
   ]);
+
+  // Open the popup 12 seconds after the visitor is on any page
+  // other than the landing page. Opens only once per visit.
+  const popupSeen = useRef(false);
+
+  useEffect(() => {
+    if (isLandingPage || popupSeen.current) return;
+
+    const timer = setTimeout(() => {
+      popupSeen.current = true;
+      setShowPopup(true);
+    }, 12000);
+
+    return () => clearTimeout(timer);
+  }, [isLandingPage, setShowPopup]);
 
   return (
     <>
@@ -87,8 +103,8 @@ function RouteChrome({
       )}
 
       {!isLandingPage && showPopup && (
-        <div className="whatsapp-popup-overlay">
-          <div className="whatsapp-popup">
+        <div className="contact-popup-overlay active">
+          <div className="contact-popup-box">
 
             <button
               className="popup-close-btn"
@@ -253,23 +269,10 @@ function App() {
 
   // ==========================================
   // WHATSAPP CONTACT US POPUP
+  // (the 12-second open timer now lives in RouteChrome)
   // ==========================================
 
   const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    console.log("POPUP EFFECT RAN");
-
-    const timer = setTimeout(() => {
-      console.log("POPUP OPENING");
-      setShowPopup(true);
-    }, 12000); // Contact-us popup will open after 12 seconds
-
-    return () => {
-      console.log("POPUP EFFECT CLEANUP");
-      clearTimeout(timer);
-    };
-  }, []);
 
   const handlePopupWhatsAppClick = () => {
     setShowPopup(false);
@@ -284,90 +287,90 @@ function App() {
   };
 
   return (
-  <Router>
-    <ScrollToTop />
-    <SEO />
+    <Router>
+      <ScrollToTop />
+      <SEO />
 
-    <RouteChrome
-      showBackToTop={showBackToTop}
-      onScrollToTop={handleScrollToTop}
-      showPopup={showPopup}
-      setShowPopup={setShowPopup}
-      onPopupWhatsAppClick={handlePopupWhatsAppClick}
-      logo={logo}
-      support={support}
-    >
-      <Routes>
+      <RouteChrome
+        showBackToTop={showBackToTop}
+        onScrollToTop={handleScrollToTop}
+        showPopup={showPopup}
+        setShowPopup={setShowPopup}
+        onPopupWhatsAppClick={handlePopupWhatsAppClick}
+        logo={logo}
+        support={support}
+      >
+        <Routes>
 
-        <Route
-          path="/"
-          element={<Home />}
-        />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-        <Route
-          path="/portfolio"
-          element={<Portfolio />}
-        />
+          <Route
+            path="/portfolio"
+            element={<Portfolio />}
+          />
 
-        <Route
-          path="/services"
-          element={<Services />}
-        />
+          <Route
+            path="/services"
+            element={<Services />}
+          />
 
-        <Route
-          path="/contact-us"
-          element={<ContactUs />}
-        />
+          <Route
+            path="/contact-us"
+            element={<ContactUs />}
+          />
 
-        <Route
-          path="/explore"
-          element={<ContactUsFigma />}
-        />
+          <Route
+            path="/explore"
+            element={<ContactUsFigma />}
+          />
 
-        <Route
-          path="/services/ai-intelligent-automation"
-          element={<AIIntelligentAutomation />}
-        />
+          <Route
+            path="/services/ai-intelligent-automation"
+            element={<AIIntelligentAutomation />}
+          />
 
-        <Route
-          path="/services/custom-portal-development"
-          element={<CustomPortalDevelopment />}
-        />
+          <Route
+            path="/services/custom-portal-development"
+            element={<CustomPortalDevelopment />}
+          />
 
-        <Route
-          path="/services/web-application-development"
-          element={<WebApplicationDevelopment />}
-        />
+          <Route
+            path="/services/web-application-development"
+            element={<WebApplicationDevelopment />}
+          />
 
-        <Route
-          path="/services/ui-ux-product-design"
-          element={<UIUXProductDesign />}
-        />
+          <Route
+            path="/services/ui-ux-product-design"
+            element={<UIUXProductDesign />}
+          />
 
-        <Route
-          path="/services/digital-marketing"
-          element={<DigitalMarketing />}
-        />
+          <Route
+            path="/services/digital-marketing"
+            element={<DigitalMarketing />}
+          />
 
-        <Route
-          path="/services/cyber-security"
-          element={<CyberSecurity />}
-        />
+          <Route
+            path="/services/cyber-security"
+            element={<CyberSecurity />}
+          />
 
-        <Route
-          path="/startup-offer"
-          element={<StartupOffer />}
-        />
+          <Route
+            path="/startup-offer"
+            element={<StartupOffer />}
+          />
 
-        <Route
-          path="/thank-you"
-          element={<ThankYou />}
-        />
+          <Route
+            path="/thank-you"
+            element={<ThankYou />}
+          />
 
-      </Routes>
-    </RouteChrome>
-  </Router>
-);
+        </Routes>
+      </RouteChrome>
+    </Router>
+  );
 }
 
 export default App;
