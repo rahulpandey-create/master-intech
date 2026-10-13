@@ -92,14 +92,27 @@ const WHATSAPP_LINK = `https://wa.me/919878263393?text=${encodeURIComponent(
 const EMAIL_LINK =
     "https://mail.google.com/mail/?view=cm&fs=1&to=info@masterintechsolutions.com";
 
+
 function scrollToInquiry() {
-    document
-        .getElementById("landing-quick-inquiry")
-        ?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        });
+    const inquirySection = document.getElementById(
+        "landing-quick-inquiry"
+    );
+
+    const nameInput = document.getElementById("landing-name");
+
+    if (!inquirySection || !nameInput) return;
+
+    inquirySection.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+    });
+
+    // Focus the Name field after smooth scrolling
+    window.setTimeout(() => {
+        nameInput.focus({ preventScroll: true });
+    }, 700);
 }
+
 
 export default function LandingPage() {
     const navigate = useNavigate();

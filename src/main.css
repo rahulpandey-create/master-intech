@@ -10852,6 +10852,16 @@ select#landing-service {
     line-height: normal;
 }
 
+/* Highlight Name field when Start Your Project is clicked */
+#landing-name:focus {
+    outline: none;
+    border-color: #20c4f4;
+    /* box-shadow: 0 0 0 3px rgba(32, 196, 244, 0.2); */
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
 .landing-page__eyebrow {
   display: block;
   margin-bottom: 12px;
