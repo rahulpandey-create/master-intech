@@ -3637,7 +3637,7 @@ h2.master-intech {
 
   text-transform: none;
 
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
 
   overflow-wrap: anywhere;
 }
