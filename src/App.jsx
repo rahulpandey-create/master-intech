@@ -36,6 +36,7 @@ import CyberSecurity from "./pages/services/CyberSecurity.jsx";
 import Portfolio from "./pages/Portfolio";
 import SEO from "./components/SEO";
 const LANDING_PAGE_ROUTE = "/explore";
+const THANK_YOU_PAGE_ROUTE = "/thank-you";
 
 function RouteChrome({
   children,
@@ -52,13 +53,17 @@ function RouteChrome({
   const isLandingPage =
     location.pathname === LANDING_PAGE_ROUTE;
 
+  const isThankYouPage =
+    location.pathname.replace(/\/+$/, "") === THANK_YOU_PAGE_ROUTE;
+
   // Close the popup if the visitor is on the landing page
   useEffect(() => {
-    if (isLandingPage && showPopup) {
+    if ((isLandingPage || isThankYouPage) && showPopup) {
       setShowPopup(false);
     }
   }, [
     isLandingPage,
+    isThankYouPage,
     showPopup,
     setShowPopup,
   ]);
@@ -68,7 +73,7 @@ function RouteChrome({
   const popupSeen = useRef(false);
 
   useEffect(() => {
-    if (isLandingPage || popupSeen.current) return;
+    if (isLandingPage || isThankYouPage || popupSeen.current) return;
 
     const timer = setTimeout(() => {
       popupSeen.current = true;
@@ -76,7 +81,7 @@ function RouteChrome({
     }, 12000);
 
     return () => clearTimeout(timer);
-  }, [isLandingPage, setShowPopup]);
+  }, [isLandingPage, isThankYouPage, setShowPopup]);
 
   return (
     <>
