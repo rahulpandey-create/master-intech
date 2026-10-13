@@ -5,14 +5,17 @@ import { submitEnquiry } from "../../services/api";
 import Feedback from "../../components/home/Feedback";
 
 import logo from "../../assets/design/26.png";
-import heroBackground from "../../assets/landingHeroBackground.png";
 import heroBackgoundImage from "../../assets/heroBackgroundImage.png";
-import arrowbtn from "../../assets/arrowbtn.svg";
-import arrowdown from "../../assets/arrowdown.svg";
-import whatsappIcon from "../../assets/whatsapp.svg";
-import emailIcon from "../../assets/email.svg";
 
-import "./LandingPage.css";
+import arrowbtn from "../../assets/arrowbtn.svg";
+import emails from "../../assets/emails.svg";
+import arrowdown from "../../assets/arrowdown.svg";
+import ourservices from "../../assets/ourservices.png";
+import whatsappbk from "../../assets/whatsappbk.svg";
+import ourprocess from "../../assets/ourprocess.png";
+import ctabg from "../../assets/ctabg.png";
+import Footer from "../../components/home/Footer";
+ 
 
 const SERVICES = [
     {
@@ -271,7 +274,7 @@ export default function LandingPage() {
 
                             <h1>
                                 BRING THE CHALLENGE
-                                <br />
+                                 
                                 LET&apos;S BUILD
                             </h1>
 
@@ -286,7 +289,7 @@ export default function LandingPage() {
                                 onClick={scrollToInquiry}
                             >
                                 START YOUR PROJECT
-                                <span aria-hidden="true">→</span>
+                                <span aria-hidden="true"><img src={arrowbtn} alt=""/></span>
                             </button>
 
                         </div>
@@ -299,7 +302,7 @@ export default function LandingPage() {
                             className="landing-page__inquiry-card"
                             id="landing-quick-inquiry"
                         >
-                            <div className="landing-page__inquiry-card-inner">
+                            <div className="landing-page__inquiry-card-inner" >
 
                                 <h2>QUICK INQUIRY</h2>
 
@@ -622,7 +625,9 @@ export default function LandingPage() {
           SERVICES
       ===================================================== */}
 
-            <section className="landing-page__services">
+            <section className="landing-page__services"  style={{
+                    backgroundImage: `url(${ourservices})`,
+                }}>
 
                 <div
                     className="landing-page__services-grid-art"
@@ -757,7 +762,7 @@ export default function LandingPage() {
                             className="landing-page__whatsapp-button"
                         >
                             <img
-                                src={whatsappIcon}
+                                src={whatsappbk}
                                 alt=""
                                 aria-hidden="true"
                             />
@@ -773,7 +778,9 @@ export default function LandingPage() {
           PROCESS
       ===================================================== */}
 
-            <section className="landing-page__process">
+            <section className="landing-page__process" style={{
+                    backgroundImage: `url(${ourprocess})`,
+                }}>
 
                 <div
                     className="landing-page__process-grid"
@@ -873,7 +880,9 @@ export default function LandingPage() {
           FINAL STATS + CTA
       ===================================================== */}
 
-            <section className="landing-page__final-cta">
+            <section className="landing-page__final-cta" style={{
+                    backgroundImage: `url(${ctabg})`,
+                }}>
 
                 <div
                     className="landing-page__final-grid"
@@ -884,22 +893,22 @@ export default function LandingPage() {
 
                     <div className="landing-page__stats">
 
-                        <div className="landing-page__stat">
+                        <div className="landing-page__stat one">
                             <strong>500K+</strong>
                             <span>Project Delivered</span>
                         </div>
 
-                        <div className="landing-page__stat">
+                        <div className="landing-page__stat two">
                             <strong>50K+</strong>
                             <span>Client Satisfaction</span>
                         </div>
 
-                        <div className="landing-page__stat">
+                        <div className="landing-page__stat three">
                             <strong>15+</strong>
                             <span>Years of Experience</span>
                         </div>
 
-                        <div className="landing-page__stat">
+                        <div className="landing-page__stat four">
                             <strong>50K+</strong>
                             <span>Happy Clients</span>
                         </div>
@@ -931,7 +940,7 @@ export default function LandingPage() {
                                 className="landing-page__whatsapp-button"
                             >
                                 <img
-                                    src={whatsappIcon}
+                                    src={whatsappbk}
                                     alt=""
                                     aria-hidden="true"
                                 />
@@ -945,7 +954,7 @@ export default function LandingPage() {
                                 className="landing-page__email-button"
                             >
                                 <img
-                                    src={emailIcon}
+                                    src={emails}
                                     alt=""
                                     aria-hidden="true"
                                 />
@@ -963,65 +972,7 @@ export default function LandingPage() {
           CUSTOM FOOTER
       ===================================================== */}
 
-            <footer className="landing-page__footer">
-
-                <div className="landing-page__footer-brand">
-                    MASTER INTECH SOLUTIONS
-                </div>
-
-                <div className="landing-page__footer-social">
-
-                    <a
-                        href="https://www.facebook.com/MasterIntechSolutions/"
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="Facebook"
-                    >
-                        <i
-                            className="ri-facebook-fill"
-                            aria-hidden="true"
-                        />
-                    </a>
-
-                    <a
-                        href="https://www.instagram.com/mastersintechsolutions/"
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="Instagram"
-                    >
-                        <i
-                            className="ri-instagram-line"
-                            aria-hidden="true"
-                        />
-                    </a>
-
-                    <a
-                        href="https://www.linkedin.com/in/master-intech-solutions-43ba9b39"
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="LinkedIn"
-                    >
-                        <i
-                            className="ri-linkedin-box-fill"
-                            aria-hidden="true"
-                        />
-                    </a>
-
-                </div>
-
-                <div className="landing-page__footer-bottom">
-
-                    <span>
-                        © 2026 Master Intech Solutions
-                    </span>
-
-                    <span>
-                        Registration No : 03AATFM8663C1ZO
-                    </span>
-
-                </div>
-
-            </footer>
+          <Footer/>
 
         </main>
     );
