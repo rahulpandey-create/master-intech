@@ -15,7 +15,7 @@ import whatsappbk from "../../assets/whatsappbk.svg";
 import ourprocess from "../../assets/ourprocess.png";
 import ctabg from "../../assets/ctabg.png";
 import Footer from "../../components/home/Footer";
- 
+
 
 const SERVICES = [
     {
@@ -286,14 +286,12 @@ export default function LandingPage() {
                         <div className="landing-page__hero-copy">
 
                             <h1>
-                                BRING THE CHALLENGE
-                                 
-                                LET&apos;S BUILD
+                                WEB DEVELOPMENT
+                                &amp; DIGITAL SOLUTIONS
                             </h1>
 
                             <p>
-                                From ideas to scalable digital products, Master Intech
-                                Solutions helps businesses build smarter digital solutions.
+                                From custom websites and web applications to AI automation and digital marketing, Master Intech Solutions helps businesses build scalable digital experiences.
                             </p>
 
                             <button
@@ -302,7 +300,7 @@ export default function LandingPage() {
                                 onClick={scrollToInquiry}
                             >
                                 START YOUR PROJECT
-                                <span aria-hidden="true"><img src={arrowbtn} alt=""/></span>
+                                <span aria-hidden="true"><img src={arrowbtn} alt="" /></span>
                             </button>
 
                         </div>
@@ -638,9 +636,9 @@ export default function LandingPage() {
           SERVICES
       ===================================================== */}
 
-            <section className="landing-page__services"  style={{
-                    backgroundImage: `url(${ourservices})`,
-                }}>
+            <section className="landing-page__services" style={{
+                backgroundImage: `url(${ourservices})`,
+            }}>
 
                 <div
                     className="landing-page__services-grid-art"
@@ -792,8 +790,8 @@ export default function LandingPage() {
       ===================================================== */}
 
             <section className="landing-page__process" style={{
-                    backgroundImage: `url(${ourprocess})`,
-                }}>
+                backgroundImage: `url(${ourprocess})`,
+            }}>
 
                 <div
                     className="landing-page__process-grid"
@@ -894,8 +892,8 @@ export default function LandingPage() {
       ===================================================== */}
 
             <section className="landing-page__final-cta" style={{
-                    backgroundImage: `url(${ctabg})`,
-                }}>
+                backgroundImage: `url(${ctabg})`,
+            }}>
 
                 <div
                     className="landing-page__final-grid"
@@ -985,7 +983,7 @@ export default function LandingPage() {
           CUSTOM FOOTER
       ===================================================== */}
 
-          <Footer/>
+            <Footer />
 
         </main>
     );

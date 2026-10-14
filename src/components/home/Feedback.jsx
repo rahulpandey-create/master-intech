@@ -71,7 +71,7 @@ const clients = [
   },
 ];
 
-export default function Feedback() {
+export default function Feedback({ variant = "default" }) {
   /* =========================================================
      STATES
   ========================================================= */
