@@ -884,7 +884,7 @@ export default function LandingPage() {
       ===================================================== */}
 
             <section className="landing-page__feedback-wrapper">
-                <Feedback />
+                 <Feedback variant="reviews-only"/>
             </section>
 
             {/* =====================================================
