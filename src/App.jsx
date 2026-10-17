@@ -1,6 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import Lenis from "lenis";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import logo from "./assets/logomaster.svg";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -10,6 +15,8 @@ import ContactUs from "./pages/ContactUs";
 import PageTransition from "./components/home/PageTransition";
 import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop";
+import ContactUsFigma from "./pages/LandingPage/LandingPage.jsx";
 
 const MASTER_INTECH_WHATSAPP_MESSAGE =
   "Hi Master Intech Solutions, I’d like to get in touch with your team I have a question regarding your services and would like to discuss it further. Can we connect on WhatsApp?";
@@ -28,6 +35,124 @@ import DigitalMarketing from "./pages/services/DigitalMarketing";
 import CyberSecurity from "./pages/services/CyberSecurity.jsx";
 import Portfolio from "./pages/Portfolio";
 import SEO from "./components/SEO";
+const LANDING_PAGE_ROUTE = "/explore";
+const THANK_YOU_PAGE_ROUTE = "/thank-you";
+
+function RouteChrome({
+  children,
+  showBackToTop,
+  onScrollToTop,
+  showPopup,
+  setShowPopup,
+  onPopupWhatsAppClick,
+  logo,
+  support,
+}) {
+  const location = useLocation();
+
+  const isLandingPage =
+    location.pathname === LANDING_PAGE_ROUTE;
+
+  const isThankYouPage =
+    location.pathname.replace(/\/+$/, "") === THANK_YOU_PAGE_ROUTE;
+
+  // Close the popup if the visitor is on the landing page
+  useEffect(() => {
+    if ((isLandingPage || isThankYouPage) && showPopup) {
+      setShowPopup(false);
+    }
+  }, [
+    isLandingPage,
+    isThankYouPage,
+    showPopup,
+    setShowPopup,
+  ]);
+
+  // Open the popup 12 seconds after the visitor is on any page
+  // other than the landing page. Opens only once per visit.
+  const popupSeen = useRef(false);
+
+  useEffect(() => {
+    if (isLandingPage || isThankYouPage || popupSeen.current) return;
+
+    const timer = setTimeout(() => {
+      popupSeen.current = true;
+      setShowPopup(true);
+    }, 12000);
+
+    return () => clearTimeout(timer);
+  }, [isLandingPage, isThankYouPage, setShowPopup]);
+
+  return (
+    <>
+      {!isLandingPage && <DesignNav />}
+
+      <PageTransition>
+        {children}
+      </PageTransition>
+
+      {!isLandingPage && <Footer />}
+
+      {!isLandingPage && (
+        <button
+          onClick={onScrollToTop}
+          className={`back-to-top-btn ${showBackToTop ? "visible" : ""
+            }`}
+          aria-label="Back to top"
+        >
+          <img
+            src={arrowtopp}
+            alt=""
+          />
+        </button>
+      )}
+
+      {!isLandingPage && showPopup && (
+        <div className="contact-popup-overlay active">
+          <div className="contact-popup-box">
+
+            <button
+              className="popup-close-btn"
+              onClick={() => setShowPopup(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+
+            <img
+              src={logo}
+              alt=""
+            />
+
+            <h3>
+              Let&apos;s Build Something Great
+            </h3>
+
+            <p>
+              Tell us about your project, and our team
+              will help you find the right solution.
+            </p>
+
+            <button
+              className="popup-cta-btn"
+              onClick={onPopupWhatsAppClick}
+            >
+              Chat With Our Experts
+
+              <span className="support-img">
+                <img
+                  src={support}
+                  alt=""
+                />
+              </span>
+            </button>
+
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -149,23 +274,10 @@ function App() {
 
   // ==========================================
   // WHATSAPP CONTACT US POPUP
+  // (the 12-second open timer now lives in RouteChrome)
   // ==========================================
 
   const [showPopup, setShowPopup] = useState(false);
-
-useEffect(() => {
-  console.log("POPUP EFFECT RAN");
-
-  const timer = setTimeout(() => {
-    console.log("POPUP OPENING");
-    setShowPopup(true);
-  }, 12000); // Contact-us popup will open after 12 seconds
-
-  return () => {
-    console.log("POPUP EFFECT CLEANUP");
-    clearTimeout(timer);
-  };
-}, []);
 
   const handlePopupWhatsAppClick = () => {
     setShowPopup(false);
@@ -181,19 +293,44 @@ useEffect(() => {
 
   return (
     <Router>
+      <ScrollToTop />
       <SEO />
 
-      <DesignNav />
-
-      <PageTransition>
+      <RouteChrome
+        showBackToTop={showBackToTop}
+        onScrollToTop={handleScrollToTop}
+        showPopup={showPopup}
+        setShowPopup={setShowPopup}
+        onPopupWhatsAppClick={handlePopupWhatsAppClick}
+        logo={logo}
+        support={support}
+      >
         <Routes>
-          <Route path="/" element={<Home />} />
 
-          <Route path="/portfolio" element={<Portfolio />} />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-          <Route path="/services" element={<Services />} />
+          <Route
+            path="/portfolio"
+            element={<Portfolio />}
+          />
 
-          <Route path="/contact-us" element={<ContactUs />} />
+          <Route
+            path="/services"
+            element={<Services />}
+          />
+
+          <Route
+            path="/contact-us"
+            element={<ContactUs />}
+          />
+
+          <Route
+            path="/explore"
+            element={<ContactUsFigma />}
+          />
 
           <Route
             path="/services/ai-intelligent-automation"
@@ -234,63 +371,9 @@ useEffect(() => {
             path="/thank-you"
             element={<ThankYou />}
           />
+
         </Routes>
-      </PageTransition>
-
-      <Footer />
-
-      {/* ==========================================
-          BACK TO TOP BUTTON
-      ========================================== */}
-
-      <button
-        onClick={handleScrollToTop}
-        className={`back-to-top-btn ${
-          showBackToTop ? "visible" : ""
-        }`}
-      >
-        <img src={arrowtopp} alt="arrow" />
-      </button>
-
-      {/* ==========================================
-          WHATSAPP CONTACT US POPUP
-      ========================================== */}
-
-      <div
-        className={`contact-popup-overlay ${
-          showPopup ? "active" : ""
-        }`}
-      >
-        <div className="contact-popup-box">
-
-          <button
-            className="popup-close-btn"
-            onClick={() => setShowPopup(false)}
-          >
-            ×
-          </button>
-
-          <img src={logo} alt="" />
-
-          <h3>Let's Build Something Great</h3>
-
-          <p>
-            Tell us about your project, and our team will help you find the right solution.
-          </p>
-
-          <button
-            className="popup-cta-btn"
-            onClick={handlePopupWhatsAppClick}
-          >
-            Chat With Our Experts
-
-            <span className="support-img">
-              <img src={support} alt="" />
-            </span>
-          </button>
-
-        </div>
-      </div>
+      </RouteChrome>
     </Router>
   );
 }

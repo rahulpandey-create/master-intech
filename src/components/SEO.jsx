@@ -45,7 +45,7 @@ const seoData = {
   "/": {
     title: "Web Development Company | Master Intech Solutions",
     description:
-      "Master Intech builds AI-powered solutions, web applications, automation systems and digital experiences for modern businesses.",
+      "Master Intech Solutions helps businesses build custom websites, web applications, AI automation solutions and digital experiences tailored to their needs.",
     keywords: [
       "Web Development Company",
       "Web Design Company",
@@ -62,6 +62,20 @@ const seoData = {
       "Web Development Company Mohali",
       "Web Design Company Chandigarh",
       "AI Automation Services",
+      "Digital Marketing Services",
+    ],
+  },
+  "/explore": {
+    title: "Web Development & Digital Solutions | Master Intech",
+    description:
+      "Master Intech Solutions helps businesses build custom websites, web applications, AI automation solutions and digital experiences tailored to their needs.",
+    keywords: [
+      "Web Development Company",
+      "Web Design Company",
+      "IT Solutions Company",
+      "Custom Website Development",
+      "AI Automation Services",
+      "Application Development",
       "Digital Marketing Services",
     ],
   },
@@ -297,9 +311,11 @@ const SEO = () => {
     // ==========================================
 
     const canonicalUrl =
-      location.pathname === "/"
-        ? BASE_URL
-        : `${BASE_URL}${location.pathname}`;
+  location.pathname === "/explore"
+    ? "https://enquiry.masterintechsolutions.com/explore"
+    : location.pathname === "/"
+      ? BASE_URL
+      : `${BASE_URL}${location.pathname}`;
 
     let canonicalLink = document.head.querySelector(
       'link[rel="canonical"]'

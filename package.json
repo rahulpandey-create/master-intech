@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "oxlint",
+    "build:landing": "vite build --mode landing && node -e \"require('fs').renameSync('dist-landing/landing.html','dist-landing/index.html')\"",
     "preview": "vite preview"
   },
   "dependencies": {
