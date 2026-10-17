@@ -16,7 +16,6 @@ import ourprocess from "../../assets/ourprocess.png";
 import ctabg from "../../assets/ctabg.png";
 import Footer from "../../components/home/Footer";
 
-
 const SERVICES = [
     {
         number: "01",

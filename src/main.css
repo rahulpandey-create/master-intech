@@ -33,12 +33,12 @@ a.cyan-button.hero-fade-in.hero-delay-3.btnn.btn-one {
 }
 
 ol.breadcrumbs-list {
-    display: flex;
-    justify-content: center;
-    gap: 2px;
-    transition: 0.4s;
-    margin-bottom: 10px;
-    font-family: 'Intel One Mono';
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  transition: 0.4s;
+  margin-bottom: 10px;
+  font-family: 'Intel One Mono';
 }
 
 ol.breadcrumbs-list a:hover {
@@ -2574,17 +2574,21 @@ img.bord5 {
     display: block;
     margin: auto;
     font-size: 14px;
-}
-h2.landing-page__process-title {
+  }
+
+  h2.landing-page__process-title {
     font-size: 32px;
     line-height: 60px;
-} 
+  }
+
   .contact-us-page .breadcrumbs {
     margin-bottom: 15px !important;
-}
+  }
+
   .contact-us-page .breadcrumbs-list {
     padding-top: 5px !important;
-}
+  }
+
   .service-overview .service-section-label {
     font-size: 16px !important;
   }
@@ -4233,7 +4237,7 @@ label.service-field img {
   margin: 0 auto;
 }
 
-.feedback-section--reviews-only .feedback-review > p {
+.feedback-section--reviews-only .feedback-review>p {
   max-width: 520px;
 }
 
@@ -9512,17 +9516,18 @@ a.service-detail-link {
   justify-content: center;
 }
 
-.contact-us-eyebrow, .contact-us-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    color: #a8b6c3;
-    font-family: "Inclusive Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    text-transform: uppercase;
+.contact-us-eyebrow,
+.contact-us-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #a8b6c3;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .contact-us-eyebrow {
@@ -9576,15 +9581,15 @@ a.service-detail-link {
 }
 
 .contact-us-primary-btn {
-    min-height: 52px;
-    margin-top: 34px;
-    padding: 12px 20px;
-    border-radius: 10px;
-        background: linear-gradient(100deg, #01b3ff, #52dfd8);
-    color: #001018;
-    font-family: 'Inclusive Sans' !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
+  min-height: 52px;
+  margin-top: 34px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #01b3ff, #52dfd8);
+  color: #001018;
+  font-family: 'Inclusive Sans' !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
 }
 
 .contact-us-primary-btn img,
@@ -9617,25 +9622,29 @@ a.service-detail-link {
   max-width: 720px;
 }
 
-.contact-us-section-heading h2, .contact-us-form-intro h2, .contact-us-final-inner h2 {
-    margin: 14px 0 0;
-    color: #ffffff;
-    font-family: "Boldonse", sans-serif;
-    font-size: clamp(32px, 4vw, 32px);
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 2.0;
+.contact-us-section-heading h2,
+.contact-us-form-intro h2,
+.contact-us-final-inner h2 {
+  margin: 14px 0 0;
+  color: #ffffff;
+  font-family: "Boldonse", sans-serif;
+  font-size: clamp(32px, 4vw, 32px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 2.0;
 }
 
-.contact-us-section-heading>p, .contact-us-form-intro>p {
-    max-width: 680px;
-    margin: 18px 0 0;
-    color: #ededed;
-    font-family: "Intel One Mono", monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 20px;
+.contact-us-section-heading>p,
+.contact-us-form-intro>p {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: #ededed;
+  font-family: "Intel One Mono", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
+
 .contact-us-info-card {
   transition: 0.3s;
 }
@@ -9675,9 +9684,9 @@ a.service-detail-link {
 
 
 .contact-us-info-icon img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
 }
 
 .contact-us-info-card>span:last-child {
@@ -9695,12 +9704,12 @@ a.service-detail-link {
 }
 
 .contact-us-info-card>span:last-child>span {
-    display: block;
-    color: #cccdce;
-    font-family: "Intel One Mono", monospace;
-    font-size: 14px;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
+  display: block;
+  color: #cccdce;
+  font-family: "Intel One Mono", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .contact-us-form-section {
@@ -9825,21 +9834,23 @@ a.service-detail-link {
 .contact-us-map-link span {
   font-size: 18px;
 }
+
 a.contact-us-info-card.page-reveal.is-visible {
-    background: linear-gradient(83deg, #bdecff1a, transparent);
+  background: linear-gradient(83deg, #bdecff1a, transparent);
 }
+
 .contact-us-info-card.page-reveal.is-visible {
-background: linear-gradient(83deg, #bdecff1a, transparent);
+  background: linear-gradient(83deg, #bdecff1a, transparent);
 }
 
 .contact-us-form {
-    width: 100%;
-    min-width: 0;
-    padding: 34px 36px 38px;
-    border-radius: 20px;
-    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
-    border: 5px solid transparent;
-    background: linear-gradient(#161617, #161617) padding-box, linear-gradient(181deg, #86fff7, #00b2ff) border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 34px 36px 38px;
+  border-radius: 20px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+  border: 5px solid transparent;
+  background: linear-gradient(#161617, #161617) padding-box, linear-gradient(181deg, #86fff7, #00b2ff) border-box;
 }
 
 .contact-us-form-header {
@@ -9848,35 +9859,35 @@ background: linear-gradient(83deg, #bdecff1a, transparent);
 }
 
 .contact-us-form-header>span {
-    color: #56e9e1;
-    font-family: "Intel One Mono", monospace;
-    font-size: 14px;
-    letter-spacing: 0.8px;
-} 
+  color: #56e9e1;
+  font-family: "Intel One Mono", monospace;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+}
 
 .contact-us-form-header h3 {
-    margin: 8px 0 0;
-    color: #ffffff;
-    font-family: "Anton", sans-serif;
-    font-size: clamp(30px, 4vw, 32px);
-    font-weight: 400;
-    line-height: 1;
-    text-transform: uppercase;
+  margin: 8px 0 0;
+  color: #ffffff;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(30px, 4vw, 32px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .contact-us-form-header p {
-    margin: 11px 0 0;
-    color: #efefef;
-    font-family: "Intel One Mono", monospace;
-    font-size: 12px;
+  margin: 11px 0 0;
+  color: #efefef;
+  font-family: "Intel One Mono", monospace;
+  font-size: 12px;
 }
 
 .contact-us-form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 15px;
-    margin-top: 27px;
-} 
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 15px;
+  margin-top: 27px;
+}
 
 .contact-us-field {
   min-width: 0;
@@ -9887,14 +9898,14 @@ background: linear-gradient(83deg, #bdecff1a, transparent);
 }
 
 .contact-us-field label {
-    display: block;
-    margin-bottom: 8px;
-    color: #d9dfe1;
-    font-family: "Intel One Mono", monospace;
-    font-size: 12px;
-    font-weight: unset;
-    letter-spacing: normal;
-    text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+  color: #d9dfe1;
+  font-family: "Intel One Mono", monospace;
+  font-size: 12px;
+  font-weight: unset;
+  letter-spacing: normal;
+  text-transform: uppercase;
 }
 
 .contact-us-field input,
@@ -10076,12 +10087,12 @@ background: linear-gradient(83deg, #bdecff1a, transparent);
 }
 
 .contact-us-faq>p {
-    margin: 0;
-    padding: 0 22px 23px;
-    color: #cbcbcb;
-    font-family: "Intel One Mono", monospace;
-    font-size: 14px;
-    line-height: 1.7;
+  margin: 0;
+  padding: 0 22px 23px;
+  color: #cbcbcb;
+  font-family: "Intel One Mono", monospace;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .contact-us-final-cta {
@@ -10198,9 +10209,9 @@ background: linear-gradient(83deg, #bdecff1a, transparent);
     padding-bottom: 60px;
   }
 
- .contact-us-page .breadcrumbs-list {
+  .contact-us-page .breadcrumbs-list {
     font-size: 16px;
-}
+  }
 
   .contact-us-page .breadcrumbs-list a {
     font-size: 11px;
@@ -10276,10 +10287,10 @@ background: linear-gradient(83deg, #bdecff1a, transparent);
     padding-top: 125px;
   }
 
-.contact-us-hero h1 {
+  .contact-us-hero h1 {
     font-size: 28px;
     line-height: 56px;
-}
+  }
 
   .contact-us-primary-btn {
     width: 100%;
@@ -10399,24 +10410,28 @@ background: linear-gradient(83deg, #bdecff1a, transparent);
 .landing-page h3 {
   margin-top: 0;
 }
+
 .landing-page p {
-    color: #d1d1d1;
-    font-family: "Intel One Mono", monospace;
-    font-weight: 300;
- 
+  color: #d1d1d1;
+  font-family: "Intel One Mono", monospace;
+  font-weight: 300;
+
 }
+
 .feedback-reviewer h2 {
-    font-family: 'Inter';
-    font-size: 18px;
+  font-family: 'Inter';
+  font-size: 18px;
 }
+
 .section-shell.feedback-grid strong {
-    font-family: 'Boldonse';
-    margin-bottom: 8px;
+  font-family: 'Boldonse';
+  margin-bottom: 8px;
 }
+
 section.landing-page__services p {
-    width: 41%;
-    display: block;
-    margin: auto;
+  width: 41%;
+  display: block;
+  margin: auto;
 }
 
 .landing-page h1,
@@ -10483,13 +10498,14 @@ section.landing-page__services p {
   z-index: 4;
   width: 284px;
 }
+
 .landing-page__brand img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    position: relative;
-    top: 40px;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  top: 40px;
 }
 
 .landing-page__hero-content {
@@ -10508,11 +10524,11 @@ section.landing-page__services p {
 }
 
 .landing-page__hero-copy h1 {
-    margin-bottom: 5px;
-    color: #ffffff;
-    font-size: clamp(32px, 4vw, 38px);
-    line-height: 72px;
-    letter-spacing: unset;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-size: clamp(32px, 4vw, 38px);
+  line-height: 72px;
+  letter-spacing: unset;
 }
 
 .landing-page__hero-copy p {
@@ -10538,15 +10554,15 @@ section.landing-page__services p {
 }
 
 .landing-page__primary-button {
-    gap: 18px;
-    padding: 0 22px;
-    background: #29bdf4;
-    color: #00131b;
-    font-family: "inter" !important;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 12px 20px;
+  gap: 18px;
+  padding: 0 22px;
+  background: #29bdf4;
+  color: #00131b;
+  font-family: "inter" !important;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px 20px;
 }
 
 .landing-page__primary-button:hover,
@@ -10572,33 +10588,34 @@ section.landing-page__services p {
   padding: 5px;
   border-radius: 20px;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #55fff1 0%,
       #0dc7f2 45%,
-      #006bdb 100%
-    );
+      #006bdb 100%);
   box-shadow:
     0 0 0 1px rgba(67, 235, 255, 0.2),
     0 22px 70px rgba(0, 0, 0, 0.42);
 }
+
 textarea#landing-requirement {
-    font-family: 'Inter';
-    font-size: 14px;
-    margin-top: 20px;
+  font-family: 'Inter';
+  font-size: 14px;
+  margin-top: 20px;
 }
+
 .landing-page__form-grid input {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
+
 select#landing-service {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .landing-page__inquiry-card-inner {
-    padding: 60px 29px 23px;
-    border-radius: 18px;
-    background: #181616;
-    backdrop-filter: blur(12px);
+  padding: 60px 29px 23px;
+  border-radius: 18px;
+  background: #181616;
+  backdrop-filter: blur(12px);
 }
 
 .landing-page__inquiry-card h2 {
@@ -10625,19 +10642,22 @@ select#landing-service {
   width: 100%;
 }
 
-.landing-page__field input, .landing-page__field select, .landing-page__field textarea {
-    width: 100%;
-    border: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-    outline: 0;
-    background: transparent;
-    color: #EDEDED;
-    font-family: "Intel One Mono", monospace;
-    font-size: 16px;
-    font-weight: 300;
-    transition: border-color 0.2s ease,
+.landing-page__field input,
+.landing-page__field select,
+.landing-page__field textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  outline: 0;
+  background: transparent;
+  color: #EDEDED;
+  font-family: "Intel One Mono", monospace;
+  font-size: 16px;
+  font-weight: 300;
+  transition: border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
+
 .landing-page__field input {
   height: 38px;
   padding: 0;
@@ -10706,27 +10726,28 @@ select#landing-service {
 }
 
 .landing-page__inquiry-submit {
-    width: 52%;
-    min-height: 40px;
-    margin: 10px auto 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    border: 0;
-    border-radius: 8px;
-    background: #ffffff;
-    color: #111111;
-    cursor: pointer;
-    font-family: 'Inter' !important;
-    font-size: 12px;
-    font-weight: 600;
-    transition: transform 0.2s ease,
+  width: 52%;
+  min-height: 40px;
+  margin: 10px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111111;
+  cursor: pointer;
+  font-family: 'Inter' !important;
+  font-size: 12px;
+  font-weight: 600;
+  transition: transform 0.2s ease,
     opacity 0.2s ease;
 }
+
 .landing-page__privacy span {
-    font-family: 'Inter';
-    font-size: 12px;
+  font-family: 'Inter';
+  font-size: 12px;
 }
 
 .landing-page__inquiry-submit:hover:not(:disabled) {
@@ -10754,9 +10775,10 @@ select#landing-service {
 }
 
 .landing-page__privacy i {
-    color: #d9d9d9;
-    font-size: 15px;
+  color: #d9d9d9;
+  font-size: 15px;
 }
+
 .landing-page__form-feedback {
   min-height: 18px;
   margin-top: 7px;
@@ -10777,13 +10799,14 @@ select#landing-service {
    SERVICES
 ========================================================= */
 .landing-page__services {
-    position: relative;
-    min-height: auto;
-    padding: 66px 0 78px;
-    background: #050708;
-    background-position: center;
-    background-attachment: fixed;
+  position: relative;
+  min-height: auto;
+  padding: 66px 0 78px;
+  background: #050708;
+  background-position: center;
+  background-attachment: fixed;
 }
+
 .landing-page__services-grid-art {
   position: absolute;
   left: 0;
@@ -10793,22 +10816,16 @@ select#landing-service {
   opacity: 0.45;
   pointer-events: none;
   background-image:
-    linear-gradient(
+    linear-gradient(rgba(54, 91, 102, 0.16) 1px,
+      transparent 1px),
+    linear-gradient(90deg,
       rgba(54, 91, 102, 0.16) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(54, 91, 102, 0.16) 1px,
-      transparent 1px
-    );
+      transparent 1px);
   background-size: 46px 46px;
-  mask-image: linear-gradient(
-    90deg,
-    black 0%,
-    rgba(0, 0, 0, 0.5) 70%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(90deg,
+      black 0%,
+      rgba(0, 0, 0, 0.5) 70%,
+      transparent 100%);
 }
 
 .landing-page__section-heading-center {
@@ -10845,14 +10862,14 @@ select#landing-service {
 }
 
 .landing-page__service-icon {
-    width: 54px;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    background: linear-gradient(90deg, #00b2ff29, transparent);
-    box-shadow: inset 0 0 0 0px rgba(0, 181, 239, 0.05), 0 0 20px rgb(0 184 255 / 0%);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #00b2ff29, transparent);
+  box-shadow: inset 0 0 0 0px rgba(0, 181, 239, 0.05), 0 0 20px rgb(0 184 255 / 0%);
 }
 
 .landing-page__service-icon i {
@@ -10875,11 +10892,11 @@ select#landing-service {
 }
 
 .landing-page__service-description {
-    display: block;
-    max-width: 240px;
-    color: #9C9C9C;
-    font-size: 14px;
-    line-height: normal;
+  display: block;
+  max-width: 240px;
+  color: #9C9C9C;
+  font-size: 14px;
+  line-height: normal;
 }
 
 /* =========================================================
@@ -10900,9 +10917,9 @@ select#landing-service {
 }
 
 .landing-page__benefits {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 18px;
 }
 
 .landing-page__benefit-card {
@@ -10913,10 +10930,10 @@ select#landing-service {
 }
 
 .landing-page__benefit-card i {
-    display: block;
-    margin-bottom: 8px;
-    color: #63fff2;
-    font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+  color: #63fff2;
+  font-size: 28px;
 }
 
 .landing-page__benefit-card h3 {
@@ -10928,20 +10945,20 @@ select#landing-service {
 }
 
 .landing-page__benefit-card p {
-    margin-bottom: 0;
-    color: #b0b0b0;
-    font-size: 14px;
-    line-height: normal;
+  margin-bottom: 0;
+  color: #b0b0b0;
+  font-size: 14px;
+  line-height: normal;
 }
 
 /* Highlight Name field when Start Your Project is clicked */
 #landing-name:focus {
-    outline: none;
-    border-color: #20c4f4;
-    /* box-shadow: 0 0 0 3px rgba(32, 196, 244, 0.2); */
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+  outline: none;
+  border-color: #20c4f4;
+  /* box-shadow: 0 0 0 3px rgba(32, 196, 244, 0.2); */
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .landing-page__eyebrow {
@@ -10956,36 +10973,37 @@ select#landing-service {
 }
 
 .landing-page__why-copy h2 {
-    margin-bottom: 17px;
-    color: #ffffff;
-    font-size: 32px;
-    line-height: 61px;
-} 
+  margin-bottom: 17px;
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 61px;
+}
 
 .landing-page__why-copy p {
-    max-width: 430px;
-    margin-bottom: 22px;
-    color: #d1d1d1;
-    font-size: 16px;
-    line-height: normal;
+  max-width: 430px;
+  margin-bottom: 22px;
+  color: #d1d1d1;
+  font-size: 16px;
+  line-height: normal;
 }
 
 .landing-page__whatsapp-button {
-    gap: 8px;
-    padding: 13px 22px;
-    background: #29bdf4;
-    color: #00131b !important;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-weight: 600;
+  gap: 8px;
+  padding: 13px 22px;
+  background: #29bdf4;
+  color: #00131b !important;
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .landing-page__whatsapp-button img {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
+
 section.landing-page__final-cta {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 /* =========================================================
@@ -11007,25 +11025,19 @@ section.landing-page__final-cta {
   height: 100%;
   opacity: 0.4;
   background-image:
-    linear-gradient(
+    linear-gradient(rgba(55, 96, 105, 0.16) 1px,
+      transparent 1px),
+    linear-gradient(90deg,
       rgba(55, 96, 105, 0.16) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(55, 96, 105, 0.16) 1px,
-      transparent 1px
-    );
+      transparent 1px);
   background-size: 46px 46px;
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.7) 25%,
-    black 100%
-  );
+  mask-image: linear-gradient(90deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.7) 25%,
+      black 100%);
 }
 
-.landing-page__process > .landing-page__shell {
+.landing-page__process>.landing-page__shell {
   position: relative;
   z-index: 1;
 }
@@ -11084,14 +11096,16 @@ section.landing-page__final-cta {
   font-weight: 600;
   line-height: 1.25;
 }
+
 section.landing-page__process span.landing-page__eyebrow {
-    margin-bottom: 28px;
+  margin-bottom: 28px;
 }
+
 .landing-page__step p {
-    margin: 0;
-    color: #d1d1d1;
-    font-size: 14px;
-    line-height: 1.55;
+  margin: 0;
+  color: #d1d1d1;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 /* =========================================================
@@ -11121,14 +11135,15 @@ section.landing-page__process span.landing-page__eyebrow {
 ========================================================= */
 
 .landing-page__final-cta {
-    position: relative;
-    min-height: auto;
-    padding: 116px 0;
-    background: #141414;
-    background-position: right;
+  position: relative;
+  min-height: auto;
+  padding: 116px 0;
+  background: #141414;
+  background-position: right;
 }
+
 h2.landing-page__process-title {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 
@@ -11148,24 +11163,26 @@ h2.landing-page__process-title {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 11px;
 }
-.landing-page__stat.one, .landing-page__stat.two {
-    background: linear-gradient(0deg, #6868682b, transparent);
+
+.landing-page__stat.one,
+.landing-page__stat.two {
+  background: linear-gradient(0deg, #6868682b, transparent);
 }
 
-.landing-page__stat.three, .landing-page__stat.four {
-    background: linear-gradient(
-180deg, #6868682b, transparent);
+.landing-page__stat.three,
+.landing-page__stat.four {
+  background: linear-gradient(180deg, #6868682b, transparent);
 }
 
 .landing-page__stat {
-    min-height: 126px;
-    padding: 22px 13px;
-    /* background: rgb(32 32 32 / 80%); */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  min-height: 126px;
+  padding: 22px 13px;
+  /* background: rgb(32 32 32 / 80%); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .landing-page__stat strong {
@@ -11191,10 +11208,10 @@ h2.landing-page__process-title {
 }
 
 .landing-page__final-copy p {
-    margin-bottom: 22px;
-    color: #d1d1d1;
-    font-size: 16px;
-    line-height: 1.7;
+  margin-bottom: 22px;
+  color: #d1d1d1;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .landing-page__final-actions {
@@ -11204,14 +11221,14 @@ h2.landing-page__process-title {
 }
 
 .landing-page__email-button {
-    gap: 8px;
-    padding: 12px 20px;
-    border: 1px solid #11c3f3;
-    color: #f8f8f8;
-    font-family: "Inclusive Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    backdrop-filter: blur(2px);
+  gap: 8px;
+  padding: 12px 20px;
+  border: 1px solid #11c3f3;
+  color: #f8f8f8;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  backdrop-filter: blur(2px);
 }
 
 .landing-page__email-button img {
@@ -11342,6 +11359,7 @@ h2.landing-page__process-title {
 ========================================================= */
 
 @media (max-width: 850px) {
+
   .landing-page__hero,
   .landing-page__hero-shell {
     min-height: auto;
@@ -11441,12 +11459,12 @@ h2.landing-page__process-title {
     padding-top: 58px;
   }
 
- .landing-page__hero-copy h1 {
+  .landing-page__hero-copy h1 {
     margin-bottom: 17px;
     font-size: clamp(28px, 11vw, 28px);
     letter-spacing: normal;
     line-height: 50px;
-}
+  }
 
   .landing-page__hero-copy p {
     margin-bottom: 22px;
@@ -11460,9 +11478,9 @@ h2.landing-page__process-title {
     font-size: 11px;
   }
 
-.landing-page__inquiry-card-inner {
+  .landing-page__inquiry-card-inner {
     padding: 42px 18px 5px;
-}
+  }
 
   .landing-page__inquiry-card h2 {
     font-size: 25px;
@@ -11607,6 +11625,7 @@ h2.landing-page__process-title {
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .landing-page *,
   .landing-page *::before,
   .landing-page *::after {

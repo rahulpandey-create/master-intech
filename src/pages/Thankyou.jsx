@@ -30,7 +30,7 @@ export default function ThankYou() {
         <div className="thank-you-glow thank-you-glow-two" aria-hidden="true" />
 
         <div className="thank-you-container">
-          <div className="thank-you-confirmation" data-reveal>
+          <div className="thank-you-confirmation">
             <div className="main-thanks">
               <div>
                 <div className="thank-you-success-icon" aria-hidden="true">

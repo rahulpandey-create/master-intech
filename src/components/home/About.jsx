@@ -12,9 +12,11 @@ export default function About() {
               <div>DEVELOPMENT</div>
               <div>BRANDING</div>
               <div>DESIGN</div>
-              <div>DEVELOPMENT</div>
-              <div>BRANDING</div>
-              <div>DESIGN</div>
+              <div>DIGITAL MARKETING</div>
+              <div>DOMAIN</div>
+              <div>SERVER SUPPORT</div>
+              <div>APPLICATIONS</div>
+
             </div>
           </div>
           <div className="ratings">
