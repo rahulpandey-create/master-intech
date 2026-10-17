@@ -68,10 +68,13 @@ export default function ThankYou() {
               </div>
             </div>
 
-            <Link className="thank-you-home" to="/">
+            <a
+              className="thank-you-home"
+              href="https://masterintechsolutions.com/"
+            >
               Back to Home
               <img src={arrowbtn} alt="" aria-hidden="true" />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
