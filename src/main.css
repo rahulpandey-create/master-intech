@@ -1045,7 +1045,7 @@ span.socialmedialinks1 {
 }
 
 .about-wordmark {
-  --word-line-height: 110px;
+  --word-line-height: 96px;
   position: relative;
   border-right: 1px solid #292a2c;
   display: flex;
@@ -1058,9 +1058,10 @@ span.socialmedialinks1 {
 
 .word-carousel {
   position: relative;
-  width: calc(100% - 30px);
+  width: calc(100% - 0px);
   height: calc(var(--word-line-height) * 3);
   overflow: hidden;
+  margin-right: 20px;
 
   -webkit-mask-image: linear-gradient(to bottom,
       transparent 0%,
@@ -1090,7 +1091,7 @@ span.socialmedialinks1 {
   align-items: center;
   justify-content: flex-start;
 
-  font-size: clamp(58px, 5vw, 72px);
+  font-size: clamp(55px, 5vw, 48px);
   letter-spacing: -0.5px;
   color: #fff;
   text-transform: uppercase;
