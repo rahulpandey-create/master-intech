@@ -323,22 +323,24 @@ export default function Feedback({ variant = "default" }) {
       }`}
     >
       <div className="section-shell feedback-grid">
-        {/* FLOATING CLIENT IMAGES */}
+       {/* FLOATING CLIENT IMAGES — HOME PAGE ONLY */}
 
-        <div className="floating-people" data-reveal>
-          {floatingClients.map((client, index) => (
-            <img
-              key={client.id}
-              ref={(element) => {
-                imageRefs.current[client.id] = element;
-              }}
-              src={client.image}
-              alt={client.name}
-              className={`bord${index + 1}`}
-              onClick={() => activateClient(client)}
-            />
-          ))}
-        </div>
+{!isReviewsOnly && (
+  <div className="floating-people" data-reveal>
+    {floatingClients.map((client, index) => (
+      <img
+        key={client.id}
+        ref={(element) => {
+          imageRefs.current[client.id] = element;
+        }}
+        src={client.image}
+        alt={client.name}
+        className={`bord${index + 1}`}
+        onClick={() => activateClient(client)}
+      />
+    ))}
+  </div>
+)}
 
         {/* MAIN TESTIMONIAL MEDIA - HOME PAGE ONLY */}
 
@@ -426,7 +428,7 @@ export default function Feedback({ variant = "default" }) {
 
         {/* CLIENT FEEDBACK */}
 
-        <div className="testimonial-copy" data-reveal>
+        <div className={`testimonial-copy ${isReviewsOnly ? "is-visible" : ""}`} data-reveal>
           <div className="center-heading">
             <h2>Client’s Feedback</h2>
           </div>
