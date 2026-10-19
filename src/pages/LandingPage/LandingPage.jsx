@@ -660,11 +660,13 @@ export default function LandingPage() {
                     <div className="landing-page__services-list">
 
                         {SERVICES.map((service) => (
-                            <Link
+
+                            <a
                                 key={service.slug}
-                                to={`/services/${service.slug}`}
+                                href={`https://masterintechsolutions.com/services/${service.slug}`}
                                 className="landing-page__service-item"
                             >
+
                                 <span className="landing-page__service-icon">
                                     <i
                                         className={service.icon}
@@ -683,7 +685,7 @@ export default function LandingPage() {
                                     </span>
 
                                 </span>
-                            </Link>
+                            </a>
                         ))}
 
                     </div>
@@ -883,7 +885,7 @@ export default function LandingPage() {
       ===================================================== */}
 
             <section className="landing-page__feedback-wrapper">
-                 <Feedback variant="reviews-only"/>
+                <Feedback variant="reviews-only" />
             </section>
 
             {/* =====================================================
