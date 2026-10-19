@@ -12,6 +12,9 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:4173",
+  "https://masterintechsolutions.com",
+  "https://www.masterintechsolutions.com",
+  "https://enquiry.masterintechsolutions.com",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
