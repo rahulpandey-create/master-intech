@@ -17,6 +17,7 @@ import DesignNav from "./components/home/designNav.jsx";
 import Footer from "./components/home/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactUsFigma from "./pages/LandingPage/LandingPage.jsx";
+import NotFound from "./pages/NotFound";
 
 const MASTER_INTECH_WHATSAPP_MESSAGE =
   "Hi Master Intech Solutions, I’d like to get in touch with your team I have a question regarding your services and would like to discuss it further. Can we connect on WhatsApp?";
@@ -311,7 +312,7 @@ function App() {
             path="/"
             element={<Home />}
           />
-
+          <Route path="*" element={<NotFound />} />
           <Route
             path="/portfolio"
             element={<Portfolio />}
